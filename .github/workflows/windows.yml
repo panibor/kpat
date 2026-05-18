@@ -288,7 +288,7 @@ jobs:
           # 12-column indent of this run: | block.
           $py = @(
               '        # --- panibor/kpat fork: override installer metadata ---',
-              '        self.defines["company"] = "panibor (Unofficial KPat for Windows)"',
+              '        self.defines["company"] = "panibor"',
               "        self.defines[`"version`"] = `"$version`"",
               '        self.defines["website"] = "https://github.com/panibor/kpat"',
               '        # --- end fork override ---',

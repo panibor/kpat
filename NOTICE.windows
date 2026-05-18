@@ -51,7 +51,7 @@ workflow patches the upstream KDE Craft blueprint for KPat at build time
 so the NSIS installer (and therefore the Windows "Installed apps" list)
 ships these strings:
 
-  Publisher / Company    panibor (Unofficial KPat for Windows)
+  Publisher / Company    panibor
   Version                <upstream RELEASE_SERVICE_VERSION>-win-<sha>
   Website / Help link    https://github.com/panibor/kpat
 
