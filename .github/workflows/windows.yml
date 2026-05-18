@@ -177,9 +177,9 @@ jobs:
         if: failure()
         shell: pwsh
         run: |
-          $logs = Get-ChildItem -Path $env:RUNNER_TEMP -Filter 'craft-bootstrap-*.log' -ErrorAction SilentlyContinue | Sort-Object Name
+          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue) | Sort-Object Name
           if (-not $logs) {
-            Write-Host "No craft-bootstrap-*.log files found in $env:RUNNER_TEMP."
+            Write-Host "No craft-*.log files found in $env:RUNNER_TEMP."
             exit 0
           }
           foreach ($log in $logs) {
@@ -199,7 +199,9 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: bootstrap-logs
-          path: ${{ runner.temp }}/craft-bootstrap-*.log
+          path: |
+            ${{ runner.temp }}/craft-bootstrap-*.log
+            ${{ runner.temp }}/craft-build-step.log
           if-no-files-found: ignore
           retention-days: 7
 
@@ -209,9 +211,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh
         run: |
-          $logs = Get-ChildItem -Path $env:RUNNER_TEMP -Filter 'craft-bootstrap-*.log' -ErrorAction SilentlyContinue
+          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue)
           if (-not $logs) {
-            Write-Host "No bootstrap logs to publish."
+            Write-Host "No craft-*.log files to publish."
             exit 0
           }
 
@@ -276,6 +278,10 @@ jobs:
         id: build
         shell: pwsh
         run: |
+          # Capture everything for post-mortem if the step exits non-zero.
+          $transcript = Join-Path $env:RUNNER_TEMP 'craft-build-step.log'
+          Start-Transcript -Path $transcript -Force | Out-Null
+
           $startTime = Get-Date
           $deadlineMin = [int]'${{ env.WATCHDOG_MINUTES }}'
 
@@ -322,6 +328,7 @@ jobs:
           Write-Host "Final job state: $finalState; artifacts produced: $produced"
           "checkpointed=$($checkpointed.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
           "produced=$($produced.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
+          Stop-Transcript | Out-Null
           # Always succeed so the cache-save / resume-dispatch steps run.
           exit 0
 
