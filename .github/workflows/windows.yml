@@ -100,6 +100,31 @@ jobs:
             craft-win-mingw-${{ steps.bp.outputs.sha }}-
             craft-win-mingw-
 
+      - name: Configure wget2 timeouts
+        shell: pwsh
+        run: |
+          # wget2 (Craft's binary fetcher for prebuilt .7z packages) doesn't
+          # apply a per-connection timeout by default, so a hung KDE mirror
+          # stalls the entire job indefinitely. Observed in run 26049942529
+          # at install-deps qtdeclarative: 0% transferred for 8+ minutes,
+          # no error, no progress, both files.kde.org and the ukfast mirror
+          # enqueued but neither writing bytes.
+          # wget2 reads ~/.wget2rc on startup; setting timeouts there forces
+          # a stuck mirror to fail fast, after which wget2 retries
+          # (up to --tries) and Craft falls through to source build if
+          # all mirrors are unreachable.
+          $rc = Join-Path $env:USERPROFILE '.wget2rc'
+          @(
+              '# Written by .github/workflows/windows.yml'
+              'connect-timeout = 30'
+              'timeout = 30'
+              'read-timeout = 30'
+              'tries = 3'
+              'waitretry = 5'
+          ) | Set-Content -Path $rc -Encoding ASCII
+          Write-Host "--- $rc ---"
+          Get-Content $rc
+
       - name: Bootstrap Craft (if not already present)
         shell: pwsh
         run: |
