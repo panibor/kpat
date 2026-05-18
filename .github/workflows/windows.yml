@@ -43,7 +43,7 @@ jobs:
     runs-on: windows-2022
     timeout-minutes: 350
     permissions:
-      contents: read
+      contents: write  # write needed to publish failure logs to ci-logs branch
       actions: write   # required for `gh workflow run` (resume re-dispatch)
     outputs:
       checkpointed: ${{ steps.build.outputs.checkpointed }}
@@ -179,6 +179,53 @@ jobs:
           path: ${{ runner.temp }}/craft-bootstrap-*.log
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Publish bootstrap logs to ci-logs branch (on failure)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $logs = Get-ChildItem -Path $env:RUNNER_TEMP -Filter 'craft-bootstrap-*.log' -ErrorAction SilentlyContinue
+          if (-not $logs) {
+            Write-Host "No bootstrap logs to publish."
+            exit 0
+          }
+
+          git config --global user.email 'actions@github.com'
+          git config --global user.name 'github-actions[bot]'
+
+          $repoUrl  = "https://x-access-token:$($env:GH_TOKEN)@github.com/${{ github.repository }}.git"
+          $cloneDir = Join-Path $env:RUNNER_TEMP 'ci-logs-repo'
+          if (Test-Path $cloneDir) { Remove-Item -Recurse -Force $cloneDir }
+
+          # Try to clone an existing ci-logs branch; fall back to creating a fresh orphan.
+          git clone --depth 1 --branch ci-logs --single-branch $repoUrl $cloneDir
+          if ($LASTEXITCODE -ne 0) {
+            Remove-Item -Recurse -Force $cloneDir -ErrorAction SilentlyContinue
+            New-Item -ItemType Directory -Force -Path $cloneDir | Out-Null
+            Set-Location $cloneDir
+            git init -b ci-logs
+            git remote add origin $repoUrl
+            '# CI logs (auto-published from failed Windows-Craft runs).' | Set-Content README.md
+            git add README.md
+            git commit -m 'init ci-logs branch'
+          } else {
+            Set-Location $cloneDir
+          }
+
+          $runDir = "runs/${{ github.run_id }}"
+          New-Item -ItemType Directory -Force -Path $runDir | Out-Null
+          foreach ($log in $logs) {
+            Copy-Item $log.FullName (Join-Path $runDir $log.Name) -Force
+          }
+          git add $runDir
+          git commit -m "bootstrap failure logs for run ${{ github.run_id }} (PR #${{ github.event.pull_request.number }})"
+          if ($LASTEXITCODE -ne 0) {
+            Write-Host "Nothing to commit (logs unchanged)."
+            exit 0
+          }
+          git push origin ci-logs
 
       - name: Configure local kpat source for Craft
         shell: pwsh
