@@ -87,10 +87,13 @@ jobs:
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ env.CRAFT_ROOT }}
-          key: craft-win-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}
+          # The 'mingw' tag in the key intentionally invalidates any older
+          # caches built with the previous MSVC ABI -- toolchain switch means
+          # the old CRAFT_ROOT is unusable.
+          key: craft-win-mingw-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}
           restore-keys: |
-            craft-win-${{ steps.bp.outputs.sha }}-
-            craft-win-
+            craft-win-mingw-${{ steps.bp.outputs.sha }}-
+            craft-win-mingw-
 
       - name: Bootstrap Craft (if not already present)
         shell: pwsh
@@ -138,13 +141,25 @@ jobs:
             # Makefile.am that the MSVC+MSYS toolchain can't satisfy). Patch the
             # cmd seed to force --buildtype, so the lookup hits the RelWithDebInfo
             # cache where the prebuilt pkgconf actually lives.
+            #
+            # ALSO: --use-defaults picks MSVC 2022 by default, but Shlomi Fish's
+            # rinutils / libfreecell-solver (transitive deps of kpat) hard-reject
+            # MSVC at CMake configure time. Patch the third arg of the ABI
+            # promptForChoice call from ("msvc2022", "cl") to (None, "gcc") so
+            # --use-defaults picks Mingw-w64 / gcc instead. KDE's binary cache
+            # for windows/gcc/x86_64/RelWithDebInfo/ covers Qt6 + KF6, so most
+            # of the dep tree still comes from the cache.
             $bootSrc = Get-Content $bootFile -Raw
             $patched = $bootSrc -replace '(?m)^(\s*)cmd = \[\]\s*$', "`$1cmd = [`"--buildtype`", `"${{ env.CRAFT_BUILDTYPE }}`"]"
             if ($patched -eq $bootSrc) {
               throw "CraftBootstrap.py patch failed: 'cmd = []' line not found. Upstream may have changed the bootstrap structure; revisit the --buildtype injection."
             }
-            Set-Content -Path $bootFile -Value $patched -NoNewline
-            Write-Host "Patched CraftBootstrap.py to force --buildtype ${{ env.CRAFT_BUILDTYPE }}"
+            $patched2 = $patched -replace '(?m)^(\s*)\("msvc2022", "cl"\),\s*$', "`$1(None, `"gcc`"),"
+            if ($patched2 -eq $patched) {
+              throw "CraftBootstrap.py patch failed: ABI default line not found. Upstream may have changed getABI(); revisit the mingw switch."
+            }
+            Set-Content -Path $bootFile -Value $patched2 -NoNewline
+            Write-Host "Patched CraftBootstrap.py: --buildtype ${{ env.CRAFT_BUILDTYPE }} + default ABI = mingw-w64/gcc"
 
             # --use-defaults makes the bootstrap non-interactive (picks MSVC 2022 x86_64
             # on windows-2022 runners). Without this flag the script blocks on stdin.
