@@ -340,20 +340,50 @@ static void normalizeDownloadedThemes()
         }
     }
 
-    // Game themes: KGameThemeProvider::discoverThemes expects <kpat/themes>/<theme>.desktop flat
-    const QStringList themeRoots = QStandardPaths::locateAll(
+    // Game themes: KGameThemeProvider::discoverThemes searches
+    // QStandardPaths::AppDataLocation (so AppDataLocation/themes), but the
+    // .knsrc TargetDir "kpat/themes" is interpreted against GenericDataLocation.
+    // On Linux those resolve to the same path; on Windows they differ
+    // (e.g. %APPDATA%\kpat\themes vs %APPDATA%\KDE\kpat\themes), so KNS
+    // downloads land in a directory discovery never visits. Migrate them.
+    const QString themeDest = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)
+        + QLatin1String("/themes");
+    const QStringList themeSources = QStandardPaths::locateAll(
         QStandardPaths::GenericDataLocation,
         QStringLiteral("kpat/themes"),
         QStandardPaths::LocateDirectory);
-    for (const QString &root : themeRoots) {
-        if (!QFileInfo(root).isWritable())
+    const QString themeDestNormalized = QDir::cleanPath(themeDest);
+    for (const QString &src : themeSources) {
+        if (QDir::cleanPath(src) == themeDestNormalized)
             continue;
-        const QStringList children = QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-        for (const QString &child : children) {
-            const QString childPath = root + QLatin1Char('/') + child;
-            const QStringList files = QDir(childPath).entryList(QDir::Files);
-            bool hasDesktop = false;
+        if (!QFileInfo(src).isWritable())
+            continue;
+        QDir().mkpath(themeDest);
+
+        auto adoptFiles = [&](const QString &fromDir, const QString &wrapperLabel) {
+            const QStringList files = QDir(fromDir).entryList(QDir::Files);
             for (const QString &f : files) {
+                const QString destFile = themeDest + QLatin1Char('/') + f;
+                if (QFileInfo::exists(destFile))
+                    continue;
+                if (QFile::rename(fromDir + QLatin1Char('/') + f, destFile)) {
+                    if (wrapperLabel.isEmpty())
+                        qCDebug(KPAT_LOG) << "Migrated game theme file" << f << "into" << themeDest;
+                    else
+                        qCDebug(KPAT_LOG) << "Migrated game theme file" << f << "out of wrapper"
+                                          << wrapperLabel << "into" << themeDest;
+                }
+            }
+        };
+
+        adoptFiles(src, QString());
+
+        const QStringList children = QDir(src).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &child : children) {
+            const QString childPath = src + QLatin1Char('/') + child;
+            const QStringList wrappedFiles = QDir(childPath).entryList(QDir::Files);
+            bool hasDesktop = false;
+            for (const QString &f : wrappedFiles) {
                 if (f.endsWith(QLatin1String(".desktop"))) {
                     hasDesktop = true;
                     break;
@@ -361,15 +391,10 @@ static void normalizeDownloadedThemes()
             }
             if (!hasDesktop)
                 continue;
-            for (const QString &f : files) {
-                const QString dest = root + QLatin1Char('/') + f;
-                if (QFileInfo::exists(dest))
-                    continue;
-                if (QFile::rename(childPath + QLatin1Char('/') + f, dest))
-                    qCDebug(KPAT_LOG) << "Hoisted game theme file" << f << "out of wrapper" << child;
-            }
+            adoptFiles(childPath, child);
             rmIfEmpty(childPath);
         }
+        rmIfEmpty(src);
     }
 }
 
