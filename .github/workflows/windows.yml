@@ -150,6 +150,36 @@ jobs:
 
           throw "Craft bootstrap failed after $maxAttempts attempts. See log groups above for the real Python/CraftBootstrap error."
 
+      - name: Dump bootstrap logs (on failure)
+        if: failure()
+        shell: pwsh
+        run: |
+          $logs = Get-ChildItem -Path $env:RUNNER_TEMP -Filter 'craft-bootstrap-*.log' -ErrorAction SilentlyContinue | Sort-Object Name
+          if (-not $logs) {
+            Write-Host "No craft-bootstrap-*.log files found in $env:RUNNER_TEMP."
+            exit 0
+          }
+          foreach ($log in $logs) {
+            $kb = [math]::Round($log.Length / 1KB, 1)
+            Write-Host ""
+            Write-Host "=================================================================="
+            Write-Host "===== BEGIN $($log.Name) ($kb KB) ====="
+            Write-Host "=================================================================="
+            Get-Content -Path $log.FullName | ForEach-Object { Write-Host $_ }
+            Write-Host "=================================================================="
+            Write-Host "===== END $($log.Name) ====="
+            Write-Host "=================================================================="
+          }
+
+      - name: Upload bootstrap logs (on failure)
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: bootstrap-logs
+          path: ${{ runner.temp }}/craft-bootstrap-*.log
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Configure local kpat source for Craft
         shell: pwsh
         run: |
