@@ -1,0 +1,1465 @@
+Welcome to the Craft setup wizard!
+Craft will be installed to: C:\CraftRoot
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Starting to download https://invent.kde.org/packaging/craft/-/archive/000b55f17ca5f0b04ae1858e14d2e893ecbf0957/craft-000b55f17ca5f0b04ae1858e14d2e893ecbf0957.zip to C:\CraftRoot\download\craft-000b55f17ca5f0b04ae1858e14d2e893ecbf0957.zip
+
+[                                                            ]0%
+[                                                            ]0%
+[                                                            ]1%
+[#                                                           ]2%
+[#                                                           ]3%
+[##                                                          ]4%
+[###                                                         ]5%
+[###                                                         ]6%
+[####                                                        ]7%
+[####                                                        ]8%
+[#####                                                       ]9%
+[######                                                      ]10%
+[######                                                      ]11%
+[#######                                                     ]12%
+[#######                                                     ]13%
+[########                                                    ]14%
+[########                                                    ]14%
+[#########                                                   ]15%
+[#########                                                   ]16%
+[##########                                                  ]17%
+[##########                                                  ]18%
+[###########                                                 ]19%
+[############                                                ]20%
+[############                                                ]21%
+[#############                                               ]22%
+[#############                                               ]23%
+[##############                                              ]24%
+[###############                                             ]25%
+[###############                                             ]26%
+[################                                            ]27%
+[################                                            ]28%
+[#################                                           ]29%
+[#################                                           ]29%
+[##################                                          ]30%
+[##################                                          ]31%
+[###################                                         ]32%
+[###################                                         ]33%
+[####################                                        ]34%
+[#####################                                       ]35%
+[#####################                                       ]36%
+[######################                                      ]37%
+[######################                                      ]38%
+[#######################                                     ]39%
+[########################                                    ]40%
+[########################                                    ]41%
+[#########################                                   ]42%
+[#########################                                   ]43%
+[##########################                                  ]44%
+[##########################                                  ]44%
+[###########################                                 ]45%
+[###########################                                 ]46%
+[############################                                ]47%
+[############################                                ]48%
+[#############################                               ]49%
+[##############################                              ]50%
+[##############################                              ]51%
+[###############################                             ]52%
+[###############################                             ]53%
+[################################                            ]54%
+[#################################                           ]55%
+[#################################                           ]56%
+[##################################                          ]57%
+[##################################                          ]58%
+[##################################                          ]58%
+[###################################                         ]59%
+[####################################                        ]60%
+[####################################                        ]61%
+[#####################################                       ]62%
+[#####################################                       ]63%
+[######################################                      ]64%
+[#######################################                     ]65%
+[#######################################                     ]66%
+[########################################                    ]67%
+[########################################                    ]68%
+[#########################################                   ]69%
+[##########################################                  ]70%
+[##########################################                  ]71%
+[###########################################                 ]72%
+[###########################################                 ]73%
+[###########################################                 ]73%
+[############################################                ]74%
+[#############################################               ]75%
+[#############################################               ]76%
+[##############################################              ]77%
+[##############################################              ]78%
+[###############################################             ]79%
+[################################################            ]80%
+[################################################            ]81%
+[#################################################           ]82%
+[#################################################           ]83%
+[##################################################          ]84%
+[###################################################         ]85%
+[###################################################         ]86%
+[####################################################        ]87%
+[####################################################        ]88%
+[####################################################        ]88%
+[#####################################################       ]89%
+[######################################################      ]90%
+[######################################################      ]91%
+[#######################################################     ]92%
+[#######################################################     ]93%
+[########################################################    ]94%
+[#########################################################   ]95%
+[#########################################################   ]96%
+[##########################################################  ]97%
+[##########################################################  ]98%
+[########################################################### ]99%
+Found "sh" in your PATH: "C:\Program Files\Git\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Found "gcc" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Found "g++" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Found "cpp" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Craft               : C:\CraftRoot
+ABI                 : windows-cl-msvc2022-x86_64
+Download directory  : C:\CraftRoot\download
+Cache repository    : https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64
+[############################################################]100%]0;(C:\CraftRoot) craft craft Duration: 0s]0;(C:\CraftRoot) craft craft Duration: 0s Progress: 0% Remaining Packages: ['libs/runtime', 'core/cacert', 'dev-utils/7zip-base', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;0\================================================================================
+*** Handling package: libs/runtime, action: all ***
+*** Action: fetch-binary for libs/runtime ***
+*** libs/runtime not found in cache ***
+*** Action: fetch for libs/runtime ***
+*** Action: unpack for libs/runtime ***
+*** Action: configure for libs/runtime ***
+*** Action: make for libs/runtime ***
+*** Action: cleanimage for libs/runtime ***
+*** Action: install for libs/runtime ***
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\concrt140.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\msvcp140.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\msvcp140_1.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\msvcp140_2.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\msvcp140_atomic_wait.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\msvcp140_codecvt_ids.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\vccorlib140.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\vcruntime140.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\vcruntime140_1.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\vcruntime140_threads.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\vcamp140.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140u.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfcm140.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfcm140u.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140chs.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140cht.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140deu.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140enu.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140esn.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140fra.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140ita.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140jpn.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140kor.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\mfc140rus.dll
+Installing: C:\_\fda5aa4e\image-MinSizeRel-17\bin\vcomp140.dll
+*** Action: post-install for libs/runtime ***
+*** Action: qmerge for libs/runtime ***
+*** Action: post-qmerge for libs/runtime ***
+*** Craft all succeeded: libs/runtime after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 0s Progress: 2% Remaining Packages: ['core/cacert', 'dev-utils/7zip-base', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;2\================================================================================
+*** Handling package: core/cacert, action: all ***
+*** Action: fetch-binary for core/cacert ***
+*** core/cacert not found in cache ***
+*** Action: fetch for core/cacert ***
+curl https://files.kde.org/craft/curl.haxx.se/cacert-2025-09-09.zip
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+########                                                                  12.3%
+###################################                                       49.9%
+######################################################################## 100.0%
+*** Action: unpack for core/cacert ***
+*** Action: configure for core/cacert ***
+*** Action: make for core/cacert ***
+*** Action: cleanimage for core/cacert ***
+*** Action: install for core/cacert ***
+*** Action: post-install for core/cacert ***
+*** Action: qmerge for core/cacert ***
+*** Action: post-qmerge for core/cacert ***
+*** Craft all succeeded: core/cacert after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 1s Progress: 5% Remaining Packages: ['dev-utils/7zip-base', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;5\================================================================================
+*** Handling package: dev-utils/7zip-base, action: all ***
+*** Action: fetch-binary for dev-utils/7zip-base ***
+Command ['C:\\Windows\\System32\\curl.exe', '-C', '-', '--retry', '10', '-L', '--ssl-reqd', '--fail', '--cacert', 'C:\\CraftRoot\\etc\\cacert.pem', '--max-redirs', '50', '-o', 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmp6d3jgujh\\manifest.json', 'https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel/manifest.json'] failed with exit code 22
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+
+curl: (22) The requested URL returned error: 404
+
+
+Could not find dev-utils/7zip-base=25.01 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel
+*** dev-utils/7zip-base not found in cache ***
+*** Action: fetch for dev-utils/7zip-base ***
+curl https://files.kde.org/craft/3rdparty/7zip/7z2501-extra.tar.xz
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+##################################################################        92.4%
+######################################################################## 100.0%
+curl https://files.kde.org/craft/3rdparty/7zip/7z2501-extra.tar.xz.sha256
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+######################################################################## 100.0%
+*** Action: unpack for dev-utils/7zip-base ***
+*** Action: configure for dev-utils/7zip-base ***
+*** Action: make for dev-utils/7zip-base ***
+*** Action: cleanimage for dev-utils/7zip-base ***
+*** Action: install for dev-utils/7zip-base ***
+*** Action: post-install for dev-utils/7zip-base ***
+*** Action: qmerge for dev-utils/7zip-base ***
+*** Action: post-qmerge for dev-utils/7zip-base ***
+*** Craft all succeeded: dev-utils/7zip-base after 1s ***
+]0;(C:\CraftRoot) craft craft Duration: 3s Progress: 8% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;8\================================================================================
+*** Handling package: dev-utils/cmake-base, action: all ***
+*** Action: fetch-binary for dev-utils/cmake-base ***
+Could not find dev-utils/cmake-base=4.1.2 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel
+*** dev-utils/cmake-base not found in cache ***
+*** Action: fetch for dev-utils/cmake-base ***
+curl https://cmake.org/files/v4.1/cmake-4.1.2-windows-x86_64.zip
+
+                                                                           0.1%
+##############                                                            20.0%
+###################                                                       27.2%
+##############################                                            41.8%
+##################################################                        70.4%
+######################################################################## 100.0%
+curl https://cmake.org/files/v4.1/cmake-4.1.2-SHA-256.txt
+
+######################################################################## 100.0%
+*** Action: unpack for dev-utils/cmake-base ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\cmake-base\
+                                                              
+ 48% 4096 Open
+              
+
+executing command: C:\CraftRoot\dev-utils\7z\7za.exe x -r -y -snld20 -oC:\_\de07b473 C:\CraftRoot\download\archives\dev-utils\cmake-base\cmake-4.1.2-windows-x86_64.zip -bso2 -bsp1
+7-Zip (a) 25.01 (x86) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 48615221 bytes (47 MiB)
+
+Extracting archive: C:\CraftRoot\download\archives\dev-utils\cmake-base\cmake-4.1.2-windows-x86_64.zip
+]0;(C:\CraftRoot) craft craft Duration: 10s Progress: 8% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;8\  0%
+    
+ 14% 1 - cmake-4.1.2-windows-x86_64\bin\cmake-gui.exe
+                                                     
+ 31% 3
+      
+ 46% 5 - cmake-4.1.2-windows-x86_64\bin\ctest.exe
+                                                 
+ 59% 35 - cmake-4.1.2-windows-x86_64\doc\c . \command\add_custom_command.html
+                                                                             
+ 62% 173 - cmake-4.1.2-windows-x86_64\doc\cmake\html\cpack_gen\nsis.html
+                                                                        
+ 66% 303 - cmake-4.1.2-windows-x86_64\doc . t for a Testing Dashboard.html
+                                                                          
+ 69% 431 - cmake-4.1.2-windows-x86_64\doc\cmake\html\module\FindBLAS.html
+                                                                         
+ 71% 578
+        
+ 72% 721 - cmake-4.1.2-windows-x86_64\doc\cmake\html\policy\CMP0105.html
+                                                                        
+ 73% 861 - cmake-4.1.2-windows-x86_64\do . _DUPLICATE_CUSTOM_TARGETS.html
+                                                                         
+ 74% 939 - cmake-4.1.2-windows-x86_64\doc . sf\Swift_DEPENDENCIES_FILE.html
+                                                                           
+ 75% 1075 - cmake-4.1.2-windows-x86_64\do . _tgt\CUDA_PTX_COMPILATION.html
+                                                                          
+ 76% 1224
+         
+ 76% 1265 - cmake-4.1.2-windows-x86_64\doc . tgt\OPTIMIZE_DEPENDENCIES.html
+                                                                           
+ 76% 1332 - cmake-4.1.2-windows-x86_64\doc\c . VS_DOTNET_REFERENCE_refname.html
+                                                                               
+ 81% 1451 - cmake-4.1.2-windows-x86_64\doc\cmake\html\variable\BORLAND.html
+                                                                           
+ 82% 1510 - cmake-4.1.2-windows-x86_64\doc\ . \CMAKE_AUTOMOC_RELAXED_MODE.html
+                                                                              
+ 82% 1658 - cmake-4.1.2-windows-x86_64\do . able\CMAKE_Fortran_FORMAT.html
+                                                                          
+ 83% 1810 - cmake-4.1.2-windows-x86_64\doc\ . \CMAKE_LANG_SIZEOF_DATA_PTR.html
+                                                                              
+ 84% 1964 - cmake-4.1.2-windows-x86_64\doc . ble\CMAKE_SYSROOT_COMPILE.html
+                                                                           
+ 85% 2115 - cmake-4.1.2-windows-x86_64\d . iable\CTEST_CVS_CHECKOUT.html
+                                                                        
+ 86% 2261 - cmake-4.1.2-windows-x86_64\doc\ . \command\ctest_configure.rst.txt
+                                                                              
+ 87% 2397 - cmake-4.1.2-windows-x86_64\d . PORT_COMPILE_COMMANDS.rst.txt
+                                                                        
+ 87% 2497 - cmake-4.1.2-windows-x86_64\doc\ . mand and Generated File.rst.txt
+                                                                             
+ 87% 2626 - cmake-4.1.2-windows-x86_64\doc . ces\module\FindAVIFile.rst.txt
+                                                                           
+ 87% 2775 - cmake-4.1.2-windows-x86_64\do . rces\module\FindVulkan.rst.txt
+                                                                          
+ 87% 2915 - cmake-4.1.2-windows-x86_64\doc\c . \_sources\policy\CMP0102.rst.txt
+                                                                               
+ 88% 3059 - cmake-4.1.2-windows-x86_64\doc . l\AUTOGEN_SOURCE_GROUP.rst.txt
+                                                                           
+ 88% 3189 - cmake-4.1.2-windows-x86_64\d . T_SIGNAL_GRACE_PERIOD.rst.txt
+                                                                        
+ 88% 3323 - cmake-4.1.2-windows-x86_64\do . tgt\GHS_INTEGRITY_APP.rst.txt
+                                                                         
+ 88% 3441 - cmake-4.1.2-windows-x86_64\doc\c . prop_tgt\LOCATION_CONFIG.rst.txt
+                                                                               
+ 88% 3592 - cmake-4.1.2-windows-x86_64\d . SCHEME_LLDB_INIT_FILE.rst.txt
+                                                                        
+ 88% 3725 - cmake-4.1.2-windows-x86_64\d . able\CMAKE_CFG_INTDIR.rst.txt
+                                                                        
+ 88% 3872 - cmake-4.1.2-windows-x86_64\doc\ . CMAKE_HIP_ARCHITECTURES.rst.txt
+                                                                             
+ 88% 4024 - cmake-4.1.2-windows-x86_64\doc\ . CMAKE_LINK_DEF_FILE_FLAG.rst.txt
+                                                                              
+ 89% 4177 - cmake-4.1.2-windows-x86_64\do . ble\CMAKE_TLS_VERSION.rst.txt
+                                                                         
+ 89% 4248
+         
+ 89% 4320 - cmake-4.1.2-windows-x86_64\doc\ . CTEST_EXTRA_SUBMIT_FILES.rst.txt
+                                                                              
+ 89% 4419 - cmake-4.1.2-windows-x86_64\doc\cmake\html\_static\cmake.css
+                                                                       
+ 92% 4461 - cmake-4.1.2-windows-x86_64\man\man7\cpack-generators.7
+                                                                  
+ 92% 4611
+         
+ 93% 4716
+         
+ 93% 4861 - cmake-4.1.2-windows-x86_64\sh . p\module\CPackProductBuild.rst
+                                                                          
+ 93% 5028 - cmake-4.1.2-windows-x86_64\sha . -4.1\Help\module\FindVulkan.rst
+                                                                            
+ 93% 5190 - cmake-4.1.2-windows-x86_64\share\cmake-4.1\Help\policy\CMP0115.rst
+                                                                              
+ 94% 5346 - cmake-4.1.2-windows-x86_64\sha . IND_LIBRARY_USE_LIB64_PATHS.rst
+                                                                            
+ 94% 5463 - cmake-4.1.2-windows-x86_64\shar . prop_test\WORKING_DIRECTORY.rst
+                                                                             
+ 94% 5611 - cmake-4.1.2-windows-x86_64\sha . MODULES_COMPILE_DEFINITIONS.rst
+                                                                            
+ 94% 5754 - cmake-4.1.2-windows-x86_64\shar . .1\Help\prop_tgt\OUTPUT_NAME.rst
+                                                                              
+ 94% 5908 - cmake-4.1.2-windows-x86_64\share\cmake-4.1\Help\release\3.2.rst
+                                                                           
+ 94% 6073 - cmake-4.1.2-windows-x86_64\shar . riable\CMAKE_DEFAULT_CONFIGS.rst
+                                                                              
+ 94% 6238 - cmake-4.1.2-windows-x86_64\sha . CMAKE_LANG_COMPILER_TARGET.rst
+                                                                           
+ 94% 6405 - cmake-4.1.2-windows-x86_64\sha . MAKE_PROJECT_VERSION_MAJOR.rst
+                                                                           
+ 94% 6578 - cmake-4.1.2-windows-x86_64\s . e\CTEST_CONFIGURE_COMMAND.rst
+                                                                        
+ 95% 6731 - cmake-4.1.2-windows-x86_64\s . ion-SameMajorVersion.cmake.in
+                                                                        
+ 95% 6890
+         
+ 95% 7040 - cmake-4.1.2-windows-x86_64\share . 1\Modules\Compiler\IAR-ASM.cmake
+                                                                               
+ 96% 7202 - cmake-4.1.2-windows-x86_64\shar . s\CTestCoverageCollectGCOV.cmake
+                                                                              
+ 97% 7364 - cmake-4.1.2-windows-x86_64\share\cmake-4.1\Modules\FindPhysFS.cmake
+                                                                               
+ 98% 7516 - cmake-4.1.2-windows-x86_64\shar . CPack\NSIS.InstallOptions.ini.in
+                                                                              
+ 98% 7663 - cmake-4.1.2-windows-x86_64\share . Platform\Android-Clang-CXX.cmake
+                                                                               
+ 98% 7758 - cmake-4.1.2-windows-x86_64\shar . \Platform\CYGWIN-Clang-CXX.cmake
+                                                                              
+ 98% 7902 - cmake-4.1.2-windows-x86_64\sha . m\Linker\FreeBSD-LLD-CXX.cmake
+                                                                           
+ 98% 8050 - cmake-4.1.2-windows-x86_64\shar . inker\Windows-MSVC-Fortran.cmake
+                                                                              
+ 99% 8219 - cmake-4.1.2-windows-x86_64\s . dules\Platform\visionOS.cmake
+                                                                        
+ 99% 8363 - cmake-4.1.2-windows-x86_64\sh . plates\CMakeVSMacros1.vsmacros
+                                                                          
+--
+Path = C:\CraftRoot\download\archives\dev-utils\cmake-base\cmake-4.1.2-windows-x86_64.zip
+Type = zip
+Physical Size = 48615221
+
+Everything is Ok
+
+Folders: 138
+Files: 8293
+Size:       127305116
+Compressed: 48615221
+*** Action: configure for dev-utils/cmake-base ***
+*** Action: make for dev-utils/cmake-base ***
+*** Action: cleanimage for dev-utils/cmake-base ***
+*** Action: install for dev-utils/cmake-base ***
+]0;(C:\CraftRoot) craft craft Duration: 20s Progress: 8% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;8\]0;(C:\CraftRoot) craft craft Duration: 30s Progress: 8% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;8\*** Action: post-install for dev-utils/cmake-base ***
+*** Action: qmerge for dev-utils/cmake-base ***
+*** Action: post-qmerge for dev-utils/cmake-base ***
+*** Craft all succeeded: dev-utils/cmake-base after 36s ***
+]0;(C:\CraftRoot) craft craft Duration: 39s Progress: 11% Remaining Packages: ['dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;11\================================================================================
+*** Handling package: dev-utils/kshimgen, action: all ***
+*** Action: fetch-binary for dev-utils/kshimgen ***
+]0;(C:\CraftRoot) craft craft Duration: 40s Progress: 11% Remaining Packages: ['dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;11\Command ['C:\\Windows\\System32\\curl.exe', '-C', '-', '--retry', '10', '-L', '--ssl-reqd', '--fail', '--cacert', 'C:\\CraftRoot\\etc\\cacert.pem', '--max-redirs', '50', '-o', 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmp0r9q1t9_\\manifest.json', 'https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/Release/manifest.json'] failed with exit code 22
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+
+curl: (22) The requested URL returned error: 404
+
+
+Could not find dev-utils/kshimgen=0.6.1 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/Release
+Command ['C:\\Windows\\System32\\curl.exe', '-C', '-', '--retry', '10', '-L', '--ssl-reqd', '--fail', '--cacert', 'C:\\CraftRoot\\etc\\cacert.pem', '--max-redirs', '50', '-o', 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpr1xubplm\\manifest.json', 'https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/RelWithDebInfo/manifest.json'] failed with exit code 22
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+
+curl: (22) The requested URL returned error: 404
+
+
+Could not find dev-utils/kshimgen=0.6.1 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/RelWithDebInfo
+*** dev-utils/kshimgen not found in cache ***
+*** Action: fetch for dev-utils/kshimgen ***
+curl https://download.kde.org/stable/kshim/kshim-0.6.1.tar.xz
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+##################                                                        26.1%
+######################################################################## 100.0%
+curl https://download.kde.org/stable/kshim/kshim-0.6.1.tar.xz.sha256
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+######################################################################## 100.0%
+*** Action: unpack for dev-utils/kshimgen ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\kshimgen\
+                                                            
+  0%
+    
+executing command: C:\CraftRoot\dev-utils\7z\7za.exe x C:\CraftRoot\download\archives\dev-utils\kshimgen\kshim-0.6.1.tar.xz -so -bsp2 | C:\CraftRoot\dev-utils\7z\7za.exe x -si -oC:\_\3b8641a9 -ttar -snld20 -bsp0
+*** Action: configure for dev-utils/kshimgen ***
+-- The CXX compiler identification is MSVC 19.44.35226.0
+executing command: C:\CraftRoot\dev-utils\cmake-base\bin\cmake.exe -G Ninja -DBUILD_TESTING=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=C:/CraftRoot -DCMAKE_PREFIX_PATH=C:/CraftRoot -DCMAKE_REQUIRED_INCLUDES=C:/CraftRoot/include -DCMAKE_C_STANDARD_INCLUDE_DIRECTORIES=C:/CraftRoot/include -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -B C:\_\3b8641a9\build -S C:\_\3b8641a9\kshim-0.6.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (1.2s)
+-- Generating done (0.1s)
+[33mCMake Warning:
+  Manually-specified variables were not used by the project:
+    CMAKE_C_STANDARD_INCLUDE_DIRECTORIES
+    CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP
+    CMAKE_REQUIRED_INCLUDES
+    KDE_INSTALL_USE_QT_SYS_PATHS
+
+[0m
+-- Build files have been written to: C:/_/3b8641a9/build
+*** Action: make for dev-utils/kshimgen ***
+[1/26] Building CXX object src\kshim\CMakeFiles\kshim.dir\main_win.cpp.obj
+executing command: C:\ProgramData\chocolatey\bin\ninja.exe
+[2/26] Building CXX object src\libkshimgen\CMakeFiles\libkshimgen.dir\kshim_win.cpp.obj
+[3/26] Building CXX object src\libkshimgen\CMakeFiles\libkshimgen.dir\kshim.cpp.obj
+[4/26] Building CXX object src\kshim\CMakeFiles\kshimgui.dir\kshimmain.cpp.obj
+[5/26] Building CXX object src\kshim\CMakeFiles\kshim.dir\kshimmain.cpp.obj
+]0;(C:\CraftRoot) craft craft Duration: 50s Progress: 11% Remaining Packages: ['dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;11\[6/26] Building CXX object tests\CMakeFiles\binaryName_test.dir\binaryName_test.cpp.obj
+[7/26] Building CXX object src\kshim\CMakeFiles\kshimgui.dir\main_win.cpp.obj
+[8/26] Building CXX object tests\CMakeFiles\dump_args.dir\helper\dump_args.cpp.obj
+[9/26] Linking CXX executable bin\dump_args.exe
+[10/26] Building CXX object src\libkshimgen\CMakeFiles\libkshimgen.dir\kshimdata.cpp.obj
+[11/26] Linking CXX static library src\libkshimgen\libkshimgen.lib
+[12/26] Linking CXX executable bin\kshim.exe
+[13/26] Linking CXX executable bin\binaryName_test.exe
+[14/26] Linking CXX executable bin\kshimgui.exe
+[15/26] Generating kshim_embedded_resource resource loader
+[16/26] Generating intermediate file for C:/_/3b8641a9/build/bin/kshimgui.exe
+[17/26] Generating intermediate file for C:/_/3b8641a9/build/bin/kshim.exe
+[18/26] Building CXX object src\kshim\CMakeFiles\kshim_embedded_resource.dir\__cmrc_kshim_embedded_resource\intermediate\bin\kshim.exe.cpp.obj
+[19/26] Building CXX object src\kshim\CMakeFiles\kshim_embedded_resource.dir\__cmrc_kshim_embedded_resource\intermediate\bin\kshimgui.exe.cpp.obj
+[20/26] Building CXX object src\kshim\CMakeFiles\kshim_embedded_resource.dir\__cmrc_kshim_embedded_resource\lib.cpp.obj
+[21/26] Building CXX object src\kshimgen\CMakeFiles\kshimgen.dir\main_win.cpp.obj
+[22/26] Building CXX object src\kshimgen\CMakeFiles\kshimgen.dir\kshimgen.cpp.obj
+[23/26] Building CXX object src\kshimgen\CMakeFiles\kshimgen.dir\kshimgen_win.cpp.obj
+[24/26] Building CXX object tests\CMakeFiles\createShim_test.dir\createShim_test.cpp.obj
+[25/26] Linking CXX executable bin\kshimgen.exe
+[26/26] Linking CXX executable bin\createShim_test.exe
+*** Action: cleanimage for dev-utils/kshimgen ***
+*** Action: install for dev-utils/kshimgen ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 0s Progress: 11% Remaining Packages: ['dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']executing command: C:\ProgramData\chocolatey\bin\ninja.exe install
+]9;4;1;11\[0/1] Install the project...
+-- Install configuration: "Release"
+-- Installing: C:/_/3a78ca9c/image-Release-0.6.1/CraftRoot/bin/kshimgen.exe
+Could not find a PDB for C:\_\3a78ca9c\image-Release-0.6.1\bin\kshimgen.exe
+*** Action: post-install for dev-utils/kshimgen ***
+*** Action: qmerge for dev-utils/kshimgen ***
+*** Action: post-qmerge for dev-utils/kshimgen ***
+*** Craft all succeeded: dev-utils/kshimgen after 20s ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 0s Progress: 14% Remaining Packages: ['dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;14\================================================================================
+*** Handling package: dev-utils/7zip, action: all ***
+*** Action: fetch-binary for dev-utils/7zip ***
+*** dev-utils/7zip not found in cache ***
+*** Action: fetch for dev-utils/7zip ***
+*** Action: unpack for dev-utils/7zip ***
+*** Action: configure for dev-utils/7zip ***
+*** Action: make for dev-utils/7zip ***
+*** Action: cleanimage for dev-utils/7zip ***
+*** Action: install for dev-utils/7zip ***
+*** Action: post-install for dev-utils/7zip ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\caf88981\image-MinSizeRel-latest\dev-utils\bin\7za.exe C:\CraftRoot\dev-utils\7z\x64\7za.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\caf88981\image-MinSizeRel-latest\dev-utils\bin\7zz.exe C:\CraftRoot\dev-utils\7z\x64\7za.exe --
+*** Action: qmerge for dev-utils/7zip ***
+*** Action: post-qmerge for dev-utils/7zip ***
+*** Craft all succeeded: dev-utils/7zip after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 0s Progress: 17% Remaining Packages: ['dev-utils/cmake', 'dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;17\================================================================================
+*** Handling package: dev-utils/cmake, action: all ***
+*** Action: fetch-binary for dev-utils/cmake ***
+*** dev-utils/cmake not found in cache ***
+*** Action: fetch for dev-utils/cmake ***
+*** Action: unpack for dev-utils/cmake ***
+*** Action: configure for dev-utils/cmake ***
+*** Action: make for dev-utils/cmake ***
+*** Action: cleanimage for dev-utils/cmake ***
+*** Action: install for dev-utils/cmake ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-MinSizeRel-latest\dev-utils\bin\cmake.exe C:\CraftRoot\dev-utils\cmake-base\bin\cmake.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-MinSizeRel-latest\dev-utils\bin\cmake-gui.exe C:\CraftRoot\dev-utils\cmake-base\bin\cmake-gui.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-MinSizeRel-latest\dev-utils\bin\cmcldeps.exe C:\CraftRoot\dev-utils\cmake-base\bin\cmcldeps.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-MinSizeRel-latest\dev-utils\bin\cpack.exe C:\CraftRoot\dev-utils\cmake-base\bin\cpack.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-MinSizeRel-latest\dev-utils\bin\ctest.exe C:\CraftRoot\dev-utils\cmake-base\bin\ctest.exe --
+*** Action: post-install for dev-utils/cmake ***
+*** Action: qmerge for dev-utils/cmake ***
+*** Action: post-qmerge for dev-utils/cmake ***
+*** Craft all succeeded: dev-utils/cmake after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 0s Progress: 19% Remaining Packages: ['dev-utils/wget', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;19\================================================================================
+*** Handling package: dev-utils/wget, action: all ***
+*** Action: fetch-binary for dev-utils/wget ***
+Command ['C:\\Windows\\System32\\curl.exe', '-C', '-', '--retry', '10', '-L', '--ssl-reqd', '--fail', '--cacert', 'C:\\CraftRoot\\etc\\cacert.pem', '--max-redirs', '50', '-o', 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpkmzahpvr\\manifest.json', 'https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel/manifest.json'] failed with exit code 22
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+
+curl: (22) The requested URL returned error: 404
+
+
+Could not find dev-utils/wget=2.1.0 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel
+*** dev-utils/wget not found in cache ***
+*** Action: fetch for dev-utils/wget ***
+curl https://github.com/rockdaboot/wget2/releases/download/v2.1.0/wget2.exe
+
+#=#=#                                                                          
+######################################################################## 100.0%
+*** Action: unpack for dev-utils/wget ***
+*** Action: configure for dev-utils/wget ***
+*** Action: make for dev-utils/wget ***
+*** Action: cleanimage for dev-utils/wget ***
+*** Action: install for dev-utils/wget ***
+*** Action: post-install for dev-utils/wget ***
+*** Action: qmerge for dev-utils/wget ***
+*** Action: post-qmerge for dev-utils/wget ***
+*** Craft all succeeded: dev-utils/wget after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 1s Progress: 22% Remaining Packages: ['dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;22\================================================================================
+*** Handling package: dev-utils/git, action: all ***
+*** Action: fetch-binary for dev-utils/git ***
+*** dev-utils/git not found in cache ***
+*** Action: fetch for dev-utils/git ***
+*** Action: unpack for dev-utils/git ***
+*** Action: configure for dev-utils/git ***
+*** Action: make for dev-utils/git ***
+*** Action: cleanimage for dev-utils/git ***
+*** Action: install for dev-utils/git ***
+Skipping installation of dev-utils/git as the installed version of C:\Program Files\Git\bin\git.exe 2.54.0 >= 2.27.0
+*** Action: post-install for dev-utils/git ***
+*** Action: qmerge for dev-utils/git ***
+*** Action: post-qmerge for dev-utils/git ***
+*** Craft all succeeded: dev-utils/git after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 1s Progress: 25% Remaining Packages: ['dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;25\================================================================================
+*** Handling package: dev-utils/patch, action: all ***
+*** Action: fetch-binary for dev-utils/patch ***
+*** dev-utils/patch not found in cache ***
+*** Action: fetch for dev-utils/patch ***
+*** Action: unpack for dev-utils/patch ***
+*** Action: configure for dev-utils/patch ***
+*** Action: make for dev-utils/patch ***
+*** Action: cleanimage for dev-utils/patch ***
+*** Action: install for dev-utils/patch ***
+*** Action: post-install for dev-utils/patch ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\13c468ae\image-MinSizeRel-latest\dev-utils\bin\patch.exe C:\Program Files\Git\usr\bin\patch.exe --
+executing command: C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe -nologo -manifest C:\CraftRoot\craft-tmp\blueprints\dev-utils\_windows\patch\patch.manifest -outputresource:C:\_\13c468ae\image-MinSizeRel-latest\dev-utils\bin\patch.exe;1
+*** Action: qmerge for dev-utils/patch ***
+*** Action: post-qmerge for dev-utils/patch ***
+*** Craft all succeeded: dev-utils/patch after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 1s Progress: 28% Remaining Packages: ['dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;28\================================================================================
+*** Handling package: dev-utils/sed, action: all ***
+*** Action: fetch-binary for dev-utils/sed ***
+*** dev-utils/sed not found in cache ***
+*** Action: fetch for dev-utils/sed ***
+*** Action: unpack for dev-utils/sed ***
+*** Action: configure for dev-utils/sed ***
+*** Action: make for dev-utils/sed ***
+*** Action: cleanimage for dev-utils/sed ***
+*** Action: install for dev-utils/sed ***
+*** Action: post-install for dev-utils/sed ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\89592c98\image-MinSizeRel-latest\dev-utils\bin\sed C:\Program Files\Git\usr\bin\sed.exe --
+*** Action: qmerge for dev-utils/sed ***
+*** Action: post-qmerge for dev-utils/sed ***
+*** Craft all succeeded: dev-utils/sed after 0s ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 1s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\================================================================================
+*** Handling package: dev-utils/msys-base, action: all ***
+*** Action: fetch-binary for dev-utils/msys-base ***
+Command ['C:\\CraftRoot\\dev-utils\\bin\\wget2.exe', '--continue', '--metalink=off', '--ca-certificate', 'C:\\CraftRoot\\etc\\cacert.pem', '--output-document', 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpfn2xn8hl\\manifest.json', 'https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel/manifest.json'] failed with exit code 8
+[0] Downloading 'https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel/manifest.json' ...
+
+HTTP ERROR response 404  [https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel/manifest.json]
+
+
+Could not find dev-utils/msys-base=base in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel
+*** dev-utils/msys-base not found in cache ***
+*** Action: fetch for dev-utils/msys-base ***
+wget2 https://github.com/msys2/msys2-installer/releases/download/2025-02-21/msys2-base-x86_64-20250221.tar.xz
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://github.com/ms]87[2A[1G0 files                0% [<=>                  ]       0          B/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://release-asset]87[2A[1GC:\CraftRoot\downloa   7% [>                    ]    3.70M    --.-KB/s87[2A[1GC:\CraftRoot\downloa  84% [================>    ]   40.59M  295.13MB/s87[2A[1GC:\CraftRoot\downloa 100% [====================>]   47.76M  297.75MB/s87[1A[1G[27G[Files: 1  Bytes: 47.7]8wget2 https://github.com/msys2/msys2-installer/releases/download/2025-02-21/msys2-base-x86_64-20250221.tar.xz.sha256
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://github.com/ms]87[2A[1G0 files                0% [<=>                  ]       0          B/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://release-asset]87[2A[1GC:\CraftRoot\downloa 100% [====================>]     100     --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 100 ]8*** Action: unpack for dev-utils/msys-base ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\msys-base\
+                                                             
+  0%
+    
+ 17% - msys2-base-x86_64-20250221.tar
+                                     
+ 39% - msys2-base-x86_64-20250221.tar
+                                     
+ 60% - msys2-base-x86_64-20250221.tar
+                                     
+ 69% - msys2-base-x86_64-20250221.tar
+                                     
+ 78% - msys2-base-x86_64-20250221.tar
+                                     
+ 91% - msys2-base-x86_64-20250221.tar
+                                     
+]0;(C:\CraftRoot) craft craft Duration: 1min 10s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']executing command: C:\CraftRoot\dev-utils\bin\7za.exe x C:\CraftRoot\download\archives\dev-utils\msys-base\msys2-base-x86_64-20250221.tar.xz -so -bsp2 | C:\CraftRoot\dev-utils\bin\7za.exe x -si -oC:\_\5d2ca31a -ttar -snld20 -bsp0
+ 99% - msys2-base-x86_64-20250221.tar
+                                     
+100% - msys2-base-x86_64-20250221.tar
+                                     
+]9;4;1;31\]0;(C:\CraftRoot) craft craft Duration: 1min 20s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\*** Action: configure for dev-utils/msys-base ***
+*** Action: make for dev-utils/msys-base ***
+*** Action: cleanimage for dev-utils/msys-base ***
+*** Action: install for dev-utils/msys-base ***
+]0;(C:\CraftRoot) craft craft Duration: 1min 30s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\]0;(C:\CraftRoot) craft craft Duration: 1min 40s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\]0;(C:\CraftRoot) craft craft Duration: 1min 50s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\*** Action: post-install for dev-utils/msys-base ***
+*** Action: qmerge for dev-utils/msys-base ***
+]0;(C:\CraftRoot) craft craft Duration: 2min 0s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\]0;(C:\CraftRoot) craft craft Duration: 2min 10s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\*** Action: post-qmerge for dev-utils/msys-base ***
+'C:\Windows\system32\drivers\etc\hosts' -> '/etc/hosts'
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -l -c "/c/Program Files/Git/usr/bin/echo.exe" "Init update"
+'C:\Windows\system32\drivers\etc\protocol' -> '/etc/protocols'
+'C:\Windows\system32\drivers\etc\services' -> '/etc/services'
+'C:\Windows\system32\drivers\etc\networks' -> '/etc/networks'
+gpg: /etc/pacman.d/gnupg/trustdb.gpg: trustdb created
+gpg: no ultimately trusted keys found
+gpg: starting migration from earlier GnuPG versions
+gpg: porting secret keys from '/etc/pacman.d/gnupg/secring.gpg' to gpg-agent
+gpg: migration succeeded
+==> Generating pacman master key. This may take some time.
+gpg: Generating pacman keyring master key...
+gpg: directory '/etc/pacman.d/gnupg/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/etc/pacman.d/gnupg/openpgp-revocs.d/01C564EADF2FF0966755B3DF4DDE07DE1EBAD9CD.rev'
+gpg: Done
+==> Updating trust database...
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+==> Appending keys from msys2.gpg...
+==> Locally signing trusted keys in keyring...
+  -> Locally signed 5 keys.
+==> Importing owner trust values...
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+==> Disabling revoked keys in keyring...
+  -> Disabled 4 keys.
+==> Updating trust database...
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   5  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: depth: 1  valid:   5  signed:   6  trust: 0-, 0q, 0n, 5m, 0f, 0u
+gpg: depth: 2  valid:   3  signed:   2  trust: 3-, 0q, 0n, 0m, 0f, 0u
+]0;(C:\CraftRoot) craft craft Duration: 2min 20s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\gpg: error retrieving 'alexey.pawlow@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key F40D263ECA25678A: "Alexey Pavlov (Alexpux) <alexey.pawlow@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'david.macek.0@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 790AE56A1D3CFDDC: "David Macek (MSYS2 master key) <david.macek.0@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'martellmalone@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key DA7EF2ABAEEA755C: "Martell Malone (martell) <martellmalone@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'reiter.christoph@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 755B8182ACD22879: "Christoph Reiter (MSYS2 master key) <reiter.christoph@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'icquinteiro@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 9F418C233E652008: "Ignacio Casal Quinteiro <icquinteiro@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'mingw.android@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key BBE514E53E0D0813: "Ray Donnelly (MSYS2 Developer - master key) <mingw.android@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'alexpux@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 5F92EFC1A47D45A1: "Alexey Pavlov (Alexpux) <alexpux@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'david.macek.0@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 974C8BE49078F532: "David Macek <david.macek.0@gmail.com>" 3 new signatures
+gpg: key 974C8BE49078F532: "David Macek <david.macek.0@gmail.com>" 1 signature cleaned
+gpg: Total number processed: 1
+gpg:         new signatures: 3
+gpg:     signatures cleaned: 1
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   5  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: depth: 1  valid:   5  signed:   7  trust: 0-, 0q, 0n, 5m, 0f, 0u
+gpg: depth: 2  valid:   4  signed:   2  trust: 4-, 0q, 0n, 0m, 0f, 0u
+gpg: next trustdb check due at 2026-08-13
+gpg: error retrieving 'reiter.christoph@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key FA11531AA0AA7F57: "Christoph Reiter (MSYS2 development key) <reiter.christoph@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'me@martellmalone.com' via WKD: Unknown host
+gpg: error reading key: Unknown host
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 794DCF97F93FC717: "Martell Malone (martell) <me@martellmalone.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'martellmalone@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key D595C9AB2C51581E: "Martell Malone (MSYS2 Developer) <martellmalone@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'mingw.android@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+]0;(C:\CraftRoot) craft craft Duration: 2min 30s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\gpg: key 4DF3B7664CA56930: "Ray Donnelly (MSYS2 Developer) <mingw.android@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+Init update
+Killing processes * in C:\CraftRoot\msys
+:: Synchronizing package databases...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Sy --noconfirm --overwrite='*'
+ clangarm64 downloading...
+ mingw32 downloading...
+ mingw64 downloading...
+ ucrt64 downloading...
+ clang64 downloading...
+ msys downloading...
+:: Starting core system upgrade...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Qu --noconfirm
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Su --noconfirm --overwrite='*' --ask 20
+warning: terminate other MSYS2 programs before proceeding
+resolving dependencies...
+looking for conflicting packages...
+Packages (6) bash-5.3.009-1  filesystem-2026.03.06-1  mintty-1~3.8.2-1  msys2-runtime-3.6.9-1  pacman-6.1.0-24  pacman-mirrors-20260129-1
+
+Total Download Size:   11.23 MiB
+Total Installed Size:  58.41 MiB
+Net Upgrade Size:      -2.95 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ pacman-6.1.0-24-x86_64 downloading...
+ bash-5.3.009-1-x86_64 downloading...
+ msys2-runtime-3.6.9-1-x86_64 downloading...
+ mintty-1~3.8.2-1-x86_64 downloading...
+ filesystem-2026.03.06-1-x86_64 downloading...
+ pacman-mirrors-20260129-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+upgrading bash...
+upgrading filesystem...
+upgrading mintty...
+upgrading msys2-runtime...
+upgrading pacman-mirrors...
+upgrading pacman...
+:: To complete this update all MSYS2 processes including this terminal will be closed. Confirm to proceed [Y/n] 
+Killing processes * in C:\CraftRoot\msys
+]0;(C:\CraftRoot) craft craft Duration: 2min 40s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\:: Synchronizing package databases...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Sy --noconfirm --overwrite='*'
+ clangarm64 downloading...
+ mingw32 downloading...
+ mingw64 downloading...
+ ucrt64 downloading...
+ clang64 downloading...
+ msys downloading...
+:: Starting core system upgrade...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Qu --noconfirm
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Su --noconfirm --overwrite='*' --ask 20
+ there is nothing to do
+:: Starting full system upgrade...
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (59) bash-completion-2.17.0-2  brotli-1.2.0-1  bsdtar-3.8.7-1  ca-certificates-20250419-1  curl-8.20.0-1  dash-0.5.13.4-1  file-5.47-1  gawk-5.4.0-1  gcc-libs-15.2.0-1  gdbm-1.26-1  getent-2.18.90-6  gmp-6.3.0-2  gnupg-2.4.9-1  gzip-1.14-1  inetutils-2.7-1  info-7.2-3  less-692-1  libargp-20260115-1  libassuan-3.0.2-1  libcurl-8.20.0-1  libexpat-2.8.1-1  libffi-3.5.2-1  libgcrypt-1.12.2-1  libgdbm-1.26-1  libgnutls-3.8.13-1  libgpg-error-1.60-1  libhogweed-3.10.2-1  libiconv-1.19-1  libidn2-2.3.8-1  libksba-1.6.8-1  liblzma-5.8.3-1  libnettle-3.10.2-1  libnghttp2-1.69.0-1  libnghttp3-1.15.0-1  libngtcp2-1.22.1-1  libopenssl-3.6.2-1  libp11-kit-0.26.2-1  libpcre2_8-10.47-1  libreadline-8.3.003-1  libsqlite-3.53.1-1  libtasn1-4.21.0-1  libunistring-1.4.2-1  libxcrypt-4.5.2-1  mpfr-4.2.2-1  msys2-keyring-1~20260214-1  nano-9.0-1  ncurses-6.6-1  nettle-3.10.2-1  openssl-3.6.2-1  p11-kit-0.26.2-1  perl-5.42.2-1  pinentry-1.3.2-1  rebase-4.5.0-5  tar-1.35-3  time-1.10-1  tzcode-2026a-1  which-2.23-4  xz-5.8.3-1  zlib-1.3.2-1
+
+Total Download Size:    30.67 MiB
+Total Installed Size:  136.11 MiB
+Net Upgrade Size:        6.10 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ perl-5.42.2-1-x86_64 downloading...
+ gnupg-2.4.9-1-x86_64 downloading...
+ libopenssl-3.6.2-1-x86_64 downloading...
+ gawk-5.4.0-1-x86_64 downloading...
+ libgnutls-3.8.13-1-x86_64 downloading...
+ ncurses-6.6-1-x86_64 downloading...
+ gcc-libs-15.2.0-1-x86_64 downloading...
+ curl-8.20.0-1-x86_64 downloading...
+ tar-1.35-3-x86_64 downloading...
+ xz-5.8.3-1-x86_64 downloading...
+ libunistring-1.4.2-1-x86_64 downloading...
+ libsqlite-3.53.1-1-x86_64 downloading...
+ libiconv-1.19-1-x86_64 downloading...
+ openssl-3.6.2-1-x86_64 downloading...
+ nano-9.0-1-x86_64 downloading...
+ libgcrypt-1.12.2-1-x86_64 downloading...
+ p11-kit-0.26.2-1-x86_64 downloading...
+ file-5.47-1-x86_64 downloading...
+ gmp-6.3.0-2-x86_64 downloading...
+ ca-certificates-20250419-1-any downloading...
+ mpfr-4.2.2-1-x86_64 downloading...
+ libreadline-8.3.003-1-x86_64 downloading...
+ brotli-1.2.0-1-x86_64 downloading...
+ libcurl-8.20.0-1-x86_64 downloading...
+ bsdtar-3.8.7-1-x86_64 downloading...
+ rebase-4.5.0-5-x86_64 downloading...
+ tzcode-2026a-1-x86_64 downloading...
+ libp11-kit-0.26.2-1-x86_64 downloading...
+ inetutils-2.7-1-x86_64 downloading...
+ bash-completion-2.17.0-2-any downloading...
+ gdbm-1.26-1-x86_64 downloading...
+ libgpg-error-1.60-1-x86_64 downloading...
+ info-7.2-3-x86_64 downloading...
+ libhogweed-3.10.2-1-x86_64 downloading...
+ libngtcp2-1.22.1-1-x86_64 downloading...
+ libpcre2_8-10.47-1-x86_64 downloading...
+ libidn2-2.3.8-1-x86_64 downloading...
+ less-692-1-x86_64 downloading...
+ libnettle-3.10.2-1-x86_64 downloading...
+ libksba-1.6.8-1-x86_64 downloading...
+ gzip-1.14-1-x86_64 downloading...
+ libtasn1-4.21.0-1-x86_64 downloading...
+ nettle-3.10.2-1-x86_64 downloading...
+ libassuan-3.0.2-1-x86_64 downloading...
+ liblzma-5.8.3-1-x86_64 downloading...
+ libxcrypt-4.5.2-1-x86_64 downloading...
+ dash-0.5.13.4-1-x86_64 downloading...
+ libnghttp3-1.15.0-1-x86_64 downloading...
+ libnghttp2-1.69.0-1-x86_64 downloading...
+ libexpat-2.8.1-1-x86_64 downloading...
+ zlib-1.3.2-1-x86_64 downloading...
+ pinentry-1.3.2-1-x86_64 downloading...
+ msys2-keyring-1~20260214-1-any downloading...
+ libargp-20260115-1-x86_64 downloading...
+ libgdbm-1.26-1-x86_64 downloading...
+ libffi-3.5.2-1-x86_64 downloading...
+ time-1.10-1-x86_64 downloading...
+ which-2.23-4-x86_64 downloading...
+ getent-2.18.90-6-x86_64 downloading...
+checking keyring...
+checking package integrity...
+]0;(C:\CraftRoot) craft craft Duration: 2min 50s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+upgrading bash-completion...
+upgrading gcc-libs...
+upgrading brotli...
+upgrading libiconv...
+upgrading libexpat...
+upgrading liblzma...
+upgrading libopenssl...
+upgrading zlib...
+upgrading bsdtar...
+upgrading openssl...
+upgrading libffi...
+upgrading ncurses...
+]0;(C:\CraftRoot) craft craft Duration: 3min 0s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\upgrading libpcre2_8...
+upgrading less...
+upgrading gzip...
+upgrading libxcrypt...
+upgrading info...
+upgrading libtasn1...
+upgrading libp11-kit...
+upgrading p11-kit...
+upgrading gmp...
+upgrading ca-certificates...
+]0;(C:\CraftRoot) craft craft Duration: 3min 10s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\upgrading libunistring...
+upgrading libidn2...
+installing libnghttp3...
+installing libngtcp2...
+upgrading libnghttp2...
+upgrading libcurl...
+upgrading curl...
+upgrading dash...
+upgrading file...
+upgrading mpfr...
+upgrading libreadline...
+upgrading gawk...
+upgrading libgdbm...
+upgrading gdbm...
+upgrading libargp...
+upgrading getent...
+upgrading libgpg-error...
+upgrading libassuan...
+upgrading libgcrypt...
+upgrading libhogweed...
+upgrading libnettle...
+upgrading libgnutls...
+upgrading libksba...
+upgrading libsqlite...
+upgrading nettle...
+upgrading pinentry...
+upgrading gnupg...
+==> Appending keys from msys2.gpg...
+==> Updating trust database...
+gpg: next trustdb check due at 2026-08-13
+upgrading inetutils...
+upgrading msys2-keyring...
+==> Appending keys from msys2.gpg...
+]0;(C:\CraftRoot) craft craft Duration: 3min 20s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\==> Updating trust database...
+gpg: next trustdb check due at 2026-08-13
+upgrading nano...
+upgrading perl...
+upgrading rebase...
+upgrading tar...
+upgrading time...
+upgrading tzcode...
+upgrading which...
+upgrading xz...
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+]0;(C:\CraftRoot) craft craft Duration: 3min 30s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\Killing processes * in C:\CraftRoot\msys
+:: Synchronizing package databases...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Sy --noconfirm --overwrite='*'
+ clangarm64 downloading...
+ mingw32 downloading...
+ mingw64 downloading...
+ ucrt64 downloading...
+ clang64 downloading...
+ msys downloading...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Qu --noconfirm
+Command ['C:\\CraftRoot\\msys\\usr\\bin\\bash.exe', '-c', 'pacman -Qu --noconfirm'] failed with exit code 1
+resolving dependencies...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -S base-devel msys/binutils msys/autoconf-archive msys/autotools msys/intltool msys/gettext-devel --noconfirm --overwrite='*' --needed
+looking for conflicting packages...
+
+Packages (39) autoconf-wrapper-20260320-1  autoconf2.13-2.13-6  autoconf2.69-2.69-4  autoconf2.71-2.71-4  autoconf2.72-2.72-4  autoconf2.73-2.73-1  automake-wrapper-20260320-1  automake1.11-1.11.6-6  automake1.12-1.12.6-6  automake1.13-1.13.4-7  automake1.14-1.14.1-6  automake1.15-1.15.1-4  automake1.16-1.16.5-1  automake1.17-1.17-1  automake1.18-1.18.1-1  bison-3.8.2-5  diffstat-1.69-1  diffutils-3.12-1  dos2unix-7.5.5-1  flex-2.6.4-4  iconv-1.19-1  libiconv-devel-1.19-1  libltdl-2.5.4-4  libtool-2.5.4-4  m4-1.4.21-1  make-4.4.1-2  patch-2.7.6-3  perl-Class-Inspector-1.36-1  perl-File-ShareDir-1.118-1  perl-XML-Parser-2.58-1  pkgconf-2.5.1-1  texinfo-7.2-3  texinfo-tex-7.2-3  autoconf-archive-2024.10.16-1  autotools-2022.01.16-2  base-devel-2024.11-1  binutils-2.46-2  gettext-devel-0.22.5-1  intltool-0.51.0-4
+
+Total Download Size:   19.34 MiB
+Total Installed Size:  96.96 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ binutils-2.46-2-x86_64 downloading...
+ gettext-devel-0.22.5-1-x86_64 downloading...
+ texinfo-7.2-3-x86_64 downloading...
+ bison-3.8.2-5-x86_64 downloading...
+ autoconf2.73-2.73-1-any downloading...
+ libiconv-devel-1.19-1-x86_64 downloading...
+ autoconf-archive-2024.10.16-1-any downloading...
+ automake1.18-1.18.1-1-any downloading...
+ automake1.17-1.17-1-any downloading...
+ automake1.16-1.16.5-1-any downloading...
+ automake1.15-1.15.1-4-any downloading...
+ make-4.4.1-2-x86_64 downloading...
+ automake1.14-1.14.1-6-any downloading...
+ automake1.12-1.12.6-6-any downloading...
+ automake1.13-1.13.4-7-any downloading...
+ automake1.11-1.11.6-6-any downloading...
+ dos2unix-7.5.5-1-x86_64 downloading...
+ libtool-2.5.4-4-x86_64 downloading...
+ diffutils-3.12-1-x86_64 downloading...
+ autoconf2.72-2.72-4-any downloading...
+ autoconf2.71-2.71-4-any downloading...
+ flex-2.6.4-4-x86_64 downloading...
+ autoconf2.69-2.69-4-any downloading...
+ m4-1.4.21-1-x86_64 downloading...
+ perl-XML-Parser-2.58-1-x86_64 downloading...
+ autoconf2.13-2.13-6-any downloading...
+ patch-2.7.6-3-x86_64 downloading...
+ pkgconf-2.5.1-1-x86_64 downloading...
+ intltool-0.51.0-4-x86_64 downloading...
+ libltdl-2.5.4-4-x86_64 downloading...
+ diffstat-1.69-1-x86_64 downloading...
+ texinfo-tex-7.2-3-x86_64 downloading...
+ perl-Class-Inspector-1.36-1-x86_64 downloading...
+ iconv-1.19-1-x86_64 downloading...
+ perl-File-ShareDir-1.118-1-x86_64 downloading...
+ autoconf-wrapper-20260320-1-any downloading...
+ automake-wrapper-20260320-1-any downloading...
+ autotools-2022.01.16-2-any downloading...
+ base-devel-2024.11-1-any downloading...
+checking keyring...
+checking package integrity...
+]0;(C:\CraftRoot) craft craft Duration: 3min 40s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing binutils...
+installing m4...
+installing bison...
+installing diffstat...
+installing diffutils...
+installing dos2unix...
+installing flex...
+installing texinfo...
+installing texinfo-tex...
+installing make...
+installing patch...
+Optional dependencies for patch
+    ed: for patch -e functionality
+installing base-devel...
+installing autoconf-archive...
+installing autoconf2.73...
+installing autoconf2.72...
+installing autoconf2.71...
+installing autoconf2.69...
+installing autoconf2.13...
+installing autoconf-wrapper...
+installing automake1.11...
+installing automake1.12...
+installing automake1.13...
+installing automake1.14...
+installing automake1.15...
+installing automake1.16...
+installing automake1.17...
+installing automake1.18...
+installing automake-wrapper...
+installing libltdl...
+installing libtool...
+installing pkgconf...
+installing autotools...
+installing perl-Class-Inspector...
+installing perl-File-ShareDir...
+installing perl-XML-Parser...
+installing intltool...
+installing iconv...
+installing libiconv-devel...
+installing gettext-devel...
+Optional dependencies for gettext-devel
+    cvs: for autopoint tool
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+]0;(C:\CraftRoot) craft craft Duration: 3min 50s Progress: 31% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;31\Killing processes * in C:\CraftRoot\msys
+executing command: autorebase.bat
+*** Craft all succeeded: dev-utils/msys-base after 2min 52s ***
+]0;(C:\CraftRoot) craft craft Duration: 3min 54s Progress: 34% Remaining Packages: ['dev-utils/jom', 'dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;34\================================================================================
+*** Handling package: dev-utils/jom, action: all ***
+*** Action: fetch-binary for dev-utils/jom ***
+Could not find dev-utils/jom=1_1_3 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel
+*** dev-utils/jom not found in cache ***
+*** Action: fetch for dev-utils/jom ***
+wget2 https://download.qt.io/official_releases/jom/jom_1_1_3.zip
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://download.qt.i]87[2A[1G0 files              100% [====================>]     253     --.-KB/s87[1A[1G[27G[Files: 0  Bytes: 253 ]87[2A[1G0 files              100% [====================>]     253     --.-KB/s87[2A[1G[27G[https://mirrors.20i.c]87[2A[1GC:\CraftRoot\downloa   2% [>                    ]   30.65K    --.-KB/s87[2A[1GC:\CraftRoot\downloa   6% [>                    ]   78.63K  383.78KB/s87[2A[1GC:\CraftRoot\downloa  16% [==>                  ]  190.57K  639.64KB/s87[2A[1GC:\CraftRoot\downloa  34% [======>              ]  414.44K    1023KB/s87[2A[1GC:\CraftRoot\downloa  74% [==============>      ]  878.19K    1.32MB/s87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.15M    1.76MB/s87[1A[1G[27G[Files: 1  Bytes: 1.15]8wget2 https://download.qt.io/official_releases/jom/md5sums.txt
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://download.qt.i]87[2A[1GC:\CraftRoot\downloa 100% [====================>]     970     --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 970 ]8*** Action: unpack for dev-utils/jom ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\jom\
+                                                       
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -snld20 -oC:\_\2bfe0ca7 C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 1213852 bytes (1186 KiB)
+
+Extracting archive: C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip
+  0%
+    
+--
+Path = C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip
+Type = zip
+Physical Size = 1213852
+
+Everything is Ok
+
+Files: 5
+Size:       2760277
+Compressed: 1213852
+*** Action: configure for dev-utils/jom ***
+*** Action: make for dev-utils/jom ***
+*** Action: cleanimage for dev-utils/jom ***
+*** Action: install for dev-utils/jom ***
+*** Action: post-install for dev-utils/jom ***
+*** Action: qmerge for dev-utils/jom ***
+*** Action: post-qmerge for dev-utils/jom ***
+*** Craft all succeeded: dev-utils/jom after 2s ***
+]0;(C:\CraftRoot) craft craft Duration: 3min 56s Progress: 37% Remaining Packages: ['dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;37\================================================================================
+*** Handling package: dev-utils/ninja, action: all ***
+*** Action: fetch-binary for dev-utils/ninja ***
+Could not find dev-utils/ninja=1.13.1 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel
+*** dev-utils/ninja not found in cache ***
+*** Action: fetch for dev-utils/ninja ***
+wget2 https://github.com/ninja-build/ninja/archive/v1.13.1.tar.gz
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://github.com/ni]87[2A[1G0 files                0% [<=>                  ]       0          B/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G0 files                0% [ <=>                 ]       0          B/s87[2A[1G[27G[https://codeload.gith]87[2A[1GC:\CraftRoot\downloa 100% [====================>]  285.25K    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 285.]8*** Action: unpack for dev-utils/ninja ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\ninja\
+                                                         
+  0%
+    
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x C:\CraftRoot\download\archives\dev-utils\ninja\ninja-1.13.1.tar.gz -so -bsp2 | C:\CraftRoot\dev-utils\bin\7za.exe x -si -oC:\_\5254c9e5 -ttar -snld20 -bsp0
+*** Action: configure for dev-utils/ninja ***
+-- The CXX compiler identification is MSVC 19.44.35226.0
+executing command: C:\CraftRoot\dev-utils\bin\cmake.exe -G NMake Makefiles -DBUILD_TESTING=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=C:/CraftRoot -DCMAKE_PREFIX_PATH=C:/CraftRoot -DCMAKE_REQUIRED_INCLUDES=C:/CraftRoot/include -DCMAKE_C_STANDARD_INCLUDE_DIRECTORIES=C:/CraftRoot/include -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -B C:\_\5254c9e5\build -S C:\_\5254c9e5\ninja-1.13.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- IPO / LTO enabled
+[33mCMake Warning at CMakeLists.txt:82 (message):
+  re2c 2 or later was not found; changes to src/*.in.cc will not affect your
+  build.
+
+[0m
+-- Looking for fork
+-- Looking for fork - not found
+-- Looking for pipe
+-- Looking for pipe - not found
+[33mCMake Warning at CMakeLists.txt:117 (message):
+  browse feature omitted due to missing `fork` and `pipe` functions
+Call Stack (most recent call first):
+  CMakeLists.txt:124 (check_platform_supports_browse_mode)
+
+[0m
+-- Configuring done (1.8s)
+-- Generating done (0.1s)
+[33mCMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_C_STANDARD_INCLUDE_DIRECTORIES
+    CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP
+    KDE_INSTALL_USE_QT_SYS_PATHS
+
+[0m
+-- Build files have been written to: C:/_/5254c9e5/build
+*** Action: make for dev-utils/ninja ***
+
+executing command: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\nmake.exe
+Microsoft (R) Program Maintenance Utility Version 14.44.35226.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+[  2%] [32mBuilding CXX object CMakeFiles/libninja-re2c.dir/src/depfile_parser.cc.obj[0m
+depfile_parser.cc
+[  5%] [32mBuilding CXX object CMakeFiles/libninja-re2c.dir/src/lexer.cc.obj[0m
+lexer.cc
+]0;(C:\CraftRoot) craft craft Duration: 4min 0s Progress: 37% Remaining Packages: ['dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;37\[  5%] Built target libninja-re2c
+[  7%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/build_log.cc.obj[0m
+build_log.cc
+[ 10%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/build.cc.obj[0m
+build.cc
+[ 13%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/clean.cc.obj[0m
+clean.cc
+[ 15%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/clparser.cc.obj[0m
+clparser.cc
+[ 18%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/dyndep.cc.obj[0m
+dyndep.cc
+[ 21%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/dyndep_parser.cc.obj[0m
+dyndep_parser.cc
+[ 23%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/debug_flags.cc.obj[0m
+debug_flags.cc
+[ 26%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/deps_log.cc.obj[0m
+deps_log.cc
+[ 28%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/disk_interface.cc.obj[0m
+disk_interface.cc
+[ 31%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/edit_distance.cc.obj[0m
+edit_distance.cc
+[ 34%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/elide_middle.cc.obj[0m
+elide_middle.cc
+[ 36%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/eval_env.cc.obj[0m
+eval_env.cc
+[ 39%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/graph.cc.obj[0m
+graph.cc
+]0;(C:\CraftRoot) craft craft Duration: 4min 10s Progress: 37% Remaining Packages: ['dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;37\[ 42%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/graphviz.cc.obj[0m
+graphviz.cc
+[ 44%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/jobserver.cc.obj[0m
+jobserver.cc
+[ 47%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/json.cc.obj[0m
+json.cc
+[ 50%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/line_printer.cc.obj[0m
+line_printer.cc
+[ 52%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/manifest_parser.cc.obj[0m
+manifest_parser.cc
+[ 55%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/metrics.cc.obj[0m
+metrics.cc
+[ 57%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/missing_deps.cc.obj[0m
+missing_deps.cc
+[ 60%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/parser.cc.obj[0m
+parser.cc
+[ 63%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/real_command_runner.cc.obj[0m
+real_command_runner.cc
+[ 65%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/state.cc.obj[0m
+state.cc
+[ 68%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/status_printer.cc.obj[0m
+status_printer.cc
+[ 71%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/string_piece_util.cc.obj[0m
+string_piece_util.cc
+[ 73%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/util.cc.obj[0m
+util.cc
+]0;(C:\CraftRoot) craft craft Duration: 4min 20s Progress: 37% Remaining Packages: ['dev-utils/ninja', 'dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;37\[ 76%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/version.cc.obj[0m
+version.cc
+[ 78%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/subprocess-win32.cc.obj[0m
+subprocess-win32.cc
+[ 81%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/includes_normalize-win32.cc.obj[0m
+includes_normalize-win32.cc
+[ 84%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/jobserver-win32.cc.obj[0m
+jobserver-win32.cc
+[ 86%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/msvc_helper-win32.cc.obj[0m
+msvc_helper-win32.cc
+[ 89%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/msvc_helper_main-win32.cc.obj[0m
+msvc_helper_main-win32.cc
+[ 92%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/getopt.c.obj[0m
+getopt.c
+[ 94%] [32mBuilding CXX object CMakeFiles/libninja.dir/src/minidump-win32.cc.obj[0m
+minidump-win32.cc
+[ 94%] Built target libninja
+[ 97%] [32mBuilding CXX object CMakeFiles/ninja.dir/src/ninja.cc.obj[0m
+ninja.cc
+[100%] [1m[32mLinking CXX executable ninja.exe[0m
+[100%] Built target ninja
+*** Action: cleanimage for dev-utils/ninja ***
+*** Action: install for dev-utils/ninja ***
+
+executing command: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\nmake.exe install
+Microsoft (R) Program Maintenance Utility Version 14.44.35226.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+[  5%] Built target libninja-re2c
+[ 94%] Built target libninja
+[100%] Built target ninja
+[36mInstall the project...[0m
+-- Install configuration: "MinSizeRel"
+-- Installing: C:/_/b00f4ce9/image-MinSizeRel-1.13.1/dev-utils/CraftRoot/bin/ninja.exe
+Could not find a PDB for C:\_\b00f4ce9\image-MinSizeRel-1.13.1\dev-utils\bin\ninja.exe
+*** Action: post-install for dev-utils/ninja ***
+*** Action: qmerge for dev-utils/ninja ***
+*** Action: post-qmerge for dev-utils/ninja ***
+*** Craft all succeeded: dev-utils/ninja after 32s ***
+]0;(C:\CraftRoot) craft craft Duration: 4min 28s Progress: 40% Remaining Packages: ['dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;40\================================================================================
+*** Handling package: dev-utils/pkgconf, action: all ***
+*** Action: fetch-binary for dev-utils/pkgconf ***
+Could not find dev-utils/pkgconf=2.4.3 in https://files.kde.org/craft/Qt6/25.10/windows/cl/msvc2022/x86_64/MinSizeRel
+*** dev-utils/pkgconf not found in cache ***
+*** Action: fetch for dev-utils/pkgconf ***
+wget2 https://distfiles.ariadne.space/pkgconf/pkgconf-2.4.3.tar.xz
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://distfiles.ari]87[2A[1GC:\CraftRoot\downloa   1% [>                    ]    5.78K    --.-KB/s87[2A[1GC:\CraftRoot\downloa  28% [=====>               ]   90.42K  677.11KB/s87[2A[1GC:\CraftRoot\downloa 100% [====================>]  313.82K    1.21MB/s87[1A[1G[27G[Files: 1  Bytes: 313.]87[2A[1GC:\CraftRoot\downloa 100% [====================>]  313.82K    1.21MB/s8*** Action: unpack for dev-utils/pkgconf ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\pkgconf\
+                                                           
+  0%
+    
+100% - pkgconf-2.4.3.tar
+                        
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x C:\CraftRoot\download\archives\dev-utils\pkgconf\pkgconf-2.4.3.tar.xz -so -bsp2 | C:\CraftRoot\dev-utils\bin\7za.exe x -si -oC:\_\9e5869cf -ttar -snld20 -bsp0
+*** Action: configure for dev-utils/pkgconf ***
+]0;(C:\CraftRoot) craft craft Duration: 4min 30s Progress: 40% Remaining Packages: ['dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c /c/_/9e5869cf/pkgconf-2.4.3/configure --with-system-includedir=C:/CraftRoot/include/ --with-system-libdir=C:/CraftRoot/lib/ --with-pkg-config-dir=C:/CraftRoot/lib/pkgconfig/ --with-personality-dir=C:/CraftRoot/bin/data/pkgconfig/personality.d/ LIBS=-lAdvapi32 --prefix=/c/CraftRoot --cache-file=/c/_/9e5869cf/build/config.cache --libdir=/c/CraftRoot/lib --datarootdir=/c/CraftRoot/bin/data --disable-static --enable-shared --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32
+]9;4;1;40\configure: creating cache /c/_/9e5869cf/build/config.cache
+checking for x86_64-w64-mingw32-gcc... /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo
+checking whether the C compiler works... yes
+checking for C compiler default output file name... conftest.exe
+checking for suffix of executables... .exe
+checking whether we are cross compiling... no
+checking for suffix of object files... obj
+checking whether the compiler supports GNU C... no
+checking whether /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo accepts -g... no
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to enable C11 features... unsupported
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to enable C99 features... unsupported
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to enable C89 features... unsupported
+checking whether /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo understands -c and -o together... yes
+checking whether C compiler accepts -Wall... yes
+checking whether C compiler accepts -Wextra... no
+checking whether C compiler accepts -Wformat=2... no
+checking whether C compiler accepts -std=gnu99... yes
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo options needed to detect all undeclared functions... none needed
+checking whether strlcpy is declared... no
+]0;(C:\CraftRoot) craft craft Duration: 4min 40s Progress: 40% Remaining Packages: ['dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;40\checking whether strlcat is declared... no
+checking whether strndup is declared... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... no
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... no
+checking whether reallocarray is declared... no
+checking for sys/stat.h... (cached) yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports the include directive... yes (GNU style)
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking dependency style of /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo... msvc7
+checking build system type... x86_64-w64-mingw32
+checking host system type... x86_64-w64-mingw32
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for non-GNU ld... link -nologo
+checking if the linker (link -nologo) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... dumpbin -nologo -symbols
+checking the name lister (dumpbin -nologo -symbols) interface... MS dumpbin
+checking whether ln -s works... no, using cp -pR
+checking the maximum length of command line arguments... 8192
+checking how to convert x86_64-w64-mingw32 file names to x86_64-w64-mingw32 format... func_convert_file_msys_to_w32
+checking how to convert x86_64-w64-mingw32 file names to toolchain format... func_convert_file_msys_to_w32
+checking for link -nologo option to reload object files... -r
+checking for file... file
+checking for x86_64-w64-mingw32-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... file_magic ^x86 archive import|^x86 DLL
+checking for x86_64-w64-mingw32-dlltool... no
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... func_cygming_dll_for_implib
+checking for x86_64-w64-mingw32-ranlib... :
+checking for x86_64-w64-mingw32-ar... /c/CraftRoot/msys/usr/share/automake-1.18/ar-lib lib
+checking for archiver @FILE support... @
+checking for x86_64-w64-mingw32-strip... :
+checking command to parse dumpbin -nologo -symbols output from /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for x86_64-w64-mingw32-mt... no
+checking for mt... mt
+checking if mt is a manifest tool... yes
+checking for dlfcn.h... no
+checking for objdir... .libs
+]0;(C:\CraftRoot) craft craft Duration: 4min 50s Progress: 40% Remaining Packages: ['dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;40\checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to produce PIC... -DDLL_EXPORT -DPIC
+checking if /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo PIC flag -DDLL_EXPORT -DPIC works... yes
+checking if /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo static flag  works... yes
+checking if /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo supports -c -o file.obj... yes
+checking if /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo supports -c -o file.obj... (cached) yes
+checking whether the /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo linker (link -nologo) supports shared libraries... yes
+checking dynamic linker characteristics... Win32 link.exe
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to enable large file support... support not detected
+checking how to run the C preprocessor... cl -nologo -E
+checking for x86_64-w64-mingw32-gcc... (cached) /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo
+checking whether the compiler supports GNU C... (cached) no
+checking whether /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo accepts -g... (cached) no
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to enable C11 features... (cached) unsupported
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to enable C99 features... (cached) unsupported
+checking for /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo option to enable C89 features... (cached) unsupported
+checking whether /c/CraftRoot/msys/usr/share/automake-1.18/compile cl -nologo understands -c and -o together... (cached) yes
+checking whether ln -s works... no, using cp -pR
+configure: updating cache /c/_/9e5869cf/build/config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+]0;(C:\CraftRoot) craft craft Duration: 5min 0s Progress: 40% Remaining Packages: ['dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;40\config.status: creating Makefile
+config.status: creating Kyuafile
+config.status: creating libpkgconf.pc
+config.status: creating tests/Kyuafile
+config.status: creating tests/test_env.sh
+config.status: creating libpkgconf/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+*** Action: make for dev-utils/pkgconf ***
+make: *** No rule to make target '/c/_/9e5869cf/pkgconf-2.4.3/Makefile.am', needed by '/c/_/9e5869cf/pkgconf-2.4.3/Makefile.in'.  Stop.
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c /c/mingw64/bin/make.exe -j 4
+Command ['C:\\CraftRoot\\msys\\usr\\bin\\bash.exe', '-c', '/c/mingw64/bin/make.exe -j 4'] failed with exit code 2
+Action: make for dev-utils/pkgconf:2.4.3 FAILED
+*** Craft all failed: dev-utils/pkgconf after 37s ***
+fatal error: package dev-utils/pkgconf all failed
+Craft stopped with out completing ['dev-utils/pkgconf', 'libs/libb2', 'libs/libbzip2', 'libs/expat', 'libs/zlib', 'dev-utils/perl', 'dev-utils/nasm', 'libs/openssl', 'libs/iconv', 'libs/liblzma', 'libs/icu', 'libs/libxml2', 'libs/libunistring', 'libs/gettext', 'libs/sqlite', 'libs/libffi', 'libs/python', 'dev-utils/msys', 'virtual/base', 'craft/craft-core', 'craft/craft-blueprints-kde']
+
+Execute: C:\hostedtoolcache\windows\Python\3.12.10\x64\python.exe C:\CraftRoot\craft-tmp\bin\craft.py craft
