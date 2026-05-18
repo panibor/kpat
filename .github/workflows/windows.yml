@@ -43,6 +43,11 @@ env:
   # pkgconf tarballs (2.4.3 and 2.5.1 alike) trip autotools' Makefile.in
   # regen rule under MSYS+MSVC.
   CRAFT_BUILDTYPE: 'RelWithDebInfo'
+  # Craft ships a CMake 4.x binary; libfreecell-solver/man/CMakeLists.txt and
+  # likely a handful of other ancient transitive deps (black-hole-solver and
+  # other shlomif libs) still call `cmake_minimum_required(VERSION 2.x)`.
+  # CMake 4.0+ honours this env var as the floor instead of erroring out.
+  CMAKE_POLICY_VERSION_MINIMUM: '3.5'
 
 jobs:
   build:
