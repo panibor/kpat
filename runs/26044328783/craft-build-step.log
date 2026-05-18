@@ -1,0 +1,80 @@
+**********************
+PowerShell transcript start
+Start time: 20260518155120
+Username: runnervmy2hk6\runneradmin
+RunAs User: runnervmy2hk6\runneradmin
+Configuration Name: 
+Machine: runnervmy2hk6 (Microsoft Windows NT 10.0.20348.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -command . 'D:\a\_temp\1f50dba4-b42d-4995-a2e2-0e8cacb7cbf3.ps1'
+Process ID: 5744
+PSVersion: 7.4.15
+PSEdition: Core
+GitCommitId: 7.4.15
+OS: Microsoft Windows 10.0.20348
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Receive-Job: D:\a\_temp\1f50dba4-b42d-4995-a2e2-0e8cacb7cbf3.ps1:45
+Line |
+  45 |    Receive-Job $job 2>&1 | Out-Host
+     |    ~~~~~~~~~~~~~~~~~~~~~
+     | The handle is invalid.
+
+Found "sh" in your PATH: "C:\Program Files\Git\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Found "gcc" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Found "g++" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Found "cpp" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Craft               : C:\CraftRoot
+ABI                 : windows-cl-msvc2022-x86_64
+Download directory  : C:\CraftRoot\download
+Cache repository    : https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64
+Craft               : C:\CraftRoot
+ABI                 : windows-cl-msvc2022-x86_64
+Download directory  : C:\CraftRoot\download
+Cache repository    : https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64
+]0;(C:\CraftRoot) craft --install-deps kde/kdegames/kpat Duration: 0s]0;(C:\CraftRoot) craft --install-deps kde/kdegames/kpat Duration: 1s Progress: 0% Remaining Packages: ['libs/qt6/qtbase', 'libs/qt6/qtshadertools', 'libs/qt6/qtsvg', 'libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;0\================================================================================
+*** Handling package: libs/qt6/qtbase, action: all ***
+*** Action: fetch-binary for libs/qt6/qtbase ***
+Could not find libs/qt6/qtbase=6.10.2 in https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/MinSizeRel
+*** libs/qt6/qtbase not found in cache ***
+*** Action: fetch for libs/qt6/qtbase ***
+*** Action: unpack for libs/qt6/qtbase ***
+Failed to find
+	[ShortPath]
+	DriveLetter = ...
+in your CraftSettings.ini
+*** Craft all succeeded: libs/qt6/qtbase after 0s ***
+Craft stopped with out completing ['libs/qt6/qtbase', 'libs/qt/qtbase', 'libs/qt6/qtshadertools', 'libs/qt6/qtsvg', 'libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/qt/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'libs/qt/qttools', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'libs/qt/qtdeclarative', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'libs/qt/qtwayland', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'libs/qt/qtsvg', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'libs/qt/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']
+install-deps exit=1
+Final job state: Completed; artifacts produced: False
+**********************
+PowerShell transcript end
+End time: 20260518155150
+**********************
