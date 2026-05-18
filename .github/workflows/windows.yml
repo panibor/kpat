@@ -103,27 +103,41 @@ jobs:
       - name: Configure wget2 timeouts
         shell: pwsh
         run: |
-          # wget2 (Craft's binary fetcher for prebuilt .7z packages) doesn't
-          # apply a per-connection timeout by default, so a hung KDE mirror
-          # stalls the entire job indefinitely. Observed in run 26049942529
-          # at install-deps qtdeclarative: 0% transferred for 8+ minutes,
-          # no error, no progress, both files.kde.org and the ukfast mirror
-          # enqueued but neither writing bytes.
-          # wget2 reads ~/.wget2rc on startup; setting timeouts there forces
-          # a stuck mirror to fail fast, after which wget2 retries
-          # (up to --tries) and Craft falls through to source build if
-          # all mirrors are unreachable.
-          $rc = Join-Path $env:USERPROFILE '.wget2rc'
+          # wget2 (Craft's binary fetcher for prebuilt .7z packages) parallel-
+          # fetches the same archive from multiple KDE mirrors via HTTP/2 multi-
+          # connection. When one mirror accepts the TCP handshake then stalls
+          # without sending body bytes, wget2's per-connection read-timeout
+          # never fires (the parallel-fetch state machine keeps the connection
+          # "valid" while waiting on the other mirror, which is also hanging).
+          # The whole job parks until the 5h20m watchdog. Observed twice
+          # (runs 26049942529 + 26050xxxxx) on qtdeclarative/kdnssd.
+          #
+          # Force single-threaded fetching so a hung mirror trips the normal
+          # read-timeout, fails the action, wget2 retries on the next mirror,
+          # and Craft falls through to source build if every mirror is
+          # unreachable.
+          #
+          # wget2 on Windows now reads %LOCALAPPDATA%\wget\wget2rc; the older
+          # %USERPROFILE%\.wget2rc location still works but emits a deprecation
+          # warning per-invocation, so use the modern path.
+          $rcDir  = Join-Path $env:LOCALAPPDATA 'wget'
+          $rcFile = Join-Path $rcDir 'wget2rc'
+          New-Item -ItemType Directory -Force -Path $rcDir | Out-Null
           @(
               '# Written by .github/workflows/windows.yml'
-              'connect-timeout = 30'
-              'timeout = 30'
-              'read-timeout = 30'
-              'tries = 3'
+              'max-threads = 1'
+              'connect-timeout = 20'
+              'timeout = 20'
+              'read-timeout = 20'
+              'tries = 4'
               'waitretry = 5'
-          ) | Set-Content -Path $rc -Encoding ASCII
-          Write-Host "--- $rc ---"
-          Get-Content $rc
+          ) | Set-Content -Path $rcFile -Encoding ASCII
+          # Also drop a copy at the legacy path, just in case some wget2 build
+          # on the runner only honours the old location.
+          $legacy = Join-Path $env:USERPROFILE '.wget2rc'
+          Copy-Item $rcFile $legacy -Force
+          Write-Host "--- $rcFile ---"
+          Get-Content $rcFile
 
       - name: Bootstrap Craft (if not already present)
         shell: pwsh
