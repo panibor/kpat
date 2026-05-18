@@ -173,85 +173,6 @@ jobs:
 
           throw "Craft bootstrap failed after $maxAttempts attempts. See log groups above for the real Python/CraftBootstrap error."
 
-      - name: Dump bootstrap logs (on failure)
-        if: failure()
-        shell: pwsh
-        run: |
-          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue) | Sort-Object Name
-          if (-not $logs) {
-            Write-Host "No craft-*.log files found in $env:RUNNER_TEMP."
-            exit 0
-          }
-          foreach ($log in $logs) {
-            $kb = [math]::Round($log.Length / 1KB, 1)
-            Write-Host ""
-            Write-Host "=================================================================="
-            Write-Host "===== BEGIN $($log.Name) ($kb KB) ====="
-            Write-Host "=================================================================="
-            Get-Content -Path $log.FullName | ForEach-Object { Write-Host $_ }
-            Write-Host "=================================================================="
-            Write-Host "===== END $($log.Name) ====="
-            Write-Host "=================================================================="
-          }
-
-      - name: Upload bootstrap logs (on failure)
-        if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: bootstrap-logs
-          path: |
-            ${{ runner.temp }}/craft-bootstrap-*.log
-            ${{ runner.temp }}/craft-build-step.log
-          if-no-files-found: ignore
-          retention-days: 7
-
-      - name: Publish bootstrap logs to ci-logs branch (on failure)
-        if: failure()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: pwsh
-        run: |
-          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue)
-          if (-not $logs) {
-            Write-Host "No craft-*.log files to publish."
-            exit 0
-          }
-
-          git config --global user.email 'actions@github.com'
-          git config --global user.name 'github-actions[bot]'
-
-          $repoUrl  = "https://x-access-token:$($env:GH_TOKEN)@github.com/${{ github.repository }}.git"
-          $cloneDir = Join-Path $env:RUNNER_TEMP 'ci-logs-repo'
-          if (Test-Path $cloneDir) { Remove-Item -Recurse -Force $cloneDir }
-
-          # Try to clone an existing ci-logs branch; fall back to creating a fresh orphan.
-          git clone --depth 1 --branch ci-logs --single-branch $repoUrl $cloneDir
-          if ($LASTEXITCODE -ne 0) {
-            Remove-Item -Recurse -Force $cloneDir -ErrorAction SilentlyContinue
-            New-Item -ItemType Directory -Force -Path $cloneDir | Out-Null
-            Set-Location $cloneDir
-            git init -b ci-logs
-            git remote add origin $repoUrl
-            '# CI logs (auto-published from failed Windows-Craft runs).' | Set-Content README.md
-            git add README.md
-            git commit -m 'init ci-logs branch'
-          } else {
-            Set-Location $cloneDir
-          }
-
-          $runDir = "runs/${{ github.run_id }}"
-          New-Item -ItemType Directory -Force -Path $runDir | Out-Null
-          foreach ($log in $logs) {
-            Copy-Item $log.FullName (Join-Path $runDir $log.Name) -Force
-          }
-          git add $runDir
-          git commit -m "bootstrap failure logs for run ${{ github.run_id }} (PR #${{ github.event.pull_request.number }})"
-          if ($LASTEXITCODE -ne 0) {
-            Write-Host "Nothing to commit (logs unchanged)."
-            exit 0
-          }
-          git push origin ci-logs
-
       - name: Configure local kpat source for Craft
         shell: pwsh
         run: |
@@ -346,8 +267,94 @@ jobs:
           } finally {
             Stop-Transcript -ErrorAction SilentlyContinue | Out-Null
           }
-          # Always succeed so the cache-save / resume-dispatch steps run.
+          # On PR runs, surface build failures by exiting non-zero so the
+          # check turns red and the publish-logs steps below run. On
+          # push/workflow_dispatch we keep exiting 0 so cache-save and
+          # re-dispatch chains stay intact for long checkpointed builds.
+          if ('${{ github.event_name }}' -eq 'pull_request' -and -not $produced) {
+            Write-Host "::error::PR build produced no artifacts; failing job."
+            exit 1
+          }
           exit 0
+
+      - name: Dump bootstrap + build logs (on failure)
+        if: failure()
+        shell: pwsh
+        run: |
+          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue) | Sort-Object Name
+          if (-not $logs) {
+            Write-Host "No craft-*.log files found in $env:RUNNER_TEMP."
+            exit 0
+          }
+          foreach ($log in $logs) {
+            $kb = [math]::Round($log.Length / 1KB, 1)
+            Write-Host ""
+            Write-Host "=================================================================="
+            Write-Host "===== BEGIN $($log.Name) ($kb KB) ====="
+            Write-Host "=================================================================="
+            Get-Content -Path $log.FullName | ForEach-Object { Write-Host $_ }
+            Write-Host "=================================================================="
+            Write-Host "===== END $($log.Name) ====="
+            Write-Host "=================================================================="
+          }
+
+      - name: Upload bootstrap + build logs (on failure)
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: bootstrap-logs
+          path: |
+            ${{ runner.temp }}/craft-bootstrap-*.log
+            ${{ runner.temp }}/craft-build-step.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Publish bootstrap + build logs to ci-logs branch (on failure)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue)
+          if (-not $logs) {
+            Write-Host "No craft-*.log files to publish."
+            exit 0
+          }
+
+          git config --global user.email 'actions@github.com'
+          git config --global user.name 'github-actions[bot]'
+
+          $repoUrl  = "https://x-access-token:$($env:GH_TOKEN)@github.com/${{ github.repository }}.git"
+          $cloneDir = Join-Path $env:RUNNER_TEMP 'ci-logs-repo'
+          if (Test-Path $cloneDir) { Remove-Item -Recurse -Force $cloneDir }
+
+          # Try to clone an existing ci-logs branch; fall back to creating a fresh orphan.
+          git clone --depth 1 --branch ci-logs --single-branch $repoUrl $cloneDir
+          if ($LASTEXITCODE -ne 0) {
+            Remove-Item -Recurse -Force $cloneDir -ErrorAction SilentlyContinue
+            New-Item -ItemType Directory -Force -Path $cloneDir | Out-Null
+            Set-Location $cloneDir
+            git init -b ci-logs
+            git remote add origin $repoUrl
+            '# CI logs (auto-published from failed Windows-Craft runs).' | Set-Content README.md
+            git add README.md
+            git commit -m 'init ci-logs branch'
+          } else {
+            Set-Location $cloneDir
+          }
+
+          $runDir = "runs/${{ github.run_id }}"
+          New-Item -ItemType Directory -Force -Path $runDir | Out-Null
+          foreach ($log in $logs) {
+            Copy-Item $log.FullName (Join-Path $runDir $log.Name) -Force
+          }
+          git add $runDir
+          git commit -m "failure logs for run ${{ github.run_id }} (PR #${{ github.event.pull_request.number }})"
+          if ($LASTEXITCODE -ne 0) {
+            Write-Host "Nothing to commit (logs unchanged)."
+            exit 0
+          }
+          git push origin ci-logs
 
       - name: Stage artifacts for upload
         if: steps.build.outputs.produced == 'true'
@@ -383,7 +390,16 @@ jobs:
           key: craft-win-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}-${{ github.run_id }}
 
       - name: Re-dispatch workflow to resume from checkpoint
-        if: steps.build.outputs.checkpointed == 'true' && github.event_name != 'schedule'
+        # gh workflow run requires the workflow file to exist on the default
+        # branch, so re-dispatch only makes sense once this workflow has
+        # landed there. PR runs short-circuit above by exiting 1 from the
+        # build step instead. continue-on-error keeps a misfiring dispatch
+        # from masking a real build outcome (e.g. cache-save just ran).
+        if: |
+          steps.build.outputs.checkpointed == 'true' &&
+          github.event_name != 'pull_request' &&
+          github.event_name != 'schedule'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh
