@@ -53,9 +53,11 @@
 #include <QApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
+#include <QDir>
 #include <QDomDocument>
 #include <QElapsedTimer>
 #include <QFile>
+#include <QFileInfo>
 #include <QRandomGenerator>
 #include <QStandardPaths>
 #include <QTime>
@@ -298,6 +300,79 @@ bool solveRange(QCommandLineParser &parser)
     return true;
 }
 
+// store.kde.org card-deck and theme uploads are inconsistent: some archives
+// include a wrapper directory, some don't. When the on-disk layout after a
+// KNewStuff download doesn't match what the discovery code expects, the
+// theme is invisible in the picker even though the files are there. Hoist
+// the hoist-able cases up one level so both discovery paths can find them.
+static void normalizeDownloadedThemes()
+{
+    auto rmIfEmpty = [](const QString &path) {
+        if (QDir(path).isEmpty())
+            QDir().rmdir(path);
+    };
+
+    // Card decks: KCardTheme::findAll expects <carddecks>/<theme>/index.desktop
+    const QStringList deckRoots = QStandardPaths::locateAll(
+        QStandardPaths::GenericDataLocation,
+        QStringLiteral("carddecks"),
+        QStandardPaths::LocateDirectory);
+    for (const QString &root : deckRoots) {
+        if (!QFileInfo(root).isWritable())
+            continue;
+        const QStringList children = QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &child : children) {
+            const QString childPath = root + QLatin1Char('/') + child;
+            if (QFile::exists(childPath + QLatin1String("/index.desktop")))
+                continue;
+            const QStringList grand = QDir(childPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+            for (const QString &gc : grand) {
+                const QString gcPath = childPath + QLatin1Char('/') + gc;
+                if (!QFile::exists(gcPath + QLatin1String("/index.desktop")))
+                    continue;
+                const QString dest = root + QLatin1Char('/') + gc;
+                if (QFileInfo::exists(dest))
+                    continue;
+                if (QDir().rename(gcPath, dest))
+                    qCDebug(KPAT_LOG) << "Hoisted card deck" << gc << "out of wrapper" << child;
+            }
+            rmIfEmpty(childPath);
+        }
+    }
+
+    // Game themes: KGameThemeProvider::discoverThemes expects <kpat/themes>/<theme>.desktop flat
+    const QStringList themeRoots = QStandardPaths::locateAll(
+        QStandardPaths::GenericDataLocation,
+        QStringLiteral("kpat/themes"),
+        QStandardPaths::LocateDirectory);
+    for (const QString &root : themeRoots) {
+        if (!QFileInfo(root).isWritable())
+            continue;
+        const QStringList children = QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &child : children) {
+            const QString childPath = root + QLatin1Char('/') + child;
+            const QStringList files = QDir(childPath).entryList(QDir::Files);
+            bool hasDesktop = false;
+            for (const QString &f : files) {
+                if (f.endsWith(QLatin1String(".desktop"))) {
+                    hasDesktop = true;
+                    break;
+                }
+            }
+            if (!hasDesktop)
+                continue;
+            for (const QString &f : files) {
+                const QString dest = root + QLatin1Char('/') + f;
+                if (QFileInfo::exists(dest))
+                    continue;
+                if (QFile::rename(childPath + QLatin1Char('/') + f, dest))
+                    qCDebug(KPAT_LOG) << "Hoisted game theme file" << f << "out of wrapper" << child;
+            }
+            rmIfEmpty(childPath);
+        }
+    }
+}
+
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
@@ -346,6 +421,8 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(aboutData);
 
     KCrash::initialize();
+
+    normalizeDownloadedThemes();
 
     // Create a KLocale earlier than normal so that we can use i18n to translate
     // the names of the game types in the help text.
