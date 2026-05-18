@@ -37,6 +37,12 @@ env:
   # Stop the build at 5h20m to leave headroom for cache save + re-dispatch
   # under the GitHub-enforced 6h-per-job hard cap.
   WATCHDOG_MINUTES: '320'
+  # KDE/craft pinned to the commit immediately before "pkgconf 2.5.1" landed
+  # (ca2b1ba6d). pkgconf 2.5.1's source tarball ships Makefile.in without the
+  # corresponding Makefile.am, so the autotools maintainer-mode regen rule
+  # blows up on the first 'make' inside 'craft craft'. Bump this SHA forward
+  # once upstream ships a fix (revert, or 2.5.2 with the missing file).
+  CRAFT_PIN_SHA: '000b55f17ca5f0b04ae1858e14d2e893ecbf0957'
 
 jobs:
   build:
@@ -66,17 +72,16 @@ jobs:
           path: kpat-src
           fetch-depth: 0
 
-      - name: Resolve craft-blueprints-kde Qt6/26.02 SHA
+      - name: Resolve craft-blueprints-kde HEAD SHA
         id: bp
         shell: pwsh
         run: |
-          # Pinned to the Qt6/26.02 release branch to match the binary cache repo
-          # (files.kde.org/craft/Qt6/26.02) and to dodge master breakage like the
-          # pkgconf 2.5.1 tarball missing Makefile.am.
-          $line = (git ls-remote https://invent.kde.org/packaging/craft-blueprints-kde.git refs/heads/Qt6/26.02 | Select-Object -First 1)
+          # craft-blueprints-kde tracks master; the pkgconf 2.5.1 breakage lives
+          # in the *other* repo (KDE/craft, pinned via CRAFT_PIN_SHA below).
+          $line = (git ls-remote https://invent.kde.org/packaging/craft-blueprints-kde.git HEAD | Select-Object -First 1)
           $sha = ($line -split '\s+')[0]
-          if (-not $sha) { throw "Could not resolve craft-blueprints-kde Qt6/26.02 SHA" }
-          Write-Host "Blueprints Qt6/26.02 SHA: $sha"
+          if (-not $sha) { throw "Could not resolve craft-blueprints-kde HEAD" }
+          Write-Host "Blueprints HEAD: $sha"
           "sha=$sha" | Out-File -Append $env:GITHUB_OUTPUT
 
       - name: Restore Craft cache
@@ -110,7 +115,7 @@ jobs:
 
           # Fetch CraftBootstrap.py from KDE's GitHub mirror (invent.kde.org sometimes
           # blocks raw fetches from CI runners; the mirror is auto-synced).
-          $bootUrl  = 'https://raw.githubusercontent.com/KDE/craft/Qt6/26.02/setup/CraftBootstrap.py'
+          $bootUrl  = "https://raw.githubusercontent.com/KDE/craft/${{ env.CRAFT_PIN_SHA }}/setup/CraftBootstrap.py"
           $bootFile = Join-Path $env:RUNNER_TEMP 'CraftBootstrap.py'
 
           $maxAttempts = 3
@@ -128,14 +133,14 @@ jobs:
 
             # --use-defaults makes the bootstrap non-interactive (picks MSVC 2022 x86_64
             # on windows-2022 runners). Without this flag the script blocks on stdin.
-            # --branch Qt6/26.02 pins both craft and craft-blueprints-kde to the
-            # release branch matching the files.kde.org/craft/Qt6/26.02 binary cache.
+            # --branch is fed a commit SHA (see CRAFT_PIN_SHA in the workflow env);
+            # invent.kde.org's GitLab archive endpoint accepts any ref, branch or SHA.
             # 2>&1 | Tee-Object streams BOTH stdout and stderr to the runner log so
             # the real upstream error is visible, and archives a copy for later inspection.
             & python $bootFile `
                 --prefix '${{ env.CRAFT_ROOT }}' `
                 --use-defaults `
-                --branch Qt6/26.02 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\craft-bootstrap-$attempt.log"
+                --branch '${{ env.CRAFT_PIN_SHA }}' 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\craft-bootstrap-$attempt.log"
             $rc = $LASTEXITCODE
             Write-Host "::endgroup::"
             Write-Host "CraftBootstrap.py exit code: $rc; craftenv.ps1 present: $(Test-Path $envScript)"
