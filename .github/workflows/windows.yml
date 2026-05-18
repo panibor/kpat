@@ -173,6 +173,44 @@ jobs:
 
           throw "Craft bootstrap failed after $maxAttempts attempts. See log groups above for the real Python/CraftBootstrap error."
 
+      - name: Patch CraftSettings.ini for Qt6 builds
+        shell: pwsh
+        run: |
+          # 1. libs/qt6's Pattern class overrides workDir() with
+          #    CraftShortPath.createSubstShortPath, which requires
+          #    [ShortPath] DriveLetter. CraftBootstrap.py only sets JunctionDir,
+          #    so the qtbase unpack step would otherwise hit CraftConfig.get's
+          #    "Failed to find / exit(1)" path during install-deps.
+          # 2. Force [Compile] BuildType = RelWithDebInfo on disk too. The
+          #    template already defaults to this, but the runtime ended up
+          #    pointing at files.kde.org/.../MinSizeRel anyway in the last run,
+          #    so write the explicit value rather than depending on whatever
+          #    overrode it.
+          $ini = "${{ env.CRAFT_ROOT }}\etc\CraftSettings.ini"
+          if (-not (Test-Path $ini)) {
+            throw "Expected CraftSettings.ini at $ini after bootstrap, found nothing."
+          }
+          $content = Get-Content $ini -Raw
+
+          # Uncomment / set DriveLetter (template ships it as '#DriveLetter = Z:/').
+          if ($content -match '(?m)^#?\s*DriveLetter\s*=') {
+            $content = $content -replace '(?m)^#?\s*DriveLetter\s*=.*$', 'DriveLetter = Z:/'
+          } else {
+            $content = $content.TrimEnd("`r","`n") + "`r`n`r`n[ShortPath]`r`nDriveLetter = Z:/`r`n"
+          }
+
+          # Force BuildType (regex matches either commented or active line in [Compile]).
+          if ($content -match '(?m)^#?\s*BuildType\s*=') {
+            $content = $content -replace '(?m)^#?\s*BuildType\s*=.*$', 'BuildType = RelWithDebInfo'
+          } else {
+            $content = $content.TrimEnd("`r","`n") + "`r`n`r`n[Compile]`r`nBuildType = RelWithDebInfo`r`n"
+          }
+
+          Set-Content -Path $ini -Value $content -NoNewline
+          Write-Host "--- CraftSettings.ini key overrides ---"
+          Get-Content $ini | Select-String -Pattern '^\s*\[(ShortPath|Compile)\]|^\s*(DriveLetter|JunctionDir|BuildType)\s*=' | ForEach-Object { Write-Host $_.Line }
+          Write-Host "---------------------------------------"
+
       - name: Configure local kpat source for Craft
         shell: pwsh
         run: |
@@ -217,19 +255,24 @@ jobs:
             $deadlineMin = [int]'${{ env.WATCHDOG_MINUTES }}'
 
             $buildScript = {
-              param($CraftRoot, $Blueprint)
+              param($CraftRoot, $Blueprint, $BuildType)
               $ErrorActionPreference = 'Continue'
               . "$CraftRoot\craft\craftenv.ps1"
-              craft --install-deps $Blueprint 2>&1
+              # --buildtype passed explicitly: the binary cache at
+              # files.kde.org/craft/Qt6/26.02/.../<BuildType>/ only has
+              # RelWithDebInfo prebuilts. Without this, Craft was looking
+              # under MinSizeRel/ and missing every binary, forcing slow
+              # source builds even for packages with prebuilts available.
+              craft --buildtype $BuildType --install-deps $Blueprint 2>&1
               if ($LASTEXITCODE -ne 0) { Write-Host "install-deps exit=$LASTEXITCODE"; return }
-              craft $Blueprint 2>&1
+              craft --buildtype $BuildType $Blueprint 2>&1
               if ($LASTEXITCODE -ne 0) { Write-Host "build exit=$LASTEXITCODE"; return }
-              craft --package $Blueprint 2>&1
+              craft --buildtype $BuildType --package $Blueprint 2>&1
               Write-Host "package exit=$LASTEXITCODE"
             }
 
             $job = Start-Job -ScriptBlock $buildScript `
-              -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}'
+              -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}', '${{ env.CRAFT_BUILDTYPE }}'
 
             while ($job.State -eq 'Running') {
               Receive-Job $job 2>&1 | Out-Host
