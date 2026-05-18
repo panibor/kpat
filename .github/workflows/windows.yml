@@ -37,12 +37,12 @@ env:
   # Stop the build at 5h20m to leave headroom for cache save + re-dispatch
   # under the GitHub-enforced 6h-per-job hard cap.
   WATCHDOG_MINUTES: '320'
-  # KDE/craft pinned to the commit immediately before "pkgconf 2.5.1" landed
-  # (ca2b1ba6d). pkgconf 2.5.1's source tarball ships Makefile.in without the
-  # corresponding Makefile.am, so the autotools maintainer-mode regen rule
-  # blows up on the first 'make' inside 'craft craft'. Bump this SHA forward
-  # once upstream ships a fix (revert, or 2.5.2 with the missing file).
-  CRAFT_PIN_SHA: '000b55f17ca5f0b04ae1858e14d2e893ecbf0957'
+  # files.kde.org binary cache is populated for RelWithDebInfo only. Without
+  # forcing this, Craft's bootstrap looks under MinSizeRel/, misses the
+  # prebuilt pkgconf, falls back to source build, and dies because the
+  # pkgconf tarballs (2.4.3 and 2.5.1 alike) trip autotools' Makefile.in
+  # regen rule under MSYS+MSVC.
+  CRAFT_BUILDTYPE: 'RelWithDebInfo'
 
 jobs:
   build:
@@ -76,8 +76,6 @@ jobs:
         id: bp
         shell: pwsh
         run: |
-          # craft-blueprints-kde tracks master; the pkgconf 2.5.1 breakage lives
-          # in the *other* repo (KDE/craft, pinned via CRAFT_PIN_SHA below).
           $line = (git ls-remote https://invent.kde.org/packaging/craft-blueprints-kde.git HEAD | Select-Object -First 1)
           $sha = ($line -split '\s+')[0]
           if (-not $sha) { throw "Could not resolve craft-blueprints-kde HEAD" }
@@ -115,7 +113,7 @@ jobs:
 
           # Fetch CraftBootstrap.py from KDE's GitHub mirror (invent.kde.org sometimes
           # blocks raw fetches from CI runners; the mirror is auto-synced).
-          $bootUrl  = "https://raw.githubusercontent.com/KDE/craft/${{ env.CRAFT_PIN_SHA }}/setup/CraftBootstrap.py"
+          $bootUrl  = 'https://raw.githubusercontent.com/KDE/craft/master/setup/CraftBootstrap.py'
           $bootFile = Join-Path $env:RUNNER_TEMP 'CraftBootstrap.py'
 
           $maxAttempts = 3
@@ -131,16 +129,31 @@ jobs:
               Start-Sleep -Seconds (10 * $attempt); continue
             }
 
+            # CraftBootstrap.py invokes its embedded `craft craft` runtime build
+            # with an empty extra-arg list (`cmd = []`). The file's binary cache
+            # at files.kde.org/craft/Qt6/<ver>/.../<buildtype>/ is only populated
+            # for RelWithDebInfo, but Craft defaults the lookup to MinSizeRel for
+            # the bootstrap packages, so pkgconf et al. miss the cache and fall
+            # to a source build that explodes (autotools regen rule pulling in
+            # Makefile.am that the MSVC+MSYS toolchain can't satisfy). Patch the
+            # cmd seed to force --buildtype, so the lookup hits the RelWithDebInfo
+            # cache where the prebuilt pkgconf actually lives.
+            $bootSrc = Get-Content $bootFile -Raw
+            $patched = $bootSrc -replace '(?m)^(\s*)cmd = \[\]\s*$', "`$1cmd = [`"--buildtype`", `"${{ env.CRAFT_BUILDTYPE }}`"]"
+            if ($patched -eq $bootSrc) {
+              throw "CraftBootstrap.py patch failed: 'cmd = []' line not found. Upstream may have changed the bootstrap structure; revisit the --buildtype injection."
+            }
+            Set-Content -Path $bootFile -Value $patched -NoNewline
+            Write-Host "Patched CraftBootstrap.py to force --buildtype ${{ env.CRAFT_BUILDTYPE }}"
+
             # --use-defaults makes the bootstrap non-interactive (picks MSVC 2022 x86_64
             # on windows-2022 runners). Without this flag the script blocks on stdin.
-            # --branch is fed a commit SHA (see CRAFT_PIN_SHA in the workflow env);
-            # invent.kde.org's GitLab archive endpoint accepts any ref, branch or SHA.
             # 2>&1 | Tee-Object streams BOTH stdout and stderr to the runner log so
             # the real upstream error is visible, and archives a copy for later inspection.
             & python $bootFile `
                 --prefix '${{ env.CRAFT_ROOT }}' `
                 --use-defaults `
-                --branch '${{ env.CRAFT_PIN_SHA }}' 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\craft-bootstrap-$attempt.log"
+                --branch master 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\craft-bootstrap-$attempt.log"
             $rc = $LASTEXITCODE
             Write-Host "::endgroup::"
             Write-Host "CraftBootstrap.py exit code: $rc; craftenv.ps1 present: $(Test-Path $envScript)"
