@@ -1,0 +1,257 @@
+name: Windows (Craft)
+
+on:
+  push:
+    branches: [master, main]
+    tags: ['v*-win']
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+    inputs:
+      resume:
+        description: 'Resume a checkpointed build (set automatically on re-dispatch).'
+        type: boolean
+        default: false
+      resume_count:
+        description: 'How many consecutive resumes have happened so far.'
+        type: string
+        default: '0'
+  schedule:
+    # Weekly cache warm-up; GitHub Actions evicts caches after 7 idle days.
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  # Push/PR events: cancel an in-flight run on the same ref so we don't burn
+  # minutes on stale code. Resume dispatches arrive as workflow_dispatch and
+  # must NOT be cancelled, otherwise the chain breaks.
+  group: windows-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+
+env:
+  CRAFT_ROOT: C:\CraftRoot
+  CRAFT_BLUEPRINT: kde/kdegames/kpat
+  MAX_RESUMES: '5'
+  # Stop the build at 5h20m to leave headroom for cache save + re-dispatch
+  # under the GitHub-enforced 6h-per-job hard cap.
+  WATCHDOG_MINUTES: '320'
+
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 350
+    permissions:
+      contents: read
+      actions: write   # required for `gh workflow run` (resume re-dispatch)
+    outputs:
+      checkpointed: ${{ steps.build.outputs.checkpointed }}
+      produced: ${{ steps.build.outputs.produced }}
+    steps:
+      - name: Guard against runaway resumes
+        shell: pwsh
+        run: |
+          $count = [int]('${{ github.event.inputs.resume_count }}' -replace '^$','0')
+          $max = [int]'${{ env.MAX_RESUMES }}'
+          Write-Host "Resume count: $count / $max"
+          if ($count -ge $max) {
+            Write-Error "Max resumes ($count) reached. Refusing to start another resume; investigate the last failed run."
+            exit 1
+          }
+
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          path: kpat-src
+          fetch-depth: 0
+
+      - name: Resolve craft-blueprints-kde HEAD SHA
+        id: bp
+        shell: pwsh
+        run: |
+          $line = (git ls-remote https://invent.kde.org/packaging/craft-blueprints-kde.git HEAD | Select-Object -First 1)
+          $sha = ($line -split '\s+')[0]
+          if (-not $sha) { throw "Could not resolve craft-blueprints-kde HEAD" }
+          Write-Host "Blueprints HEAD: $sha"
+          "sha=$sha" | Out-File -Append $env:GITHUB_OUTPUT
+
+      - name: Restore Craft cache
+        id: cache_restore
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ${{ env.CRAFT_ROOT }}
+          key: craft-win-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}
+          restore-keys: |
+            craft-win-${{ steps.bp.outputs.sha }}-
+            craft-win-
+
+      - name: Bootstrap Craft (if not already present)
+        shell: pwsh
+        run: |
+          $envScript = "${{ env.CRAFT_ROOT }}\craft\craftenv.ps1"
+          if (Test-Path $envScript) {
+            Write-Host "Craft already bootstrapped at ${{ env.CRAFT_ROOT }} (cache hit). Skipping."
+            exit 0
+          }
+          New-Item -ItemType Directory -Force -Path '${{ env.CRAFT_ROOT }}' | Out-Null
+          $bootUrl = 'https://invent.kde.org/packaging/craft/-/raw/master/setup/CraftBootstrap.py'
+          $bootFile = Join-Path $env:RUNNER_TEMP 'CraftBootstrap.py'
+          Invoke-WebRequest -UseBasicParsing -Uri $bootUrl -OutFile $bootFile
+          python $bootFile --prefix '${{ env.CRAFT_ROOT }}'
+          if (-not (Test-Path $envScript)) { throw "Craft bootstrap failed: $envScript not found." }
+
+      - name: Configure local kpat source for Craft
+        shell: pwsh
+        run: |
+          $ini = "${{ env.CRAFT_ROOT }}\etc\BlueprintSettings.ini"
+          $src = ("${{ github.workspace }}\kpat-src" -replace '\\','/')
+          # Remove any prior [kde/kdegames/kpat] section that a previous run may have left behind.
+          if (Test-Path $ini) {
+            $content = Get-Content $ini -Raw
+            $pattern = '(?ms)^\[${{ env.CRAFT_BLUEPRINT }}\].*?(?=^\[|\z)'
+            $content = [regex]::Replace($content, $pattern, '')
+            Set-Content -Path $ini -Value $content -NoNewline
+          } else {
+            New-Item -ItemType File -Force -Path $ini | Out-Null
+          }
+          Add-Content -Path $ini -Value ''
+          Add-Content -Path $ini -Value '[${{ env.CRAFT_BLUEPRINT }}]'
+          Add-Content -Path $ini -Value ("srcDir = " + $src)
+          Add-Content -Path $ini -Value 'version = master'
+          Write-Host "--- BlueprintSettings.ini ---"
+          Get-Content $ini
+          Write-Host "-----------------------------"
+
+      - name: Build kpat (deps + package) with watchdog
+        id: build
+        shell: pwsh
+        run: |
+          $startTime = Get-Date
+          $deadlineMin = [int]'${{ env.WATCHDOG_MINUTES }}'
+
+          $buildScript = {
+            param($CraftRoot, $Blueprint)
+            $ErrorActionPreference = 'Continue'
+            . "$CraftRoot\craft\craftenv.ps1"
+            craft --install-deps $Blueprint 2>&1
+            if ($LASTEXITCODE -ne 0) { Write-Host "install-deps exit=$LASTEXITCODE"; return }
+            craft $Blueprint 2>&1
+            if ($LASTEXITCODE -ne 0) { Write-Host "build exit=$LASTEXITCODE"; return }
+            craft --package $Blueprint 2>&1
+            Write-Host "package exit=$LASTEXITCODE"
+          }
+
+          $job = Start-Job -ScriptBlock $buildScript `
+            -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}'
+
+          while ($job.State -eq 'Running') {
+            Receive-Job $job
+            $elapsed = ((Get-Date) - $startTime).TotalMinutes
+            if ($elapsed -ge $deadlineMin) {
+              Write-Host "::warning::Watchdog: $([math]::Round($elapsed,1)) min elapsed, stopping Craft for checkpoint."
+              Stop-Job $job
+              break
+            }
+            Start-Sleep -Seconds 30
+          }
+          Wait-Job $job -Timeout 300 | Out-Null
+          Receive-Job $job
+          $finalState = $job.State
+          Remove-Job $job -Force -ErrorAction SilentlyContinue
+
+          $tmp = Join-Path '${{ env.CRAFT_ROOT }}' 'tmp'
+          $exe = @()
+          $sevenZ = @()
+          if (Test-Path $tmp) {
+            $exe = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.exe' -Recurse -ErrorAction SilentlyContinue)
+            $sevenZ = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.7z' -Recurse -ErrorAction SilentlyContinue)
+          }
+          $produced = ($exe.Count + $sevenZ.Count) -gt 0
+          $checkpointed = -not $produced
+
+          Write-Host "Final job state: $finalState; artifacts produced: $produced"
+          "checkpointed=$($checkpointed.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
+          "produced=$($produced.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
+          # Always succeed so the cache-save / resume-dispatch steps run.
+          exit 0
+
+      - name: Stage artifacts for upload
+        if: steps.build.outputs.produced == 'true'
+        shell: pwsh
+        run: |
+          $dest = Join-Path '${{ github.workspace }}' 'dist'
+          New-Item -ItemType Directory -Force -Path $dest | Out-Null
+          $tmp = Join-Path '${{ env.CRAFT_ROOT }}' 'tmp'
+          Get-ChildItem -Path $tmp -Recurse -Include 'kpat-*.exe','kpat-*.7z' |
+            Copy-Item -Destination $dest -Force
+          # Ship license + modification notice next to the binaries to satisfy GPL v2.
+          Copy-Item (Join-Path '${{ github.workspace }}' 'kpat-src\COPYING') $dest
+          $notice = Join-Path '${{ github.workspace }}' 'kpat-src\NOTICE.windows'
+          if (Test-Path $notice) { Copy-Item $notice $dest }
+          Get-ChildItem $dest
+
+      - name: Upload artifacts
+        if: steps.build.outputs.produced == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: kpat-windows
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Save Craft cache
+        if: always()
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ${{ env.CRAFT_ROOT }}
+          # Suffix with run_id so each checkpoint produces a distinct entry;
+          # the prefix-based restore-keys above will still match the newest.
+          key: craft-win-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}-${{ github.run_id }}
+
+      - name: Re-dispatch workflow to resume from checkpoint
+        if: steps.build.outputs.checkpointed == 'true' && github.event_name != 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $next = ([int]('${{ github.event.inputs.resume_count }}' -replace '^$','0')) + 1
+          Write-Host "Build was checkpointed without producing artifacts; re-dispatching as resume #$next."
+          gh workflow run windows.yml `
+            --ref '${{ github.ref_name }}' `
+            -f resume=true `
+            -f resume_count=$next
+
+  release:
+    needs: build
+    if: |
+      startsWith(github.ref, 'refs/tags/v') &&
+      endsWith(github.ref, '-win') &&
+      needs.build.outputs.produced == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout (license + notice only)
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          sparse-checkout: |
+            COPYING
+            NOTICE.windows
+            README.windows.md
+          sparse-checkout-cone-mode: false
+
+      - name: Download Windows artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: kpat-windows
+          path: dist
+
+      - name: Publish draft release
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
+        with:
+          files: dist/*
+          body_path: NOTICE.windows
+          generate_release_notes: true
+          draft: true
+          fail_on_unmatched_files: true

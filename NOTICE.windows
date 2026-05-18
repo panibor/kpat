@@ -1,0 +1,61 @@
+KPat — Windows build notice
+===========================
+
+This is an UNOFFICIAL Windows build of KPat (KDE Patience) produced from
+the fork at https://github.com/panibor/kpat. KPat is part of the KDE
+Gear / KDE Release Service; the original, official upstream repository
+lives at https://invent.kde.org/games/kpat and is maintained by the KDE
+community. This fork is not endorsed by KDE.
+
+Modifications in this fork (GPL v2 §2(a))
+-----------------------------------------
+
+Date of modification: 2026-05-18
+
+The only changes versus upstream are packaging files added to enable
+producing Windows binaries:
+
+  .github/workflows/windows.yml   GitHub Actions workflow that builds KPat
+                                  for Windows using KDE Craft.
+  .github/dependabot.yml          Keeps the workflow's pinned action
+                                  versions current.
+  NOTICE.windows                  This file.
+  README.windows.md               Build / install documentation for the
+                                  Windows binaries.
+
+No file under src/, autotests/, icons/, themes/, sounds/, doc/, po/,
+mimetypes/, previews/, libkcardgame/, patsolve/, CMakeLists.txt,
+CMakePresets.json, or any other source/build file of KPat itself has been
+modified. The shipped binary is built from the unmodified KPat source as
+tagged on this fork's branch.
+
+License
+-------
+
+KPat is licensed under GPL-2.0-or-later, with original code by
+Paul Olav Tvete (1995) under a permissive GPL-compatible license.
+See the COPYING file that ships alongside this notice in the installer
+and in the source tree.
+
+Source code
+-----------
+
+The complete corresponding source code for this Windows build is
+available at:
+
+  https://github.com/panibor/kpat
+  https://invent.kde.org/games/kpat  (upstream)
+
+Build reproducibility
+---------------------
+
+This binary was produced by the GitHub Actions workflow referenced above,
+running on `windows-2022` with KDE Craft. To reproduce locally on Windows,
+see README.windows.md.
+
+Warranty
+--------
+
+This Windows build is provided WITHOUT ANY WARRANTY, to the extent
+permitted by applicable law. See sections 11 and 12 of the GNU General
+Public License version 2 (in COPYING) for full details.
