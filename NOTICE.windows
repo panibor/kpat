@@ -12,8 +12,7 @@ Modifications in this fork (GPL v2 §2(a))
 
 Date of modification: 2026-05-18
 
-The only changes versus upstream are packaging files added to enable
-producing Windows binaries:
+Changes versus upstream:
 
   .github/workflows/windows.yml   GitHub Actions workflow that builds KPat
                                   for Windows using KDE Craft.
@@ -22,12 +21,27 @@ producing Windows binaries:
   NOTICE.windows                  This file.
   README.windows.md               Build / install documentation for the
                                   Windows binaries.
+  src/main.cpp                    Windows-only palette fix (~20 lines,
+                                  guarded by #ifdef Q_OS_WIN). Qt 6.7+'s
+                                  default windows11 widget style returns
+                                  identical colours for QPalette::Highlight
+                                  and QPalette::HighlightedText on some
+                                  Windows 11 versions, hiding the labels of
+                                  selected items in KConfigDialog sidebars.
+                                  The patch detects a low-contrast collision
+                                  and forces a readable HighlightedText
+                                  colour while leaving every other palette
+                                  role untouched, so the native Windows 11
+                                  look (icons, frames, accent colour) is
+                                  preserved. No KPat behaviour outside
+                                  selection-text rendering is affected, and
+                                  the fix is a no-op on Linux/macOS.
 
-No file under src/, autotests/, icons/, themes/, sounds/, doc/, po/,
-mimetypes/, previews/, libkcardgame/, patsolve/, CMakeLists.txt,
-CMakePresets.json, or any other source/build file of KPat itself has been
-modified. The shipped binary is built from the unmodified KPat source as
-tagged on this fork's branch.
+No file under autotests/, icons/, themes/, sounds/, doc/, po/, mimetypes/,
+previews/, libkcardgame/, patsolve/, CMakeLists.txt, CMakePresets.json, or
+any other source/build file of KPat itself has been modified beyond the
+Windows-specific palette fix noted above. The shipped binary is otherwise
+built from the unmodified KPat source as tagged on this fork's branch.
 
 License
 -------

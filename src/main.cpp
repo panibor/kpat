@@ -302,6 +302,28 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
+#ifdef Q_OS_WIN
+    // Qt 6.7+'s default 'windows11' widget style ships with a palette where
+    // QPalette::HighlightedText sometimes collides with QPalette::Highlight,
+    // hiding the labels of selected items in KConfigDialog sidebars and other
+    // QListView-based widgets. Detect a low-contrast collision and pick a
+    // readable text colour while leaving every other palette role untouched,
+    // so we keep the native Windows 11 look (icons, frames, accent) intact.
+    {
+        QPalette pal = app.palette();
+        const QColor h = pal.color(QPalette::Highlight);
+        const QColor t = pal.color(QPalette::HighlightedText);
+        auto luminance = [](const QColor &c) {
+            return 0.299 * c.redF() + 0.587 * c.greenF() + 0.114 * c.blueF();
+        };
+        if (std::abs(luminance(h) - luminance(t)) < 0.2) {
+            pal.setColor(QPalette::HighlightedText,
+                         luminance(h) < 0.5 ? Qt::white : Qt::black);
+            app.setPalette(pal);
+        }
+    }
+#endif
+
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("kpat"));
 
     KAboutData aboutData = fillAboutData();
