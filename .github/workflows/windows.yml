@@ -231,6 +231,78 @@ jobs:
           Get-Content $ini | Select-String -Pattern '^\s*\[(ShortPath|Compile)\]|^\s*(DriveLetter|JunctionDir|BuildType)\s*=' | ForEach-Object { Write-Host $_.Line }
           Write-Host "---------------------------------------"
 
+      - name: Override kpat blueprint installer metadata
+        shell: pwsh
+        run: |
+          # Craft's PackagerBase.setDefaults() hardcodes:
+          #   defines["company"] = "KDE e.V."
+          #   defines["version"] = sourceRevision()   # literal "HEAD" for git
+          # Those propagate into the NSIS installer's registry entries which
+          # Windows reads for the Apps list -> "Publisher: KDE e.V." and
+          # "Version: HEAD". Neither is true for this fork: KDE e.V. did not
+          # publish this binary, and "HEAD" is not a meaningful version.
+          #
+          # Patch the upstream kpat.py blueprint after Craft fetches it but
+          # before `craft --install-deps` runs, injecting overrides for
+          # company/version/website in createPackage(). The patched file lives
+          # under CRAFT_ROOT and is recreated on every bootstrap, so this is a
+          # build-time-only change; the upstream blueprint repo is untouched.
+          # The blueprint usually lands under etc/blueprints/locations/craft-blueprints-kde/
+          # but the exact path moves between Craft versions, so glob for it.
+          $blueprintCandidates = @(Get-ChildItem -Path '${{ env.CRAFT_ROOT }}' -Recurse -Filter 'kpat.py' -ErrorAction SilentlyContinue |
+                                   Where-Object { $_.FullName -match 'kdegames[\\/]kpat[\\/]kpat\.py$' })
+          if (-not $blueprintCandidates) {
+            Write-Host "Blueprint not yet fetched; priming Craft to pull craft-blueprints-kde."
+            $ErrorActionPreference = 'Continue'
+            . "${{ env.CRAFT_ROOT }}\craft\craftenv.ps1"
+            craft --search kpat 2>&1 | Out-Null
+            $ErrorActionPreference = 'Stop'
+            $blueprintCandidates = @(Get-ChildItem -Path '${{ env.CRAFT_ROOT }}' -Recurse -Filter 'kpat.py' -ErrorAction SilentlyContinue |
+                                     Where-Object { $_.FullName -match 'kdegames[\\/]kpat[\\/]kpat\.py$' })
+          }
+          if (-not $blueprintCandidates) {
+            throw "Couldn't locate kpat.py blueprint anywhere under ${{ env.CRAFT_ROOT }}."
+          }
+          $blueprintPath = $blueprintCandidates[0].FullName
+          Write-Host "Located kpat blueprint at $blueprintPath"
+
+          # Compute a meaningful semver: upstream's RELEASE_SERVICE_VERSION
+          # from CMakeLists.txt + short git sha of this kpat source tree.
+          $cmake = Get-Content '${{ github.workspace }}\kpat-src\CMakeLists.txt' -Raw
+          $maj = ([regex]::Match($cmake, '(?m)^set\(RELEASE_SERVICE_VERSION_MAJOR\s+"([^"]+)"\)')).Groups[1].Value
+          $min = ([regex]::Match($cmake, '(?m)^set\(RELEASE_SERVICE_VERSION_MINOR\s+"([^"]+)"\)')).Groups[1].Value
+          $mic = ([regex]::Match($cmake, '(?m)^set\(RELEASE_SERVICE_VERSION_MICRO\s+"([^"]+)"\)')).Groups[1].Value
+          if (-not $maj -or -not $min -or -not $mic) {
+            throw "Couldn't parse RELEASE_SERVICE_VERSION_{MAJOR,MINOR,MICRO} from kpat CMakeLists.txt."
+          }
+          $sha = (git -C '${{ github.workspace }}\kpat-src' rev-parse --short HEAD).Trim()
+          if (-not $sha) { throw "Couldn't compute kpat-src short SHA." }
+          $version = "$maj.$min.$mic-win-$sha"
+          Write-Host "Computed installer version: $version"
+
+          $bp = Get-Content $blueprintPath -Raw
+          # Build the Python injection as an array (avoids YAML's pipe-block
+          # column rules conflicting with Python's method-body 8-space indent).
+          # The literal indentation lives inside the quoted string content, so
+          # the YAML parser only sees the array element opening at the safe
+          # 12-column indent of this run: | block.
+          $py = @(
+              '        # --- panibor/kpat fork: override installer metadata ---',
+              '        self.defines["company"] = "panibor (Unofficial KPat for Windows)"',
+              "        self.defines[`"version`"] = `"$version`"",
+              '        self.defines["website"] = "https://github.com/panibor/kpat"',
+              '        # --- end fork override ---',
+              '        return super().createPackage()'
+          ) -join "`r`n"
+          $patched = $bp -replace '(?m)^(\s*)return\s+super\(\)\.createPackage\(\)\s*$', $py
+          if ($patched -eq $bp) {
+            throw "Couldn't find 'return super().createPackage()' in kpat.py; upstream blueprint may have changed shape."
+          }
+          Set-Content -Path $blueprintPath -Value $patched -NoNewline
+          Write-Host "--- patched kpat.py createPackage tail ---"
+          Get-Content $blueprintPath | Select-Object -Last 20
+          Write-Host "------------------------------------------"
+
       - name: Configure local kpat source for Craft
         shell: pwsh
         run: |

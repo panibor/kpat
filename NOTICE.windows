@@ -43,6 +43,29 @@ any other source/build file of KPat itself has been modified beyond the
 Windows-specific palette fix noted above. The shipped binary is otherwise
 built from the unmodified KPat source as tagged on this fork's branch.
 
+Installer metadata
+------------------
+
+To avoid misrepresenting the origin of this binary, the GitHub Actions
+workflow patches the upstream KDE Craft blueprint for KPat at build time
+so the NSIS installer (and therefore the Windows "Installed apps" list)
+ships these strings:
+
+  Publisher / Company    panibor (Unofficial KPat for Windows)
+  Version                <upstream RELEASE_SERVICE_VERSION>-win-<sha>
+  Website / Help link    https://github.com/panibor/kpat
+
+Upstream KDE Craft's defaults are "KDE e.V." for the publisher and the
+literal git ref ("HEAD" for a branch-tip build) for the version. Those
+defaults are accurate for KDE's own binary factory but would falsely
+attribute this build to KDE e.V. and obscure which fork revision was
+shipped. The override only changes installer metadata strings; it does
+not modify KPat source, the KDE Craft repository, or the upstream
+craft-blueprints-kde repository (the patch is applied to the fetched
+copy inside the build environment and is discarded with that environment
+when the CI job finishes). KDE and the KDE community are not endorsing,
+publishing, or distributing this build.
+
 License
 -------
 
