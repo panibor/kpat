@@ -303,23 +303,39 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
 
 #ifdef Q_OS_WIN
-    // Qt 6.7+'s default 'windows11' widget style ships with a palette where
-    // QPalette::HighlightedText sometimes collides with QPalette::Highlight,
-    // hiding the labels of selected items in KConfigDialog sidebars and other
-    // QListView-based widgets. Detect a low-contrast collision and pick a
-    // readable text colour while leaving every other palette role untouched,
-    // so we keep the native Windows 11 look (icons, frames, accent) intact.
+    // Qt 6.7+'s default 'windows11' widget style paints selected QListView
+    // / QTreeView rows with a thin accent border on top of the normal Base
+    // background and draws the label in QPalette::HighlightedText. On many
+    // Win11 colour schemes HighlightedText is white, the same colour as
+    // Base, so labels in KConfigDialog sidebars (and other list/tree
+    // selections) become invisible. The style also bypasses QPalette in
+    // some code paths (CE_ItemViewItem consults the native theme directly),
+    // so we apply two layers of defence:
+    //   1. Detect a low-contrast collision between HighlightedText and any
+    //      of Base / Window / Highlight, and rewrite HighlightedText to a
+    //      readable colour. This fixes widgets that DO honour QPalette.
+    //   2. Inject a scoped QApplication stylesheet that hard-codes the
+    //      selected/focused item-view text colour. This catches widgets
+    //      whose painting bypasses QPalette. The selector is restricted to
+    //      QAbstractItemView so the rest of the UI keeps the native Win11
+    //      look (icons, frames, accent rendering) intact.
     {
         QPalette pal = app.palette();
-        const QColor h = pal.color(QPalette::Highlight);
-        const QColor t = pal.color(QPalette::HighlightedText);
-        auto luminance = [](const QColor &c) {
+        auto lum = [](const QColor &c) {
             return 0.299 * c.redF() + 0.587 * c.greenF() + 0.114 * c.blueF();
         };
-        if (std::abs(luminance(h) - luminance(t)) < 0.2) {
-            pal.setColor(QPalette::HighlightedText,
-                         luminance(h) < 0.5 ? Qt::white : Qt::black);
+        const qreal hT = lum(pal.color(QPalette::HighlightedText));
+        const qreal b  = lum(pal.color(QPalette::Base));
+        const qreal w  = lum(pal.color(QPalette::Window));
+        const qreal h  = lum(pal.color(QPalette::Highlight));
+        if (std::abs(hT - b) < 0.2 || std::abs(hT - w) < 0.2 || std::abs(hT - h) < 0.2) {
+            const QColor textColor = (b > 0.5) ? Qt::black : Qt::white;
+            pal.setColor(QPalette::HighlightedText, textColor);
             app.setPalette(pal);
+            app.setStyleSheet(QStringLiteral(
+                "QAbstractItemView::item:selected,"
+                "QAbstractItemView::item:focus { color: %1; }"
+            ).arg(textColor.name()));
         }
     }
 #endif
