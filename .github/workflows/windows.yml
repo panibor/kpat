@@ -61,7 +61,7 @@ jobs:
           }
 
       - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           path: kpat-src
           fetch-depth: 0
@@ -78,7 +78,7 @@ jobs:
 
       - name: Restore Craft cache
         id: cache_restore
-        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ env.CRAFT_ROOT }}
           key: craft-win-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}
@@ -95,10 +95,14 @@ jobs:
             exit 0
           }
           New-Item -ItemType Directory -Force -Path '${{ env.CRAFT_ROOT }}' | Out-Null
-          $bootUrl = 'https://invent.kde.org/packaging/craft/-/raw/master/setup/CraftBootstrap.py'
+          # Fetch CraftBootstrap.py from KDE's GitHub mirror (invent.kde.org sometimes
+          # blocks raw fetches from CI runners; the mirror is auto-synced).
+          $bootUrl = 'https://raw.githubusercontent.com/KDE/craft/master/setup/CraftBootstrap.py'
           $bootFile = Join-Path $env:RUNNER_TEMP 'CraftBootstrap.py'
           Invoke-WebRequest -UseBasicParsing -Uri $bootUrl -OutFile $bootFile
-          python $bootFile --prefix '${{ env.CRAFT_ROOT }}'
+          # --use-defaults makes the bootstrap non-interactive (picks MSVC 2022 x86_64
+          # on windows-2022 runners). Without this flag the script blocks on stdin.
+          python $bootFile --prefix '${{ env.CRAFT_ROOT }}' --use-defaults --branch master
           if (-not (Test-Path $envScript)) { throw "Craft bootstrap failed: $envScript not found." }
 
       - name: Configure local kpat source for Craft
@@ -193,7 +197,7 @@ jobs:
 
       - name: Upload artifacts
         if: steps.build.outputs.produced == 'true'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: kpat-windows
           path: dist/*
@@ -202,7 +206,7 @@ jobs:
 
       - name: Save Craft cache
         if: always()
-        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ env.CRAFT_ROOT }}
           # Suffix with run_id so each checkpoint produces a distinct entry;
@@ -233,7 +237,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout (license + notice only)
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           sparse-checkout: |
             COPYING
@@ -242,7 +246,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Download Windows artifacts
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: kpat-windows
           path: dist
