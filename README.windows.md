@@ -2,9 +2,10 @@
 
 This fork of [KDE KPat](https://invent.kde.org/games/kpat) adds a GitHub
 Actions workflow that produces Windows binaries. **This is an unofficial
-community build, not endorsed by KDE.** KPat itself is unmodified — only
-packaging files have been added. See [`NOTICE.windows`](NOTICE.windows)
-for the full GPL v2 §2(a) modification notice.
+community build, not endorsed by KDE.** KPat itself is unmodified except
+for two small Windows-only additions in `src/main.cpp`; everything else
+is just packaging. See [`NOTICE.windows`](NOTICE.windows) for the full
+GPL v2 section 2(a) modification notice.
 
 ## Download
 
@@ -14,16 +15,16 @@ Stable Windows binaries are attached to GitHub Releases on this fork:
 
 Each release contains:
 
-- `kpat-<version>-setup.exe` — NSIS installer.
-- `kpat-<version>.7z` — portable archive; extract and run `bin\kpat.exe`.
-- `COPYING` — full GPL v2 license text.
-- `NOTICE.windows` — modification notice and source links.
+- `kpat-<version>-setup.exe`, the NSIS installer.
+- `kpat-<version>.7z`, a portable archive. Extract and run `bin\kpat.exe`.
+- `COPYING`, the full GPL v2 license text.
+- `NOTICE.windows`, the modification notice and source links.
 
 ### SmartScreen warning
 
 The installer is **not** code-signed. The first time you run it, Windows
 SmartScreen will warn that the publisher is unknown. Click "More info"
-→ "Run anyway" to proceed. Signing requires an EV code-signing
+then "Run anyway" to proceed. Signing requires an EV code-signing
 certificate, which is out of scope for this community build.
 
 ## Building locally on Windows
@@ -66,9 +67,9 @@ Subsequent incremental builds are fast.
 `windows-2022` and uses KDE Craft. Notable details:
 
 - All third-party actions are pinned to commit SHAs.
-- The workflow uses least-privilege `permissions:` — `contents: read` by
-  default, escalated only where required.
-- `pull_request` (not `pull_request_target`) — PRs from forks run in the
+- The workflow uses least-privilege `permissions:`. The default is
+  `contents: read`, escalated only where required.
+- `pull_request` (not `pull_request_target`). PRs from forks run in the
   untrusted sandbox with no secret access.
 - A watchdog stops the build at 5h20m, persists Craft state to the
   GitHub cache via `actions/cache/save` with `if: always()`, and
@@ -77,6 +78,10 @@ Subsequent incremental builds are fast.
   runs automatically (capped at 5 resumes).
 - A weekly `cron` schedule keeps the cache from being evicted (GitHub
   evicts caches after 7 idle days).
+- A post-install pass strips MinGW debug info from the bundled
+  Qt and KF6 DLLs and removes Qt plugin directories KPat does not
+  load (SQL drivers, QtMultimedia, QML tooling, sensors, etc.) so the
+  installer stays small. Translation catalogues are kept intact.
 
 ## Cutting a Windows release
 
@@ -90,25 +95,25 @@ GitHub Release on this fork with the installer, portable archive,
 `COPYING`, and `NOTICE.windows` attached. Review and publish from the
 Releases page when ready.
 
-The `-win` suffix on the tag namespaces our Windows release tags away
-from upstream KDE's release tagging convention.
+The `-win` suffix on the tag namespaces this fork's Windows release
+tags away from upstream KDE's release tagging convention.
 
 ## Recommended fork settings
 
 To minimise warnings on the fork's home page and protect the workflow
 from tampering, enable these in **Settings**:
 
-- **Branches → Add rule for `master`:**
+- **Branches**, add a rule for `master`:
   - Require a pull request before merging.
-  - Require status checks to pass before merging — select
+  - Require status checks to pass before merging. Select
     `Windows (Craft) / build`.
   - Block force pushes.
-- **Code security → Dependabot:** keep the default Dependabot alerts on.
+- **Code security**, Dependabot: keep the default Dependabot alerts on.
   This repo already ships [`.github/dependabot.yml`](.github/dependabot.yml)
   to auto-PR action version bumps weekly.
-- **Actions → General → Workflow permissions:** "Read repository
-  contents and packages permissions" (the default). The workflow grants
-  itself the writes it needs at the job level.
+- **Actions**, General, Workflow permissions: "Read repository contents
+  and packages permissions" (the default). The workflow grants itself
+  the writes it needs at the job level.
 
 ## Upstreaming
 

@@ -1,5 +1,5 @@
-KPat — Windows build notice
-===========================
+KPat for Windows - build notice
+================================
 
 This is an UNOFFICIAL Windows build of KPat (KDE Patience) produced from
 the fork at https://github.com/panibor/kpat. KPat is part of the KDE
@@ -7,8 +7,8 @@ Gear / KDE Release Service; the original, official upstream repository
 lives at https://invent.kde.org/games/kpat and is maintained by the KDE
 community. This fork is not endorsed by KDE.
 
-Modifications in this fork (GPL v2 §2(a))
------------------------------------------
+Modifications in this fork (GPL v2, section 2(a))
+-------------------------------------------------
 
 Date of modification: 2026-05-18
 
@@ -19,29 +19,29 @@ Changes versus upstream:
   .github/dependabot.yml          Keeps the workflow's pinned action
                                   versions current.
   NOTICE.windows                  This file.
-  README.windows.md               Build / install documentation for the
+  README.windows.md               Build and install documentation for the
                                   Windows binaries.
-  src/main.cpp                    Windows-only palette fix (~20 lines,
-                                  guarded by #ifdef Q_OS_WIN). Qt 6.7+'s
-                                  default windows11 widget style returns
-                                  identical colours for QPalette::Highlight
-                                  and QPalette::HighlightedText on some
-                                  Windows 11 versions, hiding the labels of
-                                  selected items in KConfigDialog sidebars.
-                                  The patch detects a low-contrast collision
-                                  and forces a readable HighlightedText
-                                  colour while leaving every other palette
-                                  role untouched, so the native Windows 11
-                                  look (icons, frames, accent colour) is
-                                  preserved. No KPat behaviour outside
-                                  selection-text rendering is affected, and
-                                  the fix is a no-op on Linux/macOS.
+  README.md                       Top-level introduction to the fork.
+  src/main.cpp                    Two small additions guarded for the
+                                  Windows build:
+                                  (a) a ~20 line palette fix gated by
+                                      #ifdef Q_OS_WIN, addressing a
+                                      Qt 6.7+ windows11 style bug that
+                                      hid the labels of selected items
+                                      in KConfigDialog sidebars; and
+                                  (b) a startup normaliser that relocates
+                                      KNewStuff theme downloads from the
+                                      Generic data dir to the App data
+                                      dir, where KGameThemeProvider can
+                                      actually discover them on Windows.
+                                      Both changes are no-ops on Linux
+                                      and macOS.
 
 No file under autotests/, icons/, themes/, sounds/, doc/, po/, mimetypes/,
 previews/, libkcardgame/, patsolve/, CMakeLists.txt, CMakePresets.json, or
 any other source/build file of KPat itself has been modified beyond the
-Windows-specific palette fix noted above. The shipped binary is otherwise
-built from the unmodified KPat source as tagged on this fork's branch.
+two small additions noted above. The shipped binary is otherwise built
+from the unmodified KPat source as tagged on this fork's branch.
 
 Installer metadata
 ------------------
@@ -61,9 +61,9 @@ defaults are accurate for KDE's own binary factory but would falsely
 attribute this build to KDE e.V. and obscure which fork revision was
 shipped. The override only changes installer metadata strings; it does
 not modify KPat source, the KDE Craft repository, or the upstream
-craft-blueprints-kde repository (the patch is applied to the fetched
+craft-blueprints-kde repository. The patch is applied to the fetched
 copy inside the build environment and is discarded with that environment
-when the CI job finishes). KDE and the KDE community are not endorsing,
+when the CI job finishes. KDE and the KDE community are not endorsing,
 publishing, or distributing this build.
 
 License
