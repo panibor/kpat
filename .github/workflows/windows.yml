@@ -89,21 +89,66 @@ jobs:
       - name: Bootstrap Craft (if not already present)
         shell: pwsh
         run: |
+          $ErrorActionPreference = 'Stop'
+
           $envScript = "${{ env.CRAFT_ROOT }}\craft\craftenv.ps1"
           if (Test-Path $envScript) {
             Write-Host "Craft already bootstrapped at ${{ env.CRAFT_ROOT }} (cache hit). Skipping."
             exit 0
           }
+
+          # A partial cache (e.g. craft-tmp\ present but craft\ missing from a
+          # previously aborted bootstrap) breaks CraftBootstrap. Wipe before retry.
+          if (Test-Path '${{ env.CRAFT_ROOT }}') {
+            Write-Host "Removing stale partial CraftRoot before bootstrap."
+            Remove-Item -Recurse -Force '${{ env.CRAFT_ROOT }}'
+          }
           New-Item -ItemType Directory -Force -Path '${{ env.CRAFT_ROOT }}' | Out-Null
+
           # Fetch CraftBootstrap.py from KDE's GitHub mirror (invent.kde.org sometimes
           # blocks raw fetches from CI runners; the mirror is auto-synced).
-          $bootUrl = 'https://raw.githubusercontent.com/KDE/craft/master/setup/CraftBootstrap.py'
+          $bootUrl  = 'https://raw.githubusercontent.com/KDE/craft/master/setup/CraftBootstrap.py'
           $bootFile = Join-Path $env:RUNNER_TEMP 'CraftBootstrap.py'
-          Invoke-WebRequest -UseBasicParsing -Uri $bootUrl -OutFile $bootFile
-          # --use-defaults makes the bootstrap non-interactive (picks MSVC 2022 x86_64
-          # on windows-2022 runners). Without this flag the script blocks on stdin.
-          python $bootFile --prefix '${{ env.CRAFT_ROOT }}' --use-defaults --branch master
-          if (-not (Test-Path $envScript)) { throw "Craft bootstrap failed: $envScript not found." }
+
+          $maxAttempts = 3
+          for ($attempt = 1; $attempt -le $maxAttempts; $attempt++) {
+            Write-Host "::group::Craft bootstrap attempt $attempt/$maxAttempts"
+
+            try {
+              Invoke-WebRequest -UseBasicParsing -Uri $bootUrl -OutFile $bootFile
+            } catch {
+              Write-Warning "Failed to download CraftBootstrap.py: $_"
+              Write-Host "::endgroup::"
+              if ($attempt -eq $maxAttempts) { throw }
+              Start-Sleep -Seconds (10 * $attempt); continue
+            }
+
+            # --use-defaults makes the bootstrap non-interactive (picks MSVC 2022 x86_64
+            # on windows-2022 runners). Without this flag the script blocks on stdin.
+            # 2>&1 | Tee-Object streams BOTH stdout and stderr to the runner log so
+            # the real upstream error is visible, and archives a copy for later inspection.
+            & python $bootFile `
+                --prefix '${{ env.CRAFT_ROOT }}' `
+                --use-defaults `
+                --branch master 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\craft-bootstrap-$attempt.log"
+            $rc = $LASTEXITCODE
+            Write-Host "::endgroup::"
+            Write-Host "CraftBootstrap.py exit code: $rc; craftenv.ps1 present: $(Test-Path $envScript)"
+
+            if ($rc -eq 0 -and (Test-Path $envScript)) {
+              Write-Host "Craft bootstrap succeeded on attempt $attempt."
+              exit 0
+            }
+
+            if ($attempt -lt $maxAttempts) {
+              Write-Warning "Bootstrap attempt $attempt failed; wiping CraftRoot and retrying."
+              Remove-Item -Recurse -Force '${{ env.CRAFT_ROOT }}' -ErrorAction SilentlyContinue
+              New-Item -ItemType Directory -Force -Path '${{ env.CRAFT_ROOT }}' | Out-Null
+              Start-Sleep -Seconds (15 * $attempt)
+            }
+          }
+
+          throw "Craft bootstrap failed after $maxAttempts attempts. See log groups above for the real Python/CraftBootstrap error."
 
       - name: Configure local kpat source for Craft
         shell: pwsh
