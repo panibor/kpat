@@ -278,57 +278,74 @@ jobs:
         id: build
         shell: pwsh
         run: |
-          # Capture everything for post-mortem if the step exits non-zero.
+          # GitHub Actions defaults shell:pwsh to $ErrorActionPreference='Stop',
+          # which means Receive-Job re-emitting an inner-job error terminates
+          # the OUTER script before it can reach 'exit 0'. We need this step to
+          # always succeed so cache-save + resume-dispatch run, so flip to
+          # Continue and disable native-command exit-code mapping at the top.
+          $ErrorActionPreference = 'Continue'
+          $PSNativeCommandUseErrorActionPreference = $false
+
+          # Capture everything for post-mortem; the transcript is harvested by
+          # the on-failure publish step even if this script later throws.
           $transcript = Join-Path $env:RUNNER_TEMP 'craft-build-step.log'
           Start-Transcript -Path $transcript -Force | Out-Null
 
-          $startTime = Get-Date
-          $deadlineMin = [int]'${{ env.WATCHDOG_MINUTES }}'
+          try {
+            $startTime = Get-Date
+            $deadlineMin = [int]'${{ env.WATCHDOG_MINUTES }}'
 
-          $buildScript = {
-            param($CraftRoot, $Blueprint)
-            $ErrorActionPreference = 'Continue'
-            . "$CraftRoot\craft\craftenv.ps1"
-            craft --install-deps $Blueprint 2>&1
-            if ($LASTEXITCODE -ne 0) { Write-Host "install-deps exit=$LASTEXITCODE"; return }
-            craft $Blueprint 2>&1
-            if ($LASTEXITCODE -ne 0) { Write-Host "build exit=$LASTEXITCODE"; return }
-            craft --package $Blueprint 2>&1
-            Write-Host "package exit=$LASTEXITCODE"
-          }
-
-          $job = Start-Job -ScriptBlock $buildScript `
-            -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}'
-
-          while ($job.State -eq 'Running') {
-            Receive-Job $job
-            $elapsed = ((Get-Date) - $startTime).TotalMinutes
-            if ($elapsed -ge $deadlineMin) {
-              Write-Host "::warning::Watchdog: $([math]::Round($elapsed,1)) min elapsed, stopping Craft for checkpoint."
-              Stop-Job $job
-              break
+            $buildScript = {
+              param($CraftRoot, $Blueprint)
+              $ErrorActionPreference = 'Continue'
+              . "$CraftRoot\craft\craftenv.ps1"
+              craft --install-deps $Blueprint 2>&1
+              if ($LASTEXITCODE -ne 0) { Write-Host "install-deps exit=$LASTEXITCODE"; return }
+              craft $Blueprint 2>&1
+              if ($LASTEXITCODE -ne 0) { Write-Host "build exit=$LASTEXITCODE"; return }
+              craft --package $Blueprint 2>&1
+              Write-Host "package exit=$LASTEXITCODE"
             }
-            Start-Sleep -Seconds 30
-          }
-          Wait-Job $job -Timeout 300 | Out-Null
-          Receive-Job $job
-          $finalState = $job.State
-          Remove-Job $job -Force -ErrorAction SilentlyContinue
 
-          $tmp = Join-Path '${{ env.CRAFT_ROOT }}' 'tmp'
-          $exe = @()
-          $sevenZ = @()
-          if (Test-Path $tmp) {
-            $exe = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.exe' -Recurse -ErrorAction SilentlyContinue)
-            $sevenZ = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.7z' -Recurse -ErrorAction SilentlyContinue)
-          }
-          $produced = ($exe.Count + $sevenZ.Count) -gt 0
-          $checkpointed = -not $produced
+            $job = Start-Job -ScriptBlock $buildScript `
+              -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}'
 
-          Write-Host "Final job state: $finalState; artifacts produced: $produced"
-          "checkpointed=$($checkpointed.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
-          "produced=$($produced.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
-          Stop-Transcript | Out-Null
+            while ($job.State -eq 'Running') {
+              Receive-Job $job 2>&1 | Out-Host
+              $elapsed = ((Get-Date) - $startTime).TotalMinutes
+              if ($elapsed -ge $deadlineMin) {
+                Write-Host "::warning::Watchdog: $([math]::Round($elapsed,1)) min elapsed, stopping Craft for checkpoint."
+                Stop-Job $job
+                break
+              }
+              Start-Sleep -Seconds 30
+            }
+            Wait-Job $job -Timeout 300 | Out-Null
+            Receive-Job $job 2>&1 | Out-Host
+            $finalState = $job.State
+            Remove-Job $job -Force -ErrorAction SilentlyContinue
+
+            $tmp = Join-Path '${{ env.CRAFT_ROOT }}' 'tmp'
+            $exe = @()
+            $sevenZ = @()
+            if (Test-Path $tmp) {
+              $exe = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.exe' -Recurse -ErrorAction SilentlyContinue)
+              $sevenZ = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.7z' -Recurse -ErrorAction SilentlyContinue)
+            }
+            $produced = ($exe.Count + $sevenZ.Count) -gt 0
+            $checkpointed = -not $produced
+
+            Write-Host "Final job state: $finalState; artifacts produced: $produced"
+            "checkpointed=$($checkpointed.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
+            "produced=$($produced.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
+          } catch {
+            Write-Host "::warning::Build step threw: $($_.Exception.Message)"
+            Write-Host $_.ScriptStackTrace
+            "checkpointed=true"  | Out-File -Append $env:GITHUB_OUTPUT
+            "produced=false"     | Out-File -Append $env:GITHUB_OUTPUT
+          } finally {
+            Stop-Transcript -ErrorAction SilentlyContinue | Out-Null
+          }
           # Always succeed so the cache-save / resume-dispatch steps run.
           exit 0
 
