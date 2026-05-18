@@ -398,6 +398,99 @@ jobs:
               if ($LASTEXITCODE -ne 0) { Write-Host "install-deps exit=$LASTEXITCODE"; return }
               craft --buildtype $BuildType $Blueprint 2>&1
               if ($LASTEXITCODE -ne 0) { Write-Host "build exit=$LASTEXITCODE"; return }
+
+              # ---- Shrink installer payload before NSIS picks files up ----
+              # The binary cache mandates RelWithDebInfo for the build, but
+              # that ships unstripped MinGW DWARF debug sections inside every
+              # DLL/EXE -- typically 40-60% of the installer size. Strip them
+              # after install, drop non-English translations, and remove a
+              # short list of Qt plugins that kpat demonstrably never loads
+              # (no SQL, no QML, no QtMultimedia). Scope is strictly limited
+              # to user-facing payload paths so the Craft toolchain itself
+              # (python, gcc, strip, perl, etc. under dev-utils/) is left
+              # alone -- those still need to run for --package.
+              Write-Host "::group::Shrink installer payload"
+
+              $strip = Join-Path $CraftRoot 'mingw64\bin\strip.exe'
+              if (-not (Test-Path $strip)) {
+                  $strip = (Get-ChildItem -Path $CraftRoot -Filter 'strip.exe' -Recurse -ErrorAction SilentlyContinue |
+                            Where-Object { $_.FullName -match 'mingw' } |
+                            Select-Object -First 1).FullName
+              }
+              if ($strip -and (Test-Path $strip)) {
+                  $payloadRoots = @('bin','plugins','lib\plugins','qml') |
+                                  ForEach-Object { Join-Path $CraftRoot $_ } |
+                                  Where-Object { Test-Path $_ }
+                  $before = 0; $after = 0; $stripped = 0
+                  foreach ($pr in $payloadRoots) {
+                      Get-ChildItem -Path $pr -Recurse -Include '*.dll','*.exe' -ErrorAction SilentlyContinue |
+                          ForEach-Object {
+                              $f = $_.FullName
+                              $before += $_.Length
+                              & $strip --strip-unneeded "$f" 2>$null
+                              if ($LASTEXITCODE -eq 0) { $stripped++ }
+                              $after += (Get-Item -LiteralPath $f -ErrorAction SilentlyContinue).Length
+                          }
+                  }
+                  $savedMB = [math]::Round(($before - $after) / 1MB, 1)
+                  Write-Host "Stripped $stripped binaries; reclaimed ~$savedMB MB."
+              } else {
+                  Write-Host "::warning::strip.exe not found under $CraftRoot; skipping debug-info strip."
+              }
+
+              # Translations: keep English variants only. Qt ships qt_<loc>.qm
+              # + qtbase_<loc>.qm + a dozen module-specific .qm files per
+              # locale under <CraftRoot>\translations\ . KF6 ships gettext
+              # catalogues under <CraftRoot>\share\locale\<loc>\LC_MESSAGES\.
+              $keepLoc = @('en','en_US','en_GB','C')
+              $kmDir = Join-Path $CraftRoot 'share\locale'
+              if (Test-Path $kmDir) {
+                  $removed = 0
+                  Get-ChildItem -Path $kmDir -Directory -ErrorAction SilentlyContinue |
+                      Where-Object { $keepLoc -notcontains $_.Name } |
+                      ForEach-Object {
+                          Remove-Item -Recurse -Force $_.FullName -ErrorAction SilentlyContinue
+                          $removed++
+                      }
+                  Write-Host "Removed $removed non-English KF6 locale dirs from $kmDir."
+              }
+              $qtTr = Join-Path $CraftRoot 'translations'
+              if (Test-Path $qtTr) {
+                  # Match by locale token between underscore and dot: qt_de.qm,
+                  # qtbase_zh_CN.qm, etc. Keep anything ending in _en[_*].qm.
+                  $removed = 0
+                  Get-ChildItem -Path $qtTr -Filter '*.qm' -ErrorAction SilentlyContinue |
+                      Where-Object { $_.BaseName -notmatch '_en(_[A-Z]{2})?$' } |
+                      ForEach-Object {
+                          Remove-Item -Force $_.FullName -ErrorAction SilentlyContinue
+                          $removed++
+                      }
+                  Write-Host "Removed $removed non-English Qt .qm files from $qtTr."
+              }
+
+              # Plugins kpat provably doesn't use. Keep imageformats (SVG +
+              # PNG come from there), iconengines, platforms, styles,
+              # platformthemes, tls (KNewStuff fetches over HTTPS).
+              $dropPlugins = @('sqldrivers','qmltooling','multimedia',
+                               'mediaservice','assetimporters','geoservices',
+                               'position','sensors','sceneparsers','webview',
+                               'designer','printsupport')
+              foreach ($p in $dropPlugins) {
+                  foreach ($root in @('plugins','lib\plugins')) {
+                      $path = Join-Path $CraftRoot "$root\$p"
+                      if (Test-Path $path) {
+                          $sz = (Get-ChildItem $path -Recurse -ErrorAction SilentlyContinue |
+                                 Measure-Object -Property Length -Sum).Sum
+                          Remove-Item -Recurse -Force $path -ErrorAction SilentlyContinue
+                          Write-Host ("Dropped plugin dir {0} (~{1} MB)." -f $path,
+                                      [math]::Round($sz/1MB,1))
+                      }
+                  }
+              }
+
+              Write-Host "::endgroup::"
+              # ---- End payload shrink ----
+
               craft --buildtype $BuildType --package $Blueprint 2>&1
               Write-Host "package exit=$LASTEXITCODE"
             }
