@@ -1,0 +1,784 @@
+**********************
+PowerShell transcript start
+Start time: 20260518160630
+Username: runnervmy2hk6\runneradmin
+RunAs User: runnervmy2hk6\runneradmin
+Configuration Name: 
+Machine: runnervmy2hk6 (Microsoft Windows NT 10.0.20348.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -command . 'D:\a\_temp\1c0d1ccf-3e1b-4242-b2ed-0b706bcee82b.ps1'
+Process ID: 6064
+PSVersion: 7.4.15
+PSEdition: Core
+GitCommitId: 7.4.15
+OS: Microsoft Windows 10.0.20348
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Receive-Job: D:\a\_temp\1c0d1ccf-3e1b-4242-b2ed-0b706bcee82b.ps1:40
+Line |
+  40 |      Receive-Job $job 2>&1 | Out-Host
+     |      ~~~~~~~~~~~~~~~~~~~~~
+     | The handle is invalid.
+
+Found "sh" in your PATH: "C:\Program Files\Git\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Found "gcc" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Found "g++" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Found "cpp" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+NotSpecified: (:) [], RemoteException
+[Environment]
+PATH=
+NotSpecified: (:) [], RemoteException
+Craft               : C:\CraftRoot
+ABI                 : windows-cl-msvc2022-x86_64
+Download directory  : C:\CraftRoot\download
+Cache repository    : https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64
+Craft               : C:\CraftRoot
+ABI                 : windows-cl-msvc2022-x86_64
+Download directory  : C:\CraftRoot\download
+Cache repository    : https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 0s]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1s Progress: 0% Remaining Packages: ['libs/qt6/qtbase', 'libs/qt6/qtshadertools', 'libs/qt6/qtsvg', 'libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;0\================================================================================
+*** Handling package: libs/qt6/qtbase, action: all ***
+*** Action: fetch-binary for libs/qt6/qtbase ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtbase/qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtbase/qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtbase/qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirrors.xtom.]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtbase\qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   13.58M    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtbase/qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   13.58M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 13.5]8  0M Scan C:\CraftRoot\download\cache\26. . \RelWithDebInfo\libs\qt6\qtbase\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\9eb119a0\image-RelWithDebInfo-6.10.2 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtbase\qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 14244895 bytes (14 MiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtbase\qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z
+  0%
+
+  0% 255 - mkspecs\unsupported\vxworks-simpentium-dcc
+
+ 44% 311
+
+ 55% 437 - doc\global\template\scripts\main.js
+
+ 55% 621 - include\QtCore\6.10.2\QtCore\private\qstorageinfo_p.h
+
+ 55% 860 - include\QtCore\qforeach.h
+
+ 55% 1131 - include\QtCore\QSharedDataPointer
+
+ 55% 1392 - include\QtDBus\QDBusConnectionInterface
+
+ 55% 1585 - include\QtGui\6.10.2\QtGui\private\qrgba64_p.h
+
+ 55% 1801 - include\QtGui\qiconengineplugin.h
+
+ 55% 1844 - include\QtGui\qopenglcontext.h
+
+ 55% 2081 - include\QtNetwork\6.10.2\QtNet . vate\qnetworkreplyhttpimpl_p.h
+
+ 55% 2297 - include\QtOpenGL\qopenglfunctions_4_5_core.h
+
+ 55% 2510 - include\QtWidgets\6.10.2\QtWidgets\private\qaction_widgets_p.h
+
+ 55% 2708 - include\QtWidgets\QGraphicsItem
+
+ 55% 2977 - lib\cmake\Qt6\3rdparty\extra-cm . les\find-modules\FindGLIB2.cmake
+
+ 55% 3171 - lib\cmake\Qt6\QtPublicSbomGenerationHelpers.cmake
+
+ 55% 3348 - lib\cmake\Qt6Gui\Qt6QICOPluginTargets.cmake
+
+ 55% 3545 - lib\cmake\Qt6Widgets\Qt6QModern . ylePluginConfigVersionImpl.cmake
+
+ 55% 3759 - mkspecs\devices\linux-mipsel-b . \qdirectfbeglhooks_bcm97425.cpp
+
+ 55% 4003 - mkspecs\macx-ios-clang\Info.plist.dSYM.in
+
+ 55% 4213 - share\qt6\wayland\protocols\xdg- . n\xdg-decoration-unstable-v1.xml
+
+ 76% 4235
+
+100% 4235
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtbase\qtbase-6.10.2-41-20260211T181743-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 14244895
+Headers Size = 48125
+Method = LZMA2:25 BCJ
+Solid = +
+Blocks = 2
+
+Everything is Ok
+
+Folders: 311
+Files: 3970
+Size:       83961695
+Compressed: 14244895
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\mkspecs\qmodule.pri: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\mkspecs\modules\qt_lib_core_private.pri: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\mkspecs\modules\qt_lib_gui_private.pri: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\mkspecs\modules\qt_lib_network_private.pri: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\lib\cmake\Qt6BuildInternals\QtBuildInternalsExtra.cmake: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\bin\qt-cmake-create.bat: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\bin\qt-cmake-private.bat: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+Patching C:\_\9eb119a0\image-RelWithDebInfo-6.10.2\bin\qt-cmake.bat: replacing b'C:/Craft/windows-msvc2022_64-cl' with b'C:/CraftRoot'
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 10s Progress: 0% Remaining Packages: ['libs/qt6/qtbase', 'libs/qt6/qtshadertools', 'libs/qt6/qtsvg', 'libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;0\*** Craft all succeeded: libs/qt6/qtbase after 11s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 12s Progress: 1% Remaining Packages: ['libs/qt6/qtshadertools', 'libs/qt6/qtsvg', 'libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;1\================================================================================
+*** Handling package: libs/qt/qtbase, action: all ***
+*** Action: fetch-binary for libs/qt/qtbase ***
+*** libs/qt/qtbase not found in cache ***
+*** Action: fetch for libs/qt/qtbase ***
+*** Action: unpack for libs/qt/qtbase ***
+*** Action: configure for libs/qt/qtbase ***
+*** Action: make for libs/qt/qtbase ***
+*** Action: cleanimage for libs/qt/qtbase ***
+*** Action: install for libs/qt/qtbase ***
+*** Action: post-install for libs/qt/qtbase ***
+*** Action: qmerge for libs/qt/qtbase ***
+*** Action: post-qmerge for libs/qt/qtbase ***
+*** Craft all succeeded: libs/qt/qtbase after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 12s Progress: 2% Remaining Packages: ['libs/qt6/qtshadertools', 'libs/qt6/qtsvg', 'libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;2\================================================================================
+*** Handling package: libs/qt6/qtshadertools, action: all ***
+*** Action: fetch-binary for libs/qt6/qtshadertools ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtshadertools/qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtshadertools/qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.ocf.berkeley.edu/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtshadertools/qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirrors.ocf.b]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtshadertools\qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.07M    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.ocf.berkeley.edu/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtshadertools/qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.07M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 1.07]8  0M Scan C:\CraftRoot\download\cache\26 . ebInfo\libs\qt6\qtshadertools\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\e06b543a\image-RelWithDebInfo-6.10.2 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtshadertools\qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 1131734 bytes (1106 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtshadertools\qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z
+  0%
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtshadertools\qtshadertools-6.10.2-41-20260211T182040-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 1131734
+Headers Size = 1203
+Method = LZMA2:6m BCJ
+Solid = +
+Blocks = 2
+
+Everything is Ok
+
+Folders: 18
+Files: 47
+Size:       4302816
+Compressed: 1131734
+*** Craft all succeeded: libs/qt6/qtshadertools after 1s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 13s Progress: 3% Remaining Packages: ['libs/qt6/qtsvg', 'libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;3\================================================================================
+*** Handling package: libs/qt6/qtsvg, action: all ***
+*** Action: fetch-binary for libs/qt6/qtsvg ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtsvg/qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtsvg/qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtsvg/qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirrors.xtom.]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtsvg\qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]  277.66K    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtsvg/qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]  277.66K    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 277.]8  0M Scan C:\CraftRoot\download\cache\26. . \RelWithDebInfo\libs\qt6\qtsvg\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\d85beae8\image-RelWithDebInfo-6.10.2 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtsvg\qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 284330 bytes (278 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtsvg\qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z
+  0%
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtsvg\qtsvg-6.10.2-41-20260211T182125-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 284330
+Headers Size = 1836
+Method = LZMA2:1536k BCJ
+Solid = +
+Blocks = 2
+
+Everything is Ok
+
+Folders: 22
+Files: 94
+Size:       1347025
+Compressed: 284330
+*** Craft all succeeded: libs/qt6/qtsvg after 1s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 15s Progress: 4% Remaining Packages: ['libs/qt6/qtlanguageserver', 'libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;4\================================================================================
+*** Handling package: libs/qt6/qtlanguageserver, action: all ***
+*** Action: fetch-binary for libs/qt6/qtlanguageserver ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtlanguageserver/qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtlanguageserver/qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirror.fcix.net/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtlanguageserver/qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirror.fcix.n]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtlanguageserver\qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z'
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1GC:\CraftRoot\downloa   2% [>                    ]   47.67K    --.-KB/s87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.78M    4.29MB/s87[1S[3A[1G[0JHTTP response 200 OK [https://mirror.fcix.net/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtlanguageserver/qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.78M    4.29MB/s87[1A[1G[27G[Files: 1  Bytes: 1.78]8  0M Scan C:\CraftRoot\download\cache\26. . Info\libs\qt6\qtlanguageserver\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\5d2d2808\image-RelWithDebInfo-6.10.2 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtlanguageserver\qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 1873541 bytes (1830 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtlanguageserver\qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z
+  0%
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtlanguageserver\qtlanguageserver-6.10.2-41-20260211T182202-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 1873541
+Headers Size = 1294
+Method = LZMA2:24m
+Solid = +
+Blocks = 1
+
+Everything is Ok
+
+Folders: 19
+Files: 55
+Size:       23733531
+Compressed: 1873541
+*** Craft all succeeded: libs/qt6/qtlanguageserver after 1s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 17s Progress: 5% Remaining Packages: ['libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;5\================================================================================
+*** Handling package: libs/qt6/qtdeclarative, action: all ***
+*** Action: fetch-binary for libs/qt6/qtdeclarative ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtdeclarative/qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtdeclarative/qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.ocf.berkeley.edu/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtdeclarative/qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirrors.ocf.b]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtdeclarative\qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   22.75M    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.ocf.berkeley.edu/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qtdeclarative/qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   22.75M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 22.7]8  0M Scan C:\CraftRoot\download\cache\26 . ebInfo\libs\qt6\qtdeclarative\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\f468e2b6\image-RelWithDebInfo-6.10.2 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtdeclarative\qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 23865187 bytes (23 MiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtdeclarative\qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 20s Progress: 5% Remaining Packages: ['libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;5\  0%
+
+  0% 267 - lib\cmake\Qt6QmlTools
+
+  0% 387 - qml\QtQuick\Controls\Imagine
+
+ 32% 419
+
+ 61% 419
+
+ 74% 528 - include\QtQml\6.10.2\QtQml\private\qpauseanimationjob_p.h
+
+ 74% 714 - include\QtQml\6.10.2\QtQml\private\qv4mmdefs_p.h
+
+ 74% 919 - include\QtQmlDebug\6.10.2\QtQmlDebug\private\qqmlpreviewclient_p.h
+
+ 74% 1081 - include\QtQmlNetwork\6.10.2\QtQmlNetwork\private\qqmlsslkey_p.h
+
+ 74% 1266 - include\QtQuick\6.10.2\QtQuick\private\qquickstyledtext_p.h
+
+ 74% 1467 - include\QtQuickControls2\qquickattachedpropertypropagator.h
+
+ 74% 1655 - include\QtQuickEffects\QtQuickEffects
+
+ 74% 1837 - include\QtQuickTemplates2\6.10 . \qquicktableviewdelegate_p_p.h
+
+ 74% 2020 - lib\cmake\Qt6LabsSharedImage\ . eVersionlessAliasTargets.cmake
+
+ 74% 2221 - lib\cmake\Qt6Qml\QmlPlugins\Qt6 . ylepluginConfigVersionImpl.cmake
+
+ 74% 2351 - lib\cmake\Qt6Qml\QmlPlugins\Qt6sharedimagepluginConfig.cmake
+
+ 74% 2551 - lib\cmake\Qt6QmlIntegration\Qt6QmlIntegrationTargets.cmake
+
+ 74% 2746 - lib\cmake\Qt6QuickControls2Basi . asicStyleImplDependencies.cmake
+
+ 74% 2931 - lib\cmake\Qt6QuickControls2W . sStyleImplConfigVersion.cmake
+
+ 74% 3119 - lib\cmake\Qt6QuickVectorImage\ . VectorImageConfigVersion.cmake
+
+ 74% 3206 - lib\Qt6QmlDom.lib
+
+ 75% 3347 - mkspecs\features\qmltypes.prf
+
+ 75% 3403 - mkspecs\modules\qt_lib_quickcontrols2fusion.pri
+
+ 75% 3580 - qml\QtQuick\Controls\Basic\MonthGrid.qml
+
+ 75% 3739 - qml\QtQuick\Controls\designer\ScrollViewSpecifics.qml
+
+ 75% 3900 - qml\QtQuick\Controls\FluentWi . indicator-delegate-current.png
+
+ 75% 4060 - qml\QtQuick\Controls\FluentWin . cator-down-icon-disabled@2x.png
+
+ 75% 4229 - qml\QtQuick\Controls\FluentWi . background-open-pressed@3x.png
+
+ 75% 4319 - qml\QtQuick\Controls\FluentWinU . dicator-delegate-current@3x.png
+
+ 75% 4494 - qml\QtQuick\Controls\FluentWin . spinbox-indicator-down-icon.png
+
+ 75% 4689 - qml\QtQuick\Controls\Imagine\plugins.qmltypes
+
+ 75% 4883 - qml\QtQuick\Controls\Windows\MenuItem.qml
+
+ 79% 5023
+
+ 88% 5023
+
+ 99% 5023
+
+100% 5051 - bin\Qt6QmlCore.dll
+
+100% 5071 - bin\Qt6QuickControls2UniversalStyleImpl.dll
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qtdeclarative\qtdeclarative-6.10.2-41-20260211T183857-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 23865187
+Headers Size = 53529
+Method = LZMA2:25 BCJ
+Solid = +
+Blocks = 2
+
+Everything is Ok
+
+Folders: 419
+Files: 4730
+Size:       218173146
+Compressed: 23865187
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 30s Progress: 5% Remaining Packages: ['libs/qt6/qtdeclarative', 'libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;5\*** Craft all succeeded: libs/qt6/qtdeclarative after 15s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 32s Progress: 6% Remaining Packages: ['libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;6\================================================================================
+*** Handling package: libs/llvm, action: all ***
+*** Action: fetch-binary for libs/llvm ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/Release/libs/llvm/llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/Release/libs/llvm/llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/Release/libs/llvm/llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirrors.xtom.]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\Release\libs\llvm\llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa   4% [>                    ]   23.65M    --.-KB/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1GC:\CraftRoot\downloa  22% [===>                 ]  128.78M  104.18MB/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1GC:\CraftRoot\downloa  35% [======>              ]  206.75M   91.04MB/s87[2A[1GC:\CraftRoot\downloa  56% [==========>          ]  332.31M  102.47MB/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1GC:\CraftRoot\downloa  79% [===============>     ]  464.71M  109.85MB/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1GC:\CraftRoot\downloa  98% [===================> ]  575.71M  110.05MB/s87[2A[1GC:\CraftRoot\downloa 100% [====================>]  583.90M  110.06MB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/Release/libs/llvm/llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]  583.90M  110.06MB/s87[1A[1G[27G[Files: 1  Bytes: 583.]8  0M Scan C:\CraftRoot\download\cache\26. . c2022\x86_64\Release\libs\llvm\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\3b1a99ce\image-Release-20.1.7 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\Release\libs\llvm\llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 612272917 bytes (584 MiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\Release\libs\llvm\llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 40s Progress: 6% Remaining Packages: ['libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;6\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 50s Progress: 6% Remaining Packages: ['libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;6\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1min 0s Progress: 6% Remaining Packages: ['libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;6\  0%
+
+  0% 187 - include\llvm\Testing
+
+  2% 252
+
+  6% 252
+
+ 11% 252
+
+ 14% 353 - include\clang\AST\ASTDiagnostic.h
+
+ 14% 554 - include\clang\Basic\BuiltinsSPIRV.inc
+
+ 14% 574 - include\clang\Basic\DarwinSDKInfo.h
+
+ 14% 785 - include\clang\Index\IndexingAction.h
+
+ 14% 982 - include\clang\StaticAnalyzer\Co . ensitive\SMTConstraintManager.h
+
+ 14% 1187 - include\clang-tidy\bugprone\SmartPtrArrayMismatchCheck.h
+
+ 14% 1402 - include\clang-tidy\performance\ForRangeCopyCheck.h
+
+ 14% 1612 - include\llvm\ADT\StringExtras.h
+
+ 14% 1678 - include\llvm\Analysis\InstCount.h
+
+ 14% 1870 - include\llvm\CodeGen\DFAPacketizer.h
+
+ 14% 2060 - include\llvm\CodeGen\SpillPlacement.h
+
+ 14% 2259 - include\llvm\DebugInfo\PDB\DIA\DIATable.h
+
+ 14% 2446 - include\llvm\ExecutionEngine\Orc\DylibManager.h
+
+ 14% 2644 - include\llvm\IR\IntrinsicsMips.h
+
+ 14% 2714 - include\llvm\IR\TypeFinder.h
+
+ 14% 2913 - include\llvm\ObjectYAML\CodeViewYAMLDebugSections.h
+
+ 14% 3130 - include\llvm\Support\MSP430Attributes.h
+
+ 14% 3343 - include\llvm\Transforms\IPO\ConstantMerge.h
+
+ 14% 3514 - include\llvm\Transforms\Utils\MatrixUtils.h
+
+ 14% 3706 - lib\clang\20\include\cmpccxaddintrin.h
+
+ 14% 3834 - lib\clang\20\include\vecintrin.h
+
+ 14% 3901 - lib\clangDaemonTweaks.lib
+
+ 18% 3933 - lib\clangStaticAnalyzerCheckers.lib
+
+ 22% 3935 - lib\clangStaticAnalyzerFrontend.lib
+
+ 25% 3973 - lib\cmake\clang\AddClang.cmake
+
+ 29% 4038 - lib\lldELF.lib
+
+ 32% 4060 - lib\LLVMCodeGen.lib
+
+ 35% 4070
+
+ 37% 4070 - lib\LLVMDebugInfoLogicalView.lib
+
+ 37% 4074 - lib\LLVMDiff.lib
+
+ 37% 4132 - lib\LLVMSymbolize.lib
+
+ 37% 4187
+
+ 39% 4187
+
+ 41% 4187
+
+ 43% 4187
+
+ 45% 4187
+
+ 47% 4187
+
+ 49% 4187
+
+ 51% 4187
+
+ 51% 4190 - bin\clang++.exe
+
+ 51% 4194
+
+ 52% 4194
+
+ 53% 4194
+
+ 54% 4199 - bin\clang-include-cleaner.exe
+
+ 55% 4202 - bin\clang-linker-wrapper.exe
+
+ 56% 4205
+
+ 57% 4205
+
+ 58% 4205
+
+ 59% 4206
+
+ 60% 4206
+
+ 62% 4210 - bin\clang-repl.exe
+
+ 63% 4213 - bin\clang-tblgen.exe
+
+ 64% 4214
+
+ 65% 4214
+
+ 66% 4214 - bin\clang-tidy.exe
+
+ 68% 4215 - bin\clang.exe
+
+ 70% 4215 - bin\clang.exe
+
+ 71% 4216 - bin\clangd.exe
+
+ 73% 4222
+
+ 75% 4222
+
+ 77% 4222
+
+ 78% 4226
+
+ 79% 4226 - bin\llc.exe
+
+ 80% 4230
+
+ 81% 4230
+
+ 82% 4230
+
+ 82% 4234
+
+ 84% 4234
+
+ 85% 4234
+
+ 85% 4239 - bin\llvm-cfi-verify.exe
+
+ 87% 4256 - bin\llvm-dwp.exe
+
+ 88% 4258
+
+ 91% 4258
+
+ 92% 4259 - bin\llvm-gsymutil.exe
+
+ 93% 4262
+
+ 94% 4262
+
+ 94% 4268 - bin\llvm-lto.exe
+
+ 95% 4270
+
+ 96% 4270
+
+ 97% 4272 - bin\llvm-ml.exe
+
+ 98% 4274
+
+ 99% 4274
+
+ 99% 4275 - bin\llvm-nm.exe
+
+ 99% 4290 - bin\llvm-remarkutil.exe
+
+ 99% 4294 - bin\llvm-split.exe
+
+ 99% 4296 - bin\llvm-strings.exe
+
+100% 4309 - bin\opt.exe
+
+100% 4310 - bin\pp-trace.exe
+
+100% 4314 - bin\sancov.exe
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\Release\libs\llvm\llvm-20.1.7-20-20251126T212527-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 612272917
+Headers Size = 54701
+Method = LZMA2:25 BCJ
+Solid = +
+Blocks = 2
+
+Everything is Ok
+
+Folders: 240
+Files: 4082
+Size:       3776793968
+Compressed: 612272917
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1min 10s Progress: 6% Remaining Packages: ['libs/llvm', 'libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\3b1a99ce\image-Release-20.1.7\bin\git-clang-format.exe python3.exe -- C:\CraftRoot\bin\git-clang-format
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\3b1a99ce\image-Release-20.1.7\bin\run-clang-tidy.exe python3.exe -- C:\CraftRoot\bin\run-clang-tidy
+]9;4;1;6\*** Craft all succeeded: libs/llvm after 40s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1min 13s Progress: 7% Remaining Packages: ['libs/qt6/qttools', 'libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;7\================================================================================
+*** Handling package: libs/qt6/qttools, action: all ***
+*** Action: fetch-binary for libs/qt6/qttools ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttools/qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttools/qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttools/qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirrors.xtom.]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttools\qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    7.11M    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.xtom.com/kde-application/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttools/qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    7.11M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 7.11]8  0M Scan C:\CraftRoot\download\cache\26. . RelWithDebInfo\libs\qt6\qttools\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\6c729b6\image-RelWithDebInfo-6.10.2 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttools\qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 7464389 bytes (7290 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttools\qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z
+  0%
+
+ 16% 107 - include\QtDesigner\6.10.2\QtDes . ivate\qdesigner_membersheet_p.h
+
+ 16% 282 - include\QtHelp\ui_qfilternamedialog.h
+
+ 16% 311 - include\QtUiPlugin\QDesignerCustomWidgetInterface
+
+ 19% 514
+
+ 87% 514
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttools\qttools-6.10.2-41-20260211T184828-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 7464389
+Headers Size = 7269
+Method = LZMA2:25 BCJ
+Solid = +
+Blocks = 2
+
+Everything is Ok
+
+Folders: 62
+Files: 477
+Size:       27436593
+Compressed: 7464389
+*** Craft all succeeded: libs/qt6/qttools after 3s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1min 16s Progress: 8% Remaining Packages: ['libs/qt6/qttranslations', 'libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;8\================================================================================
+*** Handling package: libs/qt6/qttranslations, action: all ***
+*** Action: fetch-binary for libs/qt6/qttranslations ***
+wget2 https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttranslations/qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttranslations/qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirror.fcix.net/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttranslations/qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirror.fcix.n]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttranslations\qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa   3% [>                    ]   63.67K    --.-KB/s87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.86M    2.82MB/s87[1S[3A[1G[0JHTTP response 200 OK [https://mirror.fcix.net/kde-applicationdata/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo/libs/qt6/qttranslations/qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.86M    2.82MB/s87[1A[1G[27G[Files: 1  Bytes: 1.86]8  0M Scan C:\CraftRoot\download\cache\26 . bInfo\libs\qt6\qttranslations\
+
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\6152e5ae\image-RelWithDebInfo-6.10.2 C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttranslations\qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 1950992 bytes (1906 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttranslations\qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z
+  0%
+
+100% 148 - translations\qtdeclarative_tr.qm
+
+--
+Path = C:\CraftRoot\download\cache\26.02\windows\cl\msvc2022\x86_64\RelWithDebInfo\libs\qt6\qttranslations\qttranslations-6.10.2-41-20260211T185001-windows-cl-msvc2022-x86_64.7z
+Type = 7z
+Physical Size = 1950992
+Headers Size = 3921
+Method = LZMA2:24
+Solid = +
+Blocks = 1
+
+Everything is Ok
+
+Folders: 1
+Files: 305
+Size:       15798673
+Compressed: 1950992
+*** Craft all succeeded: libs/qt6/qttranslations after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1min 18s Progress: 9% Remaining Packages: ['libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;9\================================================================================
+*** Handling package: libs/qt/qttranslations, action: all ***
+*** Action: fetch-binary for libs/qt/qttranslations ***
+*** libs/qt/qttranslations not found in cache ***
+*** Action: fetch for libs/qt/qttranslations ***
+*** Action: unpack for libs/qt/qttranslations ***
+*** Action: configure for libs/qt/qttranslations ***
+*** Action: make for libs/qt/qttranslations ***
+*** Action: cleanimage for libs/qt/qttranslations ***
+*** Action: install for libs/qt/qttranslations ***
+*** Action: post-install for libs/qt/qttranslations ***
+*** Action: qmerge for libs/qt/qttranslations ***
+*** Action: post-qmerge for libs/qt/qttranslations ***
+*** Craft all succeeded: libs/qt/qttranslations after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1min 18s Progress: 10% Remaining Packages: ['libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;10\================================================================================
+*** Handling package: libs/rinutils, action: all ***
+*** Action: fetch-binary for libs/rinutils ***
+Could not find libs/rinutils=0.8.0 in https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/RelWithDebInfo
+Could not find libs/rinutils=0.8.0 in https://files.kde.org/craft/Qt6/26.02/windows/cl/msvc2022/x86_64/Release
+*** libs/rinutils not found in cache ***
+*** Action: fetch for libs/rinutils ***
+wget2 https://github.com/shlomif/rinutils/releases/download/0.8.0/rinutils-0.8.0.tar.xz
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://github.com/sh]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://github.com/shlomif/rinutils/releases/download/0.8.0/rinutils-0.8.0.tar.xz]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://release-assets.githubusercontent.com/github-production-release-asset/187391811/66689780-3321-11eb-9214-d9f7cf29699f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-18T17%3A04%3A20Z&rscd=attachment%3B+filename%3Drinutils-0.8.0.tar.xz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-05-18T16%3A03%3A30Z&ske=2026-05-18T17%3A04%3A20Z&sks=b&skv=2018-11-09&sig=RDTTvaFZr7zjsOO13U2i7aZGLxT9IZq2DcPdqRA6i9A%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3OTEyMDc3OCwibmJmIjoxNzc5MTIwNDc4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.LYQ5D40-ML5LZy-0jDm2djE6WubgWuYF35jxVm92TlM&response-content-disposition=attachment%3B%20filename%3Drinutils-0.8.0.tar.xz&response-content-type=application%2Foctet-stream
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://release-asset]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\archives\libs\rinutils\rinutils-0.8.0.tar.xz'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   16.71K    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://release-assets.githubusercontent.com/github-production-release-asset/187391811/66689780-3321-11eb-9214-d9f7cf29699f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-18T17%3A04%3A20Z&rscd=attachment%3B+filename%3Drinutils-0.8.0.tar.xz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-05-18T16%3A03%3A30Z&ske=2026-05-18T17%3A04%3A20Z&sks=b&skv=2018-11-09&sig=RDTTvaFZr7zjsOO13U2i7aZGLxT9IZq2DcPdqRA6i9A%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3OTEyMDc3OCwibmJmIjoxNzc5MTIwNDc4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.LYQ5D40-ML5LZy-0jDm2djE6WubgWuYF35jxVm92TlM&response-content-disposition=attachment%3B%20filename%3Drinutils-0.8.0.tar.xz&response-content-type=application%2Foctet-stream]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   16.71K    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 16.7]8*** Action: unpack for libs/rinutils ***
+  0M Scan C:\CraftRoot\download\archives\libs\rinutils\
+                                                       
+  0%
+    
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x C:\CraftRoot\download\archives\libs\rinutils\rinutils-0.8.0.tar.xz -so -bsp2 | C:\CraftRoot\dev-utils\bin\7za.exe x -si -oC:\_\d17c8b49 -ttar -snld20 -bsp0
+*** Action: configure for libs/rinutils ***
+CMake Deprecation Warning at CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+executing command: C:\CraftRoot\dev-utils\bin\cmake.exe -G Ninja -DBUILD_TESTING=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=C:/CraftRoot -DCMAKE_PREFIX_PATH=C:/CraftRoot -DCMAKE_REQUIRED_INCLUDES=C:/CraftRoot/include -DCMAKE_C_STANDARD_INCLUDE_DIRECTORIES=C:/CraftRoot/include -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -B C:\_\d17c8b49\build -S C:\_\d17c8b49\rinutils-0.8.0
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo --install-deps kde/kdegames/kpat Duration: 1min 20s Progress: 10% Remaining Packages: ['libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']]9;4;1;10\-- The C compiler identification is MSVC 19.44.35226.0
+-- The CXX compiler identification is MSVC 19.44.35226.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Perl: C:/CraftRoot/bin/perl.exe (found version "5.40.1")
+-- Found PkgConfig: C:/CraftRoot/bin/pkg-config.exe (found version "2.5.1")
+CMake Error at cmake/Shlomif_Common.cmake:249 (MESSAGE):
+  Error! You are using Microsoft Visual C++ and Freecell Solver Requires a
+  compiler that supports C99 and some GCC extensions.  Possible alternatives
+  are GCC, clang and Intel C++ Compiler
+Call Stack (most recent call first):
+  CMakeLists.txt:68 (SHLOMIF_ADD_COMMON_C_FLAGS)
+
+
+-- Configuring incomplete, errors occurred!
+Command [WindowsPath('C:/CraftRoot/dev-utils/bin/cmake.exe'), '-G', 'Ninja', '-DBUILD_TESTING=ON', '-DBUILD_SHARED_LIBS=ON', '-DCMAKE_INSTALL_PREFIX=C:/CraftRoot', '-DCMAKE_PREFIX_PATH=C:/CraftRoot', '-DCMAKE_REQUIRED_INCLUDES=C:/CraftRoot/include', '-DCMAKE_C_STANDARD_INCLUDE_DIRECTORIES=C:/CraftRoot/include', '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON', '-DCMAKE_BUILD_TYPE=RelWithDebInfo', '-DCMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP=ON', '-DKDE_INSTALL_USE_QT_SYS_PATHS=ON', '-B', 'C:\\_\\d17c8b49\\build', '-S', 'C:\\_\\d17c8b49\\rinutils-0.8.0'] failed with exit code 1
+Action: configure for libs/rinutils:0.8.0 FAILED
+*** Craft all failed: libs/rinutils after 7s ***
+fatal error: package libs/rinutils all failed
+Craft stopped with out completing ['libs/rinutils', 'perl-modules/path-tiny', 'libs/black-hole-solver', 'perl-modules/template', 'perl-modules/module-runtime', 'perl-modules/moo', 'perl-modules/sub-quote', 'dev-utils/gperf', 'python-modules/random2', 'python-modules/six', 'python-modules/pysol-cards', 'libs/libfreecell-solver', 'libs/qt/qttools', 'dev-utils/icoutils', 'kde/frameworks/extra-cmake-modules', 'kde/frameworks/tier1/kcodecs', 'libs/qt/qtdeclarative', 'kde/frameworks/tier1/kconfig', 'kde/frameworks/tier1/kwidgetsaddons', 'kde/frameworks/tier2/kcompletion', 'libs/shared-mime-info', 'kde/frameworks/tier1/kcoreaddons', 'data/iso-codes', 'kde/frameworks/tier1/ki18n', 'libs/qt/qtwayland', 'kde/frameworks/tier1/kwindowsystem', 'kde/frameworks/tier2/kcrash', 'kde/frameworks/tier1/kdbusaddons', 'kde/frameworks/tier1/kitemviews', 'kde/frameworks/tier1/kguiaddons', 'kde/frameworks/tier2/kcolorscheme', 'libs/libarchive', 'kde/frameworks/tier1/karchive', 'libs/libxslt', 'data/docbook-dtd', 'data/docbook-xsl', 'perl-modules/xml-parser', 'perl-modules/uri-url', 'kde/frameworks/tier2/kdoctools', 'kde/frameworks/tier3/kconfigwidgets', 'libs/qt/qtsvg', 'python-modules/lxml', 'kde/frameworks/tier1/breeze-icons', 'kde/frameworks/tier3/kiconthemes', 'kde/frameworks/tier3/kxmlgui', 'kde/frameworks/tier3/kbookmarks', 'libs/liblame', 'libs/libopus', 'libs/x265', 'libs/mingw-crt4msvc', 'libs/libogg', 'libs/libvorbis', 'libs/libsamplerate', 'libs/libsdl2', 'libs/aom', 'libs/dav1d', 'libs/onevpl', 'libs/svtav1', 'libs/amf', 'libs/nvidia-codecs', 'libs/ffmpeg', 'libs/qt6/qtmultimedia', 'libs/qt6/qtspeech', 'libs/qt/qtspeech', 'kde/frameworks/tier3/knotifications', 'kde/frameworks/tier2/kjobwidgets', 'kde/frameworks/tier3/kservice', 'kde/frameworks/tier1/solid', 'kde/frameworks/tier1/sonnet', 'kde/frameworks/tier3/ktextwidgets', 'kde/frameworks/tier3/kio', 'kde/frameworks/tier3/kdeclarative', 'kde/frameworks/tier1/kirigami', 'kde/frameworks/tier3/qqc2-desktop-style', 'kde/frameworks/tier2/kpackage', 'kde/frameworks/tier2/syndication', 'kde/frameworks/tier1/attica', 'kde/frameworks/tier3/knewstuff', 'libs/libflac', 'libs/libsndfile', 'libs/openal-soft', 'kde/frameworks/tier2/kdnssd', 'kde/kdegames/libkdegames', 'libs/libfftw', 'kde/frameworks/tier3/kcmutils', 'kde/plasma/breeze']
+install-deps exit=1
+Final job state: Completed; artifacts produced: False
+**********************
+PowerShell transcript end
+End time: 20260518160831
+**********************
