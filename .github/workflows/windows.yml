@@ -378,6 +378,12 @@ jobs:
           if (-not $sha) { throw "Couldn't compute kpat-src short SHA." }
           $version = "$maj.$min.$mic-win-$sha"
           Write-Host "Computed installer version: $version"
+          # Expose the release version (without the sha suffix) so the artifact
+          # staging step can rename Craft's default ABI-encoded filenames into
+          # something human-friendly. The internal NSIS DisplayVersion below
+          # still includes the sha for build traceability.
+          $releaseVersion = "$maj.$min.$mic-win"
+          "KPAT_RELEASE_VERSION=$releaseVersion" | Out-File -Append $env:GITHUB_ENV -Encoding utf8
 
           $iconPath = $env:KPAT_ICO
           if (-not $iconPath -or -not (Test-Path $iconPath)) {
@@ -665,11 +671,30 @@ jobs:
         if: steps.build.outputs.produced == 'true'
         shell: pwsh
         run: |
+          # Craft's NullsoftInstaller packager defaults to filenames of the
+          # form  kpat-<sourceRevision>-<blueprintVersion>-<ABI>.<ext>, which
+          # for a git source comes out as the unreadable
+          #   kpat-HEAD-master-windows-gcc-x86_64.exe
+          # Rename to the human-friendly  kpat-<release-version>-setup.exe
+          # and  kpat-<release-version>.7z  on the way to the upload bucket.
           $dest = Join-Path '${{ github.workspace }}' 'dist'
           New-Item -ItemType Directory -Force -Path $dest | Out-Null
           $tmp = Join-Path '${{ env.CRAFT_ROOT }}' 'tmp'
-          Get-ChildItem -Path $tmp -Recurse -Include 'kpat-*.exe','kpat-*.7z' |
-            Copy-Item -Destination $dest -Force
+          $version = $env:KPAT_RELEASE_VERSION
+          if (-not $version) {
+            throw "KPAT_RELEASE_VERSION env var not set; blueprint metadata step must run first."
+          }
+          $produced = @(Get-ChildItem -Path $tmp -Recurse -Include 'kpat-*.exe','kpat-*.7z')
+          foreach ($f in $produced) {
+            switch ($f.Extension.ToLower()) {
+              '.exe' { $newName = "kpat-$version-setup.exe" }
+              '.7z'  { $newName = "kpat-$version.7z" }
+              default { $newName = $f.Name }
+            }
+            $target = Join-Path $dest $newName
+            Write-Host ("Renaming {0} -> {1}" -f $f.Name, $newName)
+            Copy-Item -Path $f.FullName -Destination $target -Force
+          }
           # Ship license + modification notice next to the binaries to satisfy GPL v2.
           Copy-Item (Join-Path '${{ github.workspace }}' 'kpat-src\COPYING') $dest
           $notice = Join-Path '${{ github.workspace }}' 'kpat-src\NOTICE.windows'
@@ -754,11 +779,30 @@ jobs:
         with:
           subject-path: 'dist/*'
 
+      - name: Compose release notes
+        # Keep the GitHub Releases page itself short: link to the README for
+        # the SmartScreen walkthrough + provenance verification, ship the
+        # long modification notice as the attached NOTICE.windows file.
+        run: |
+          TAG="${GITHUB_REF_NAME}"            # e.g. v26.07.70-win
+          VERSION="${TAG#v}"                  # e.g. 26.07.70-win
+          cat > release-notes.md <<EOF
+          KPat for Windows ${VERSION}: free, open-source solitaire from the KDE community, packaged as an unsigned Windows installer.
+
+          **Installer**: \`kpat-${VERSION}-setup.exe\`
+          **Portable**: \`kpat-${VERSION}.7z\` (extract anywhere, run \`bin\\kpat.exe\`).
+
+          ### First run
+
+          Windows SmartScreen will warn that the publisher is unknown. This is expected for unsigned community installers. Click **More info**, then **Run anyway**. The [README](https://github.com/panibor/kpat#about-the-smartscreen-warning) explains how to verify the build with \`gh attestation verify\`.
+
+          Built from unmodified upstream KPat with two small \`Q_OS_WIN\`-only source patches. Full modification notice attached as \`NOTICE.windows\`. License: GPL-2.0-or-later. Not endorsed by KDE.
+          EOF
+
       - name: Publish draft release
         uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         with:
           files: dist/*
-          body_path: NOTICE.windows
-          generate_release_notes: true
+          body_path: release-notes.md
           draft: true
           fail_on_unmatched_files: true
