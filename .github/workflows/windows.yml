@@ -1,0 +1,764 @@
+name: Windows (Craft)
+
+on:
+  push:
+    branches: [master, main]
+    tags: ['v*-win']
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+    inputs:
+      resume:
+        description: 'Resume a checkpointed build (set automatically on re-dispatch).'
+        type: boolean
+        default: false
+      resume_count:
+        description: 'How many consecutive resumes have happened so far.'
+        type: string
+        default: '0'
+  schedule:
+    # Weekly cache warm-up; GitHub Actions evicts caches after 7 idle days.
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  # Push/PR events: cancel an in-flight run on the same ref so we don't burn
+  # minutes on stale code. Resume dispatches arrive as workflow_dispatch and
+  # must NOT be cancelled, otherwise the chain breaks.
+  group: windows-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+
+env:
+  CRAFT_ROOT: C:\CraftRoot
+  CRAFT_BLUEPRINT: kde/kdegames/kpat
+  MAX_RESUMES: '5'
+  # Stop the build at 5h20m to leave headroom for cache save + re-dispatch
+  # under the GitHub-enforced 6h-per-job hard cap.
+  WATCHDOG_MINUTES: '320'
+  # files.kde.org binary cache is populated for RelWithDebInfo only. Without
+  # forcing this, Craft's bootstrap looks under MinSizeRel/, misses the
+  # prebuilt pkgconf, falls back to source build, and dies because the
+  # pkgconf tarballs (2.4.3 and 2.5.1 alike) trip autotools' Makefile.in
+  # regen rule under MSYS+MSVC.
+  CRAFT_BUILDTYPE: 'RelWithDebInfo'
+  # Craft ships a CMake 4.x binary; libfreecell-solver/man/CMakeLists.txt and
+  # likely a handful of other ancient transitive deps (black-hole-solver and
+  # other shlomif libs) still call `cmake_minimum_required(VERSION 2.x)`.
+  # CMake 4.0+ honours this env var as the floor instead of erroring out.
+  CMAKE_POLICY_VERSION_MINIMUM: '3.5'
+
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 350
+    permissions:
+      contents: write  # write needed to publish failure logs to ci-logs branch
+      actions: write   # required for `gh workflow run` (resume re-dispatch)
+    outputs:
+      checkpointed: ${{ steps.build.outputs.checkpointed }}
+      produced: ${{ steps.build.outputs.produced }}
+    steps:
+      - name: Guard against runaway resumes
+        shell: pwsh
+        run: |
+          $count = [int]('${{ github.event.inputs.resume_count }}' -replace '^$','0')
+          $max = [int]'${{ env.MAX_RESUMES }}'
+          Write-Host "Resume count: $count / $max"
+          if ($count -ge $max) {
+            Write-Error "Max resumes ($count) reached. Refusing to start another resume; investigate the last failed run."
+            exit 1
+          }
+
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          path: kpat-src
+          fetch-depth: 0
+
+      - name: Resolve craft-blueprints-kde HEAD SHA
+        id: bp
+        shell: pwsh
+        run: |
+          $line = (git ls-remote https://invent.kde.org/packaging/craft-blueprints-kde.git HEAD | Select-Object -First 1)
+          $sha = ($line -split '\s+')[0]
+          if (-not $sha) { throw "Could not resolve craft-blueprints-kde HEAD" }
+          Write-Host "Blueprints HEAD: $sha"
+          "sha=$sha" | Out-File -Append $env:GITHUB_OUTPUT
+
+      - name: Restore Craft cache
+        id: cache_restore
+        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ${{ env.CRAFT_ROOT }}
+          # The 'mingw' tag in the key intentionally invalidates any older
+          # caches built with the previous MSVC ABI -- toolchain switch means
+          # the old CRAFT_ROOT is unusable.
+          key: craft-win-mingw-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}
+          restore-keys: |
+            craft-win-mingw-${{ steps.bp.outputs.sha }}-
+            craft-win-mingw-
+
+      - name: Configure wget2 timeouts
+        shell: pwsh
+        run: |
+          # wget2 (Craft's binary fetcher for prebuilt .7z packages) parallel-
+          # fetches the same archive from multiple KDE mirrors via HTTP/2 multi-
+          # connection. When one mirror accepts the TCP handshake then stalls
+          # without sending body bytes, wget2's per-connection read-timeout
+          # never fires (the parallel-fetch state machine keeps the connection
+          # "valid" while waiting on the other mirror, which is also hanging).
+          # The whole job parks until the 5h20m watchdog. Observed twice
+          # (runs 26049942529 + 26050xxxxx) on qtdeclarative/kdnssd.
+          #
+          # Force single-threaded fetching so a hung mirror trips the normal
+          # read-timeout, fails the action, wget2 retries on the next mirror,
+          # and Craft falls through to source build if every mirror is
+          # unreachable.
+          #
+          # wget2 on Windows now reads %LOCALAPPDATA%\wget\wget2rc; the older
+          # %USERPROFILE%\.wget2rc location still works but emits a deprecation
+          # warning per-invocation, so use the modern path.
+          $rcDir  = Join-Path $env:LOCALAPPDATA 'wget'
+          $rcFile = Join-Path $rcDir 'wget2rc'
+          New-Item -ItemType Directory -Force -Path $rcDir | Out-Null
+          @(
+              '# Written by .github/workflows/windows.yml'
+              'max-threads = 1'
+              'connect-timeout = 20'
+              'timeout = 20'
+              'read-timeout = 20'
+              'tries = 4'
+              'waitretry = 5'
+          ) | Set-Content -Path $rcFile -Encoding ASCII
+          # Also drop a copy at the legacy path, just in case some wget2 build
+          # on the runner only honours the old location.
+          $legacy = Join-Path $env:USERPROFILE '.wget2rc'
+          Copy-Item $rcFile $legacy -Force
+          Write-Host "--- $rcFile ---"
+          Get-Content $rcFile
+
+      - name: Bootstrap Craft (if not already present)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          $envScript = "${{ env.CRAFT_ROOT }}\craft\craftenv.ps1"
+          if (Test-Path $envScript) {
+            Write-Host "Craft already bootstrapped at ${{ env.CRAFT_ROOT }} (cache hit). Skipping."
+            exit 0
+          }
+
+          # A partial cache (e.g. craft-tmp\ present but craft\ missing from a
+          # previously aborted bootstrap) breaks CraftBootstrap. Wipe before retry.
+          if (Test-Path '${{ env.CRAFT_ROOT }}') {
+            Write-Host "Removing stale partial CraftRoot before bootstrap."
+            Remove-Item -Recurse -Force '${{ env.CRAFT_ROOT }}'
+          }
+          New-Item -ItemType Directory -Force -Path '${{ env.CRAFT_ROOT }}' | Out-Null
+
+          # Fetch CraftBootstrap.py from KDE's GitHub mirror (invent.kde.org sometimes
+          # blocks raw fetches from CI runners; the mirror is auto-synced).
+          $bootUrl  = 'https://raw.githubusercontent.com/KDE/craft/master/setup/CraftBootstrap.py'
+          $bootFile = Join-Path $env:RUNNER_TEMP 'CraftBootstrap.py'
+
+          $maxAttempts = 3
+          for ($attempt = 1; $attempt -le $maxAttempts; $attempt++) {
+            Write-Host "::group::Craft bootstrap attempt $attempt/$maxAttempts"
+
+            try {
+              Invoke-WebRequest -UseBasicParsing -Uri $bootUrl -OutFile $bootFile
+            } catch {
+              Write-Warning "Failed to download CraftBootstrap.py: $_"
+              Write-Host "::endgroup::"
+              if ($attempt -eq $maxAttempts) { throw }
+              Start-Sleep -Seconds (10 * $attempt); continue
+            }
+
+            # CraftBootstrap.py invokes its embedded `craft craft` runtime build
+            # with an empty extra-arg list (`cmd = []`). The file's binary cache
+            # at files.kde.org/craft/Qt6/<ver>/.../<buildtype>/ is only populated
+            # for RelWithDebInfo, but Craft defaults the lookup to MinSizeRel for
+            # the bootstrap packages, so pkgconf et al. miss the cache and fall
+            # to a source build that explodes (autotools regen rule pulling in
+            # Makefile.am that the MSVC+MSYS toolchain can't satisfy). Patch the
+            # cmd seed to force --buildtype, so the lookup hits the RelWithDebInfo
+            # cache where the prebuilt pkgconf actually lives.
+            #
+            # ALSO: --use-defaults picks MSVC 2022 by default, but Shlomi Fish's
+            # rinutils / libfreecell-solver (transitive deps of kpat) hard-reject
+            # MSVC at CMake configure time. Patch the third arg of the ABI
+            # promptForChoice call from ("msvc2022", "cl") to (None, "gcc") so
+            # --use-defaults picks Mingw-w64 / gcc instead. KDE's binary cache
+            # for windows/gcc/x86_64/RelWithDebInfo/ covers Qt6 + KF6, so most
+            # of the dep tree still comes from the cache.
+            $bootSrc = Get-Content $bootFile -Raw
+            $patched = $bootSrc -replace '(?m)^(\s*)cmd = \[\]\s*$', "`$1cmd = [`"--buildtype`", `"${{ env.CRAFT_BUILDTYPE }}`"]"
+            if ($patched -eq $bootSrc) {
+              throw "CraftBootstrap.py patch failed: 'cmd = []' line not found. Upstream may have changed the bootstrap structure; revisit the --buildtype injection."
+            }
+            $patched2 = $patched -replace '(?m)^(\s*)\("msvc2022", "cl"\),\s*$', "`$1(None, `"gcc`"),"
+            if ($patched2 -eq $patched) {
+              throw "CraftBootstrap.py patch failed: ABI default line not found. Upstream may have changed getABI(); revisit the mingw switch."
+            }
+            Set-Content -Path $bootFile -Value $patched2 -NoNewline
+            Write-Host "Patched CraftBootstrap.py: --buildtype ${{ env.CRAFT_BUILDTYPE }} + default ABI = mingw-w64/gcc"
+
+            # --use-defaults makes the bootstrap non-interactive (picks MSVC 2022 x86_64
+            # on windows-2022 runners). Without this flag the script blocks on stdin.
+            # 2>&1 | Tee-Object streams BOTH stdout and stderr to the runner log so
+            # the real upstream error is visible, and archives a copy for later inspection.
+            & python $bootFile `
+                --prefix '${{ env.CRAFT_ROOT }}' `
+                --use-defaults `
+                --branch master 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\craft-bootstrap-$attempt.log"
+            $rc = $LASTEXITCODE
+            Write-Host "::endgroup::"
+            Write-Host "CraftBootstrap.py exit code: $rc; craftenv.ps1 present: $(Test-Path $envScript)"
+
+            if ($rc -eq 0 -and (Test-Path $envScript)) {
+              Write-Host "Craft bootstrap succeeded on attempt $attempt."
+              exit 0
+            }
+
+            if ($attempt -lt $maxAttempts) {
+              Write-Warning "Bootstrap attempt $attempt failed; wiping CraftRoot and retrying."
+              Remove-Item -Recurse -Force '${{ env.CRAFT_ROOT }}' -ErrorAction SilentlyContinue
+              New-Item -ItemType Directory -Force -Path '${{ env.CRAFT_ROOT }}' | Out-Null
+              Start-Sleep -Seconds (15 * $attempt)
+            }
+          }
+
+          throw "Craft bootstrap failed after $maxAttempts attempts. See log groups above for the real Python/CraftBootstrap error."
+
+      - name: Patch CraftSettings.ini for Qt6 builds
+        shell: pwsh
+        run: |
+          # 1. libs/qt6's Pattern class overrides workDir() with
+          #    CraftShortPath.createSubstShortPath, which requires
+          #    [ShortPath] DriveLetter. CraftBootstrap.py only sets JunctionDir,
+          #    so the qtbase unpack step would otherwise hit CraftConfig.get's
+          #    "Failed to find / exit(1)" path during install-deps.
+          # 2. Force [Compile] BuildType = RelWithDebInfo on disk too. The
+          #    template already defaults to this, but the runtime ended up
+          #    pointing at files.kde.org/.../MinSizeRel anyway in the last run,
+          #    so write the explicit value rather than depending on whatever
+          #    overrode it.
+          $ini = "${{ env.CRAFT_ROOT }}\etc\CraftSettings.ini"
+          if (-not (Test-Path $ini)) {
+            throw "Expected CraftSettings.ini at $ini after bootstrap, found nothing."
+          }
+          $content = Get-Content $ini -Raw
+
+          # Uncomment / set DriveLetter (template ships it as '#DriveLetter = Z:/').
+          if ($content -match '(?m)^#?\s*DriveLetter\s*=') {
+            $content = $content -replace '(?m)^#?\s*DriveLetter\s*=.*$', 'DriveLetter = Z:/'
+          } else {
+            $content = $content.TrimEnd("`r","`n") + "`r`n`r`n[ShortPath]`r`nDriveLetter = Z:/`r`n"
+          }
+
+          # Force BuildType (regex matches either commented or active line in [Compile]).
+          if ($content -match '(?m)^#?\s*BuildType\s*=') {
+            $content = $content -replace '(?m)^#?\s*BuildType\s*=.*$', 'BuildType = RelWithDebInfo'
+          } else {
+            $content = $content.TrimEnd("`r","`n") + "`r`n`r`n[Compile]`r`nBuildType = RelWithDebInfo`r`n"
+          }
+
+          Set-Content -Path $ini -Value $content -NoNewline
+          Write-Host "--- CraftSettings.ini key overrides ---"
+          Get-Content $ini | Select-String -Pattern '^\s*\[(ShortPath|Compile)\]|^\s*(DriveLetter|JunctionDir|BuildType)\s*=' | ForEach-Object { Write-Host $_.Line }
+          Write-Host "---------------------------------------"
+
+      - name: Build kpat.ico from source PNGs
+        shell: pwsh
+        run: |
+          # Craft's PackagerBase.setDefaults() falls back to
+          #   defines["icon"] = "<craft>/data/icons/craft.ico"
+          # whenever the blueprint does not set it, and the upstream kpat
+          # blueprint never does. That generic Craft icon ends up as the
+          # NSIS installer EXE icon AND the Windows "Apps & Features" entry
+          # (NullsoftInstaller writes DisplayIcon = $INSTDIR\<iconname>).
+          #
+          # Build a real multi-resolution kpat.ico here from the PNGs that
+          # already ship in kpat-src/icons/. We embed each size as a
+          # PNG-in-ICO entry (Vista+ format, supported by every NSIS since
+          # 2.45 and by the Windows shell since Vista), so no external
+          # image tooling is needed.
+          $iconsDir = Join-Path '${{ github.workspace }}' 'kpat-src\icons'
+          $sizes = @(16, 32, 48, 64, 128, 256)
+          # Use a typed list and the comma-wrap trick (",[byte[]]") to stop
+          # PowerShell's pipeline from unrolling each byte[] into its
+          # individual byte elements; without this, $pngs ends up as a flat
+          # byte stream and the ICONDIRENTRY loop reads garbage offsets.
+          $pngs = New-Object System.Collections.Generic.List[byte[]]
+          foreach ($s in $sizes) {
+            $path = Join-Path $iconsDir "$s-apps-kpat.png"
+            if (-not (Test-Path $path)) { throw "Missing icon source PNG: $path" }
+            $pngs.Add([System.IO.File]::ReadAllBytes($path))
+          }
+          $n = $pngs.Count
+          $headerSize = 6 + ($n * 16)
+          $ms = New-Object System.IO.MemoryStream
+          $bw = New-Object System.IO.BinaryWriter $ms
+          $bw.Write([uint16]0)   # reserved
+          $bw.Write([uint16]1)   # type = icon
+          $bw.Write([uint16]$n)  # number of images
+          $offset = $headerSize
+          for ($i = 0; $i -lt $n; $i++) {
+            $dim = $sizes[$i]
+            # ICONDIRENTRY: 0-byte width/height encode "256".
+            $bw.Write([byte]($dim % 256))
+            $bw.Write([byte]($dim % 256))
+            $bw.Write([byte]0)    # palette colors (0 = >=256)
+            $bw.Write([byte]0)    # reserved
+            $bw.Write([uint16]1)  # color planes
+            $bw.Write([uint16]32) # bits per pixel
+            $bw.Write([uint32]$pngs[$i].Length)
+            $bw.Write([uint32]$offset)
+            $offset += $pngs[$i].Length
+          }
+          foreach ($p in $pngs) { $bw.Write($p) }
+          $bw.Flush()
+          $out = Join-Path '${{ github.workspace }}' 'kpat.ico'
+          [System.IO.File]::WriteAllBytes($out, $ms.ToArray())
+          Write-Host ("Built {0} ({1} bytes, {2} size variants)" -f $out, (Get-Item $out).Length, $n)
+          # Expose the path to subsequent steps via an env var so the
+          # blueprint patch and any debug step pick up the same value.
+          "KPAT_ICO=$out" | Out-File -Append $env:GITHUB_ENV -Encoding utf8
+
+      - name: Override kpat blueprint installer metadata
+        shell: pwsh
+        run: |
+          # Craft's PackagerBase.setDefaults() hardcodes:
+          #   defines["company"] = "KDE e.V."
+          #   defines["version"] = sourceRevision()   # literal "HEAD" for git
+          # Those propagate into the NSIS installer's registry entries which
+          # Windows reads for the Apps list -> "Publisher: KDE e.V." and
+          # "Version: HEAD". Neither is true for this fork: KDE e.V. did not
+          # publish this binary, and "HEAD" is not a meaningful version.
+          # The same step also injects an "icon" override pointing at the
+          # kpat.ico we built in the previous step (Craft's default is a
+          # generic craft.ico).
+          #
+          # Patch the upstream kpat.py blueprint after Craft fetches it but
+          # before `craft --install-deps` runs, injecting overrides for
+          # company/version/website in createPackage(). The patched file lives
+          # under CRAFT_ROOT and is recreated on every bootstrap, so this is a
+          # build-time-only change; the upstream blueprint repo is untouched.
+          # The blueprint usually lands under etc/blueprints/locations/craft-blueprints-kde/
+          # but the exact path moves between Craft versions, so glob for it.
+          $blueprintCandidates = @(Get-ChildItem -Path '${{ env.CRAFT_ROOT }}' -Recurse -Filter 'kpat.py' -ErrorAction SilentlyContinue |
+                                   Where-Object { $_.FullName -match 'kdegames[\\/]kpat[\\/]kpat\.py$' })
+          if (-not $blueprintCandidates) {
+            Write-Host "Blueprint not yet fetched; priming Craft to pull craft-blueprints-kde."
+            $ErrorActionPreference = 'Continue'
+            . "${{ env.CRAFT_ROOT }}\craft\craftenv.ps1"
+            craft --search kpat 2>&1 | Out-Null
+            $ErrorActionPreference = 'Stop'
+            $blueprintCandidates = @(Get-ChildItem -Path '${{ env.CRAFT_ROOT }}' -Recurse -Filter 'kpat.py' -ErrorAction SilentlyContinue |
+                                     Where-Object { $_.FullName -match 'kdegames[\\/]kpat[\\/]kpat\.py$' })
+          }
+          if (-not $blueprintCandidates) {
+            throw "Couldn't locate kpat.py blueprint anywhere under ${{ env.CRAFT_ROOT }}."
+          }
+          $blueprintPath = $blueprintCandidates[0].FullName
+          Write-Host "Located kpat blueprint at $blueprintPath"
+
+          # Compute a meaningful semver: upstream's RELEASE_SERVICE_VERSION
+          # from CMakeLists.txt + short git sha of this kpat source tree.
+          $cmake = Get-Content '${{ github.workspace }}\kpat-src\CMakeLists.txt' -Raw
+          $maj = ([regex]::Match($cmake, '(?m)^set\(RELEASE_SERVICE_VERSION_MAJOR\s+"([^"]+)"\)')).Groups[1].Value
+          $min = ([regex]::Match($cmake, '(?m)^set\(RELEASE_SERVICE_VERSION_MINOR\s+"([^"]+)"\)')).Groups[1].Value
+          $mic = ([regex]::Match($cmake, '(?m)^set\(RELEASE_SERVICE_VERSION_MICRO\s+"([^"]+)"\)')).Groups[1].Value
+          if (-not $maj -or -not $min -or -not $mic) {
+            throw "Couldn't parse RELEASE_SERVICE_VERSION_{MAJOR,MINOR,MICRO} from kpat CMakeLists.txt."
+          }
+          $sha = (git -C '${{ github.workspace }}\kpat-src' rev-parse --short HEAD).Trim()
+          if (-not $sha) { throw "Couldn't compute kpat-src short SHA." }
+          $version = "$maj.$min.$mic-win-$sha"
+          Write-Host "Computed installer version: $version"
+
+          $iconPath = $env:KPAT_ICO
+          if (-not $iconPath -or -not (Test-Path $iconPath)) {
+            throw "Expected KPAT_ICO env var to point at an existing kpat.ico; got '$iconPath'. Did the 'Build kpat.ico' step run first?"
+          }
+          Write-Host "Using installer icon: $iconPath"
+
+          $bp = Get-Content $blueprintPath -Raw
+          # Build the Python injection as an array (avoids YAML's pipe-block
+          # column rules conflicting with Python's method-body 8-space indent).
+          # The literal indentation lives inside the quoted string content, so
+          # the YAML parser only sees the array element opening at the safe
+          # 12-column indent of this run: | block.
+          $py = @(
+              '        # --- panibor/kpat fork: override installer metadata ---',
+              '        self.defines["company"] = "panibor"',
+              "        self.defines[`"version`"] = `"$version`"",
+              '        self.defines["website"] = "https://github.com/panibor/kpat"',
+              "        self.defines[`"icon`"] = r`"$iconPath`"",
+              '        # --- end fork override ---',
+              '        return super().createPackage()'
+          ) -join "`r`n"
+          $patched = $bp -replace '(?m)^(\s*)return\s+super\(\)\.createPackage\(\)\s*$', $py
+          if ($patched -eq $bp) {
+            throw "Couldn't find 'return super().createPackage()' in kpat.py; upstream blueprint may have changed shape."
+          }
+          Set-Content -Path $blueprintPath -Value $patched -NoNewline
+          Write-Host "--- patched kpat.py createPackage tail ---"
+          Get-Content $blueprintPath | Select-Object -Last 20
+          Write-Host "------------------------------------------"
+
+      - name: Configure local kpat source for Craft
+        shell: pwsh
+        run: |
+          $ini = "${{ env.CRAFT_ROOT }}\etc\BlueprintSettings.ini"
+          $src = ("${{ github.workspace }}\kpat-src" -replace '\\','/')
+          # Remove any prior [kde/kdegames/kpat] section that a previous run may have left behind.
+          if (Test-Path $ini) {
+            $content = Get-Content $ini -Raw
+            $pattern = '(?ms)^\[${{ env.CRAFT_BLUEPRINT }}\].*?(?=^\[|\z)'
+            $content = [regex]::Replace($content, $pattern, '')
+            Set-Content -Path $ini -Value $content -NoNewline
+          } else {
+            New-Item -ItemType File -Force -Path $ini | Out-Null
+          }
+          Add-Content -Path $ini -Value ''
+          Add-Content -Path $ini -Value '[${{ env.CRAFT_BLUEPRINT }}]'
+          Add-Content -Path $ini -Value ("srcDir = " + $src)
+          Add-Content -Path $ini -Value 'version = master'
+          Write-Host "--- BlueprintSettings.ini ---"
+          Get-Content $ini
+          Write-Host "-----------------------------"
+
+      - name: Build kpat (deps + package) with watchdog
+        id: build
+        shell: pwsh
+        run: |
+          # GitHub Actions defaults shell:pwsh to $ErrorActionPreference='Stop',
+          # which means Receive-Job re-emitting an inner-job error terminates
+          # the OUTER script before it can reach 'exit 0'. We need this step to
+          # always succeed so cache-save + resume-dispatch run, so flip to
+          # Continue and disable native-command exit-code mapping at the top.
+          $ErrorActionPreference = 'Continue'
+          $PSNativeCommandUseErrorActionPreference = $false
+
+          # Capture everything for post-mortem; the transcript is harvested by
+          # the on-failure publish step even if this script later throws.
+          $transcript = Join-Path $env:RUNNER_TEMP 'craft-build-step.log'
+          Start-Transcript -Path $transcript -Force | Out-Null
+
+          try {
+            $startTime = Get-Date
+            $deadlineMin = [int]'${{ env.WATCHDOG_MINUTES }}'
+
+            $buildScript = {
+              param($CraftRoot, $Blueprint, $BuildType)
+              $ErrorActionPreference = 'Continue'
+              . "$CraftRoot\craft\craftenv.ps1"
+              # --buildtype passed explicitly: the binary cache at
+              # files.kde.org/craft/Qt6/26.02/.../<BuildType>/ only has
+              # RelWithDebInfo prebuilts. Without this, Craft was looking
+              # under MinSizeRel/ and missing every binary, forcing slow
+              # source builds even for packages with prebuilts available.
+              craft --buildtype $BuildType --install-deps $Blueprint 2>&1
+              if ($LASTEXITCODE -ne 0) { Write-Host "install-deps exit=$LASTEXITCODE"; return }
+              craft --buildtype $BuildType $Blueprint 2>&1
+              if ($LASTEXITCODE -ne 0) { Write-Host "build exit=$LASTEXITCODE"; return }
+
+              # ---- Shrink installer payload before NSIS picks files up ----
+              # The binary cache mandates RelWithDebInfo for the build, but
+              # that ships unstripped MinGW DWARF debug sections inside every
+              # DLL/EXE -- typically 40-60% of the installer size. Strip them
+              # after install and remove a short list of Qt plugins kpat
+              # demonstrably never loads (no SQL, no QML, no QtMultimedia).
+              # All KF6 + Qt translation catalogues are preserved on purpose.
+              # Scope is strictly limited to user-facing payload paths so the
+              # Craft toolchain itself (python, gcc, strip, perl, etc. under
+              # dev-utils/) is left alone -- those still need to run for
+              # --package.
+              Write-Host "::group::Shrink installer payload"
+
+              $strip = Join-Path $CraftRoot 'mingw64\bin\strip.exe'
+              if (-not (Test-Path $strip)) {
+                  $strip = (Get-ChildItem -Path $CraftRoot -Filter 'strip.exe' -Recurse -ErrorAction SilentlyContinue |
+                            Where-Object { $_.FullName -match 'mingw' } |
+                            Select-Object -First 1).FullName
+              }
+              if ($strip -and (Test-Path $strip)) {
+                  $payloadRoots = @('bin','plugins','lib\plugins','qml') |
+                                  ForEach-Object { Join-Path $CraftRoot $_ } |
+                                  Where-Object { Test-Path $_ }
+                  $before = 0; $after = 0; $stripped = 0
+                  foreach ($pr in $payloadRoots) {
+                      Get-ChildItem -Path $pr -Recurse -Include '*.dll','*.exe' -ErrorAction SilentlyContinue |
+                          ForEach-Object {
+                              $f = $_.FullName
+                              $before += $_.Length
+                              & $strip --strip-unneeded "$f" 2>$null
+                              if ($LASTEXITCODE -eq 0) { $stripped++ }
+                              $after += (Get-Item -LiteralPath $f -ErrorAction SilentlyContinue).Length
+                          }
+                  }
+                  $savedMB = [math]::Round(($before - $after) / 1MB, 1)
+                  Write-Host "Stripped $stripped binaries; reclaimed ~$savedMB MB."
+              } else {
+                  Write-Host "::warning::strip.exe not found under $CraftRoot; skipping debug-info strip."
+              }
+
+              # Plugins kpat provably doesn't use. Keep imageformats (SVG +
+              # PNG come from there), iconengines, platforms, styles,
+              # platformthemes, tls (KNewStuff fetches over HTTPS).
+              $dropPlugins = @('sqldrivers','qmltooling','multimedia',
+                               'mediaservice','assetimporters','geoservices',
+                               'position','sensors','sceneparsers','webview',
+                               'designer','printsupport')
+              foreach ($p in $dropPlugins) {
+                  foreach ($root in @('plugins','lib\plugins')) {
+                      $path = Join-Path $CraftRoot "$root\$p"
+                      if (Test-Path $path) {
+                          $sz = (Get-ChildItem $path -Recurse -ErrorAction SilentlyContinue |
+                                 Measure-Object -Property Length -Sum).Sum
+                          Remove-Item -Recurse -Force $path -ErrorAction SilentlyContinue
+                          Write-Host ("Dropped plugin dir {0} (~{1} MB)." -f $path,
+                                      [math]::Round($sz/1MB,1))
+                      }
+                  }
+              }
+
+              Write-Host "::endgroup::"
+              # ---- End payload shrink ----
+
+              craft --buildtype $BuildType --package $Blueprint 2>&1
+              Write-Host "package exit=$LASTEXITCODE"
+            }
+
+            $job = Start-Job -ScriptBlock $buildScript `
+              -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}', '${{ env.CRAFT_BUILDTYPE }}'
+
+            while ($job.State -eq 'Running') {
+              Receive-Job $job 2>&1 | Out-Host
+              $elapsed = ((Get-Date) - $startTime).TotalMinutes
+              if ($elapsed -ge $deadlineMin) {
+                Write-Host "::warning::Watchdog: $([math]::Round($elapsed,1)) min elapsed, stopping Craft for checkpoint."
+                Stop-Job $job
+                break
+              }
+              Start-Sleep -Seconds 30
+            }
+            Wait-Job $job -Timeout 300 | Out-Null
+            Receive-Job $job 2>&1 | Out-Host
+            $finalState = $job.State
+            Remove-Job $job -Force -ErrorAction SilentlyContinue
+
+            $tmp = Join-Path '${{ env.CRAFT_ROOT }}' 'tmp'
+            $exe = @()
+            $sevenZ = @()
+            if (Test-Path $tmp) {
+              $exe = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.exe' -Recurse -ErrorAction SilentlyContinue)
+              $sevenZ = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.7z' -Recurse -ErrorAction SilentlyContinue)
+            }
+            $produced = ($exe.Count + $sevenZ.Count) -gt 0
+            $checkpointed = -not $produced
+
+            Write-Host "Final job state: $finalState; artifacts produced: $produced"
+            "checkpointed=$($checkpointed.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
+            "produced=$($produced.ToString().ToLower())" | Out-File -Append $env:GITHUB_OUTPUT
+          } catch {
+            Write-Host "::warning::Build step threw: $($_.Exception.Message)"
+            Write-Host $_.ScriptStackTrace
+            "checkpointed=true"  | Out-File -Append $env:GITHUB_OUTPUT
+            "produced=false"     | Out-File -Append $env:GITHUB_OUTPUT
+          } finally {
+            Stop-Transcript -ErrorAction SilentlyContinue | Out-Null
+          }
+          # On PR runs, surface build failures by exiting non-zero so the
+          # check turns red and the publish-logs steps below run. On
+          # push/workflow_dispatch we keep exiting 0 so cache-save and
+          # re-dispatch chains stay intact for long checkpointed builds.
+          if ('${{ github.event_name }}' -eq 'pull_request' -and -not $produced) {
+            Write-Host "::error::PR build produced no artifacts; failing job."
+            exit 1
+          }
+          exit 0
+
+      - name: Dump bootstrap + build logs (on failure)
+        if: failure()
+        shell: pwsh
+        run: |
+          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue) | Sort-Object Name
+          if (-not $logs) {
+            Write-Host "No craft-*.log files found in $env:RUNNER_TEMP."
+            exit 0
+          }
+          foreach ($log in $logs) {
+            $kb = [math]::Round($log.Length / 1KB, 1)
+            Write-Host ""
+            Write-Host "=================================================================="
+            Write-Host "===== BEGIN $($log.Name) ($kb KB) ====="
+            Write-Host "=================================================================="
+            Get-Content -Path $log.FullName | ForEach-Object { Write-Host $_ }
+            Write-Host "=================================================================="
+            Write-Host "===== END $($log.Name) ====="
+            Write-Host "=================================================================="
+          }
+
+      - name: Upload bootstrap + build logs (on failure)
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: bootstrap-logs
+          path: |
+            ${{ runner.temp }}/craft-bootstrap-*.log
+            ${{ runner.temp }}/craft-build-step.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Publish bootstrap + build logs to ci-logs branch (on failure)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $logs = @(Get-ChildItem -Path "$env:RUNNER_TEMP\craft-bootstrap-*.log","$env:RUNNER_TEMP\craft-build-step.log" -ErrorAction SilentlyContinue)
+          if (-not $logs) {
+            Write-Host "No craft-*.log files to publish."
+            exit 0
+          }
+
+          git config --global user.email 'actions@github.com'
+          git config --global user.name 'github-actions[bot]'
+
+          $repoUrl  = "https://x-access-token:$($env:GH_TOKEN)@github.com/${{ github.repository }}.git"
+          $cloneDir = Join-Path $env:RUNNER_TEMP 'ci-logs-repo'
+          if (Test-Path $cloneDir) { Remove-Item -Recurse -Force $cloneDir }
+
+          # Try to clone an existing ci-logs branch; fall back to creating a fresh orphan.
+          git clone --depth 1 --branch ci-logs --single-branch $repoUrl $cloneDir
+          if ($LASTEXITCODE -ne 0) {
+            Remove-Item -Recurse -Force $cloneDir -ErrorAction SilentlyContinue
+            New-Item -ItemType Directory -Force -Path $cloneDir | Out-Null
+            Set-Location $cloneDir
+            git init -b ci-logs
+            git remote add origin $repoUrl
+            '# CI logs (auto-published from failed Windows-Craft runs).' | Set-Content README.md
+            git add README.md
+            git commit -m 'init ci-logs branch'
+          } else {
+            Set-Location $cloneDir
+          }
+
+          $runDir = "runs/${{ github.run_id }}"
+          New-Item -ItemType Directory -Force -Path $runDir | Out-Null
+          foreach ($log in $logs) {
+            Copy-Item $log.FullName (Join-Path $runDir $log.Name) -Force
+          }
+          git add $runDir
+          git commit -m "failure logs for run ${{ github.run_id }} (PR #${{ github.event.pull_request.number }})"
+          if ($LASTEXITCODE -ne 0) {
+            Write-Host "Nothing to commit (logs unchanged)."
+            exit 0
+          }
+          git push origin ci-logs
+
+      - name: Stage artifacts for upload
+        if: steps.build.outputs.produced == 'true'
+        shell: pwsh
+        run: |
+          $dest = Join-Path '${{ github.workspace }}' 'dist'
+          New-Item -ItemType Directory -Force -Path $dest | Out-Null
+          $tmp = Join-Path '${{ env.CRAFT_ROOT }}' 'tmp'
+          Get-ChildItem -Path $tmp -Recurse -Include 'kpat-*.exe','kpat-*.7z' |
+            Copy-Item -Destination $dest -Force
+          # Ship license + modification notice next to the binaries to satisfy GPL v2.
+          Copy-Item (Join-Path '${{ github.workspace }}' 'kpat-src\COPYING') $dest
+          $notice = Join-Path '${{ github.workspace }}' 'kpat-src\NOTICE.windows'
+          if (Test-Path $notice) { Copy-Item $notice $dest }
+          Get-ChildItem $dest
+
+      - name: Upload artifacts
+        if: steps.build.outputs.produced == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: kpat-windows
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Save Craft cache
+        if: always()
+        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ${{ env.CRAFT_ROOT }}
+          # Suffix with run_id so each checkpoint produces a distinct entry;
+          # the prefix-based restore-keys above will still match the newest.
+          key: craft-win-${{ steps.bp.outputs.sha }}-${{ hashFiles('kpat-src/CMakeLists.txt') }}-${{ github.run_id }}
+
+      - name: Re-dispatch workflow to resume from checkpoint
+        # gh workflow run requires the workflow file to exist on the default
+        # branch, so re-dispatch only makes sense once this workflow has
+        # landed there. PR runs short-circuit above by exiting 1 from the
+        # build step instead. continue-on-error keeps a misfiring dispatch
+        # from masking a real build outcome (e.g. cache-save just ran).
+        if: |
+          steps.build.outputs.checkpointed == 'true' &&
+          github.event_name != 'pull_request' &&
+          github.event_name != 'schedule'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $next = ([int]('${{ github.event.inputs.resume_count }}' -replace '^$','0')) + 1
+          Write-Host "Build was checkpointed without producing artifacts; re-dispatching as resume #$next."
+          gh workflow run windows.yml `
+            --ref '${{ github.ref_name }}' `
+            -f resume=true `
+            -f resume_count=$next
+
+  release:
+    needs: build
+    if: |
+      startsWith(github.ref, 'refs/tags/v') &&
+      endsWith(github.ref, '-win') &&
+      needs.build.outputs.produced == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write       # OIDC token for sigstore signing
+      attestations: write   # write attestations to the repo
+    steps:
+      - name: Checkout (license + notice only)
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          sparse-checkout: |
+            COPYING
+            NOTICE.windows
+            README.windows.md
+          sparse-checkout-cone-mode: false
+
+      - name: Download Windows artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: kpat-windows
+          path: dist
+
+      - name: Attest build provenance
+        # Generates a sigstore-signed attestation proving these exact files
+        # were produced by this workflow run on this commit, and publishes
+        # it to the public Rekor transparency log. End users (or their IT
+        # teams) can verify with `gh attestation verify <file> --owner panibor`.
+        # SmartScreen does not consume this, but it gives the binary a
+        # verifiable provenance chain without paying for a code-signing cert.
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
+        with:
+          subject-path: 'dist/*'
+
+      - name: Publish draft release
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
+        with:
+          files: dist/*
+          body_path: NOTICE.windows
+          generate_release_notes: true
+          draft: true
+          fail_on_unmatched_files: true

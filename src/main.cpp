@@ -53,9 +53,11 @@
 #include <QApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
+#include <QDir>
 #include <QDomDocument>
 #include <QElapsedTimer>
 #include <QFile>
+#include <QFileInfo>
 #include <QRandomGenerator>
 #include <QStandardPaths>
 #include <QTime>
@@ -298,9 +300,145 @@ bool solveRange(QCommandLineParser &parser)
     return true;
 }
 
+// store.kde.org card-deck and theme uploads are inconsistent: some archives
+// include a wrapper directory, some don't. When the on-disk layout after a
+// KNewStuff download doesn't match what the discovery code expects, the
+// theme is invisible in the picker even though the files are there. Hoist
+// the hoist-able cases up one level so both discovery paths can find them.
+static void normalizeDownloadedThemes()
+{
+    auto rmIfEmpty = [](const QString &path) {
+        if (QDir(path).isEmpty())
+            QDir().rmdir(path);
+    };
+
+    // Card decks: KCardTheme::findAll expects <carddecks>/<theme>/index.desktop
+    const QStringList deckRoots = QStandardPaths::locateAll(
+        QStandardPaths::GenericDataLocation,
+        QStringLiteral("carddecks"),
+        QStandardPaths::LocateDirectory);
+    for (const QString &root : deckRoots) {
+        if (!QFileInfo(root).isWritable())
+            continue;
+        const QStringList children = QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &child : children) {
+            const QString childPath = root + QLatin1Char('/') + child;
+            if (QFile::exists(childPath + QLatin1String("/index.desktop")))
+                continue;
+            const QStringList grand = QDir(childPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+            for (const QString &gc : grand) {
+                const QString gcPath = childPath + QLatin1Char('/') + gc;
+                if (!QFile::exists(gcPath + QLatin1String("/index.desktop")))
+                    continue;
+                const QString dest = root + QLatin1Char('/') + gc;
+                if (QFileInfo::exists(dest))
+                    continue;
+                if (QDir().rename(gcPath, dest))
+                    qCDebug(KPAT_LOG) << "Hoisted card deck" << gc << "out of wrapper" << child;
+            }
+            rmIfEmpty(childPath);
+        }
+    }
+
+    // Game themes: KGameThemeProvider::discoverThemes searches
+    // QStandardPaths::AppDataLocation (so AppDataLocation/themes), but the
+    // .knsrc TargetDir "kpat/themes" is interpreted against GenericDataLocation.
+    // On Linux those resolve to the same path; on Windows they differ
+    // (e.g. %APPDATA%\kpat\themes vs %APPDATA%\KDE\kpat\themes), so KNS
+    // downloads land in a directory discovery never visits. Migrate them.
+    const QString themeDest = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)
+        + QLatin1String("/themes");
+    const QStringList themeSources = QStandardPaths::locateAll(
+        QStandardPaths::GenericDataLocation,
+        QStringLiteral("kpat/themes"),
+        QStandardPaths::LocateDirectory);
+    const QString themeDestNormalized = QDir::cleanPath(themeDest);
+    for (const QString &src : themeSources) {
+        if (QDir::cleanPath(src) == themeDestNormalized)
+            continue;
+        if (!QFileInfo(src).isWritable())
+            continue;
+        QDir().mkpath(themeDest);
+
+        auto adoptFiles = [&](const QString &fromDir, const QString &wrapperLabel) {
+            const QStringList files = QDir(fromDir).entryList(QDir::Files);
+            for (const QString &f : files) {
+                const QString destFile = themeDest + QLatin1Char('/') + f;
+                if (QFileInfo::exists(destFile))
+                    continue;
+                if (QFile::rename(fromDir + QLatin1Char('/') + f, destFile)) {
+                    if (wrapperLabel.isEmpty())
+                        qCDebug(KPAT_LOG) << "Migrated game theme file" << f << "into" << themeDest;
+                    else
+                        qCDebug(KPAT_LOG) << "Migrated game theme file" << f << "out of wrapper"
+                                          << wrapperLabel << "into" << themeDest;
+                }
+            }
+        };
+
+        adoptFiles(src, QString());
+
+        const QStringList children = QDir(src).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &child : children) {
+            const QString childPath = src + QLatin1Char('/') + child;
+            const QStringList wrappedFiles = QDir(childPath).entryList(QDir::Files);
+            bool hasDesktop = false;
+            for (const QString &f : wrappedFiles) {
+                if (f.endsWith(QLatin1String(".desktop"))) {
+                    hasDesktop = true;
+                    break;
+                }
+            }
+            if (!hasDesktop)
+                continue;
+            adoptFiles(childPath, child);
+            rmIfEmpty(childPath);
+        }
+        rmIfEmpty(src);
+    }
+}
+
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+
+#ifdef Q_OS_WIN
+    // Qt 6.7+'s default 'windows11' widget style paints selected QListView
+    // / QTreeView rows with a thin accent border on top of the normal Base
+    // background and draws the label in QPalette::HighlightedText. On many
+    // Win11 colour schemes HighlightedText is white, the same colour as
+    // Base, so labels in KConfigDialog sidebars (and other list/tree
+    // selections) become invisible. The style also bypasses QPalette in
+    // some code paths (CE_ItemViewItem consults the native theme directly),
+    // so we apply two layers of defence:
+    //   1. Detect a low-contrast collision between HighlightedText and any
+    //      of Base / Window / Highlight, and rewrite HighlightedText to a
+    //      readable colour. This fixes widgets that DO honour QPalette.
+    //   2. Inject a scoped QApplication stylesheet that hard-codes the
+    //      selected/focused item-view text colour. This catches widgets
+    //      whose painting bypasses QPalette. The selector is restricted to
+    //      QAbstractItemView so the rest of the UI keeps the native Win11
+    //      look (icons, frames, accent rendering) intact.
+    {
+        QPalette pal = app.palette();
+        auto lum = [](const QColor &c) {
+            return 0.299 * c.redF() + 0.587 * c.greenF() + 0.114 * c.blueF();
+        };
+        const qreal hT = lum(pal.color(QPalette::HighlightedText));
+        const qreal b  = lum(pal.color(QPalette::Base));
+        const qreal w  = lum(pal.color(QPalette::Window));
+        const qreal h  = lum(pal.color(QPalette::Highlight));
+        if (std::abs(hT - b) < 0.2 || std::abs(hT - w) < 0.2 || std::abs(hT - h) < 0.2) {
+            const QColor textColor = (b > 0.5) ? Qt::black : Qt::white;
+            pal.setColor(QPalette::HighlightedText, textColor);
+            app.setPalette(pal);
+            app.setStyleSheet(QStringLiteral(
+                "QAbstractItemView::item:selected,"
+                "QAbstractItemView::item:focus { color: %1; }"
+            ).arg(textColor.name()));
+        }
+    }
+#endif
 
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("kpat"));
 
@@ -308,6 +446,8 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(aboutData);
 
     KCrash::initialize();
+
+    normalizeDownloadedThemes();
 
     // Create a KLocale earlier than normal so that we can use i18n to translate
     // the names of the game types in the help text.

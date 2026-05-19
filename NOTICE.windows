@@ -1,0 +1,98 @@
+KPat for Windows - build notice
+================================
+
+This is an UNOFFICIAL Windows build of KPat (KDE Patience) produced from
+the fork at https://github.com/panibor/kpat. KPat is part of the KDE
+Gear / KDE Release Service; the original, official upstream repository
+lives at https://invent.kde.org/games/kpat and is maintained by the KDE
+community. This fork is not endorsed by KDE.
+
+Modifications in this fork (GPL v2, section 2(a))
+-------------------------------------------------
+
+Date of modification: 2026-05-18
+
+Changes versus upstream:
+
+  .github/workflows/windows.yml   GitHub Actions workflow that builds KPat
+                                  for Windows using KDE Craft.
+  .github/dependabot.yml          Keeps the workflow's pinned action
+                                  versions current.
+  NOTICE.windows                  This file.
+  README.windows.md               Build and install documentation for the
+                                  Windows binaries.
+  README.md                       Top-level introduction to the fork.
+  src/main.cpp                    Two small additions guarded for the
+                                  Windows build:
+                                  (a) a ~20 line palette fix gated by
+                                      #ifdef Q_OS_WIN, addressing a
+                                      Qt 6.7+ windows11 style bug that
+                                      hid the labels of selected items
+                                      in KConfigDialog sidebars; and
+                                  (b) a startup normaliser that relocates
+                                      KNewStuff theme downloads from the
+                                      Generic data dir to the App data
+                                      dir, where KGameThemeProvider can
+                                      actually discover them on Windows.
+                                      Both changes are no-ops on Linux
+                                      and macOS.
+
+No file under autotests/, icons/, themes/, sounds/, doc/, po/, mimetypes/,
+previews/, libkcardgame/, patsolve/, CMakeLists.txt, CMakePresets.json, or
+any other source/build file of KPat itself has been modified beyond the
+two small additions noted above. The shipped binary is otherwise built
+from the unmodified KPat source as tagged on this fork's branch.
+
+Installer metadata
+------------------
+
+To avoid misrepresenting the origin of this binary, the GitHub Actions
+workflow patches the upstream KDE Craft blueprint for KPat at build time
+so the NSIS installer (and therefore the Windows "Installed apps" list)
+ships these strings:
+
+  Publisher / Company    panibor
+  Version                <upstream RELEASE_SERVICE_VERSION>-win-<sha>
+  Website / Help link    https://github.com/panibor/kpat
+
+Upstream KDE Craft's defaults are "KDE e.V." for the publisher and the
+literal git ref ("HEAD" for a branch-tip build) for the version. Those
+defaults are accurate for KDE's own binary factory but would falsely
+attribute this build to KDE e.V. and obscure which fork revision was
+shipped. The override only changes installer metadata strings; it does
+not modify KPat source, the KDE Craft repository, or the upstream
+craft-blueprints-kde repository. The patch is applied to the fetched
+copy inside the build environment and is discarded with that environment
+when the CI job finishes. KDE and the KDE community are not endorsing,
+publishing, or distributing this build.
+
+License
+-------
+
+KPat is licensed under GPL-2.0-or-later, with original code by
+Paul Olav Tvete (1995) under a permissive GPL-compatible license.
+See the COPYING file that ships alongside this notice in the installer
+and in the source tree.
+
+Source code
+-----------
+
+The complete corresponding source code for this Windows build is
+available at:
+
+  https://github.com/panibor/kpat
+  https://invent.kde.org/games/kpat  (upstream)
+
+Build reproducibility
+---------------------
+
+This binary was produced by the GitHub Actions workflow referenced above,
+running on `windows-2022` with KDE Craft. To reproduce locally on Windows,
+see README.windows.md.
+
+Warranty
+--------
+
+This Windows build is provided WITHOUT ANY WARRANTY, to the extent
+permitted by applicable law. See sections 11 and 12 of the GNU General
+Public License version 2 (in COPYING) for full details.
