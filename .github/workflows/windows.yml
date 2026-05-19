@@ -287,11 +287,16 @@ jobs:
           # image tooling is needed.
           $iconsDir = Join-Path '${{ github.workspace }}' 'kpat-src\icons'
           $sizes = @(16, 32, 48, 64, 128, 256)
-          $sources = $sizes | ForEach-Object { Join-Path $iconsDir "$_-apps-kpat.png" }
-          foreach ($p in $sources) {
-            if (-not (Test-Path $p)) { throw "Missing icon source PNG: $p" }
+          # Use a typed list and the comma-wrap trick (",[byte[]]") to stop
+          # PowerShell's pipeline from unrolling each byte[] into its
+          # individual byte elements; without this, $pngs ends up as a flat
+          # byte stream and the ICONDIRENTRY loop reads garbage offsets.
+          $pngs = New-Object System.Collections.Generic.List[byte[]]
+          foreach ($s in $sizes) {
+            $path = Join-Path $iconsDir "$s-apps-kpat.png"
+            if (-not (Test-Path $path)) { throw "Missing icon source PNG: $path" }
+            $pngs.Add([System.IO.File]::ReadAllBytes($path))
           }
-          $pngs = $sources | ForEach-Object { [System.IO.File]::ReadAllBytes($_) }
           $n = $pngs.Count
           $headerSize = 6 + ($n * 16)
           $ms = New-Object System.IO.MemoryStream
