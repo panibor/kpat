@@ -270,6 +270,58 @@ jobs:
           Get-Content $ini | Select-String -Pattern '^\s*\[(ShortPath|Compile)\]|^\s*(DriveLetter|JunctionDir|BuildType)\s*=' | ForEach-Object { Write-Host $_.Line }
           Write-Host "---------------------------------------"
 
+      - name: Build kpat.ico from source PNGs
+        shell: pwsh
+        run: |
+          # Craft's PackagerBase.setDefaults() falls back to
+          #   defines["icon"] = "<craft>/data/icons/craft.ico"
+          # whenever the blueprint does not set it, and the upstream kpat
+          # blueprint never does. That generic Craft icon ends up as the
+          # NSIS installer EXE icon AND the Windows "Apps & Features" entry
+          # (NullsoftInstaller writes DisplayIcon = $INSTDIR\<iconname>).
+          #
+          # Build a real multi-resolution kpat.ico here from the PNGs that
+          # already ship in kpat-src/icons/. We embed each size as a
+          # PNG-in-ICO entry (Vista+ format, supported by every NSIS since
+          # 2.45 and by the Windows shell since Vista), so no external
+          # image tooling is needed.
+          $iconsDir = Join-Path '${{ github.workspace }}' 'kpat-src\icons'
+          $sizes = @(16, 32, 48, 64, 128, 256)
+          $sources = $sizes | ForEach-Object { Join-Path $iconsDir "$_-apps-kpat.png" }
+          foreach ($p in $sources) {
+            if (-not (Test-Path $p)) { throw "Missing icon source PNG: $p" }
+          }
+          $pngs = $sources | ForEach-Object { [System.IO.File]::ReadAllBytes($_) }
+          $n = $pngs.Count
+          $headerSize = 6 + ($n * 16)
+          $ms = New-Object System.IO.MemoryStream
+          $bw = New-Object System.IO.BinaryWriter $ms
+          $bw.Write([uint16]0)   # reserved
+          $bw.Write([uint16]1)   # type = icon
+          $bw.Write([uint16]$n)  # number of images
+          $offset = $headerSize
+          for ($i = 0; $i -lt $n; $i++) {
+            $dim = $sizes[$i]
+            # ICONDIRENTRY: 0-byte width/height encode "256".
+            $bw.Write([byte]($dim % 256))
+            $bw.Write([byte]($dim % 256))
+            $bw.Write([byte]0)    # palette colors (0 = >=256)
+            $bw.Write([byte]0)    # reserved
+            $bw.Write([uint16]1)  # color planes
+            $bw.Write([uint16]32) # bits per pixel
+            $bw.Write([uint32]$pngs[$i].Length)
+            $bw.Write([uint32]$offset)
+            $offset += $pngs[$i].Length
+          }
+          foreach ($p in $pngs) { $bw.Write($p) }
+          $bw.Flush()
+          $out = Join-Path '${{ github.workspace }}' 'kpat.ico'
+          [System.IO.File]::WriteAllBytes($out, $ms.ToArray())
+          Write-Host ("Built {0} ({1} bytes, {2} size variants)" -f $out, (Get-Item $out).Length, $n)
+          # Expose the path to subsequent steps via an env var so the
+          # blueprint patch and any debug step pick up the same value.
+          "KPAT_ICO=$out" | Out-File -Append $env:GITHUB_ENV -Encoding utf8
+
       - name: Override kpat blueprint installer metadata
         shell: pwsh
         run: |
@@ -280,6 +332,9 @@ jobs:
           # Windows reads for the Apps list -> "Publisher: KDE e.V." and
           # "Version: HEAD". Neither is true for this fork: KDE e.V. did not
           # publish this binary, and "HEAD" is not a meaningful version.
+          # The same step also injects an "icon" override pointing at the
+          # kpat.ico we built in the previous step (Craft's default is a
+          # generic craft.ico).
           #
           # Patch the upstream kpat.py blueprint after Craft fetches it but
           # before `craft --install-deps` runs, injecting overrides for
@@ -319,6 +374,12 @@ jobs:
           $version = "$maj.$min.$mic-win-$sha"
           Write-Host "Computed installer version: $version"
 
+          $iconPath = $env:KPAT_ICO
+          if (-not $iconPath -or -not (Test-Path $iconPath)) {
+            throw "Expected KPAT_ICO env var to point at an existing kpat.ico; got '$iconPath'. Did the 'Build kpat.ico' step run first?"
+          }
+          Write-Host "Using installer icon: $iconPath"
+
           $bp = Get-Content $blueprintPath -Raw
           # Build the Python injection as an array (avoids YAML's pipe-block
           # column rules conflicting with Python's method-body 8-space indent).
@@ -330,6 +391,7 @@ jobs:
               '        self.defines["company"] = "panibor"',
               "        self.defines[`"version`"] = `"$version`"",
               '        self.defines["website"] = "https://github.com/panibor/kpat"',
+              "        self.defines[`"icon`"] = r`"$iconPath`"",
               '        # --- end fork override ---',
               '        return super().createPackage()'
           ) -join "`r`n"
