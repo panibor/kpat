@@ -22,10 +22,29 @@ Each release contains:
 
 ### SmartScreen warning
 
-The installer is **not** code-signed. The first time you run it, Windows
-SmartScreen will warn that the publisher is unknown. Click "More info"
-then "Run anyway" to proceed. Signing requires an EV code-signing
-certificate, which is out of scope for this community build.
+The installer is **not** code-signed. The first time you run it,
+Windows will show a "Windows protected your PC" SmartScreen dialog
+warning that the publisher is unknown. Click **More info** then
+**Run anyway** to proceed. Code-signing requires an EV certificate
+on a hardware token or HSM (~$400-700/year) which is out of scope
+for this hobby build.
+
+If you want to confirm the installer you downloaded is exactly
+what this repository's CI produced:
+
+- Every Release page lists SHA-256 hashes next to each file. Match
+  them against `Get-FileHash kpat-*-setup.exe` locally.
+- Every release artifact is also signed via a free
+  [sigstore build-provenance attestation](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)
+  published to the public Rekor transparency log by the release job.
+  Verify with the GitHub CLI:
+
+  ```pwsh
+  gh attestation verify kpat-26.07.70-win-setup.exe --owner panibor
+  ```
+
+  A successful verification proves the file came from this
+  repository's public `windows.yml` workflow on the tagged commit.
 
 ## Building locally on Windows
 

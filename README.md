@@ -31,11 +31,45 @@ Each release contains:
 - `COPYING`, the full GPL v2 license text.
 - `NOTICE.windows`, the modification notice and source links.
 
-The installer is **not** code-signed. When you launch it for the first
-time, Windows SmartScreen will warn that the publisher is unknown. Click
-"More info" then "Run anyway" to proceed. See
-[`README.windows.md`](README.windows.md) for the full details, including
-how to build locally and how to cut a new Windows release.
+### About the SmartScreen warning
+
+The first time you run the installer, Windows will show a blue
+"Windows protected your PC" SmartScreen dialog warning that the
+publisher is unknown. **This is expected** for community-built
+Windows software that does not pay for an EV code-signing
+certificate, and it does not indicate that anything is wrong with
+the download. To proceed:
+
+1. Click **More info** in the blue dialog.
+2. Click the **Run anyway** button that appears.
+
+<p align="center">
+  <img src="docs/smartscreen-walkthrough.png"
+       alt="Screenshot of the Windows SmartScreen prompt with 'More info' and 'Run anyway' highlighted"
+       width="520">
+</p>
+
+### Verifying what you downloaded
+
+If you want to confirm the installer is exactly the file this
+repository's CI produced (not a tampered copy from a mirror):
+
+- **SHA-256 checksums** are shown by GitHub on every Release page
+  next to each file. Match them against `Get-FileHash kpat-*-setup.exe`
+  on your machine.
+- **Build provenance** is published as a signed
+  [sigstore attestation](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)
+  for every release. If you have the [GitHub CLI](https://cli.github.com)
+  installed, verify with:
+  ```pwsh
+  gh attestation verify kpat-26.07.70-win-setup.exe --owner panibor
+  ```
+  A successful verification proves the file was produced by this
+  repository's public `windows.yml` workflow from a specific commit,
+  with no human in the loop able to alter it.
+
+See [`README.windows.md`](README.windows.md) for the full details,
+including how to build locally and how to cut a new Windows release.
 
 ## What is KPat?
 
