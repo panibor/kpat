@@ -9,26 +9,26 @@
 # Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004.
 # Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2007, 2008, 2009.
 # Kristof Bal <kristof.bal@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2013, 2014, 2016, 2018, 2020, 2021, 2022, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2009-2014, 2016, 2018, 2020-2022, 2024-2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kpat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-29 00:40+0000\n"
-"PO-Revision-Date: 2025-06-05 12:13+0200\n"
+"POT-Creation-Date: 2026-09-29 00:42+0000\n"
+"PO-Revision-Date: 2026-09-29 13:32+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Rinse de Vries,Bram Schoenmakers,Freek de Kruijf - 2013 t/m 2025"
+msgstr "Rinse de Vries,Bram Schoenmakers,Freek de Kruijf - 2013 t/m 2026"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -156,6 +156,102 @@ msgstr "Portugees Solitaire"
 #: bakersdozen.cpp:245
 msgid "Baker's Dozen (Custom)"
 msgstr "Baker's Dozen (aangepast)"
+
+#: bizilizi.cpp:204
+#, kde-format
+msgctxt "@title:menu"
+msgid "Bizilizi &Options"
+msgstr "Bizilizi-&options"
+
+#: bizilizi.cpp:205
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "23 Covered Cards"
+msgstr "23 omgekeerde kaarten"
+
+#: bizilizi.cpp:206
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "24 Covered Cards"
+msgstr "24 omgekeerde kaarten"
+
+#: bizilizi.cpp:210
+#, kde-format
+msgctxt "@title:menu"
+msgid "Pool Analysis"
+msgstr "Pool-analyse"
+
+#: bizilizi.cpp:211
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Off"
+msgstr "Uit"
+
+#: bizilizi.cpp:212
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Instant"
+msgstr "Onmiddellijk"
+
+#: bizilizi.cpp:213
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 4"
+msgstr "Wachten 4"
+
+#: bizilizi.cpp:214
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 10"
+msgstr "Wachten 10"
+
+#: bizilizi.cpp:215
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 18"
+msgstr "Wachten 18"
+
+#: bizilizi.cpp:219
+#, kde-format
+msgctxt "@title:menu"
+msgid "Delayed Hints"
+msgstr "Vertraagde hints"
+
+#: bizilizi.cpp:220
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "Off"
+msgstr "Uit"
+
+#: bizilizi.cpp:221
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "6 Seconds"
+msgstr "6 seconden"
+
+#: bizilizi.cpp:222
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "14 Seconds"
+msgstr "14 seconden"
+
+#: bizilizi.cpp:223
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "22 Seconds"
+msgstr "22 seconden"
+
+#: bizilizi.cpp:891
+msgid "Bizilizi"
+msgstr "Bizilizi"
+
+#: bizilizi.cpp:894
+msgid "Bizilizi (23 Covered)"
+msgstr "Bizilizi (23 omgekeerd)"
+
+#: bizilizi.cpp:895
+msgid "Bizilizi (24 Covered)"
+msgstr "Bizilizi (24 omgekeerd)"
 
 #: castle.cpp:319
 msgid "Castle"
@@ -371,27 +467,27 @@ msgstr "Speler: het spel is niet te winnen."
 msgid "Solver: Unable to determine if this game is winnable."
 msgstr "Speler: kan niet bepalen of dit spel kan worden gewonnen."
 
-#: dealer.cpp:922
+#: dealer.cpp:943
 #, kde-format
 msgid "Congratulations! We have won."
 msgstr "Gefeliciteerd! We hebben gewonnen."
 
-#: dealer.cpp:924
+#: dealer.cpp:945
 #, kde-format
 msgid "Congratulations! You have won."
 msgstr "Gefeliciteerd! U hebt gewonnen."
 
-#: dealer.cpp:1211
+#: dealer.cpp:1233
 #, kde-format
 msgid "Solver: This game is lost."
 msgstr "Speler: het spel is verloren."
 
-#: dealer.cpp:1349
+#: dealer.cpp:1374
 #, kde-format
 msgid "Solver: Calculating…"
 msgstr "Speler: berekenen…"
 
-#: dealer.cpp:1753
+#: dealer.cpp:1781
 #, kde-format
 msgid ""
 "A new game has been requested, but there is already a game in progress.\n"
@@ -403,13 +499,13 @@ msgstr ""
 "Er zal een verlies worden geboekt in de statistieken als het huidige spel "
 "wordt beëindigd."
 
-#: dealer.cpp:1755
+#: dealer.cpp:1783
 #, kde-format
 msgctxt "@title:window"
 msgid "Abandon Current Game?"
 msgstr "Huidig spel afbreken?"
 
-#: dealer.cpp:1756
+#: dealer.cpp:1784
 #, kde-format
 msgctxt "@action:button"
 msgid "Abandon Current Game"

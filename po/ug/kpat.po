@@ -7,25 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-29 00:40+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"POT-Creation-Date: 2026-09-29 00:42+0000\n"
+"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: bakersdozen.cpp:69 castle.cpp:361 freecell.cpp:347
 #, kde-format
@@ -40,11 +41,10 @@ msgid "Baker's Dozen"
 msgstr ""
 
 #: bakersdozen.cpp:71
-#, fuzzy, kde-format
-#| msgid "KPatience"
+#, kde-format
 msgctxt "@item:inmenu preset"
 msgid "Spanish Patience"
-msgstr "KPatience"
+msgstr ""
 
 #: bakersdozen.cpp:72
 #, kde-format
@@ -62,7 +62,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu preset"
 msgid "Custom"
-msgstr ""
+msgstr "ئىختىيارى"
 
 #: bakersdozen.cpp:76 castle.cpp:370 freecell.cpp:355
 #, kde-format
@@ -135,10 +135,8 @@ msgid "Baker's Dozen"
 msgstr ""
 
 #: bakersdozen.cpp:242
-#, fuzzy
-#| msgid "KPatience"
 msgid "Spanish Patience"
-msgstr "KPatience"
+msgstr ""
 
 #: bakersdozen.cpp:243
 msgid "Castles in Spain"
@@ -150,6 +148,102 @@ msgstr ""
 
 #: bakersdozen.cpp:245
 msgid "Baker's Dozen (Custom)"
+msgstr ""
+
+#: bizilizi.cpp:204
+#, kde-format
+msgctxt "@title:menu"
+msgid "Bizilizi &Options"
+msgstr ""
+
+#: bizilizi.cpp:205
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "23 Covered Cards"
+msgstr ""
+
+#: bizilizi.cpp:206
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "24 Covered Cards"
+msgstr ""
+
+#: bizilizi.cpp:210
+#, kde-format
+msgctxt "@title:menu"
+msgid "Pool Analysis"
+msgstr ""
+
+#: bizilizi.cpp:211
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Off"
+msgstr ""
+
+#: bizilizi.cpp:212
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Instant"
+msgstr ""
+
+#: bizilizi.cpp:213
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 4"
+msgstr ""
+
+#: bizilizi.cpp:214
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 10"
+msgstr ""
+
+#: bizilizi.cpp:215
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 18"
+msgstr ""
+
+#: bizilizi.cpp:219
+#, kde-format
+msgctxt "@title:menu"
+msgid "Delayed Hints"
+msgstr ""
+
+#: bizilizi.cpp:220
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "Off"
+msgstr ""
+
+#: bizilizi.cpp:221
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "6 Seconds"
+msgstr ""
+
+#: bizilizi.cpp:222
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "14 Seconds"
+msgstr ""
+
+#: bizilizi.cpp:223
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "22 Seconds"
+msgstr ""
+
+#: bizilizi.cpp:891
+msgid "Bizilizi"
+msgstr ""
+
+#: bizilizi.cpp:894
+msgid "Bizilizi (23 Covered)"
+msgstr ""
+
+#: bizilizi.cpp:895
+msgid "Bizilizi (24 Covered)"
 msgstr ""
 
 #: castle.cpp:319
@@ -181,10 +275,8 @@ msgid "Stronghold"
 msgstr ""
 
 #: castle.cpp:328
-#, fuzzy
-#| msgid "Freecell"
 msgid "Castle (Custom)"
-msgstr "Freecell"
+msgstr ""
 
 #: castle.cpp:362
 #, kde-format
@@ -223,11 +315,10 @@ msgid "Stronghold"
 msgstr ""
 
 #: castle.cpp:380 freecell.cpp:365
-#, fuzzy, kde-format
-#| msgid "Freecell"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Free Cells"
-msgstr "Freecell"
+msgstr ""
 
 #: castle.cpp:381 freecell.cpp:366
 #, kde-format
@@ -313,7 +404,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu foundation deal"
 msgid "None"
-msgstr ""
+msgstr "يوق"
 
 #: castle.cpp:401
 #, kde-format
@@ -325,19 +416,19 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu foundation deal"
 msgid "Any"
-msgstr ""
+msgstr "خالىغان"
 
 #: castle.cpp:404
 #, kde-format
 msgctxt "@title:menu"
 msgid "Layout"
-msgstr ""
+msgstr "جايلاشتۇرۇش"
 
 #: castle.cpp:405
 #, kde-format
 msgctxt "@item:inmenu layout"
 msgid "Classic"
-msgstr ""
+msgstr "ئەنئەنىۋى"
 
 #: castle.cpp:406
 #, kde-format
@@ -369,27 +460,27 @@ msgstr ""
 msgid "Solver: Unable to determine if this game is winnable."
 msgstr ""
 
-#: dealer.cpp:922
+#: dealer.cpp:943
 #, kde-format
 msgid "Congratulations! We have won."
 msgstr ""
 
-#: dealer.cpp:924
+#: dealer.cpp:945
 #, kde-format
 msgid "Congratulations! You have won."
 msgstr ""
 
-#: dealer.cpp:1211
+#: dealer.cpp:1233
 #, kde-format
 msgid "Solver: This game is lost."
 msgstr ""
 
-#: dealer.cpp:1349
+#: dealer.cpp:1374
 #, kde-format
 msgid "Solver: Calculating…"
 msgstr ""
 
-#: dealer.cpp:1753
+#: dealer.cpp:1781
 #, kde-format
 msgid ""
 "A new game has been requested, but there is already a game in progress.\n"
@@ -397,13 +488,13 @@ msgid ""
 "A loss will be recorded in the statistics if the current game is abandoned."
 msgstr ""
 
-#: dealer.cpp:1755
+#: dealer.cpp:1783
 #, kde-format
 msgctxt "@title:window"
 msgid "Abandon Current Game?"
 msgstr ""
 
-#: dealer.cpp:1756
+#: dealer.cpp:1784
 #, kde-format
 msgctxt "@action:button"
 msgid "Abandon Current Game"
@@ -415,7 +506,7 @@ msgstr ""
 
 #: freecell.cpp:308 freecell.cpp:314
 msgid "Freecell"
-msgstr "Freecell"
+msgstr ""
 
 #: freecell.cpp:311
 msgid "Baker's Game"
@@ -426,20 +517,16 @@ msgid "Eight Off"
 msgstr ""
 
 #: freecell.cpp:313
-#, fuzzy
-#| msgid "Freecell"
 msgid "Forecell"
-msgstr "Freecell"
+msgstr ""
 
 #: freecell.cpp:315
 msgid "Seahaven Towers"
 msgstr ""
 
 #: freecell.cpp:316
-#, fuzzy
-#| msgid "Freecell"
 msgid "Freecell (Custom)"
-msgstr "Freecell"
+msgstr ""
 
 #: freecell.cpp:348
 #, kde-format
@@ -454,18 +541,16 @@ msgid "Eight Off"
 msgstr ""
 
 #: freecell.cpp:350
-#, fuzzy, kde-format
-#| msgid "Freecell"
+#, kde-format
 msgctxt "@item:inmenu preset"
 msgid "Forecell"
-msgstr "Freecell"
+msgstr ""
 
 #: freecell.cpp:351
-#, fuzzy, kde-format
-#| msgid "Freecell"
+#, kde-format
 msgctxt "@item:inmenu preset"
 msgid "Freecell"
-msgstr "Freecell"
+msgstr ""
 
 #: freecell.cpp:352
 #, kde-format
@@ -496,7 +581,7 @@ msgstr ""
 
 #: golf.cpp:189
 msgid "Golf"
-msgstr "Golf"
+msgstr ""
 
 #: grandf.cpp:188
 msgid "Grandfather"
@@ -507,11 +592,10 @@ msgid "Aces Up"
 msgstr ""
 
 #: klondike.cpp:135
-#, fuzzy, kde-format
-#| msgid "Klondike"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Klondike &Options"
-msgstr "Klondike"
+msgstr ""
 
 #: klondike.cpp:136
 #, kde-format
@@ -527,7 +611,7 @@ msgstr ""
 
 #: klondike.cpp:313
 msgid "Klondike"
-msgstr "Klondike"
+msgstr ""
 
 #: klondike.cpp:316
 msgid "Klondike (Draw 1)"
@@ -550,11 +634,10 @@ msgid "Main Toolbar"
 msgstr "ئاساسىي قورال بالداق"
 
 #: libkcardgame/kcardthemewidget.cpp:266
-#, fuzzy, kde-format
-#| msgid "Loading..."
+#, kde-format
 msgctxt "@info"
 msgid "Loading…"
-msgstr "ئوقۇۋاتىدۇ…"
+msgstr "يۈكلەۋاتىدۇ…"
 
 #: libkcardgame/kcardthemewidget.cpp:352
 #, kde-format
@@ -565,7 +648,7 @@ msgstr ""
 #: main.cpp:89
 #, kde-format
 msgid "KPatience"
-msgstr "KPatience"
+msgstr ""
 
 #: main.cpp:91
 #, kde-format
@@ -592,7 +675,7 @@ msgstr ""
 #: main.cpp:98
 #, kde-format
 msgid "Mario Weilguni"
-msgstr "Mario Weilguni"
+msgstr ""
 
 #: main.cpp:98
 #, kde-format
@@ -602,7 +685,7 @@ msgstr ""
 #: main.cpp:99
 #, kde-format
 msgid "Matthias Ettrich"
-msgstr "Matthias Ettrich"
+msgstr ""
 
 #: main.cpp:100
 #, kde-format
@@ -622,12 +705,12 @@ msgstr ""
 #: main.cpp:102
 #, kde-format
 msgid "Michael Koch"
-msgstr "Michael Koch"
+msgstr ""
 
 #: main.cpp:102 main.cpp:109
 #, kde-format
 msgid "Bug fixes"
-msgstr "كەمتۈكلەرنى تۈزىتىش"
+msgstr "كەمتۈك تۈزىتىش"
 
 #: main.cpp:103
 #, kde-format
@@ -652,7 +735,7 @@ msgstr ""
 #: main.cpp:105
 #, kde-format
 msgid "Stephan Kulow"
-msgstr "Stephan Kulow"
+msgstr ""
 
 #: main.cpp:105
 #, kde-format
@@ -687,17 +770,17 @@ msgstr ""
 #: main.cpp:108
 #, kde-format
 msgid "Documentation"
-msgstr "قوللانمىلار"
+msgstr "قوللانما"
 
 #: main.cpp:109
 #, kde-format
 msgid "Inge Wallin"
-msgstr "Inge Wallin"
+msgstr ""
 
 #: main.cpp:110
 #, kde-format
 msgid "Simon Hürlimann"
-msgstr "Simon Hürlimann"
+msgstr ""
 
 #: main.cpp:110
 #, kde-format
@@ -707,7 +790,7 @@ msgstr ""
 #: main.cpp:111
 #, kde-format
 msgid "Parker Coates"
-msgstr "Parker Coates"
+msgstr ""
 
 #: main.cpp:111
 #, kde-format
@@ -725,10 +808,9 @@ msgid "Integration with Freecell Solver and further work"
 msgstr ""
 
 #: main.cpp:113
-#, fuzzy, kde-format
-#| msgid "Michael Koch"
+#, kde-format
 msgid "Michael Lang"
-msgstr "Michael Koch"
+msgstr ""
 
 #: main.cpp:120
 #, kde-format
@@ -816,11 +898,10 @@ msgid "Previous Deal"
 msgstr ""
 
 #: mainwindow.cpp:198
-#, fuzzy, kde-format
-#| msgid "Statistics"
+#, kde-format
 msgctxt "@action"
 msgid "Statistics"
-msgstr "ستاتىستىكا"
+msgstr "ئىستاتىستىكا"
 
 #: mainwindow.cpp:227
 #, kde-format
@@ -861,11 +942,10 @@ msgid "E&nable Solver"
 msgstr ""
 
 #: mainwindow.cpp:259
-#, fuzzy, kde-format
-#| msgid "Play &Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "ئاۋاز قوي(&S)"
+msgstr ""
 
 #: mainwindow.cpp:264
 #, kde-format
@@ -939,11 +1019,10 @@ msgid "Select a card deck"
 msgstr ""
 
 #: mainwindow.cpp:434
-#, fuzzy, kde-format
-#| msgid "Game Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Game Theme"
-msgstr "ئويۇن ئۆرنىكى"
+msgstr ""
 
 #: mainwindow.cpp:436
 #, kde-format
@@ -1003,18 +1082,16 @@ msgid "Errors encountered while parsing file."
 msgstr ""
 
 #: mainwindow.cpp:861
-#, fuzzy, kde-format
-#| msgid "Load"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
-msgstr "يۈك"
+msgstr "ئويۇن ئوقۇش"
 
 #: mainwindow.cpp:888
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr "ساقلا"
+msgstr ""
 
 #: mainwindow.cpp:904
 #, kde-format
@@ -1039,7 +1116,7 @@ msgstr[0] ""
 
 #: mod3.cpp:218
 msgid "Mod3"
-msgstr "Mod3"
+msgstr ""
 
 #: normandy.cpp:166
 msgid "Normandy"
@@ -1052,11 +1129,10 @@ msgid "New Numbered Deal"
 msgstr ""
 
 #: numbereddealdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Games won:"
+#, kde-format
 msgctxt "@label"
 msgid "Game:"
-msgstr "يەڭگەن ئويۇن:"
+msgstr ""
 
 #: numbereddealdialog.cpp:55
 #, kde-format
@@ -1119,16 +1195,15 @@ msgid "Spider (4 Suit)"
 msgstr ""
 
 #: statisticsdialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Statistics"
+#, kde-format
 msgctxt "@title:window"
 msgid "Statistics"
-msgstr "ستاتىستىكا"
+msgstr "ئىستاتىستىكا"
 
 #: statisticsdialog.cpp:122
 #, kde-format
 msgid "%1 (%2%)"
-msgstr "%1 (%2%)"
+msgstr ""
 
 #: statisticsdialog.cpp:134
 #, kde-format
@@ -1146,7 +1221,7 @@ msgstr[0] ""
 #: statisticsdialog.ui:13
 #, kde-format
 msgid "Statistics"
-msgstr "ستاتىستىكا"
+msgstr "ئىستاتىستىكا"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: statisticsdialog.ui:30
@@ -1192,12 +1267,11 @@ msgstr ""
 
 #: yukon.cpp:120
 msgid "Yukon"
-msgstr "Yukon"
+msgstr "يۇكون"
 
 #~ msgid "Gypsy"
 #~ msgstr "Gypsy"
 
-#, fuzzy
 #~| msgid "Freecell"
 #~ msgid "Free cells"
 #~ msgstr "Freecell"

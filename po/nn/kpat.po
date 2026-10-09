@@ -1,20 +1,21 @@
 # Translation of kpat to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2009, 2010, 2014, 2015, 2016, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: kpat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-29 00:40+0000\n"
-"PO-Revision-Date: 2025-10-26 13:39+0100\n"
+"POT-Creation-Date: 2026-09-29 00:42+0000\n"
+"PO-Revision-Date: 2026-07-05 16:39+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
-"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -152,6 +153,104 @@ msgstr "Portugisisk kabal"
 #: bakersdozen.cpp:245
 msgid "Baker's Dozen (Custom)"
 msgstr "Tretten på dusinet (tilpassa)"
+
+#: bizilizi.cpp:204
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "Klondike &Options"
+msgctxt "@title:menu"
+msgid "Bizilizi &Options"
+msgstr "&Val for Sjuaren"
+
+#: bizilizi.cpp:205
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "23 Covered Cards"
+msgstr ""
+
+#: bizilizi.cpp:206
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "24 Covered Cards"
+msgstr ""
+
+#: bizilizi.cpp:210
+#, kde-format
+msgctxt "@title:menu"
+msgid "Pool Analysis"
+msgstr ""
+
+#: bizilizi.cpp:211
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Off"
+msgstr ""
+
+#: bizilizi.cpp:212
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Instant"
+msgstr ""
+
+#: bizilizi.cpp:213
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 4"
+msgstr ""
+
+#: bizilizi.cpp:214
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 10"
+msgstr ""
+
+#: bizilizi.cpp:215
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 18"
+msgstr ""
+
+#: bizilizi.cpp:219
+#, kde-format
+msgctxt "@title:menu"
+msgid "Delayed Hints"
+msgstr ""
+
+#: bizilizi.cpp:220
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "Off"
+msgstr ""
+
+#: bizilizi.cpp:221
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "6 Seconds"
+msgstr ""
+
+#: bizilizi.cpp:222
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "14 Seconds"
+msgstr ""
+
+#: bizilizi.cpp:223
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "22 Seconds"
+msgstr ""
+
+#: bizilizi.cpp:891
+msgid "Bizilizi"
+msgstr ""
+
+#: bizilizi.cpp:894
+msgid "Bizilizi (23 Covered)"
+msgstr ""
+
+#: bizilizi.cpp:895
+msgid "Bizilizi (24 Covered)"
+msgstr ""
 
 #: castle.cpp:319
 msgid "Castle"
@@ -367,27 +466,27 @@ msgstr "Kaballøysar: Denne kabalen kan ikkje gå opp."
 msgid "Solver: Unable to determine if this game is winnable."
 msgstr "Kaballøysar: Klarte ikkje finna ut om kabalen kan gå opp."
 
-#: dealer.cpp:922
+#: dealer.cpp:943
 #, kde-format
 msgid "Congratulations! We have won."
 msgstr "Gratulerer! Me vann!"
 
-#: dealer.cpp:924
+#: dealer.cpp:945
 #, kde-format
 msgid "Congratulations! You have won."
 msgstr "Gratulerer! Du vann!"
 
-#: dealer.cpp:1211
+#: dealer.cpp:1233
 #, kde-format
 msgid "Solver: This game is lost."
 msgstr "Kaballøysar: Ingen fleire moglege trekk."
 
-#: dealer.cpp:1349
+#: dealer.cpp:1374
 #, kde-format
 msgid "Solver: Calculating…"
 msgstr "Kaballøysar: Tenkjer …"
 
-#: dealer.cpp:1753
+#: dealer.cpp:1781
 #, kde-format
 msgid ""
 "A new game has been requested, but there is already a game in progress.\n"
@@ -400,13 +499,13 @@ msgstr ""
 "Viss du vel å starta eit nytt parti, vert dette registrert som eit tap i "
 "statistikken."
 
-#: dealer.cpp:1755
+#: dealer.cpp:1783
 #, kde-format
 msgctxt "@title:window"
 msgid "Abandon Current Game?"
 msgstr "Vil du gje opp kabalen?"
 
-#: dealer.cpp:1756
+#: dealer.cpp:1784
 #, kde-format
 msgctxt "@action:button"
 msgid "Abandon Current Game"
@@ -619,6 +718,7 @@ msgstr "Første port til KDE"
 msgid "Matthias Ettrich"
 msgstr "Matthias Ettrich"
 
+# skip-rule: bokmålsord
 #: main.cpp:100
 #, kde-format
 msgid "Rodolfo Borges"

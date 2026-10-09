@@ -1,16 +1,16 @@
 # translation of kpat.po to Italian
 #
-# SPDX-FileCopyrightText: 2017, 2018, 2020, 2021, 2022, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 # Tore Brigaglia <opensourcecat@gmail.com>, 2009.
 # Andrea Celli <andrea.celli@libero.it>, 2003, 2004, 2005, 2007, 2008, 2009, 2010, 2011, 2012.
 # Valter Mura <valtermura@gmail.com>, 2012.
 # Andrea Celli <a.celli.casa@gmail.com>, 2013, 2014.
+# SPDX-FileCopyrightText: 2017-2018, 2020-2022, 2024-2026 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kpat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-29 00:40+0000\n"
-"PO-Revision-Date: 2025-06-10 08:41+0200\n"
+"POT-Creation-Date: 2026-09-29 00:42+0000\n"
+"PO-Revision-Date: 2026-09-29 14:26+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding:  8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -151,6 +151,102 @@ msgstr "Solitario portoghese"
 #: bakersdozen.cpp:245
 msgid "Baker's Dozen (Custom)"
 msgstr "Dozzina del fornaio (personalizzato)"
+
+#: bizilizi.cpp:204
+#, kde-format
+msgctxt "@title:menu"
+msgid "Bizilizi &Options"
+msgstr "&Opzioni per Bizilizi"
+
+#: bizilizi.cpp:205
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "23 Covered Cards"
+msgstr "23 carte coperte"
+
+#: bizilizi.cpp:206
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "24 Covered Cards"
+msgstr "24 carte coperte"
+
+#: bizilizi.cpp:210
+#, kde-format
+msgctxt "@title:menu"
+msgid "Pool Analysis"
+msgstr "Analisi del pozzo"
+
+#: bizilizi.cpp:211
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Off"
+msgstr "Spento"
+
+#: bizilizi.cpp:212
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Instant"
+msgstr "Istantanea"
+
+#: bizilizi.cpp:213
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 4"
+msgstr "Attesa 4"
+
+#: bizilizi.cpp:214
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 10"
+msgstr "Attesa 10"
+
+#: bizilizi.cpp:215
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 18"
+msgstr "Attesa 18"
+
+#: bizilizi.cpp:219
+#, kde-format
+msgctxt "@title:menu"
+msgid "Delayed Hints"
+msgstr "Suggerimenti ritardati"
+
+#: bizilizi.cpp:220
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "Off"
+msgstr "Spento"
+
+#: bizilizi.cpp:221
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "6 Seconds"
+msgstr "6 secondi"
+
+#: bizilizi.cpp:222
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "14 Seconds"
+msgstr "14 secondi"
+
+#: bizilizi.cpp:223
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "22 Seconds"
+msgstr "22 secondi"
+
+#: bizilizi.cpp:891
+msgid "Bizilizi"
+msgstr "Bizilizi"
+
+#: bizilizi.cpp:894
+msgid "Bizilizi (23 Covered)"
+msgstr "Bizilizi (23 coperte)"
+
+#: bizilizi.cpp:895
+msgid "Bizilizi (24 Covered)"
+msgstr "Bizilizi (24 coperte)"
 
 #: castle.cpp:319
 msgid "Castle"
@@ -366,27 +462,27 @@ msgstr "Solutore: Questo solitario non è risolvibile."
 msgid "Solver: Unable to determine if this game is winnable."
 msgstr "Solutore: Impossibile determinare se il solitario è risolvibile."
 
-#: dealer.cpp:922
+#: dealer.cpp:943
 #, kde-format
 msgid "Congratulations! We have won."
 msgstr "Ottimo! Lo abbiamo risolto!"
 
-#: dealer.cpp:924
+#: dealer.cpp:945
 #, kde-format
 msgid "Congratulations! You have won."
 msgstr "Complimenti! Lo hai risolto!"
 
-#: dealer.cpp:1211
+#: dealer.cpp:1233
 #, kde-format
 msgid "Solver: This game is lost."
 msgstr "Solutore: Non puoi risolvere questo solitario."
 
-#: dealer.cpp:1349
+#: dealer.cpp:1374
 #, kde-format
 msgid "Solver: Calculating…"
 msgstr "Solutore: calcolo in corso…"
 
-#: dealer.cpp:1753
+#: dealer.cpp:1781
 #, kde-format
 msgid ""
 "A new game has been requested, but there is already a game in progress.\n"
@@ -398,13 +494,13 @@ msgstr ""
 "\n"
 "Se abbandoni il solitario in corso, verrà registrato come non risolto."
 
-#: dealer.cpp:1755
+#: dealer.cpp:1783
 #, kde-format
 msgctxt "@title:window"
 msgid "Abandon Current Game?"
 msgstr "Vuoi chiudere il solitario in corso?"
 
-#: dealer.cpp:1756
+#: dealer.cpp:1784
 #, kde-format
 msgctxt "@action:button"
 msgid "Abandon Current Game"

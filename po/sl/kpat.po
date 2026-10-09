@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-29 00:40+0000\n"
-"PO-Revision-Date: 2025-06-05 20:45+0200\n"
+"POT-Creation-Date: 2026-09-29 00:42+0000\n"
+"PO-Revision-Date: 2026-09-29 07:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -161,6 +161,102 @@ msgstr "Portugalska pasjansa"
 #: bakersdozen.cpp:245
 msgid "Baker's Dozen (Custom)"
 msgstr "Pekovih ducat (po meri)"
+
+#: bizilizi.cpp:204
+#, kde-format
+msgctxt "@title:menu"
+msgid "Bizilizi &Options"
+msgstr "Možnosti za Bizilizi"
+
+#: bizilizi.cpp:205
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "23 Covered Cards"
+msgstr "23 pokritih kart"
+
+#: bizilizi.cpp:206
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "24 Covered Cards"
+msgstr "24 pokritih kart"
+
+#: bizilizi.cpp:210
+#, kde-format
+msgctxt "@title:menu"
+msgid "Pool Analysis"
+msgstr "Analiza zaloge"
+
+#: bizilizi.cpp:211
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Off"
+msgstr "Izklopljeno"
+
+#: bizilizi.cpp:212
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Instant"
+msgstr "Trenutna"
+
+#: bizilizi.cpp:213
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 4"
+msgstr "Čakaj 4"
+
+#: bizilizi.cpp:214
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 10"
+msgstr "Čakaj 10"
+
+#: bizilizi.cpp:215
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 18"
+msgstr "Čakaj 18"
+
+#: bizilizi.cpp:219
+#, kde-format
+msgctxt "@title:menu"
+msgid "Delayed Hints"
+msgstr "Zakasnjeni namigi"
+
+#: bizilizi.cpp:220
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "Off"
+msgstr "Izklopljeno"
+
+#: bizilizi.cpp:221
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "6 Seconds"
+msgstr "6 sekund"
+
+#: bizilizi.cpp:222
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "14 Seconds"
+msgstr "14 sekund"
+
+#: bizilizi.cpp:223
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "22 Seconds"
+msgstr "22 sekund"
+
+#: bizilizi.cpp:891
+msgid "Bizilizi"
+msgstr "Bizilizi"
+
+#: bizilizi.cpp:894
+msgid "Bizilizi (23 Covered)"
+msgstr "Bizilizi (23 pokritih)"
+
+#: bizilizi.cpp:895
+msgid "Bizilizi (24 Covered)"
+msgstr "Bizilizi (24 pokritih)"
 
 #: castle.cpp:319
 msgid "Castle"
@@ -376,27 +472,27 @@ msgstr "Reševalnik: V tej igri se ne da zmagati."
 msgid "Solver: Unable to determine if this game is winnable."
 msgstr "Reševalnik: Ni mogoče ugotoviti, ali se v tej igri da zmagati."
 
-#: dealer.cpp:922
+#: dealer.cpp:943
 #, kde-format
 msgid "Congratulations! We have won."
 msgstr "Čestitke! Zmagali smo."
 
-#: dealer.cpp:924
+#: dealer.cpp:945
 #, kde-format
 msgid "Congratulations! You have won."
 msgstr "Čestitke! Zmagali ste."
 
-#: dealer.cpp:1211
+#: dealer.cpp:1233
 #, kde-format
 msgid "Solver: This game is lost."
 msgstr "Reševalnik: Ta igra je izgubljena."
 
-#: dealer.cpp:1349
+#: dealer.cpp:1374
 #, kde-format
 msgid "Solver: Calculating…"
 msgstr "Reševalnik: Preračunavanje…"
 
-#: dealer.cpp:1753
+#: dealer.cpp:1781
 #, kde-format
 msgid ""
 "A new game has been requested, but there is already a game in progress.\n"
@@ -407,13 +503,13 @@ msgstr ""
 "\n"
 "Če bo trenutna igra prekinjena, bo v statistiko vpisan poraz."
 
-#: dealer.cpp:1755
+#: dealer.cpp:1783
 #, kde-format
 msgctxt "@title:window"
 msgid "Abandon Current Game?"
 msgstr "Zapusti trenutno igro?"
 
-#: dealer.cpp:1756
+#: dealer.cpp:1784
 #, kde-format
 msgctxt "@action:button"
 msgid "Abandon Current Game"

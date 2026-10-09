@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-29 00:40+0000\n"
-"PO-Revision-Date: 2025-11-20 04:56+0100\n"
+"POT-Creation-Date: 2026-09-29 00:42+0000\n"
+"PO-Revision-Date: 2026-09-29 05:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -149,6 +149,102 @@ msgstr "პორტუგალიური Solitaire"
 #: bakersdozen.cpp:245
 msgid "Baker's Dozen (Custom)"
 msgstr "ეშმაკისეული ათეული (ხელით)"
+
+#: bizilizi.cpp:204
+#, kde-format
+msgctxt "@title:menu"
+msgid "Bizilizi &Options"
+msgstr "Bizilizi-ის მ&ორგება"
+
+#: bizilizi.cpp:205
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "23 Covered Cards"
+msgstr "23 დაფარული ბარათი"
+
+#: bizilizi.cpp:206
+#, kde-format
+msgctxt "@item:inmenu bizilizi option"
+msgid "24 Covered Cards"
+msgstr "24 დაფარული ბარათი"
+
+#: bizilizi.cpp:210
+#, kde-format
+msgctxt "@title:menu"
+msgid "Pool Analysis"
+msgstr "პულის ანალიზი"
+
+#: bizilizi.cpp:211
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Off"
+msgstr "გამორთ"
+
+#: bizilizi.cpp:212
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Instant"
+msgstr "მყისი"
+
+#: bizilizi.cpp:213
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 4"
+msgstr "დაელოდეთ 4"
+
+#: bizilizi.cpp:214
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 10"
+msgstr "დაელოდეთ 10"
+
+#: bizilizi.cpp:215
+#, kde-format
+msgctxt "@item:inmenu analysis option"
+msgid "Wait 18"
+msgstr "დაელოდეთ 18"
+
+#: bizilizi.cpp:219
+#, kde-format
+msgctxt "@title:menu"
+msgid "Delayed Hints"
+msgstr "დაგვიანებული მინიშნებები"
+
+#: bizilizi.cpp:220
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "Off"
+msgstr "გამორთ"
+
+#: bizilizi.cpp:221
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "6 Seconds"
+msgstr "6 წამი"
+
+#: bizilizi.cpp:222
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "14 Seconds"
+msgstr "14 წამი"
+
+#: bizilizi.cpp:223
+#, kde-format
+msgctxt "@item:inmenu ridehints option"
+msgid "22 Seconds"
+msgstr "22 წამი"
+
+#: bizilizi.cpp:891
+msgid "Bizilizi"
+msgstr "Bizilizi"
+
+#: bizilizi.cpp:894
+msgid "Bizilizi (23 Covered)"
+msgstr "Bizilizi (23 დაფარული)"
+
+#: bizilizi.cpp:895
+msgid "Bizilizi (24 Covered)"
+msgstr "Bizilizi (24 დაფარული)"
 
 #: castle.cpp:319
 msgid "Castle"
@@ -364,27 +460,27 @@ msgstr "ამომხსნელი: ამ თამაშის მოგ�
 msgid "Solver: Unable to determine if this game is winnable."
 msgstr "ამომხსნელი: თამაშის მოგებადობის მიხვედრა შეუძლებელია."
 
-#: dealer.cpp:922
+#: dealer.cpp:943
 #, kde-format
 msgid "Congratulations! We have won."
 msgstr "გილოცავთ! მოვიგეთ."
 
-#: dealer.cpp:924
+#: dealer.cpp:945
 #, kde-format
 msgid "Congratulations! You have won."
 msgstr "გილოცავთ! მოიგეთ."
 
-#: dealer.cpp:1211
+#: dealer.cpp:1233
 #, kde-format
 msgid "Solver: This game is lost."
 msgstr "ამომხსნელი: ეს თამაში წაგებულია."
 
-#: dealer.cpp:1349
+#: dealer.cpp:1374
 #, kde-format
 msgid "Solver: Calculating…"
 msgstr "ამომხსნელი: გამოთვლა…"
 
-#: dealer.cpp:1753
+#: dealer.cpp:1781
 #, kde-format
 msgid ""
 "A new game has been requested, but there is already a game in progress.\n"
@@ -395,13 +491,13 @@ msgstr ""
 "\n"
 "თუ მიმდინარე თამაშს მიატოვებთ, სტატისტიკაში წაგებას ჩაგიწერთ."
 
-#: dealer.cpp:1755
+#: dealer.cpp:1783
 #, kde-format
 msgctxt "@title:window"
 msgid "Abandon Current Game?"
 msgstr "მივატოვო მიმდინარე თამაში?"
 
-#: dealer.cpp:1756
+#: dealer.cpp:1784
 #, kde-format
 msgctxt "@action:button"
 msgid "Abandon Current Game"
