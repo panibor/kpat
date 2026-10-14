@@ -1,0 +1,2071 @@
+Welcome to the Craft setup wizard!
+Craft will be installed to: C:\CraftRoot
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Starting to download https://invent.kde.org/packaging/craft/-/archive/master/craft-master.zip to C:\CraftRoot\download\craft-master.zip
+
+0 bytes downloaded
+8192 bytes downloaded
+16384 bytes downloaded
+24576 bytes downloaded
+32768 bytes downloaded
+40960 bytes downloaded
+49152 bytes downloaded
+57344 bytes downloaded
+65536 bytes downloaded
+73728 bytes downloaded
+81920 bytes downloaded
+90112 bytes downloaded
+98304 bytes downloaded
+106496 bytes downloaded
+114688 bytes downloaded
+122880 bytes downloaded
+131072 bytes downloaded
+139264 bytes downloaded
+147456 bytes downloaded
+155648 bytes downloaded
+163840 bytes downloaded
+172032 bytes downloaded
+180224 bytes downloaded
+188416 bytes downloaded
+196608 bytes downloaded
+204800 bytes downloaded
+212992 bytes downloaded
+221184 bytes downloaded
+229376 bytes downloaded
+237568 bytes downloaded
+245760 bytes downloaded
+253952 bytes downloaded
+262144 bytes downloaded
+270336 bytes downloaded
+278528 bytes downloaded
+286720 bytes downloaded
+294912 bytes downloaded
+303104 bytes downloaded
+311296 bytes downloaded
+319488 bytes downloaded
+327680 bytes downloaded
+335872 bytes downloaded
+344064 bytes downloaded
+352256 bytes downloaded
+360448 bytes downloaded
+368640 bytes downloaded
+376832 bytes downloaded
+385024 bytes downloaded
+393216 bytes downloaded
+401408 bytes downloaded
+409600 bytes downloaded
+417792 bytes downloaded
+425984 bytes downloaded
+434176 bytes downloaded
+442368 bytes downloaded
+450560 bytes downloaded
+458752 bytes downloaded
+466944 bytes downloaded
+475136 bytes downloaded
+483328 bytes downloaded
+491520 bytes downloaded
+499712 bytes downloaded
+507904 bytes downloaded
+516096 bytes downloaded
+524288 bytes downloaded
+532480 bytes downloaded
+540672 bytes downloaded
+548864 bytes downloaded
+557056 bytes downloaded
+565248 bytes downloaded
+573440 bytes downloaded
+581632 bytes downloaded
+589824 bytes downloaded
+598016 bytes downloaded
+606208 bytes downloaded
+614400 bytes downloaded
+622592 bytes downloaded
+630784 bytes downloaded
+638976 bytes downloaded
+647168 bytes downloaded
+655360 bytes downloaded
+663552 bytes downloaded
+671744 bytes downloaded
+679936 bytes downloaded
+688128 bytes downloaded
+696320 bytes downloaded
+704512 bytes downloaded
+712704 bytes downloaded
+720896 bytes downloaded
+729088 bytes downloaded
+737280 bytes downloaded
+745472 bytes downloaded
+753664 bytes downloaded
+761856 bytes downloaded
+770048 bytes downloaded
+778240 bytes downloaded
+786432 bytes downloaded
+794624 bytes downloaded
+802816 bytes downloaded
+811008 bytes downloaded
+819200 bytes downloaded
+827392 bytes downloaded
+835584 bytes downloaded
+843776 bytes downloaded
+851968 bytes downloaded
+Found "sh" in your PATH: "C:\Program Files\Git\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Found "gcc" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Found "g++" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Found "cpp" in your PATH: "C:\mingw64\bin"
+This application is known to cause problems with your configuration of Craft.
+Please remove it from PATH or manually set a value for PATH in your CraftSettings.ini:
+
+[Environment]
+PATH=
+
+Craft               : C:\CraftRoot
+ABI                 : windows-gcc-x86_64
+Download directory  : C:\CraftRoot\download
+Cache repository    : https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64
+860160 bytes downloaded]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 0s]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1s Progress: 0% Remaining Packages: ['core/cacert', 'dev-utils/7zip-base', 'dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;0\================================================================================
+*** Handling package: core/cacert, action: all ***
+*** Action: fetch-binary for core/cacert ***
+*** core/cacert not found in cache ***
+*** Action: fetch for core/cacert ***
+curl https://files.kde.org/craft/curl.haxx.se/cacert-2025-09-09.zip
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+######################################################################## 100.0%
+*** Action: unpack for core/cacert ***
+*** Action: configure for core/cacert ***
+*** Action: make for core/cacert ***
+*** Action: cleanimage for core/cacert ***
+*** Action: install for core/cacert ***
+*** Action: post-install for core/cacert ***
+*** Action: qmerge for core/cacert ***
+*** Action: post-qmerge for core/cacert ***
+*** Craft all succeeded: core/cacert after 1s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2s Progress: 3% Remaining Packages: ['dev-utils/7zip-base', 'dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;3\================================================================================
+*** Handling package: dev-utils/7zip-base, action: all ***
+*** Action: fetch-binary for dev-utils/7zip-base ***
+curl https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/7zip-base/7zip-base-25.01-88-20260524T102858-windows-gcc-x86_64.zip
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+-=#=#   #   #                                                                  
+-=O#-#   #   #                                                                 
+-=O=#  #   #   #                                                               ]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 10s Progress: 3% Remaining Packages: ['dev-utils/7zip-base', 'dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;3\
+-=O=-#  #    #   #                                                             
+-=O=- #   #   #    #                                                           
+-=O=-   #   #   #     #                                                        
+-=O=-    #   #    #     #                                                      
+-=O=-      #   #     #    #                                                    
+-=O=-        #   #     #    #                                                  
+-=O=-         #    #     #     #                                               
+-=O=-           #     #    #     #                                             
+                                                                           0.5%
+##################################################################        92.7%
+######################################################################## 100.0%
+*** Craft all succeeded: dev-utils/7zip-base after 15s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 18s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\================================================================================
+*** Handling package: dev-utils/mingw-w64, action: all ***
+*** Action: fetch-binary for dev-utils/mingw-w64 ***
+curl https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/mingw-w64/mingw-w64-14.2.0-2-88-20260524T102931-windows-gcc-x86_64.zip
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+                                                                           0.0%
+                                                                           0.1%
+                                                                           0.2%
+                                                                           0.5%
+#                                                                          1.5%
+##                                                                         3.3%
+######                                                                     8.9%
+##############                                                            20.8%
+######################                                                    31.8%
+################################                                          45.3%
+########################################                                  56.7%]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 20s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\
+#################################################                         69.1%
+##########################################################                81.3%
+###################################################################       93.7%
+######################################################################## 100.0%
+  0M Scan C:\CraftRoot\download\cache\26 . thDebInfo\dev-utils\mingw-w64\
+                                                                         
+ 28% 4096 Open
+              
+
+executing command: C:\CraftRoot\dev-utils\7z\7za.exe x -r -y -oC:\_\7eb72b86\image-RelWithDebInfo-14.2.0-2 C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\mingw-w64\mingw-w64-14.2.0-2-88-20260524T102931-windows-gcc-x86_64.zip -bso2 -bsp1
+7-Zip (a) 25.01 (x86) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 208797439 bytes (200 MiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\mingw-w64\mingw-w64-14.2.0-2-88-20260524T102931-windows-gcc-x86_64.zip
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 30s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 40s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 50s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 0s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\  0%
+    
+  0% 3 - mingw64\bin\ar.exe
+                           
+  3% 18
+       
+  6% 31 - mingw64\bin\ld.exe
+                            
+ 10% 39 - mingw64\bin\lto-dump.exe
+                                  
+ 14% 48 - mingw64\bin\strip.exe
+                               
+ 16% 89 - mingw64\include\plugin-api.h
+                                      
+ 17% 243 - mingw64\lib\gcc\x86_64-w64-ming . .0\include\c++\bits\memoryfwd.h
+                                                                            
+ 17% 255 - mingw64\lib\gcc\x86_64-w64-min . 2.0\include\c++\bits\postypes.h
+                                                                           
+ 17% 358 - mingw64\lib\gcc\x86_64-w64-mingw32\14.2.0\include\c++\complex
+                                                                        
+ 18% 450 - mingw64\lib\gcc\x86_64-w64-min . de\c++\experimental\filesystem
+                                                                          
+ 18% 562 - mingw64\lib\gcc\x86_64-w64-ming . \cond_key_dtor_entry_dealtor.hpp
+                                                                             
+ 18% 691 - mingw64\lib\gcc\x86_64-w64-ming . t_trie_\synth_access_traits.hpp
+                                                                            
+ 18% 811 - mingw64\lib\gcc\x86_64-w64-mingw32\14.2.0\include\c++\latch
+                                                                      
+ 18% 852 - mingw64\lib\gcc\x86_64-w64-ming . \c++\parallel\omp_loop_static.h
+                                                                            
+ 18% 956 - mingw64\lib\gcc\x86_64-w64-mingw32\14.2.0\include\c++\tr1\limits.h
+                                                                             
+ 19% 1036 - mingw64\lib\gcc\x86_64-w64-mingw32\14.2.0\include\cross-stdarg.h
+                                                                            
+ 19% 1128 - mingw64\lib\gcc\x86_64-w64-mingw32\14.2.0\libgcc.a
+                                                              
+ 24% 1158 - mingw64\libexec\gcc\x86_64-w64-mingw32\14.2.0\cc1.exe
+                                                                 
+ 28% 1158 - mingw64\libexec\gcc\x86_64-w64-mingw32\14.2.0\cc1.exe
+                                                                 
+ 32% 1159 - mingw64\libexec\gcc\x86_64-w64-mingw32\14.2.0\cc1plus.exe
+                                                                     
+ 36% 1161 - mingw64\libexec\gcc\x86_64-w64-mingw32\14.2.0\f951.exe
+                                                                  
+ 40% 1163
+         
+ 44% 1171 - mingw64\libexec\gcc\x86_64-w64-mingw32\14.2.0\lto1.exe
+                                                                  
+ 47% 1262 - mingw64\opt\bin\libcrypto-3-x64.dll
+                                               
+ 51% 1268 - mingw64\opt\bin\libpython3.12.dll
+                                             
+ 52% 1290 - mingw64\opt\include\fakemysql.h
+                                           
+ 52% 1319 - mingw64\opt\include\mysqlStubs.h
+                                            
+ 52% 1464 - mingw64\opt\include\openssl\sslerr_legacy.h
+                                                       
+ 52% 1521 - mingw64\opt\include\python3.12\cpython\memoryobject.h
+                                                                 
+ 52% 1539 - mingw64\opt\include\python3.12\cpython\pytime.h
+                                                           
+ 52% 1540 - mingw64\opt\include\python3.12\cpython\setobject.h
+                                                              
+ 52% 1689 - mingw64\opt\include\python3.12\pytypedefs.h
+                                                       
+ 53% 1745 - mingw64\opt\include\X11\Sunkeysym.h
+                                               
+ 54% 1785 - mingw64\opt\lib\libcrypto.a
+                                       
+ 55% 1799 - mingw64\opt\lib\libncurses++w_g.a
+                                             
+ 56% 1811 - mingw64\opt\lib\libssl.dll.a
+                                        
+ 57% 1890 - mingw64\opt\lib\python3.12\config-3.12\makesetup
+                                                            
+ 57% 1968 - mingw64\opt\lib\python3.12\encodings
+                                                
+ 57% 2036 - mingw64\opt\lib\python3.12\encodings\iso8859_11.py
+                                                              
+ 57% 2094
+         
+ 58% 2157 - mingw64\opt\lib\python3.12\idlelib\HISTORY.txt
+                                                          
+ 58% 2211 - mingw64\opt\lib\python3.12\idlelib\idle_test\test_iomenu.py
+                                                                       
+ 58% 2325 - mingw64\opt\lib\python3.12\li . p312-mingw_x86_64_ucrt_gnu.pyd
+                                                                          
+ 59% 2361 - mingw64\opt\lib\python3.12\li . p312-mingw_x86_64_ucrt_gnu.pyd
+                                                                          
+ 61% 2387 - mingw64\opt\lib\python3.12\li . p312-mingw_x86_64_ucrt_gnu.pyd
+                                                                          
+ 61% 2439 - mingw64\opt\lib\python3.12\lib2to3\fixes\fix_renames.py
+                                                                   
+ 61% 2532 - mingw64\opt\lib\python3.12\platform.py
+                                                  
+ 61% 2571 - mingw64\opt\lib\python3.12\socket.py
+                                                
+ 61% 2572 - mingw64\opt\lib\python3.12\socketserver.py
+                                                      
+ 62% 2744 - mingw64\opt\lib\python3.12\test\decimaltestdata\ddNextPlus.decTest
+                                                                              
+ 62% 2857 - mingw64\opt\lib\python3.12\test\dtracedata\gc.d.expected
+                                                                    
+ 62% 2900 - mingw64\opt\lib\python3.12\test\libregrtest\logger.py
+                                                                 
+ 62% 2960 - mingw64\opt\lib\python3.12\test\sndhdrdata\sndhdr.voc
+                                                                 
+ 62% 3000 - mingw64\opt\lib\python3.12\test\test_abstract_numbers.py
+                                                                    
+ 63% 3042 - mingw64\opt\lib\python3.12\test\test_asyncio\test_transports.py
+                                                                           
+ 63% 3057 - mingw64\opt\lib\python3.12\test\test_bigaddrspace.py
+                                                                
+ 63% 3089 - mingw64\opt\lib\python3.12\test\test_capi\test_misc.py
+                                                                  
+ 63% 3106 - mingw64\opt\lib\python3.12\test\test_charmapcodec.py
+                                                                
+ 63% 3162 - mingw64\opt\lib\python3.12\test\test_crashers.py
+                                                            
+ 63% 3173 - mingw64\opt\lib\python3.12\test\test_ctypes\test_byteswap.py
+                                                                        
+ 63% 3228
+         
+ 63% 3331 - mingw64\opt\lib\python3.12\test\test_email\data\python.webp
+                                                                       
+ 64% 3501 - mingw64\opt\lib\python3.12\test . portlib\extension\test_loader.py
+                                                                              
+ 64% 3613 - mingw64\opt\lib\python3.12\tes . source\test_case_sensitivity.py
+                                                                            
+ 64% 3765 - mingw64\opt\lib\python3.12\te . essing_spawn\test_processes.py
+                                                                          
+ 65% 3946 - mingw64\opt\lib\python3.12\test\ . nvalid\array\unclosed-empty.toml
+                                                                               
+ 65% 4080 - mingw64\opt\lib\python3.12\test\test_unittest
+                                                         
+ 65% 4221
+         
+ 65% 4353 - mingw64\opt\lib\python3.12\turtledemo\forest.py
+                                                           
+ 66% 4494 - mingw64\opt\lib\tcl8
+                                
+ 66% 4609
+         
+ 66% 4612 - mingw64\opt\lib\tcl8.6\msgs\en_au.msg
+                                                 
+ 66% 4684 - mingw64\opt\lib\tcl8.6\msgs\lv.msg
+                                              
+ 66% 4740 - mingw64\opt\lib\tcl8.6\tzdata\Africa\Banjul
+                                                       
+ 66% 4881 - mingw64\opt\lib\tcl8.6\tzdata\America\Lima
+                                                      
+ 66% 4940 - mingw64\opt\lib\tcl8.6\tzdata\America\St_Johns
+                                                          
+ 66% 5068 - mingw64\opt\lib\tcl8.6\tzdata\Asia\Vladivostok
+                                                          
+ 66% 5172 - mingw64\opt\lib\tcl8.6\tzdata\Europe
+                                                
+ 66% 5326 - mingw64\opt\lib\tcl8.6\tzdata\SystemV\AST4
+                                                      
+ 66% 5348 - mingw64\opt\lib\tcl8.6\tzdata\US\Eastern
+                                                    
+ 67% 5434 - mingw64\opt\lib\terminfo\4e\NCR260VT300WPP
+                                                      
+ 67% 5448 - mingw64\opt\lib\terminfo\50\P8
+                                          
+ 67% 5504 - mingw64\opt\lib\terminfo\61\aaa-rv-unk
+                                                  
+ 67% 5540 - mingw64\opt\lib\terminfo\61\adm42
+                                             
+ 67% 5572 - mingw64\opt\lib\terminfo\61\altos4
+                                              
+ 67% 5628 - mingw64\opt\lib\terminfo\61\ansi-mr
+                                               
+ 67% 5699
+         
+ 67% 5748 - mingw64\opt\lib\terminfo\61\att5620
+                                               
+ 67% 5820 - mingw64\opt\lib\terminfo\62\bg3.10
+                                              
+ 67% 5968
+         
+ 67% 6048 - mingw64\opt\lib\terminfo\64\d414-unix-25
+                                                    
+ 67% 6080 - mingw64\opt\lib\terminfo\64\d460-7b-w
+                                                 
+ 67% 6116 - mingw64\opt\lib\terminfo\64\d470c-7b
+                                                
+ 67% 6260 - mingw64\opt\lib\terminfo\64\dt80-sas
+                                                
+ 67% 6345 - mingw64\opt\lib\terminfo\67\glasstty
+                                                
+ 67% 6495 - mingw64\opt\lib\terminfo\68\hp2640b
+                                               
+ 67% 6523 - mingw64\opt\lib\terminfo\68\hpterm-color
+                                                    
+ 67% 6571 - mingw64\opt\lib\terminfo\69\ibm8512
+                                               
+ 67% 6695 - mingw64\opt\lib\terminfo\6c\linux2.6.26
+                                                   
+ 67% 6767 - mingw64\opt\lib\terminfo\6d\mlterm
+                                              
+ 67% 6885 - mingw64\opt\lib\terminfo\6e\newhpkeyboard
+                                                     
+ 67% 6995 - mingw64\opt\lib\terminfo\6e\nwp513-a
+                                                
+ 67% 7154 - mingw64\opt\lib\terminfo\70\prism7
+                                              
+ 67% 7279 - mingw64\opt\lib\terminfo\73\sb2
+                                           
+ 67% 7423 - mingw64\opt\lib\terminfo\74\tek4012
+                                               
+ 67% 7436 - mingw64\opt\lib\terminfo\74\tek4025a
+                                                
+ 67% 7443 - mingw64\opt\lib\terminfo\74\tek4106brl
+                                                  
+ 67% 7575 - mingw64\opt\lib\terminfo\74\tvi912b-2p-p
+                                                    
+ 67% 7639 - mingw64\opt\lib\terminfo\74\tvi920c-p-2p
+                                                    
+ 67% 7769 - mingw64\opt\lib\terminfo\76\vt100-w-nav
+                                                   
+ 67% 7815 - mingw64\opt\lib\terminfo\76\vt420f
+                                              
+ 67% 7923 - mingw64\opt\lib\terminfo\77\wy50-mc
+                                               
+ 67% 7983 - mingw64\opt\lib\terminfo\77\wy99gt-wvb
+                                                  
+ 67% 8055 - mingw64\opt\lib\terminfo\77\wyse520-wvb
+                                                   
+ 67% 8075 - mingw64\opt\lib\terminfo\77\wyse85
+                                              
+ 67% 8221 - mingw64\opt\lib\terminfo\78\xterm-direct16
+                                                      
+ 67% 8375 - mingw64\opt\lib\tk8.6\demos\timer
+                                             
+ 67% 8451 - mingw64\opt\lib\tk8.6\ttk\classicTheme.tcl
+                                                      
+ 67% 8642 - mingw64\opt\share\terminfo\50\P14-W
+                                               
+ 67% 8779 - mingw64\opt\share\terminfo\61\amiga-vnc
+                                                   
+ 67% 8939 - mingw64\opt\share\terminfo\61\att5420-w-rv-n
+                                                        
+ 67% 9061
+         
+ 68% 9187 - mingw64\opt\share\terminfo\64\d211
+                                              
+ 68% 9343 - mingw64\opt\share\terminfo\64\darwin-160x64-m
+                                                         
+ 68% 9478 - mingw64\opt\share\terminfo\65\ecma+sgr
+                                                  
+ 68% 9587 - mingw64\opt\share\terminfo\67\guru-nctxt
+                                                    
+ 68% 9647 - mingw64\opt\share\terminfo\68\hp2621
+                                                
+ 68% 9725 - mingw64\opt\share\terminfo\68\htx11
+                                               
+ 68% 9873 - mingw64\opt\share\terminfo\6c\linux
+                                               
+ 68% 9994 - mingw64\opt\share\terminfo\6d\msk227am
+                                                  
+ 68% 9999
+         
+ 68% 10048 - mingw64\opt\share\terminfo\6e\ncr260wy325pp
+                                                        
+ 68% 10081 - mingw64\opt\share\terminfo\6e\netbsd6
+                                                  
+ 68% 10109 - mingw64\opt\share\terminfo\6e\newscbm
+                                                  
+ 68% 10141 - mingw64\opt\share\terminfo\6e\nsterm-build343
+                                                          
+ 68% 10221 - mingw64\opt\share\terminfo\6f\opennt-100
+                                                     
+ 68% 10285 - mingw64\opt\share\terminfo\70\pcansi-33
+                                                    
+ 68% 10381 - mingw64\opt\share\terminfo\70\putty+cursor
+                                                       
+ 68% 10465 - mingw64\opt\share\terminfo\72\rxvt+pcfkeys
+                                                       
+ 68% 10569 - mingw64\opt\share\terminfo\73\stterm-256color
+                                                          
+ 68% 10703 - mingw64\opt\share\terminfo\74\ti926
+                                                
+ 68% 10890 - mingw64\opt\share\terminfo\76\vc203
+                                                
+ 68% 10973 - mingw64\opt\share\terminfo\76\vt125
+                                                
+ 68% 11090 - mingw64\opt\share\terminfo\77\wy325-25
+                                                   
+ 68% 11217 - mingw64\opt\share\terminfo\77\wyse325-25
+                                                     
+ 68% 11345 - mingw64\opt\share\terminfo\78\xnuppc-90x30-m
+                                                         
+ 68% 11417 - mingw64\opt\share\terminfo\78\xterm-color
+                                                      
+ 68% 11465 - mingw64\opt\share\terminfo\7a\z29a
+                                               
+ 68% 11469 - mingw64\opt\share\terminfo\7a\z29a-nkc-uc
+                                                      
+ 68% 11569 - mingw64\share\gdb\syscalls\aarch64-linux.xml
+                                                         
+ 71% 11615 - mingw64\x86_64-w64-mingw32\include\adhoc.h
+                                                       
+ 71% 11705 - mingw64\x86_64-w64-mingw32\include\callobj.h
+                                                         
+ 71% 11809 - mingw64\x86_64-w64-mingw32\include\d2d1helper.h
+                                                            
+ 72% 11925 - mingw64\x86_64-w64-mingw32\include\ddk\ntddsnd.h
+                                                             
+ 73% 12065
+          
+ 74% 12301 - mingw64\x86_64-w64-mingw32\include\KHR
+                                                   
+ 74% 12344 - mingw64\x86_64-w64-mingw32\include\localcharset.h
+                                                              
+ 74% 12438 - mingw64\x86_64-w64-mingw32\include\msado15.h
+                                                         
+ 77% 12636 - mingw64\x86_64-w64-mingw32\include\pciprop.h
+                                                         
+ 77% 12787 - mingw64\x86_64-w64-mingw32\include\sdpblb.h
+                                                        
+ 78% 12941 - mingw64\x86_64-w64-mingw32\include\tlogstg.h
+                                                         
+ 79% 13006 - mingw64\x86_64-w64-mingw32\include\vfw.h
+                                                     
+ 79% 13010 - mingw64\x86_64-w64-mingw32\include\vmr9.h
+                                                      
+ 80% 13166 - mingw64\x86_64-w64-mingw32\include\winspool.h
+                                                          
+ 81% 13382
+          
+ 82% 13502 - mingw64\x86_64-w64-mingw32\lib\libdevrtl.a
+                                                       
+ 83% 13518 - mingw64\x86_64-w64-mingw32\lib\libdmivcitf.a
+                                                         
+ 83% 13521 - mingw64\x86_64-w64-mingw32\lib\libdmvdsitf.a
+                                                         
+ 84% 13593 - mingw64\x86_64-w64-mingw32\lib\libgfortran-5.dll
+                                                             
+ 84% 13634 - mingw64\x86_64-w64-mingw32\lib\libicwconn.a
+                                                        
+ 85% 13706 - mingw64\x86_64-w64-mingw32\lib\liblocationapi.a
+                                                            
+ 86% 13774 - mingw64\x86_64-w64-mingw32\lib\libmqupgrd.a
+                                                        
+ 86% 13814 - mingw64\x86_64-w64-mingw32\lib\libmspatcha.a
+                                                         
+ 89% 13846 - mingw64\x86_64-w64-mingw32\lib\libmtxex.a
+                                                      
+ 90% 13850 - mingw64\x86_64-w64-mingw32\lib\libncobjapi.a
+                                                         
+ 93% 13916 - mingw64\x86_64-w64-mingw32\lib\libonecoreuap_apiset.a
+                                                                  
+ 95% 14046 - mingw64\x86_64-w64-mingw32\lib\libslcext.a
+                                                       
+ 97% 14167 - mingw64\x86_64-w64-mingw32\lib\libwiaservc.a
+                                                         
+--
+Path = C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\mingw-w64\mingw-w64-14.2.0-2-88-20260524T102931-windows-gcc-x86_64.zip
+Type = zip
+Physical Size = 208797439
+
+Everything is Ok
+
+Folders: 490
+Files: 13763
+Size:       717748058
+Compressed: 208797439
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 10s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 20s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 30s Progress: 6% Remaining Packages: ['dev-utils/mingw-w64', 'libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;6\*** Craft all succeeded: dev-utils/mingw-w64 after 1min 16s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 34s Progress: 9% Remaining Packages: ['libs/runtime', 'dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;9\================================================================================
+*** Handling package: libs/runtime, action: all ***
+*** Action: fetch-binary for libs/runtime ***
+curl https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/libs/runtime/runtime-14.2.0-2-88-20260524T103329-windows-gcc-x86_64.7z
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+-=#=#   #   #                                                                  
+-=O#-#   #   #                                                                 
+#                                                                          2.2%
+#########                                                                 13.3%
+#################                                                         24.4%
+#########################                                                 35.4%
+#########################################                                 57.6%
+##############################################################            86.5%
+######################################################################## 100.0%
+  0M Scan C:\CraftRoot\download\cache\26. . _64\RelWithDebInfo\libs\runtime\
+                                                                            
+
+executing command: C:\CraftRoot\dev-utils\7z\7za.exe x -r -y -oC:\_\fda5aa4e\image-RelWithDebInfo-14.2.0 C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\libs\runtime\runtime-14.2.0-2-88-20260524T103329-windows-gcc-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x86) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 738734 bytes (722 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\libs\runtime\runtime-14.2.0-2-88-20260524T103329-windows-gcc-x86_64.7z
+  0%
+    
+--
+Path = C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\libs\runtime\runtime-14.2.0-2-88-20260524T103329-windows-gcc-x86_64.7z
+Type = 7z
+Physical Size = 738734
+Headers Size = 257
+Method = LZMA2:3m BCJ
+Solid = +
+Blocks = 1
+
+Everything is Ok
+
+Folders: 1
+Files: 4
+Size:       2789376
+Compressed: 738734
+*** Craft all succeeded: libs/runtime after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 36s Progress: 12% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;12\================================================================================
+*** Handling package: dev-utils/cmake-base, action: all ***
+*** Action: fetch-binary for dev-utils/cmake-base ***
+curl https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/cmake-base/cmake-base-4.1.4-88-20260524T103012-windows-gcc-x86_64.zip
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+                                                                           0.0%
+####                                                                       5.6%
+#######                                                                   10.7%
+################                                                          23.2%
+############################                                              40.1%
+#############################################                             63.5%
+######################################################################## 100.0%
+  0M Scan C:\CraftRoot\download\cache\26 . thDebInfo\dev-utils\cmake-base\
+                                                                          
+ 48% 4096 Open
+              
+
+executing command: C:\CraftRoot\dev-utils\7z\7za.exe x -r -y -oC:\_\49c817c9\image-RelWithDebInfo-4.1.4 C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\cmake-base\cmake-base-4.1.4-88-20260524T103012-windows-gcc-x86_64.zip -bso2 -bsp1
+7-Zip (a) 25.01 (x86) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 47137505 bytes (45 MiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\cmake-base\cmake-base-4.1.4-88-20260524T103012-windows-gcc-x86_64.zip
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 40s Progress: 12% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;12\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 1min 50s Progress: 12% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;12\  0%
+    
+ 18% 3 - dev-utils\cmake-base\bin\cmake-gui.exe
+                                               
+ 36% 6 - dev-utils\cmake-base\bin\cpack.exe
+                                           
+ 56% 11 - dev-utils\cmake-base\doc\cmake\CMake.qch
+                                                  
+ 61% 133 - dev-utils\cmake-base\doc\cmake\html\command\remove_definitions.html
+                                                                              
+ 63% 292
+        
+ 68% 390 - dev-utils\cmake-base\doc\cmake\html\module\CMakeFindFrameworks.html
+                                                                              
+ 69% 460 - dev-utils\cmake-base\doc\cmake\html\module\FindGettext.html
+                                                                      
+ 70% 548 - dev-utils\cmake-base\doc\cmake\html\module\FindProtobuf.html
+                                                                       
+ 71% 604 - dev-utils\cmake-base\doc\cmake\html\module\TestForSSTREAM.html
+                                                                         
+ 72% 675
+        
+ 72% 726 - dev-utils\cmake-base\doc\cmake\html\policy\CMP0108.html
+                                                                  
+ 73% 828 - dev-utils\cmake-base\doc\cmake\html\prop_dir\CACHE_VARIABLES.html
+                                                                            
+ 74% 966 - dev-utils\cmake-base\doc\cmake\ . p_sf\XCODE_FILE_ATTRIBUTES.html
+                                                                            
+ 75% 1072 - dev-utils\cmake-base\doc\cmake . op_tgt\CUDA_ARCHITECTURES.html
+                                                                           
+ 75% 1121 - dev-utils\cmake-base\doc\cmake\html\prop_tgt\Fortran_FORMAT.html
+                                                                            
+ 75% 1216 - dev-utils\cmake-base\doc\cmake\ . p_tgt\LANG_LINKER_LAUNCHER.html
+                                                                             
+ 76% 1224 - dev-utils\cmake-base\doc\cmake\html\prop_tgt\LINKER_LANGUAGE.html
+                                                                             
+ 76% 1276 - dev-utils\cmake-base\doc\cmake\ . p_tgt\PDB_OUTPUT_DIRECTORY.html
+                                                                             
+ 77% 1425
+         
+ 81% 1490 - dev-utils\cmake-base\doc\cmake\ . able\CMAKE_ANDROID_STL_TYPE.html
+                                                                              
+ 82% 1575 - dev-utils\cmake-base\doc\cmake\ . KE_CXX_COMPILER_IMPORT_STD.html
+                                                                             
+ 83% 1748 - dev-utils\cmake-base\doc\cmak . MAKE_LANG_COMPILER_LINKER.html
+                                                                          
+ 84% 1928 - dev-utils\cmake-base\doc\cmake\html\variable\CMAKE_ROOT.html
+                                                                        
+ 85% 2012 - dev-utils\cmake-base\doc\cma . CMAKE_VS_MSBUILD_COMMAND.html
+                                                                        
+ 85% 2104 - dev-utils\cmake-base\doc\cmake\h . MUM_FAILED_TEST_OUTPUT_SIZE.html
+                                                                               
+ 86% 2270 - dev-utils\cmake-base\doc\cmake\ . rces\command\ctest_start.rst.txt
+                                                                              
+ 87% 2400 - dev-utils\cmake-base\doc\cmake\ . ar\CMAKE_FRAMEWORK_PATH.rst.txt
+                                                                             
+ 87% 2547 - dev-utils\cmake-base\doc\cmak . odule\BundleUtilities.rst.txt
+                                                                         
+ 87% 2688 - dev-utils\cmake-base\doc\cma . module\FindLibArchive.rst.txt
+                                                                        
+ 87% 2696 - dev-utils\cmake-base\doc\cmake . ources\module\FindLua51.rst.txt
+                                                                            
+ 87% 2760 - dev-utils\cmake-base\doc\cmake\h . ces\module\FindSDL_image.rst.txt
+                                                                               
+ 87% 2938 - dev-utils\cmake-base\doc\cmake\html\_sources\policy\CMP0123.rst.txt
+                                                                               
+ 88% 3104 - dev-utils\cmake-base\doc\cma . CPACK_NEVER_OVERWRITE.rst.txt
+                                                                        
+ 88% 3272 - dev-utils\cmake-base\doc\cmak . DA_FATBIN_COMPILATION.rst.txt
+                                                                         
+ 88% 3446 - dev-utils\cmake-base\doc\cmak . rop_tgt\MACOSX_BUNDLE.rst.txt
+                                                                         
+ 88% 3637 - dev-utils\cmake-base\doc\cmake\html\_sources\release\3.6.rst.txt
+                                                                            
+ 88% 3817 - dev-utils\cmake-base\doc\cmake\h . PORT_NO_PACKAGE_REGISTRY.rst.txt
+                                                                               
+ 88% 4008 - dev-utils\cmake-base\doc\cma . OURCE_FILE_EXTENSIONS.rst.txt
+                                                                        
+ 89% 4198 - dev-utils\cmake-base\doc\cmak . GER_COMMAND_ARGUMENTS.rst.txt
+                                                                         
+ 89% 4267 - dev-utils\cmake-base\doc\cmake\ . E_THREAD_SANITIZER_STOP.rst.txt
+                                                                             
+ 89% 4303 - dev-utils\cmake-base\doc\cmake\ . _CUSTOM_MEMCHECK_IGNORE.rst.txt
+                                                                             
+ 89% 4398 - dev-utils\cmake-base\doc\cmake\ . able\PROJECT_DESCRIPTION.rst.txt
+                                                                              
+ 92% 4574 - dev-utils\cmake-base\share\cmake-4.1\Help\command\load_cache.rst
+                                                                            
+ 93% 4739 - dev-utils\cmake-base\share\cma . ator\Visual Studio 10 2010.rst
+                                                                           
+ 93% 4919
+         
+ 93% 5124 - dev-utils\cmake-base\share\cmake-4.1\Help\policy\CMP0047.rst
+                                                                        
+ 93% 5279 - dev-utils\cmake-base\share\cma . y\include\REMOVED_EPILOGUE.rst
+                                                                           
+ 94% 5443 - dev-utils\cmake-base\share\cmak . st\ENVIRONMENT_MODIFICATION.rst
+                                                                             
+ 94% 5626 - dev-utils\cmake-base\share\c . NTERFACE_LANGUAGES_CONFIG.rst
+                                                                        
+ 94% 5825
+         
+ 94% 6003 - dev-utils\cmake-base\share\cm . able\CMAKE_AUTOUIC_OPTIONS.rst
+                                                                          
+ 94% 6155 - dev-utils\cmake-base\share\cmak . le\CMAKE_GENERATOR_INSTANCE.rst
+                                                                             
+ 94% 6219 - dev-utils\cmake-base\share\cmak . e\CMAKE_LANG_ARCHIVE_APPEND.rst
+                                                                             
+ 94% 6279 - dev-utils\cmake-base\share\cm . _LANG_LINKER_WRAPPER_FLAG.rst
+                                                                         
+ 94% 6307 - dev-utils\cmake-base\share\cmake . CMAKE_LANG_USING_LINKER_TYPE.rst
+                                                                               
+ 94% 6503
+         
+ 95% 6710
+         
+ 95% 6747 - dev-utils\cmake-base\share\cma . eckFortranSourceCompiles.cmake
+                                                                           
+ 95% 6878 - dev-utils\cmake-base\share\c . CMakeIOSInstallCombined.cmake
+                                                                        
+ 95% 6983 - dev-utils\cmake-base\share\cm . akeCommonCompilerMacros.cmake
+                                                                         
+ 95% 7042 - dev-utils\cmake-base\share\cmake-4.1\Modules\Compiler\IAR-ASM.cmake
+                                                                               
+ 96% 7218 - dev-utils\cmake-base\share\cmake-4.1\Modules\ExternalProject
+                                                                        
+ 96% 7281 - dev-utils\cmake-base\share\cmake-4.1\Modules\FindGLU.cmake
+                                                                      
+ 98% 7461 - dev-utils\cmake-base\share\cmak . M_MARMASMLinkerInformation.cmake
+                                                                              
+ 98% 7557 - dev-utils\cmake-base\share\cmake-4.1\Modules\Linker\GNUgold.cmake
+                                                                             
+ 98% 7661 - dev-utils\cmake-base\share\cmak . orm\Android\ndk-stl-system.cmake
+                                                                              
+ 98% 7840 - dev-utils\cmake-base\share\cmak . orm\Linker\Android-LLD-CXX.cmake
+                                                                              
+ 98% 7877 - dev-utils\cmake-base\share\cmak . tform\Linker\CYGWIN-LLD-C.cmake
+                                                                             
+ 98% 7888 - dev-utils\cmake-base\share\cma . er\DragonFly-GNU-Fortran.cmake
+                                                                           
+ 98% 7969 - dev-utils\cmake-base\share\cmak . form\Linker\MirBSD-GNU-CXX.cmake
+                                                                              
+ 98% 8004 - dev-utils\cmake-base\share\cm . nker\OpenBSD-LLD-Fortran.cmake
+                                                                          
+ 98% 8134 - dev-utils\cmake-base\share\cm . latform\Linux-PathScale.cmake
+                                                                         
+ 99% 8236 - dev-utils\cmake-base\share\cmak . form\Windows-Clang-OBJCXX.cmake
+                                                                             
+ 99% 8380 - dev-utils\cmake-base\share\cmak . SBuild\FlagTables\v10_Link.json
+                                                                             
+ 99% 8384 - dev-utils\cmake-base\share\cma . MSBuild\FlagTables\v10_RC.json
+                                                                           
+--
+Path = C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\cmake-base\cmake-base-4.1.4-88-20260524T103012-windows-gcc-x86_64.zip
+Type = zip
+Physical Size = 47137505
+
+Everything is Ok
+
+Folders: 140
+Files: 8293
+Size:       127332454
+Compressed: 47137505
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 0s Progress: 12% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;12\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 10s Progress: 12% Remaining Packages: ['dev-utils/cmake-base', 'dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;12\*** Craft all succeeded: dev-utils/cmake-base after 33s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 10s Progress: 15% Remaining Packages: ['dev-utils/kshimgen', 'dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;15\================================================================================
+*** Handling package: dev-utils/kshimgen, action: all ***
+*** Action: fetch-binary for dev-utils/kshimgen ***
+curl https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release/dev-utils/kshimgen/kshimgen-0.6.1-88-20260524T103035-windows-gcc-x86_64.zip
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+-=#=#   #   #                                                                  
+                                                                           1.1%
+##                                                                         3.4%
+###                                                                        4.6%
+####                                                                       6.8%
+#######                                                                   10.3%
+############                                                              17.1%
+###############                                                           21.7%
+#####################                                                     29.7%
+#############################                                             41.2%
+#####################################                                     51.5%
+###################################################                       70.9%
+############################################################              83.5%
+######################################################################## 100.0%
+  0M Scan C:\CraftRoot\download\cache\26. . _64\Release\dev-utils\kshimgen\
+                                                                           
+
+executing command: C:\CraftRoot\dev-utils\7z\7za.exe x -r -y -oC:\_\3a78ca9c\image-Release-0.6.1 C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\Release\dev-utils\kshimgen\kshimgen-0.6.1-88-20260524T103035-windows-gcc-x86_64.zip -bso2 -bsp1
+7-Zip (a) 25.01 (x86) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 1432325 bytes (1399 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\Release\dev-utils\kshimgen\kshimgen-0.6.1-88-20260524T103035-windows-gcc-x86_64.zip
+  0%
+    
+--
+Path = C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\Release\dev-utils\kshimgen\kshimgen-0.6.1-88-20260524T103035-windows-gcc-x86_64.zip
+Type = zip
+Physical Size = 1432325
+
+Everything is Ok
+
+Folders: 1
+Files: 1
+Size:       3955952
+Compressed: 1432325
+*** Craft all succeeded: dev-utils/kshimgen after 3s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 13s Progress: 18% Remaining Packages: ['dev-utils/7zip', 'dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;18\================================================================================
+*** Handling package: dev-utils/7zip, action: all ***
+*** Action: fetch-binary for dev-utils/7zip ***
+*** dev-utils/7zip not found in cache ***
+*** Action: fetch for dev-utils/7zip ***
+*** Action: unpack for dev-utils/7zip ***
+*** Action: configure for dev-utils/7zip ***
+*** Action: make for dev-utils/7zip ***
+*** Action: cleanimage for dev-utils/7zip ***
+*** Action: install for dev-utils/7zip ***
+*** Action: post-install for dev-utils/7zip ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\caf88981\image-RelWithDebInfo-latest\dev-utils\bin\7za.exe C:\CraftRoot\dev-utils\7z\x64\7za.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\caf88981\image-RelWithDebInfo-latest\dev-utils\bin\7zz.exe C:\CraftRoot\dev-utils\7z\x64\7za.exe --
+*** Action: qmerge for dev-utils/7zip ***
+*** Action: post-qmerge for dev-utils/7zip ***
+*** Craft all succeeded: dev-utils/7zip after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 13s Progress: 21% Remaining Packages: ['dev-utils/cmake', 'dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;21\================================================================================
+*** Handling package: dev-utils/cmake, action: all ***
+*** Action: fetch-binary for dev-utils/cmake ***
+*** dev-utils/cmake not found in cache ***
+*** Action: fetch for dev-utils/cmake ***
+*** Action: unpack for dev-utils/cmake ***
+*** Action: configure for dev-utils/cmake ***
+*** Action: make for dev-utils/cmake ***
+*** Action: cleanimage for dev-utils/cmake ***
+*** Action: install for dev-utils/cmake ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-RelWithDebInfo-latest\dev-utils\bin\cmake.exe C:\CraftRoot\dev-utils\cmake-base\bin\cmake.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-RelWithDebInfo-latest\dev-utils\bin\cmake-gui.exe C:\CraftRoot\dev-utils\cmake-base\bin\cmake-gui.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-RelWithDebInfo-latest\dev-utils\bin\cmcldeps.exe C:\CraftRoot\dev-utils\cmake-base\bin\cmcldeps.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-RelWithDebInfo-latest\dev-utils\bin\cpack.exe C:\CraftRoot\dev-utils\cmake-base\bin\cpack.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\d2d7ad6a\image-RelWithDebInfo-latest\dev-utils\bin\ctest.exe C:\CraftRoot\dev-utils\cmake-base\bin\ctest.exe --
+*** Action: post-install for dev-utils/cmake ***
+*** Action: qmerge for dev-utils/cmake ***
+*** Action: post-qmerge for dev-utils/cmake ***
+*** Craft all succeeded: dev-utils/cmake after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 13s Progress: 24% Remaining Packages: ['dev-utils/wget', 'dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;24\================================================================================
+*** Handling package: dev-utils/wget, action: all ***
+*** Action: fetch-binary for dev-utils/wget ***
+curl https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/wget/wget-2.2.1-88-20260524T103039-windows-gcc-x86_64.7z
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+-=#=#   #   #                                                                  
+                                                                           0.2%
+                                                                           0.7%
+#                                                                          1.5%
+#                                                                          2.7%
+###                                                                        4.7%
+####                                                                       6.4%
+#######                                                                   10.4%
+########                                                                  12.3%
+############                                                              16.8%
+###############                                                           21.4%
+##################                                                        25.6%
+#######################                                                   32.8%
+#########################                                                 35.3%
+##############################                                            42.4%
+#############################################                             62.9%
+########################################################                  78.4%
+###########################################################               82.4%
+######################################################################## 100.0%
+  0M Scan C:\CraftRoot\download\cache\26.0 . 4\RelWithDebInfo\dev-utils\wget\
+                                                                             
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\eeca6a8a\image-RelWithDebInfo-2.2.1 C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\wget\wget-2.2.1-88-20260524T103039-windows-gcc-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 6643910 bytes (6489 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\wget\wget-2.2.1-88-20260524T103039-windows-gcc-x86_64.7z
+  0%
+    
+--
+Path = C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\wget\wget-2.2.1-88-20260524T103039-windows-gcc-x86_64.7z
+Type = 7z
+Physical Size = 6643910
+Headers Size = 204
+Method = LZMA2:23 BCJ
+Solid = -
+Blocks = 1
+
+Everything is Ok
+
+Folders: 2
+Files: 1
+Size:       7811084
+Compressed: 6643910
+*** Craft all succeeded: dev-utils/wget after 4s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 17s Progress: 27% Remaining Packages: ['dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;27\================================================================================
+*** Handling package: dev-utils/git, action: all ***
+*** Action: fetch-binary for dev-utils/git ***
+*** dev-utils/git not found in cache ***
+*** Action: fetch for dev-utils/git ***
+*** Action: unpack for dev-utils/git ***
+*** Action: configure for dev-utils/git ***
+*** Action: make for dev-utils/git ***
+*** Action: cleanimage for dev-utils/git ***
+*** Action: install for dev-utils/git ***
+Skipping installation of dev-utils/git as the installed version of C:\Program Files\Git\bin\git.exe 2.56.0 >= 2.27.0
+*** Action: post-install for dev-utils/git ***
+*** Action: qmerge for dev-utils/git ***
+*** Action: post-qmerge for dev-utils/git ***
+*** Craft all succeeded: dev-utils/git after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 17s Progress: 30% Remaining Packages: ['dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;30\================================================================================
+*** Handling package: dev-utils/uactools, action: all ***
+*** Action: fetch-binary for dev-utils/uactools ***
+wget2 https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/uactools/uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/uactools/uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.ocf.berkeley.edu/kde-applicationdata/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/uactools/uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []8]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 20s Progress: 30% Remaining Packages: ['dev-utils/uactools', 'dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;30\7[2A[1G[27G[https://mirrors.ocf.b]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\uactools\uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]  156.04K    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.ocf.berkeley.edu/kde-applicationdata/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo/dev-utils/uactools/uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]  156.04K    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 156.]8  0M Scan C:\CraftRoot\download\cache\26 . ithDebInfo\dev-utils\uactools\
+                                                                         
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\47618931\image-RelWithDebInfo-20100711 C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\uactools\uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 159794 bytes (157 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\uactools\uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z
+  0%
+    
+--
+Path = C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\RelWithDebInfo\dev-utils\uactools\uactools-20100711-88-20260524T103044-windows-gcc-x86_64.7z
+Type = 7z
+Physical Size = 159794
+Headers Size = 311
+Method = LZMA2:1536k BCJ
+Solid = +
+Blocks = 2
+
+Everything is Ok
+
+Folders: 3
+Files: 4
+Size:       1094411
+Compressed: 159794
+*** Craft all succeeded: dev-utils/uactools after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 20s Progress: 33% Remaining Packages: ['dev-utils/patch', 'dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;33\================================================================================
+*** Handling package: dev-utils/patch, action: all ***
+*** Action: fetch-binary for dev-utils/patch ***
+*** dev-utils/patch not found in cache ***
+*** Action: fetch for dev-utils/patch ***
+*** Action: unpack for dev-utils/patch ***
+*** Action: configure for dev-utils/patch ***
+*** Action: make for dev-utils/patch ***
+*** Action: cleanimage for dev-utils/patch ***
+*** Action: install for dev-utils/patch ***
+*** Action: post-install for dev-utils/patch ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\13c468ae\image-RelWithDebInfo-latest\dev-utils\bin\patch.exe C:\Program Files\Git\usr\bin\patch.exe --
+executing command: C:\CraftRoot\dev-utils\bin\mt.exe -nologo -manifest C:\CraftRoot\craft-tmp\blueprints\dev-utils\_windows\patch\patch.manifest -outputresource:C:\_\13c468ae\image-RelWithDebInfo-latest\dev-utils\bin\patch.exe;1
+*** Action: qmerge for dev-utils/patch ***
+*** Action: post-qmerge for dev-utils/patch ***
+*** Craft all succeeded: dev-utils/patch after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 21s Progress: 36% Remaining Packages: ['dev-utils/sed', 'dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;36\================================================================================
+*** Handling package: dev-utils/sed, action: all ***
+*** Action: fetch-binary for dev-utils/sed ***
+*** dev-utils/sed not found in cache ***
+*** Action: fetch for dev-utils/sed ***
+*** Action: unpack for dev-utils/sed ***
+*** Action: configure for dev-utils/sed ***
+*** Action: make for dev-utils/sed ***
+*** Action: cleanimage for dev-utils/sed ***
+*** Action: install for dev-utils/sed ***
+*** Action: post-install for dev-utils/sed ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\89592c98\image-RelWithDebInfo-latest\dev-utils\bin\sed C:\Program Files\Git\usr\bin\sed.exe --
+*** Action: qmerge for dev-utils/sed ***
+*** Action: post-qmerge for dev-utils/sed ***
+*** Craft all succeeded: dev-utils/sed after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 21s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\================================================================================
+*** Handling package: dev-utils/msys-base, action: all ***
+*** Action: fetch-binary for dev-utils/msys-base ***
+Could not find dev-utils/msys-base=base in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find dev-utils/msys-base=base in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** dev-utils/msys-base not found in cache ***
+*** Action: fetch for dev-utils/msys-base ***
+wget2 https://github.com/msys2/msys2-installer/releases/download/2025-02-21/msys2-base-x86_64-20250221.tar.xz
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://github.com/ms]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://github.com/msys2/msys2-installer/releases/download/2025-02-21/msys2-base-x86_64-20250221.tar.xz]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://release-assets.githubusercontent.com/github-production-release-asset/80988227/0fae5c57-c07d-4c56-84a6-3eead4f3a9ae?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-14T09%3A14%3A40Z&rscd=attachment%3B+filename%3Dmsys2-base-x86_64-20250221.tar.xz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-14T08%3A13%3A44Z&ske=2026-10-14T09%3A14%3A40Z&sks=b&skv=2018-11-09&sig=IYRQjHfsKka9N6%2F%2BIhlqDOARX3AYn4inZnkZe5evMuE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MTk2ODEzOSwibmJmIjoxNzkxOTY2MzM5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.yNEbWQq8JSfZd37l4CVYkgmqgvXarOt7HKidbhRy5GI&response-content-disposition=attachment%3B%20filename%3Dmsys2-base-x86_64-20250221.tar.xz&response-content-type=application%2Foctet-stream
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://release-asset]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\archives\dev-utils\msys-base\msys2-base-x86_64-20250221.tar.xz'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   47.76M    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://release-assets.githubusercontent.com/github-production-release-asset/80988227/0fae5c57-c07d-4c56-84a6-3eead4f3a9ae?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-14T09%3A14%3A40Z&rscd=attachment%3B+filename%3Dmsys2-base-x86_64-20250221.tar.xz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-14T08%3A13%3A44Z&ske=2026-10-14T09%3A14%3A40Z&sks=b&skv=2018-11-09&sig=IYRQjHfsKka9N6%2F%2BIhlqDOARX3AYn4inZnkZe5evMuE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MTk2ODEzOSwibmJmIjoxNzkxOTY2MzM5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.yNEbWQq8JSfZd37l4CVYkgmqgvXarOt7HKidbhRy5GI&response-content-disposition=attachment%3B%20filename%3Dmsys2-base-x86_64-20250221.tar.xz&response-content-type=application%2Foctet-stream]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]   47.76M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 47.7]8wget2 https://github.com/msys2/msys2-installer/releases/download/2025-02-21/msys2-base-x86_64-20250221.tar.xz.sha256
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://github.com/ms]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://github.com/msys2/msys2-installer/releases/download/2025-02-21/msys2-base-x86_64-20250221.tar.xz.sha256]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://release-assets.githubusercontent.com/github-production-release-asset/80988227/3fccf2f4-f301-4d7c-92fc-778c93cc826d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-14T09%3A15%3A10Z&rscd=attachment%3B+filename%3Dmsys2-base-x86_64-20250221.tar.xz.sha256&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-14T08%3A14%3A43Z&ske=2026-10-14T09%3A15%3A10Z&sks=b&skv=2018-11-09&sig=7WmLeNSp5SdGE83ArXjKN7mYXW4ca6wpICknNRvrGIc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MTk2NjY0MCwibmJmIjoxNzkxOTY2MzQwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.NYOC1aWut4RaHjvs6E0YkcSgHox29zGUNn6OOiol0Dc&response-content-disposition=attachment%3B%20filename%3Dmsys2-base-x86_64-20250221.tar.xz.sha256&response-content-type=application%2Foctet-stream
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://release-asset]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\archives\dev-utils\msys-base\msys2-base-x86_64-20250221.tar.xz.sha256'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]     100     --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://release-assets.githubusercontent.com/github-production-release-asset/80988227/3fccf2f4-f301-4d7c-92fc-778c93cc826d?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-14T09%3A15%3A10Z&rscd=attachment%3B+filename%3Dmsys2-base-x86_64-20250221.tar.xz.sha256&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-14T08%3A14%3A43Z&ske=2026-10-14T09%3A15%3A10Z&sks=b&skv=2018-11-09&sig=7WmLeNSp5SdGE83ArXjKN7mYXW4ca6wpICknNRvrGIc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MTk2NjY0MCwibmJmIjoxNzkxOTY2MzQwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.NYOC1aWut4RaHjvs6E0YkcSgHox29zGUNn6OOiol0Dc&response-content-disposition=attachment%3B%20filename%3Dmsys2-base-x86_64-20250221.tar.xz.sha256&response-content-type=application%2Foctet-stream]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]     100     --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 100 ]8*** Action: unpack for dev-utils/msys-base ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\msys-base\
+                                                             
+  0%
+    
+ 19% - msys2-base-x86_64-20250221.tar
+                                     
+ 43% - msys2-base-x86_64-20250221.tar
+                                     
+ 62% - msys2-base-x86_64-20250221.tar
+                                     
+ 72% - msys2-base-x86_64-20250221.tar
+                                     
+ 83% - msys2-base-x86_64-20250221.tar
+                                     
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 30s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']executing command: C:\CraftRoot\dev-utils\bin\7za.exe x C:\CraftRoot\download\archives\dev-utils\msys-base\msys2-base-x86_64-20250221.tar.xz -so -bsp2 | C:\CraftRoot\dev-utils\bin\7za.exe x -si -oC:\_\5d2ca31a -ttar -snld20 -bsp0
+ 99% - msys2-base-x86_64-20250221.tar
+                                     
+100% - msys2-base-x86_64-20250221.tar
+                                     
+]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 40s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 2min 50s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 3min 0s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\*** Action: configure for dev-utils/msys-base ***
+*** Action: make for dev-utils/msys-base ***
+*** Action: cleanimage for dev-utils/msys-base ***
+*** Action: install for dev-utils/msys-base ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 3min 10s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 3min 20s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 3min 30s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 3min 40s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 3min 50s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 4min 0s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 4min 10s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\*** Action: post-install for dev-utils/msys-base ***
+*** Action: qmerge for dev-utils/msys-base ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 4min 20s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 4min 30s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\*** Action: post-qmerge for dev-utils/msys-base ***
+'C:\Windows\system32\drivers\etc\hosts' -> '/etc/hosts'
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -l -c "/c/Program Files/Git/usr/bin/echo.exe" "Init update"
+'C:\Windows\system32\drivers\etc\protocol' -> '/etc/protocols'
+'C:\Windows\system32\drivers\etc\services' -> '/etc/services'
+'C:\Windows\system32\drivers\etc\networks' -> '/etc/networks'
+gpg: /etc/pacman.d/gnupg/trustdb.gpg: trustdb created
+gpg: no ultimately trusted keys found
+gpg: starting migration from earlier GnuPG versions
+gpg: porting secret keys from '/etc/pacman.d/gnupg/secring.gpg' to gpg-agent
+gpg: migration succeeded
+==> Generating pacman master key. This may take some time.
+gpg: Generating pacman keyring master key...
+gpg: directory '/etc/pacman.d/gnupg/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/etc/pacman.d/gnupg/openpgp-revocs.d/D3B9754E732BC3B17A15A6BED882BB8C51103A1D.rev'
+gpg: Done
+==> Updating trust database...
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+==> Appending keys from msys2.gpg...
+==> Locally signing trusted keys in keyring...
+  -> Locally signed 5 keys.
+==> Importing owner trust values...
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+gpg: setting ownertrust to 4
+==> Disabling revoked keys in keyring...
+  -> Disabled 4 keys.
+==> Updating trust database...
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   5  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: depth: 1  valid:   5  signed:   6  trust: 0-, 0q, 0n, 5m, 0f, 0u
+gpg: depth: 2  valid:   3  signed:   2  trust: 3-, 0q, 0n, 0m, 0f, 0u
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 4min 40s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\gpg: error retrieving 'alexey.pawlow@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key F40D263ECA25678A: "Alexey Pavlov (Alexpux) <alexey.pawlow@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'david.macek.0@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 790AE56A1D3CFDDC: "David Macek (MSYS2 master key) <david.macek.0@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'martellmalone@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key DA7EF2ABAEEA755C: "Martell Malone (martell) <martellmalone@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'reiter.christoph@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 755B8182ACD22879: "Christoph Reiter (MSYS2 master key) <reiter.christoph@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'icquinteiro@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 9F418C233E652008: "Ignacio Casal Quinteiro <icquinteiro@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'mingw.android@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key BBE514E53E0D0813: "Ray Donnelly (MSYS2 Developer - master key) <mingw.android@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'alexpux@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 5F92EFC1A47D45A1: "Alexey Pavlov (Alexpux) <alexpux@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'david.macek.0@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 974C8BE49078F532: "David Macek <david.macek.0@gmail.com>" 3 new signatures
+gpg: key 974C8BE49078F532: "David Macek <david.macek.0@gmail.com>" 1 signature cleaned
+gpg: Total number processed: 1
+gpg:         new signatures: 3
+gpg:     signatures cleaned: 1
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   5  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: depth: 1  valid:   5  signed:   7  trust: 0-, 0q, 0n, 5m, 0f, 0u
+gpg: depth: 2  valid:   4  signed:   2  trust: 4-, 0q, 0n, 0m, 0f, 0u
+gpg: next trustdb check due at 2027-02-10
+gpg: error retrieving 'reiter.christoph@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key FA11531AA0AA7F57: "Christoph Reiter (MSYS2 development key) <reiter.christoph@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'me@martellmalone.com' via WKD: Unknown host
+gpg: error reading key: Unknown host
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key 794DCF97F93FC717: "Martell Malone (martell) <me@martellmalone.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'martellmalone@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+gpg: key D595C9AB2C51581E: "Martell Malone (MSYS2 Developer) <martellmalone@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: error retrieving 'mingw.android@gmail.com' via WKD: No data
+gpg: error reading key: No data
+gpg: refreshing 1 key from hkps://keyserver.ubuntu.com
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 4min 50s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\gpg: key 4DF3B7664CA56930: "Ray Donnelly (MSYS2 Developer) <mingw.android@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+Init update
+Killing processes * in C:\CraftRoot\msys
+:: Synchronizing package databases...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Sy --noconfirm --overwrite='*'
+ clangarm64 downloading...
+ mingw32 downloading...
+ mingw64 downloading...
+ ucrt64 downloading...
+ clang64 downloading...
+ msys downloading...
+:: Starting core system upgrade...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Qu --noconfirm
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Su --noconfirm --overwrite='*' --ask 20
+warning: terminate other MSYS2 programs before proceeding
+resolving dependencies...
+looking for conflicting packages...
+Packages (6) bash-5.3.020-1  filesystem-2026.03.06-1  mintty-1~3.8.3-1  msys2-runtime-3.6.10-7  pacman-6.1.0-25  pacman-mirrors-20260129-1
+
+Total Download Size:   11.29 MiB
+Total Installed Size:  58.32 MiB
+Net Upgrade Size:      -3.04 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ pacman-6.1.0-25-x86_64 downloading...
+ bash-5.3.020-1-x86_64 downloading...
+ msys2-runtime-3.6.10-7-x86_64 downloading...
+ mintty-1~3.8.3-1-x86_64 downloading...
+ filesystem-2026.03.06-1-x86_64 downloading...
+ pacman-mirrors-20260129-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+upgrading bash...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 5min 0s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\upgrading filesystem...
+upgrading mintty...
+upgrading msys2-runtime...
+upgrading pacman-mirrors...
+upgrading pacman...
+:: To complete this update all MSYS2 processes including this terminal will be closed. Confirm to proceed [Y/n] 
+Killing processes * in C:\CraftRoot\msys
+:: Synchronizing package databases...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Sy --noconfirm --overwrite='*'
+ clangarm64 downloading...
+ mingw32 downloading...
+ mingw64 downloading...
+ ucrt64 downloading...
+ clang64 downloading...
+ msys downloading...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 5min 10s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Qu --noconfirm
+]9;4;1;39\:: Starting core system upgrade...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Su --noconfirm --overwrite='*' --ask 20
+ there is nothing to do
+:: Starting full system upgrade...
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (66) bash-completion-2.18.0-1  brotli-1.2.0-1  bsdtar-3.8.9-1  ca-certificates-20260816-1  curl-8.22.0-1  dash-0.5.13.4-1  db-6.2.32-6  file-5.48-1  findutils-4.11.0-2  gawk-5.4.1-1  gcc-libs-15.3.0-1  gdbm-1.26-1  getent-2.18.90-6  gmp-6.3.0-2  gnupg-2.4.9-3  gzip-1.15-1  heimdal-libs-7.8.0-7  inetutils-2.8-1  info-7.2-3  less-710-1  libargp-20260115-1  libassuan-3.0.2-1  libcurl-8.22.0-1  libdb-6.2.32-6  libexpat-2.9.0-1  libffi-3.8.0-1  libgcrypt-1.12.4-1  libgdbm-1.26-1  libgnutls-3.8.13-2  libgpg-error-1.61-1  libhogweed-4.0-1  libiconv-1.19-1  libidn2-2.3.8-1  libksba-1.8.1-1  liblzma-5.8.4-1  libnettle-4.0-1  libnghttp2-1.70.0-1  libnghttp3-1.18.0-1  libngtcp2-1.25.0-1  libopenssl-3.6.5-1  libp11-kit-0.26.5-1  libpcre2_8-10.49-1  libpsl-0.23.2-1  libreadline-8.3.006-1  libsqlite-3.53.4-1  libtasn1-4.21.0-1  libunistring-1.4.2-1  libxcrypt-4.5.2-1  mpfr-4.2.2-1  msys2-keyring-1~20260814-1  nano-9.2-1  ncurses-6.6-2  nettle-4.0-1  openssl-3.6.5-1  p11-kit-0.26.5-1  pacman-contrib-1.10.6-2  perl-5.42.3-3  pinentry-1.3.3-1  rebase-4.5.0-5  tar-1.35-3  time-1.10-1  tzcode-2026e-1  wget-1.25.0-4  which-2.25-1  xz-5.8.4-1  zlib-1.3.2-1
+
+Total Download Size:    37.69 MiB
+Total Installed Size:  159.08 MiB
+Net Upgrade Size:        5.34 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ perl-5.42.3-3-x86_64 downloading...
+ pacman-contrib-1.10.6-2-x86_64 downloading...
+ gnupg-2.4.9-3-x86_64 downloading...
+ libopenssl-3.6.5-1-x86_64 downloading...
+ gawk-5.4.1-1-x86_64 downloading...
+ libgnutls-3.8.13-2-x86_64 downloading...
+ ncurses-6.6-2-x86_64 downloading...
+ gcc-libs-15.3.0-1-x86_64 downloading...
+ curl-8.22.0-1-x86_64 downloading...
+ heimdal-libs-7.8.0-7-x86_64 downloading...
+ libdb-6.2.32-6-x86_64 downloading...
+ tar-1.35-3-x86_64 downloading...
+ wget-1.25.0-4-x86_64 downloading...
+ libunistring-1.4.2-1-x86_64 downloading...
+ libsqlite-3.53.4-1-x86_64 downloading...
+ xz-5.8.4-1-x86_64 downloading...
+ libiconv-1.19-1-x86_64 downloading...
+ nano-9.2-1-x86_64 downloading...
+ openssl-3.6.5-1-x86_64 downloading...
+ findutils-4.11.0-2-x86_64 downloading...
+ libgcrypt-1.12.4-1-x86_64 downloading...
+ p11-kit-0.26.5-1-x86_64 downloading...
+ file-5.48-1-x86_64 downloading...
+ gmp-6.3.0-2-x86_64 downloading...
+ mpfr-4.2.2-1-x86_64 downloading...
+ ca-certificates-20260816-1-any downloading...
+ libcurl-8.22.0-1-x86_64 downloading...
+ libreadline-8.3.006-1-x86_64 downloading...
+ brotli-1.2.0-1-x86_64 downloading...
+ bsdtar-3.8.9-1-x86_64 downloading...
+ rebase-4.5.0-5-x86_64 downloading...
+ tzcode-2026e-1-x86_64 downloading...
+ libp11-kit-0.26.5-1-x86_64 downloading...
+ bash-completion-2.18.0-1-any downloading...
+ inetutils-2.8-1-x86_64 downloading...
+ gdbm-1.26-1-x86_64 downloading...
+ libgpg-error-1.61-1-x86_64 downloading...
+ info-7.2-3-x86_64 downloading...
+ libhogweed-4.0-1-x86_64 downloading...
+ libngtcp2-1.25.0-1-x86_64 downloading...
+ less-710-1-x86_64 downloading...
+ libpcre2_8-10.49-1-x86_64 downloading...
+ libidn2-2.3.8-1-x86_64 downloading...
+ libnettle-4.0-1-x86_64 downloading...
+ libksba-1.8.1-1-x86_64 downloading...
+ libtasn1-4.21.0-1-x86_64 downloading...
+ libassuan-3.0.2-1-x86_64 downloading...
+ nettle-4.0-1-x86_64 downloading...
+ gzip-1.15-1-x86_64 downloading...
+ liblzma-5.8.4-1-x86_64 downloading...
+ libxcrypt-4.5.2-1-x86_64 downloading...
+ dash-0.5.13.4-1-x86_64 downloading...
+ libpsl-0.23.2-1-x86_64 downloading...
+ libnghttp3-1.18.0-1-x86_64 downloading...
+ libnghttp2-1.70.0-1-x86_64 downloading...
+ libexpat-2.9.0-1-x86_64 downloading...
+ zlib-1.3.2-1-x86_64 downloading...
+ pinentry-1.3.3-1-x86_64 downloading...
+ db-6.2.32-6-x86_64 downloading...
+ msys2-keyring-1~20260814-1-any downloading...
+ libargp-20260115-1-x86_64 downloading...
+ libffi-3.8.0-1-x86_64 downloading...
+ libgdbm-1.26-1-x86_64 downloading...
+ time-1.10-1-x86_64 downloading...
+ which-2.25-1-x86_64 downloading...
+ getent-2.18.90-6-x86_64 downloading...
+checking keyring...
+checking package integrity...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 5min 20s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+upgrading bash-completion...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 5min 30s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\upgrading gcc-libs...
+upgrading brotli...
+upgrading libiconv...
+upgrading libexpat...
+upgrading liblzma...
+upgrading libopenssl...
+upgrading zlib...
+upgrading bsdtar...
+upgrading openssl...
+upgrading findutils...
+upgrading libffi...
+upgrading ncurses...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 5min 40s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\upgrading libpcre2_8...
+upgrading less...
+upgrading gzip...
+upgrading libxcrypt...
+upgrading info...
+upgrading libtasn1...
+upgrading libp11-kit...
+upgrading p11-kit...
+upgrading gmp...
+upgrading ca-certificates...
+upgrading libunistring...
+upgrading libidn2...
+installing libnghttp3...
+installing libngtcp2...
+upgrading libnghttp2...
+upgrading libpsl...
+upgrading libcurl...
+upgrading curl...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 5min 50s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\upgrading dash...
+upgrading libdb...
+upgrading db...
+upgrading file...
+upgrading mpfr...
+upgrading libreadline...
+upgrading gawk...
+upgrading libgdbm...
+upgrading gdbm...
+upgrading libargp...
+upgrading getent...
+upgrading libgpg-error...
+upgrading libassuan...
+upgrading libgcrypt...
+upgrading libhogweed...
+upgrading libnettle...
+upgrading libgnutls...
+upgrading libksba...
+upgrading libsqlite...
+upgrading nettle...
+upgrading pinentry...
+upgrading gnupg...
+==> Appending keys from msys2.gpg...
+==> Updating trust database...
+gpg: next trustdb check due at 2027-02-10
+upgrading heimdal-libs...
+upgrading inetutils...
+upgrading msys2-keyring...
+==> Appending keys from msys2.gpg...
+==> Updating trust database...
+gpg: next trustdb check due at 2027-02-10
+upgrading nano...
+upgrading which...
+upgrading xz...
+upgrading pacman-contrib...
+New optional dependencies for pacman-contrib
+    perl: for pacsearch [installed]
+    vim: default diff program for pacdiff
+upgrading perl...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 0s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\upgrading rebase...
+upgrading tar...
+upgrading time...
+upgrading tzcode...
+upgrading wget...
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 10s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\Killing processes * in C:\CraftRoot\msys
+:: Synchronizing package databases...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Sy --noconfirm --overwrite='*'
+ clangarm64 downloading...
+ mingw32 downloading...
+ mingw64 downloading...
+ ucrt64 downloading...
+ clang64 downloading...
+ msys downloading...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -Qu --noconfirm
+Command ['C:\\CraftRoot\\msys\\usr\\bin\\bash.exe', '-c', 'pacman -Qu --noconfirm'] failed with exit code 1
+resolving dependencies...
+executing command: C:\CraftRoot\msys\usr\bin\bash.exe -c pacman -S base-devel msys/binutils msys/autoconf-archive msys/autotools msys/intltool msys/gettext-devel --noconfirm --overwrite='*' --needed
+looking for conflicting packages...
+
+Packages (36) autoconf-wrapper-20260320-1  autoconf2.13-2.13-6  autoconf2.69-2.69-4  autoconf2.71-2.71-4  autoconf2.72-2.72-4  autoconf2.73-2.73-1  automake-wrapper-20260320-1  automake1.11-1.11.6-6  automake1.12-1.12.6-6  automake1.13-1.13.4-7  automake1.14-1.14.1-6  automake1.15-1.15.1-4  automake1.16-1.16.5-1  automake1.17-1.17-1  automake1.18-1.18.1-1  bison-3.8.2-5  diffutils-3.12-1  dos2unix-7.5.7-1  flex-2.6.4-4  iconv-1.19-1  libiconv-devel-1.19-1  libltdl-2.6.2-1  libtool-2.6.2-1  m4-1.4.21-1  make-4.4.1-3  patch-2.8-2  perl-class-inspector-1.36-2  perl-file-sharedir-1.118-2  perl-xml-parser-2.59-2  pkgconf-3.0.7-1  autoconf-archive-2024.10.16-1  autotools-2022.01.16-2  base-devel-2026.08-3  binutils-2.47-1  gettext-devel-0.22.5-1  intltool-0.51.0-5
+
+Total Download Size:   17.99 MiB
+Total Installed Size:  86.95 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ binutils-2.47-1-x86_64 downloading...
+ gettext-devel-0.22.5-1-x86_64 downloading...
+ bison-3.8.2-5-x86_64 downloading...
+ autoconf2.73-2.73-1-any downloading...
+ libiconv-devel-1.19-1-x86_64 downloading...
+ autoconf-archive-2024.10.16-1-any downloading...
+ automake1.18-1.18.1-1-any downloading...
+ automake1.17-1.17-1-any downloading...
+ automake1.16-1.16.5-1-any downloading...
+ automake1.15-1.15.1-4-any downloading...
+ automake1.14-1.14.1-6-any downloading...
+ automake1.12-1.12.6-6-any downloading...
+ make-4.4.1-3-x86_64 downloading...
+ automake1.13-1.13.4-7-any downloading...
+ automake1.11-1.11.6-6-any downloading...
+ dos2unix-7.5.7-1-x86_64 downloading...
+ libtool-2.6.2-1-x86_64 downloading...
+ diffutils-3.12-1-x86_64 downloading...
+ autoconf2.72-2.72-4-any downloading...
+ autoconf2.71-2.71-4-any downloading...
+ flex-2.6.4-4-x86_64 downloading...
+ autoconf2.69-2.69-4-any downloading...
+ m4-1.4.21-1-x86_64 downloading...
+ perl-xml-parser-2.59-2-x86_64 downloading...
+ autoconf2.13-2.13-6-any downloading...
+ pkgconf-3.0.7-1-x86_64 downloading...
+ patch-2.8-2-x86_64 downloading...
+ intltool-0.51.0-5-x86_64 downloading...
+ libltdl-2.6.2-1-x86_64 downloading...
+ perl-class-inspector-1.36-2-x86_64 downloading...
+ iconv-1.19-1-x86_64 downloading...
+ perl-file-sharedir-1.118-2-x86_64 downloading...
+ autoconf-wrapper-20260320-1-any downloading...
+ automake-wrapper-20260320-1-any downloading...
+ autotools-2022.01.16-2-any downloading...
+ base-devel-2026.08-3-any downloading...
+checking keyring...
+checking package integrity...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 20s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing binutils...
+installing m4...
+installing bison...
+installing diffutils...
+installing dos2unix...
+installing flex...
+installing make...
+installing patch...
+Optional dependencies for patch
+    ed: for patch -e functionality
+installing base-devel...
+installing autoconf-archive...
+installing autoconf2.73...
+installing autoconf2.72...
+installing autoconf2.71...
+installing autoconf2.69...
+installing autoconf2.13...
+installing autoconf-wrapper...
+installing automake1.11...
+installing automake1.12...
+installing automake1.13...
+installing automake1.14...
+installing automake1.15...
+installing automake1.16...
+installing automake1.17...
+installing automake1.18...
+installing automake-wrapper...
+installing libltdl...
+installing libtool...
+installing pkgconf...
+installing autotools...
+installing perl-class-inspector...
+installing perl-file-sharedir...
+installing perl-xml-parser...
+installing intltool...
+installing iconv...
+installing libiconv-devel...
+installing gettext-devel...
+Optional dependencies for gettext-devel
+    cvs: for autopoint tool
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 30s Progress: 39% Remaining Packages: ['dev-utils/msys-base', 'dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;39\Killing processes * in C:\CraftRoot\msys
+executing command: autorebase.bat
+*** Craft all succeeded: dev-utils/msys-base after 4min 11s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 32s Progress: 42% Remaining Packages: ['dev-utils/jom', 'dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;42\================================================================================
+*** Handling package: dev-utils/jom, action: all ***
+*** Action: fetch-binary for dev-utils/jom ***
+Could not find dev-utils/jom=1_1_3 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find dev-utils/jom=1_1_3 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** dev-utils/jom not found in cache ***
+*** Action: fetch for dev-utils/jom ***
+wget2 https://download.qt.io/official_releases/jom/jom_1_1_3.zip
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://download.qt.i]87[2A[1GC:\CraftRoot\downloa 100% [====================>]     250     --.-KB/s87[1S[3A[1G[0JHTTP response 302 Found [https://download.qt.io/official_releases/jom/jom_1_1_3.zip]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]     250     --.-KB/s87[1S[3A[1G[0JEnqueue https://qt.mirror.constant.com/official_releases/jom/jom_1_1_3.zip
+87[1A[1G[27G[Files: 0  Bytes: 250 ]87[2A[1G[27G[https://qt.mirror.con]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.15M    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://qt.mirror.constant.com/official_releases/jom/jom_1_1_3.zip]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.15M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 1.15]8wget2 https://download.qt.io/official_releases/jom/md5sums.txt
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://download.qt.i]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip.md5'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]     970     --.-KB/s87[1S[3A[1G[0JHTTP response 200 OK [https://download.qt.io/official_releases/jom/md5sums.txt]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]     970     --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 970 ]8*** Action: unpack for dev-utils/jom ***
+  0M Scan C:\CraftRoot\download\archives\dev-utils\jom\
+                                                       
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\2bfe0ca7 C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 1213852 bytes (1186 KiB)
+
+Extracting archive: C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip
+  0%
+    
+--
+Path = C:\CraftRoot\download\archives\dev-utils\jom\jom_1_1_3.zip
+Type = zip
+Physical Size = 1213852
+
+Everything is Ok
+
+Files: 5
+Size:       2760277
+Compressed: 1213852
+*** Action: configure for dev-utils/jom ***
+*** Action: make for dev-utils/jom ***
+*** Action: cleanimage for dev-utils/jom ***
+*** Action: install for dev-utils/jom ***
+*** Action: post-install for dev-utils/jom ***
+*** Action: qmerge for dev-utils/jom ***
+*** Action: post-qmerge for dev-utils/jom ***
+*** Craft all succeeded: dev-utils/jom after 1s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 34s Progress: 45% Remaining Packages: ['dev-utils/ninja', 'python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;45\================================================================================
+*** Handling package: dev-utils/ninja, action: all ***
+*** Action: fetch-binary for dev-utils/ninja ***
+wget2 https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release/dev-utils/ninja/ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://files.kde.org]87[2A[1GC:\CraftRoot\downloa   0% [<=>                  ]       0          B/s87[1S[3A[1G[0JHTTP response 302  [https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release/dev-utils/ninja/ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa   0% [ <=>                 ]       0          B/s87[1S[3A[1G[0JEnqueue https://mirrors.xtom.com/kde-application/craft/Qt6/26.05/windows/gcc/x86_64/Release/dev-utils/ninja/ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z
+87[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://mirrors.xtom.]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\Release\dev-utils\ninja\ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]  152.14K    --.-KB/s87[1S[3A[1G[0JHTTP response 200  [https://mirrors.xtom.com/kde-application/craft/Qt6/26.05/windows/gcc/x86_64/Release/dev-utils/ninja/ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]  152.14K    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 152.]8  0M Scan C:\CraftRoot\download\cache\26 . 86_64\Release\dev-utils\ninja\
+                                                                         
+
+executing command: C:\CraftRoot\dev-utils\bin\7za.exe x -r -y -oC:\_\b00f4ce9\image-Release-1.13.2 C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\Release\dev-utils\ninja\ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z -t7z -bso2 -bsp1
+7-Zip (a) 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+
+Scanning the drive for archives:
+1 file, 155797 bytes (153 KiB)
+
+Extracting archive: C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\Release\dev-utils\ninja\ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z
+  0%
+    
+--
+Path = C:\CraftRoot\download\cache\26.05\windows\gcc\x86_64\Release\dev-utils\ninja\ninja-1.13.2-88-20260524T103227-windows-gcc-x86_64.7z
+Type = 7z
+Physical Size = 155797
+Headers Size = 199
+Method = LZMA2:384k BCJ
+Solid = -
+Blocks = 1
+
+Everything is Ok
+
+Folders: 2
+Files: 1
+Size:       392888
+Compressed: 155797
+*** Craft all succeeded: dev-utils/ninja after 1s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 35s Progress: 48% Remaining Packages: ['python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;48\================================================================================
+*** Handling package: python-modules/pip-system, action: all ***
+*** Action: fetch-binary for python-modules/pip-system ***
+*** python-modules/pip-system not found in cache ***
+*** Action: fetch for python-modules/pip-system ***
+wget2 https://bootstrap.pypa.io/pip/zipapp/pip-26.1.2.pyz
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://bootstrap.pyp]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\archives\python-modules\pip-system\pip-26.1.2.pyz'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.67M    --.-KB/s87[1S[3A[1G[0JHTTP response 200 OK [https://bootstrap.pypa.io/pip/zipapp/pip-26.1.2.pyz]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.67M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 1.67]8*** Action: unpack for python-modules/pip-system ***
+*** Action: configure for python-modules/pip-system ***
+*** Action: make for python-modules/pip-system ***
+*** Action: cleanimage for python-modules/pip-system ***
+*** Action: install for python-modules/pip-system ***
+Using pip 26.1.2 from C:\CraftRoot\download\archives\python-modules\pip-system\pip-26.1.2.pyz\pip (python 3.12)
+executing command: C:\hostedtoolcache\windows\Python\3.12.10\x64\python.exe C:\CraftRoot\download\archives\python-modules\pip-system\pip-26.1.2.pyz install --upgrade --no-input --verbose pip==26.1.2
+Collecting pip==26.1.2
+  Obtaining dependency information for pip==26.1.2 from https://files.pythonhosted.org/packages/5d/95/6b5cb3461ea5673ba0995989746db58eb18b91b54dbf331e72f569540946/pip-26.1.2-py3-none-any.whl.metadata
+  Downloading pip-26.1.2-py3-none-any.whl.metadata (4.6 kB)
+Downloading pip-26.1.2-py3-none-any.whl (1.8 MB)
+   ---------------------------------------- 1.8/1.8 MB 16.5 MB/s  0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 26.2.1
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 40s Progress: 48% Remaining Packages: ['python-modules/pip-system', 'virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;48\    Uninstalling pip-26.2.1:
+      Removing file or directory c:\hostedtoolcache\windows\python\3.12.10\x64\lib\site-packages\pip-26.2.1.dist-info\
+      Removing file or directory c:\hostedtoolcache\windows\python\3.12.10\x64\lib\site-packages\pip\
+      Removing file or directory c:\hostedtoolcache\windows\python\3.12.10\x64\scripts\pip.exe
+      Removing file or directory c:\hostedtoolcache\windows\python\3.12.10\x64\scripts\pip3.12.exe
+      Removing file or directory c:\hostedtoolcache\windows\python\3.12.10\x64\scripts\pip3.exe
+      Successfully uninstalled pip-26.2.1
+Successfully installed pip-26.1.2
+*** Action: post-install for python-modules/pip-system ***
+*** Action: qmerge for python-modules/pip-system ***
+*** Action: post-qmerge for python-modules/pip-system ***
+*** Craft all succeeded: python-modules/pip-system after 11s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 46s Progress: 51% Remaining Packages: ['virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;51\================================================================================
+*** Handling package: virtual/craft-venv, action: all ***
+*** Action: fetch-binary for virtual/craft-venv ***
+Could not find virtual/craft-venv=master in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find virtual/craft-venv=master in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** virtual/craft-venv not found in cache ***
+*** Action: fetch for virtual/craft-venv ***
+*** Action: unpack for virtual/craft-venv ***
+*** Action: configure for virtual/craft-venv ***
+*** Action: make for virtual/craft-venv ***
+*** Action: cleanimage for virtual/craft-venv ***
+*** Action: install for virtual/craft-venv ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 50s Progress: 51% Remaining Packages: ['virtual/craft-venv', 'python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']executing command: C:\hostedtoolcache\windows\Python\3.12.10\x64\python.exe -m venv C:\CraftRoot\etc\virtualenv\3
+]9;4;1;51\*** Action: post-install for virtual/craft-venv ***
+*** Action: qmerge for virtual/craft-venv ***
+WARNING: Package(s) not found: craft-venv
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show craft-venv
+Command ['C:\\CraftRoot\\etc\\virtualenv\\3\\Scripts\\python.exe', '-m', 'pip', 'show', 'craft-venv'] failed with exit code 1
+*** Action: post-qmerge for virtual/craft-venv ***
+*** Craft all succeeded: virtual/craft-venv after 5s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 52s Progress: 54% Remaining Packages: ['python-modules/pip', 'python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;54\================================================================================
+*** Handling package: python-modules/pip, action: all ***
+*** Action: fetch-binary for python-modules/pip ***
+Could not find python-modules/pip=26.1.2-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/pip=26.1.2-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/pip not found in cache ***
+*** Action: fetch for python-modules/pip ***
+wget2 https://bootstrap.pypa.io/pip/zipapp/pip-26.1.2.pyz
+
+
+7[1A[1G[27G[Files: 0  Bytes: 0  []87[2A[1G[27G[https://bootstrap.pyp]87[1S[3A[1G[0JSaving 'C:\CraftRoot\download\archives\python-modules\pip\pip-26.1.2.pyz'
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.67M    --.-KB/s87[1S[3A[1G[0JHTTP response 200 OK [https://bootstrap.pypa.io/pip/zipapp/pip-26.1.2.pyz]
+87[2A[1GC:\CraftRoot\downloa 100% [====================>]    1.67M    --.-KB/s87[1A[1G[27G[Files: 1  Bytes: 1.67]8*** Action: unpack for python-modules/pip ***
+*** Action: configure for python-modules/pip ***
+*** Action: make for python-modules/pip ***
+*** Action: cleanimage for python-modules/pip ***
+*** Action: install for python-modules/pip ***
+Using pip 26.1.2 from C:\CraftRoot\download\archives\python-modules\pip\pip-26.1.2.pyz\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe C:\CraftRoot\download\archives\python-modules\pip\pip-26.1.2.pyz install --upgrade --no-input --verbose --require-virtualenv pip==26.1.2
+Collecting pip==26.1.2
+  Obtaining dependency information for pip==26.1.2 from https://files.pythonhosted.org/packages/5d/95/6b5cb3461ea5673ba0995989746db58eb18b91b54dbf331e72f569540946/pip-26.1.2-py3-none-any.whl.metadata
+  Using cached pip-26.1.2-py3-none-any.whl.metadata (4.6 kB)
+Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 25.0.1
+    Uninstalling pip-25.0.1:
+      Removing file or directory c:\craftroot\etc\virtualenv\3\lib\site-packages\pip-25.0.1.dist-info\
+      Removing file or directory c:\craftroot\etc\virtualenv\3\lib\site-packages\pip\
+      Removing file or directory c:\craftroot\etc\virtualenv\3\scripts\pip.exe
+      Removing file or directory c:\craftroot\etc\virtualenv\3\scripts\pip3.12.exe
+      Removing file or directory c:\craftroot\etc\virtualenv\3\scripts\pip3.exe
+      Successfully uninstalled pip-25.0.1
+Successfully installed pip-26.1.2
+*** Action: post-install for python-modules/pip ***
+*** Action: qmerge for python-modules/pip ***
+*** Action: post-qmerge for python-modules/pip ***
+*** Craft all succeeded: python-modules/pip after 5s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 6min 57s Progress: 57% Remaining Packages: ['python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;57\================================================================================
+*** Handling package: python-modules/setuptools, action: all ***
+*** Action: fetch-binary for python-modules/setuptools ***
+Could not find python-modules/setuptools=master-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/setuptools=master-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/setuptools not found in cache ***
+*** Action: fetch for python-modules/setuptools ***
+*** Action: unpack for python-modules/setuptools ***
+*** Action: configure for python-modules/setuptools ***
+*** Action: make for python-modules/setuptools ***
+*** Action: cleanimage for python-modules/setuptools ***
+*** Action: install for python-modules/setuptools ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv setuptools
+Collecting setuptools
+  Obtaining dependency information for setuptools from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ---------------------------------------- 818.2/818.2 kB 11.8 MB/s  0:00:00
+Installing collected packages: setuptools
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 0s Progress: 57% Remaining Packages: ['python-modules/setuptools', 'python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;57\Successfully installed setuptools-84.0.0
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/setuptools ***
+*** Action: qmerge for python-modules/setuptools ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show setuptools
+*** Action: post-qmerge for python-modules/setuptools ***
+*** Craft all succeeded: python-modules/setuptools after 3s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 1s Progress: 60% Remaining Packages: ['python-modules/flit-core', 'python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;60\================================================================================
+*** Handling package: python-modules/flit-core, action: all ***
+*** Action: fetch-binary for python-modules/flit-core ***
+Could not find python-modules/flit-core=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/flit-core=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/flit-core not found in cache ***
+*** Action: fetch for python-modules/flit-core ***
+*** Action: unpack for python-modules/flit-core ***
+*** Action: configure for python-modules/flit-core ***
+*** Action: make for python-modules/flit-core ***
+*** Action: cleanimage for python-modules/flit-core ***
+*** Action: install for python-modules/flit-core ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv flit-core
+Collecting flit-core
+  Obtaining dependency information for flit-core from https://files.pythonhosted.org/packages/38/2a/8ea4bd54734f0fcbb507c28cb6b79d72f528e40498178a01cb35fc5d686f/flit_core-4.1.0-py3-none-any.whl.metadata
+  Downloading flit_core-4.1.0-py3-none-any.whl.metadata (910 bytes)
+Downloading flit_core-4.1.0-py3-none-any.whl (45 kB)
+Installing collected packages: flit-core
+Successfully installed flit-core-4.1.0
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/flit-core ***
+*** Action: qmerge for python-modules/flit-core ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show flit-core
+*** Action: post-qmerge for python-modules/flit-core ***
+*** Craft all succeeded: python-modules/flit-core after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 3s Progress: 63% Remaining Packages: ['python-modules/packaging', 'python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;63\================================================================================
+*** Handling package: python-modules/packaging, action: all ***
+*** Action: fetch-binary for python-modules/packaging ***
+Could not find python-modules/packaging=master-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/packaging=master-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/packaging not found in cache ***
+*** Action: fetch for python-modules/packaging ***
+*** Action: unpack for python-modules/packaging ***
+*** Action: configure for python-modules/packaging ***
+*** Action: make for python-modules/packaging ***
+*** Action: cleanimage for python-modules/packaging ***
+*** Action: install for python-modules/packaging ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv packaging
+Collecting packaging
+  Obtaining dependency information for packaging from https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Installing collected packages: packaging
+Successfully installed packaging-26.3
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/packaging ***
+*** Action: qmerge for python-modules/packaging ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show packaging
+*** Action: post-qmerge for python-modules/packaging ***
+*** Craft all succeeded: python-modules/packaging after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 5s Progress: 66% Remaining Packages: ['python-modules/pathspec', 'python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;66\================================================================================
+*** Handling package: python-modules/pathspec, action: all ***
+*** Action: fetch-binary for python-modules/pathspec ***
+Could not find python-modules/pathspec=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/pathspec=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/pathspec not found in cache ***
+*** Action: fetch for python-modules/pathspec ***
+*** Action: unpack for python-modules/pathspec ***
+*** Action: configure for python-modules/pathspec ***
+*** Action: make for python-modules/pathspec ***
+*** Action: cleanimage for python-modules/pathspec ***
+*** Action: install for python-modules/pathspec ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv pathspec
+Collecting pathspec
+  Obtaining dependency information for pathspec from https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl.metadata
+  Downloading pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+Installing collected packages: pathspec
+Successfully installed pathspec-1.1.1
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/pathspec ***
+*** Action: qmerge for python-modules/pathspec ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show pathspec
+*** Action: post-qmerge for python-modules/pathspec ***
+*** Craft all succeeded: python-modules/pathspec after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 7s Progress: 69% Remaining Packages: ['python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;69\================================================================================
+*** Handling package: python-modules/pluggy, action: all ***
+*** Action: fetch-binary for python-modules/pluggy ***
+Could not find python-modules/pluggy=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/pluggy=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/pluggy not found in cache ***
+*** Action: fetch for python-modules/pluggy ***
+*** Action: unpack for python-modules/pluggy ***
+*** Action: configure for python-modules/pluggy ***
+*** Action: make for python-modules/pluggy ***
+*** Action: cleanimage for python-modules/pluggy ***
+*** Action: install for python-modules/pluggy ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv pluggy
+Collecting pluggy
+  Obtaining dependency information for pluggy from https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl.metadata
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Installing collected packages: pluggy
+Successfully installed pluggy-1.6.0
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/pluggy ***
+*** Action: qmerge for python-modules/pluggy ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 10s Progress: 69% Remaining Packages: ['python-modules/pluggy', 'python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show pluggy
+]9;4;1;69\*** Action: post-qmerge for python-modules/pluggy ***
+*** Craft all succeeded: python-modules/pluggy after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 10s Progress: 72% Remaining Packages: ['python-modules/trove-classifiers', 'python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;72\================================================================================
+*** Handling package: python-modules/trove-classifiers, action: all ***
+*** Action: fetch-binary for python-modules/trove-classifiers ***
+Could not find python-modules/trove-classifiers=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/trove-classifiers=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/trove-classifiers not found in cache ***
+*** Action: fetch for python-modules/trove-classifiers ***
+*** Action: unpack for python-modules/trove-classifiers ***
+*** Action: configure for python-modules/trove-classifiers ***
+*** Action: make for python-modules/trove-classifiers ***
+*** Action: cleanimage for python-modules/trove-classifiers ***
+*** Action: install for python-modules/trove-classifiers ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv --use-deprecated=legacy-resolver trove-classifiers
+Collecting trove-classifiers
+  Downloading trove_classifiers-2026.9.21.13-py3-none-any.whl (14 kB)
+Installing collected packages: trove-classifiers
+Successfully installed trove-classifiers-2026.9.21.13
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/trove-classifiers ***
+*** Action: qmerge for python-modules/trove-classifiers ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show trove-classifiers
+*** Action: post-qmerge for python-modules/trove-classifiers ***
+*** Craft all succeeded: python-modules/trove-classifiers after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 12s Progress: 75% Remaining Packages: ['python-modules/hatchling', 'python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;75\================================================================================
+*** Handling package: python-modules/hatchling, action: all ***
+*** Action: fetch-binary for python-modules/hatchling ***
+Could not find python-modules/hatchling=1.27.0-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/hatchling=1.27.0-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/hatchling not found in cache ***
+*** Action: fetch for python-modules/hatchling ***
+*** Action: unpack for python-modules/hatchling ***
+*** Action: configure for python-modules/hatchling ***
+*** Action: make for python-modules/hatchling ***
+*** Action: cleanimage for python-modules/hatchling ***
+*** Action: install for python-modules/hatchling ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv --use-deprecated=legacy-resolver hatchling==1.27.0
+Collecting hatchling==1.27.0
+  Downloading hatchling-1.27.0-py3-none-any.whl (75 kB)
+Requirement already satisfied, skipping upgrade: packaging>=24.2 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling==1.27.0) (26.3)
+Requirement already satisfied, skipping upgrade: pathspec>=0.10.1 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling==1.27.0) (1.1.1)
+Requirement already satisfied, skipping upgrade: pluggy>=1.0.0 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling==1.27.0) (1.6.0)
+Requirement already satisfied, skipping upgrade: trove-classifiers in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling==1.27.0) (2026.9.21.13)
+Installing collected packages: hatchling
+Successfully installed hatchling-1.27.0
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/hatchling ***
+*** Action: qmerge for python-modules/hatchling ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show hatchling
+*** Action: post-qmerge for python-modules/hatchling ***
+*** Craft all succeeded: python-modules/hatchling after 2s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 14s Progress: 78% Remaining Packages: ['python-modules/hatch-vcs', 'python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;78\================================================================================
+*** Handling package: python-modules/hatch-vcs, action: all ***
+*** Action: fetch-binary for python-modules/hatch-vcs ***
+Could not find python-modules/hatch-vcs=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/hatch-vcs=latest-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/hatch-vcs not found in cache ***
+*** Action: fetch for python-modules/hatch-vcs ***
+*** Action: unpack for python-modules/hatch-vcs ***
+*** Action: configure for python-modules/hatch-vcs ***
+*** Action: make for python-modules/hatch-vcs ***
+*** Action: cleanimage for python-modules/hatch-vcs ***
+*** Action: install for python-modules/hatch-vcs ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv --use-deprecated=legacy-resolver hatch-vcs
+Collecting hatch-vcs
+  Downloading hatch_vcs-0.5.0-py3-none-any.whl (8.5 kB)
+Requirement already satisfied, skipping upgrade: hatchling>=1.1.0 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatch-vcs) (1.27.0)
+Collecting setuptools-scm>=8.2.0 (from hatch-vcs)
+  Downloading setuptools_scm-10.3.4-py3-none-any.whl (33 kB)
+Requirement already satisfied, skipping upgrade: packaging>=24.2 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling>=1.1.0->hatch-vcs) (26.3)
+Requirement already satisfied, skipping upgrade: pathspec>=0.10.1 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling>=1.1.0->hatch-vcs) (1.1.1)
+Requirement already satisfied, skipping upgrade: pluggy>=1.0.0 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling>=1.1.0->hatch-vcs) (1.6.0)
+Requirement already satisfied, skipping upgrade: trove-classifiers in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from hatchling>=1.1.0->hatch-vcs) (2026.9.21.13)
+Collecting vcs-versioning<3,>=2.5.0.dev0 (from setuptools-scm>=8.2.0->hatch-vcs)
+  Downloading vcs_versioning-2.6.0-py3-none-any.whl (123 kB)
+Requirement already satisfied, skipping upgrade: setuptools in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from setuptools-scm>=8.2.0->hatch-vcs) (84.0.0)
+Installing collected packages: vcs-versioning, setuptools-scm, hatch-vcs
+
+Successfully installed hatch-vcs-0.5.0 setuptools-scm-10.3.4 vcs-versioning-2.6.0
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/hatch-vcs ***
+*** Action: qmerge for python-modules/hatch-vcs ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show hatch-vcs
+*** Action: post-qmerge for python-modules/hatch-vcs ***
+*** Craft all succeeded: python-modules/hatch-vcs after 3s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 17s Progress: 81% Remaining Packages: ['python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;81\================================================================================
+*** Handling package: python-modules/virtualenv, action: all ***
+*** Action: fetch-binary for python-modules/virtualenv ***
+Could not find python-modules/virtualenv=master-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/RelWithDebInfo
+Could not find python-modules/virtualenv=master-2 in https://files.kde.org/craft/Qt6/26.05/windows/gcc/x86_64/Release
+*** python-modules/virtualenv not found in cache ***
+*** Action: fetch for python-modules/virtualenv ***
+*** Action: unpack for python-modules/virtualenv ***
+*** Action: configure for python-modules/virtualenv ***
+*** Action: make for python-modules/virtualenv ***
+*** Action: cleanimage for python-modules/virtualenv ***
+*** Action: install for python-modules/virtualenv ***
+Using pip 26.1.2 from C:\CraftRoot\etc\virtualenv\3\Lib\site-packages\pip (python 3.12)
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip install --upgrade --no-input --verbose --require-virtualenv virtualenv
+Collecting virtualenv
+  Obtaining dependency information for virtualenv from https://files.pythonhosted.org/packages/52/5b/799c3e5b8e04d5fa1c9b61a4c1f5079603e747205c7311b92abd30283df5/virtualenv-21.14.7-py3-none-any.whl.metadata
+  Downloading virtualenv-21.14.7-py3-none-any.whl.metadata (4.1 kB)
+Collecting distlib<1,>=0.4.3 (from virtualenv)
+  Obtaining dependency information for distlib<1,>=0.4.3 from https://files.pythonhosted.org/packages/02/08/9c41fb51ab5b43eb21674aff13df270e8ba6c4b29c8624e328dc7a9482af/distlib-0.4.3-py2.py3-none-any.whl.metadata
+  Downloading distlib-0.4.3-py2.py3-none-any.whl.metadata (5.3 kB)
+Collecting filelock<5,>=3.24.2 (from virtualenv)
+  Obtaining dependency information for filelock<5,>=3.24.2 from https://files.pythonhosted.org/packages/d7/8b/f837f52905395ba4510fe61f753c24833fb0a9c76e21267bb9f828b664a9/filelock-4.1.1-py3-none-any.whl.metadata
+  Downloading filelock-4.1.1-py3-none-any.whl.metadata (2.0 kB)
+Requirement already satisfied: packaging>=26.3 in C:\CraftRoot\etc\virtualenv\3\Lib\site-packages (from virtualenv) (26.3)
+Collecting platformdirs<5,>=4.4 (from virtualenv)
+  Obtaining dependency information for platformdirs<5,>=4.4 from https://files.pythonhosted.org/packages/8d/15/1633010b26e88e872c93b67c0b6c5e174fb74cb6fb5c1472b4d51d4a8f22/platformdirs-4.13.0-py3-none-any.whl.metadata
+  Downloading platformdirs-4.13.0-py3-none-any.whl.metadata (5.5 kB)
+Collecting python-discovery>=1.6.1 (from virtualenv)
+  Obtaining dependency information for python-discovery>=1.6.1 from https://files.pythonhosted.org/packages/61/3b/50ed32583bfffa737df67d33b9c15d7b25df232c55ab606d059f610ef6ca/python_discovery-1.6.2-py3-none-any.whl.metadata
+  Downloading python_discovery-1.6.2-py3-none-any.whl.metadata (5.1 kB)
+Downloading virtualenv-21.14.7-py3-none-any.whl (5.5 MB)
+   ---------------------------------------- 5.5/5.5 MB 56.2 MB/s  0:00:00
+Downloading distlib-0.4.3-py2.py3-none-any.whl (470 kB)
+Downloading filelock-4.1.1-py3-none-any.whl (132 kB)
+Downloading platformdirs-4.13.0-py3-none-any.whl (32 kB)
+Downloading python_discovery-1.6.2-py3-none-any.whl (38 kB)
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 20s Progress: 81% Remaining Packages: ['python-modules/virtualenv', 'dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;81\Installing collected packages: distlib, platformdirs, filelock, python-discovery, virtualenv
+
+Successfully installed distlib-0.4.3 filelock-4.1.1 platformdirs-4.13.0 python-discovery-1.6.2 virtualenv-21.14.7
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+*** Action: post-install for python-modules/virtualenv ***
+*** Action: qmerge for python-modules/virtualenv ***
+executing command: C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe -m pip show virtualenv
+*** Action: post-qmerge for python-modules/virtualenv ***
+*** Craft all succeeded: python-modules/virtualenv after 4s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 22s Progress: 84% Remaining Packages: ['dev-utils/system-python3', 'dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;84\================================================================================
+*** Handling package: dev-utils/system-python3, action: all ***
+*** Action: fetch-binary for dev-utils/system-python3 ***
+*** dev-utils/system-python3 not found in cache ***
+*** Action: fetch for dev-utils/system-python3 ***
+*** Action: unpack for dev-utils/system-python3 ***
+*** Action: configure for dev-utils/system-python3 ***
+*** Action: make for dev-utils/system-python3 ***
+*** Action: cleanimage for dev-utils/system-python3 ***
+*** Action: install for dev-utils/system-python3 ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\1a4071ff\image-RelWithDebInfo-3\dev-utils\bin\python.exe C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe --
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\1a4071ff\image-RelWithDebInfo-3\dev-utils\bin\python3.exe C:\CraftRoot\etc\virtualenv\3\Scripts\python.exe --
+*** Action: post-install for dev-utils/system-python3 ***
+*** Action: qmerge for dev-utils/system-python3 ***
+*** Action: post-qmerge for dev-utils/system-python3 ***
+*** Craft all succeeded: dev-utils/system-python3 after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 22s Progress: 87% Remaining Packages: ['dev-utils/msys', 'craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;87\================================================================================
+*** Handling package: dev-utils/msys, action: all ***
+*** Action: fetch-binary for dev-utils/msys ***
+*** dev-utils/msys not found in cache ***
+*** Action: fetch for dev-utils/msys ***
+*** Action: unpack for dev-utils/msys ***
+*** Action: configure for dev-utils/msys ***
+*** Action: make for dev-utils/msys ***
+*** Action: cleanimage for dev-utils/msys ***
+*** Action: install for dev-utils/msys ***
+*** Action: post-install for dev-utils/msys ***
+executing command: C:\CraftRoot\bin\kshimgen.exe --create C:\_\b2521e23\image-RelWithDebInfo-latest\dev-utils\bin\msys.exe python3.exe -- C:\CraftRoot\craft-tmp\bin\shells.py
+*** Action: qmerge for dev-utils/msys ***
+*** Action: post-qmerge for dev-utils/msys ***
+*** Craft all succeeded: dev-utils/msys after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 22s Progress: 90% Remaining Packages: ['craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;90\================================================================================
+*** Handling package: virtual/base, action: all ***
+*** Action: fetch-binary for virtual/base ***
+*** virtual/base not found in cache ***
+*** Action: fetch for virtual/base ***
+*** Action: unpack for virtual/base ***
+*** Action: configure for virtual/base ***
+*** Action: make for virtual/base ***
+*** Action: cleanimage for virtual/base ***
+*** Action: install for virtual/base ***
+*** Action: post-install for virtual/base ***
+*** Action: qmerge for virtual/base ***
+*** Action: post-qmerge for virtual/base ***
+*** Craft all succeeded: virtual/base after 0s ***
+]0;(C:\CraftRoot) craft --buildtype RelWithDebInfo craft Duration: 7min 22s Progress: 93% Remaining Packages: ['craft/craft-core', 'craft/craft-blueprints-kde']]9;4;1;93\================================================================================
+*** Handling package: craft/craft-core, action: all ***
+*** Action: fetch-binary for craft/craft-core ***
+*** craft/craft-core not found in cache ***
+*** Action: fetch for craft/craft-core ***
+Cloning into 'C:\CraftRoot\craft'...
+fatal: unable to access 'https://invent.kde.org/packaging/craft.git/': The requested URL returned error: 403
+executing command: C:\Program Files\Git\bin\git.exe -c color.ui=always clone https://invent.kde.org/packaging/craft.git C:\CraftRoot\craft
+Command [WindowsPath('C:/Program Files/Git/bin/git.exe'), '-c', 'color.ui=always', 'clone', 'https://invent.kde.org/packaging/craft.git', 'C:\\CraftRoot\\craft'] failed with exit code 128
+Action: fetch for craft/craft-core:master-2026.10.14 FAILED
+*** Craft all failed: craft/craft-core after 0s ***
+fatal error: package craft/craft-core all failed
+Craft stopped with out completing ['craft/craft-core', 'craft/craft-blueprints-kde']
+
+Execute: C:\hostedtoolcache\windows\Python\3.12.10\x64\python.exe C:\CraftRoot\craft-tmp\bin\craft.py --buildtype RelWithDebInfo craft

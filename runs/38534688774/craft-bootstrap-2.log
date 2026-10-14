@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+Welcome to the Craft setup wizard!
+Craft will be installed to: C:\CraftRoot
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Starting to download https://invent.kde.org/packaging/craft/-/archive/master/craft-master.zip to C:\CraftRoot\download\craft-master.zip
+  File "D:\a\_temp\CraftBootstrap.py", line 431, in <module>
+    setUp(args)
+  File "D:\a\_temp\CraftBootstrap.py", line 333, in setUp
+    CraftBootstrap.downloadFile(
+  File "D:\a\_temp\CraftBootstrap.py", line 189, in downloadFile
+    urllib.request.urlretrieve(url, filename=os.path.join(destdir, filename), reporthook=dlProgress)
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\urllib\request.py", line 240, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+                            ^^^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\urllib\request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\urllib\request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\urllib\request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\urllib\request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
