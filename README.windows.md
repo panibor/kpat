@@ -40,7 +40,7 @@ what this repository's CI produced:
   Verify with the GitHub CLI:
 
   ```pwsh
-  gh attestation verify kpat-26.07.70-win-setup.exe --owner panibor
+  gh attestation verify .\\kpat-26.07.70-win-setup.exe --owner panibor
   ```
 
   A successful verification proves the file came from this
@@ -52,8 +52,9 @@ The same KDE Craft setup that CI uses works on a local Windows box. From
 an admin PowerShell:
 
 ```powershell
-# 1. Install prerequisites: Python 3.11+, Git, and the Visual Studio 2022
-#    "Desktop development with C++" workload (MSVC + Windows SDK).
+# 1. Install Python 3.11+ and Git, plus the dependencies for your chosen
+#    Craft toolchain. GitHub Actions uses MinGW-w64 / GCC, not MSVC.
+#    Use the GitHub Actions release procedure below for official fork builds.
 # 2. Bootstrap Craft:
 mkdir C:\CraftRoot
 Invoke-WebRequest -UseBasicParsing `
@@ -86,6 +87,10 @@ Subsequent incremental builds are fast.
 `windows-2022` and uses KDE Craft. Notable details:
 
 - All third-party actions are pinned to commit SHAs.
+- A manual **Run workflow** dispatch publishes a release only when
+  **Publish a new Windows GitHub Release** is checked (the default).
+  Ordinary pushes and pull requests build without publishing; tag pushes
+  matching `v*-win` retain release support.
 - The workflow uses least-privilege `permissions:`. The default is
   `contents: read`, escalated only where required.
 - `pull_request` (not `pull_request_target`). PRs from forks run in the
@@ -102,20 +107,56 @@ Subsequent incremental builds are fast.
   load (SQL drivers, QtMultimedia, QML tooling, sensors, etc.) so the
   installer stays small. Translation catalogues are kept intact.
 
-## Cutting a Windows release
+## Publishing a Windows release (one click)
 
-```bash
-git tag v26.07.70-win
-git push origin v26.07.70-win
-```
+Use the GitHub UI; there is no need to clone this repository, run
+PowerShell, create a tag manually, or publish a draft release.
 
-The workflow's `release` job runs on `v*-win` tags and creates a **draft**
-GitHub Release on this fork with the installer, portable archive,
-`COPYING`, and `NOTICE.windows` attached. Review and publish from the
-Releases page when ready.
+1. Open **[Actions > Windows (Craft)](https://github.com/panibor/kpat/actions/workflows/windows.yml)**.
+2. Click **Run workflow** and select the `master` branch.
+3. Leave **Publish a new Windows GitHub Release** **checked**
+   (the default). Leave `resume` unchecked and `resume_count` at `0`;
+   they are internal controls for checkpointed builds.
+4. Click **Run workflow** and inspect the run's `build` and `release`
+   jobs. On success, GitHub publishes the release with all four files:
+   installer `.exe`, portable `.7z`, `COPYING`, and `NOTICE.windows`.
+5. Open **[Releases](https://github.com/panibor/kpat/releases)**
+   and confirm both Windows downloads appear in the new release.
 
-The `-win` suffix on the tag namespaces this fork's Windows release
-tags away from upstream KDE's release tagging convention.
+The workflow determines the release version from
+`RELEASE_SERVICE_VERSION_MAJOR`, `_MINOR`, and `_MICRO` in
+`CMakeLists.txt`. It generates a tag in the form
+`v<major>.<minor>.<micro>-win` and names the artifacts
+`kpat-<major>.<minor>.<micro>-win-setup.exe` and
+`kpat-<major>.<minor>.<micro>-win.7z`.
+The tag is created only after the build succeeds and required files are
+verified. A signed build-provenance attestation is generated before
+publishing. The release is **published immediately**, not left as a draft.
+
+**Version uniqueness:** the workflow refuses to replace an existing
+version tag or release. If that version has already been tagged, wait
+for a new upstream version or intentionally update the version in
+`CMakeLists.txt` before triggering a new release. Do not delete or
+move historical release tags to force a rebuild.
+
+**Build only:** to run Windows CI without publishing, uncheck
+**Publish a new Windows GitHub Release**. Regular pushes to `master`,
+pull requests, and scheduled cache warm-ups also do not publish.
+
+**Automatic resumes:** large Craft builds may reach the watchdog,
+save a checkpoint, and dispatch a continuation automatically. The
+continuation retains the original release/no-release intent. You
+do not need to re-run the workflow manually. If a build or release
+fails, inspect the Actions logs; no new release is published by a
+failed release job. A failed job can leave a new tag behind if failure
+occurs after tag creation, which requires investigation before retrying.
+
+**Advanced alternative:** pushing a new `v*-win` tag still starts
+the release path, provided the tag matches the version in
+`CMakeLists.txt`. This is optional and not required for normal releases.
+
+The `-win` suffix keeps the fork's Windows tags separate from upstream
+KDE's tags.
 
 ## Recommended fork settings
 

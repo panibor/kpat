@@ -62,7 +62,7 @@ repository's CI produced (not a tampered copy from a mirror):
   for every release. If you have the [GitHub CLI](https://cli.github.com)
   installed, verify with:
   ```pwsh
-  gh attestation verify kpat-26.07.70-win-setup.exe --owner panibor
+  gh attestation verify .\\kpat-26.07.70-win-setup.exe --owner panibor
   ```
   A successful verification proves the file was produced by this
   repository's public `windows.yml` workflow from a specific commit,
@@ -70,6 +70,29 @@ repository's CI produced (not a tampered copy from a mirror):
 
 See [`README.windows.md`](README.windows.md) for the full details,
 including how to build locally and how to cut a new Windows release.
+
+## Publishing a Windows release (maintainers)
+
+A new Windows release can be built and published entirely from GitHub; no
+local PowerShell, manual tag, or separate release-publishing step is required.
+
+1. Open **[Actions -> Windows (Craft)](https://github.com/panibor/kpat/actions/workflows/windows.yml)**.
+2. Click **Run workflow**, select `master`, and leave **Publish a new Windows GitHub Release** checked (the default).
+3. Click **Run workflow**. GitHub Actions builds the NSIS installer and portable
+   archive, resumes checkpointed builds when necessary, verifies the release
+   files, records build-provenance attestations, creates a version tag, and
+   publishes the release.
+4. Confirm the new `.exe` and `.7z` downloads on the
+   **[Releases page](https://github.com/panibor/kpat/releases)**.
+
+The tag is derived from `CMakeLists.txt` as `v<major>.<minor>.<micro>-win`.
+An existing tag is never replaced; a new release requires a new source
+version. For a build without a release, uncheck **Publish a new Windows
+GitHub Release**. Routine branch builds, pull requests, and scheduled cache
+maintenance do not publish releases.
+
+See [the Windows build and release guide](README.windows.md) for troubleshooting
+and more details.
 
 ## What is KPat?
 
