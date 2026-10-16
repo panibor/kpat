@@ -8,6 +8,10 @@ on:
     branches: [master, main]
   workflow_dispatch:
     inputs:
+      publish_release:
+        description: 'Publish a new Windows GitHub Release (leave checked for one-click release).'
+        type: boolean
+        default: true
       resume:
         description: 'Resume a checkpointed build (set automatically on re-dispatch).'
         type: boolean
@@ -24,10 +28,9 @@ permissions:
   contents: read
 
 concurrency:
-  # Push/PR events: cancel an in-flight run on the same ref so we don't burn
-  # minutes on stale code. Resume dispatches arrive as workflow_dispatch and
-  # must NOT be cancelled, otherwise the chain breaks.
-  group: windows-${{ github.ref }}
+  # Separate manual/restarted release runs from routine push builds.
+  # Otherwise a later push to master could cancel a release in progress.
+  group: windows-${{ github.event_name == 'workflow_dispatch' && 'manual' || 'auto' }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 env:
@@ -76,6 +79,28 @@ jobs:
         with:
           path: kpat-src
           fetch-depth: 0
+
+      - name: Check manual release tag before expensive build
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_release == true && github.ref_type == 'branch'
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_REF_NAME -notin @('master', 'main')) {
+            throw 'Manual publishing is allowed only from master or main. Select master in Run workflow.'
+          }
+          $cmake = Get-Content 'kpat-src/CMakeLists.txt' -Raw
+          $parts = foreach ($part in @('MAJOR','MINOR','MICRO')) {
+            $pattern = '(?m)^set\(RELEASE_SERVICE_VERSION_' + $part + '\s+"([^"]+)"\)'
+            $match = [regex]::Match($cmake, $pattern)
+            if (-not $match.Success) { throw "Cannot read $part release version from CMakeLists.txt" }
+            $match.Groups[1].Value
+          }
+          $tag = 'v' + ($parts -join '.') + '-win'
+          $existing = git -C kpat-src ls-remote --tags origin "refs/tags/$tag"
+          if ($LASTEXITCODE -ne 0) { throw 'Failed to query remote tags' }
+          if ($existing) {
+            throw "Tag $tag already exists. Refusing to overwrite an existing release. Bump the source version before publishing again."
+          }
+          Write-Host "Release tag $tag is available."
 
       - name: Resolve craft-blueprints-kde HEAD SHA
         id: bp
@@ -459,7 +484,7 @@ jobs:
             $deadlineMin = [int]'${{ env.WATCHDOG_MINUTES }}'
 
             $buildScript = {
-              param($CraftRoot, $Blueprint, $BuildType)
+              param($CraftRoot, $Blueprint, $BuildType, $SuccessMarker)
               $ErrorActionPreference = 'Continue'
               . "$CraftRoot\craft\craftenv.ps1"
               # --buildtype passed explicitly: the binary cache at
@@ -535,12 +560,25 @@ jobs:
               Write-Host "::endgroup::"
               # ---- End payload shrink ----
 
+              # Remove older packages restored by the Craft cache. A release
+              # must contain packages actually produced by THIS workflow run.
+              $tmp = Join-Path $CraftRoot 'tmp'
+              if (Test-Path $tmp) {
+                Get-ChildItem -Path $tmp -Recurse -File -Filter 'kpat-*' -ErrorAction SilentlyContinue |
+                  Where-Object { $_.Extension -in @('.exe', '.7z') } |
+                  Remove-Item -Force -ErrorAction Stop
+              }
               craft --buildtype $BuildType --package $Blueprint 2>&1
-              Write-Host "package exit=$LASTEXITCODE"
+              $rc = $LASTEXITCODE
+              Write-Host "package exit=$rc"
+              if ($rc -ne 0) { return }
+              Set-Content -Path $SuccessMarker -Value 'package command succeeded'
             }
 
+            $successMarker = Join-Path $env:GITHUB_WORKSPACE 'kpat-package-success.marker'
+            Remove-Item -LiteralPath $successMarker -Force -ErrorAction SilentlyContinue
             $job = Start-Job -ScriptBlock $buildScript `
-              -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}', '${{ env.CRAFT_BUILDTYPE }}'
+              -ArgumentList '${{ env.CRAFT_ROOT }}', '${{ env.CRAFT_BLUEPRINT }}', '${{ env.CRAFT_BUILDTYPE }}', $successMarker
 
             while ($job.State -eq 'Running') {
               Receive-Job $job 2>&1 | Out-Host
@@ -564,7 +602,9 @@ jobs:
               $exe = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.exe' -Recurse -ErrorAction SilentlyContinue)
               $sevenZ = @(Get-ChildItem -Path $tmp -Filter 'kpat-*.7z' -Recurse -ErrorAction SilentlyContinue)
             }
-            $produced = ($exe.Count + $sevenZ.Count) -gt 0
+            $produced = (Test-Path $successMarker) -and ($exe.Count -gt 0) -and ($sevenZ.Count -gt 0) -and
+                        (@($exe | Where-Object Length -gt 0).Count -gt 0) -and
+                        (@($sevenZ | Where-Object Length -gt 0).Count -gt 0)
             $checkpointed = -not $produced
 
             Write-Host "Final job state: $finalState; artifacts produced: $produced"
@@ -684,8 +724,13 @@ jobs:
           if (-not $version) {
             throw "KPAT_RELEASE_VERSION env var not set; blueprint metadata step must run first."
           }
-          $produced = @(Get-ChildItem -Path $tmp -Recurse -Include 'kpat-*.exe','kpat-*.7z')
-          foreach ($f in $produced) {
+          $produced = @(Get-ChildItem -Path $tmp -Recurse -File -Include 'kpat-*.exe','kpat-*.7z')
+          $installers = @($produced | Where-Object { $_.Extension -eq '.exe' -and $_.Length -gt 0 })
+          $portables  = @($produced | Where-Object { $_.Extension -eq '.7z' -and $_.Length -gt 0 })
+          if ($installers.Count -ne 1 -or $portables.Count -ne 1) {
+            throw "Expected exactly one nonempty installer and one nonempty portable archive; found $($installers.Count) installers and $($portables.Count) archives."
+          }
+          foreach ($f in @($installers[0], $portables[0])) {
             switch ($f.Extension.ToLower()) {
               '.exe' { $newName = "kpat-$version-setup.exe" }
               '.7z'  { $newName = "kpat-$version.7z" }
@@ -698,7 +743,8 @@ jobs:
           # Ship license + modification notice next to the binaries to satisfy GPL v2.
           Copy-Item (Join-Path '${{ github.workspace }}' 'kpat-src\COPYING') $dest
           $notice = Join-Path '${{ github.workspace }}' 'kpat-src\NOTICE.windows'
-          if (Test-Path $notice) { Copy-Item $notice $dest }
+          if (-not (Test-Path $notice)) { throw 'Required NOTICE.windows file is missing.' }
+          Copy-Item $notice $dest
           Get-ChildItem $dest
 
       - name: Upload artifacts
@@ -735,28 +781,44 @@ jobs:
         shell: pwsh
         run: |
           $next = ([int]('${{ github.event.inputs.resume_count }}' -replace '^$','0')) + 1
-          Write-Host "Build was checkpointed without producing artifacts; re-dispatching as resume #$next."
+          # An ordinary branch push must never become a release merely because
+          # its build needed a workflow_dispatch resume.
+          $publish = 'false'
+          if ('${{ github.event_name }}' -eq 'workflow_dispatch') {
+            $publish = '${{ inputs.publish_release }}'.ToLowerInvariant()
+          } elseif ('${{ github.ref_type }}' -eq 'tag') {
+            $publish = 'true'
+          }
+          Write-Host "Build checkpointed; dispatching resume #$next (publish_release=$publish)."
           gh workflow run windows.yml `
             --ref '${{ github.ref_name }}' `
             -f resume=true `
-            -f resume_count=$next
+            -f resume_count=$next `
+            -f publish_release=$publish
+          if ($LASTEXITCODE -ne 0) { throw "Resume workflow dispatch failed (exit $LASTEXITCODE)." }
 
   release:
     needs: build
+    # Branch pushes and weekly cache maintenance only build; tag pushes keep
+    # working, and manual Run workflow publishes when publish_release is checked.
+    # Crucially, resumed ordinary push builds pass publish_release=false.
     if: |
-      startsWith(github.ref, 'refs/tags/v') &&
-      endsWith(github.ref, '-win') &&
-      needs.build.outputs.produced == 'true'
+      needs.build.outputs.produced == 'true' &&
+      (
+        (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && endsWith(github.ref, '-win')) ||
+        (github.event_name == 'workflow_dispatch' && inputs.publish_release == true)
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write       # OIDC token for sigstore signing
       attestations: write   # write attestations to the repo
     steps:
-      - name: Checkout (license + notice only)
+      - name: Checkout release source
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           sparse-checkout: |
+            CMakeLists.txt
             COPYING
             NOTICE.windows
             README.windows.md
@@ -768,24 +830,78 @@ jobs:
           name: kpat-windows
           path: dist
 
+      - name: Resolve release identity and verify artifacts
+        id: release_meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          read_version_part() {
+            sed -nE "s/^set\(RELEASE_SERVICE_VERSION_$1 \"([^\"]+)\"\)$/\1/p" CMakeLists.txt
+          }
+          major="$(read_version_part MAJOR)"
+          minor="$(read_version_part MINOR)"
+          micro="$(read_version_part MICRO)"
+          if [[ -z "$major" || -z "$minor" || -z "$micro" ]]; then
+            echo 'Cannot parse release version from CMakeLists.txt' >&2
+            exit 1
+          fi
+          version="${major}.${minor}.${micro}-win"
+          tag="v${version}"
+          if [[ "$GITHUB_REF_TYPE" == 'tag' ]]; then
+            if [[ "$GITHUB_REF_NAME" != "$tag" ]]; then
+              echo "Tag $GITHUB_REF_NAME does not match source version $tag" >&2
+              exit 1
+            fi
+          elif [[ "$GITHUB_REF_NAME" != 'master' && "$GITHUB_REF_NAME" != 'main' ]]; then
+            echo "Manual releases must be run from master or main, not $GITHUB_REF_NAME" >&2
+            exit 1
+          fi
+          for artifact in "dist/kpat-${version}-setup.exe" "dist/kpat-${version}.7z" dist/COPYING dist/NOTICE.windows; do
+            if [[ ! -s "$artifact" ]]; then
+              echo "Missing or empty release artifact: $artifact" >&2
+              exit 1
+            fi
+            sha256sum "$artifact"
+          done
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
       - name: Attest build provenance
-        # Generates a sigstore-signed attestation proving these exact files
-        # were produced by this workflow run on this commit, and publishes
-        # it to the public Rekor transparency log. End users (or their IT
-        # teams) can verify with `gh attestation verify <file> --owner panibor`.
-        # SmartScreen does not consume this, but it gives the binary a
-        # verifiable provenance chain without paying for a code-signing cert.
         uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
         with:
           subject-path: 'dist/*'
 
-      - name: Compose release notes
-        # Keep the GitHub Releases page itself short: link to the README for
-        # the SmartScreen walkthrough + provenance verification, ship the
-        # long modification notice as the attached NOTICE.windows file.
+      - name: Create release tag for manual branch runs
+        if: github.ref_type == 'branch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release_meta.outputs.tag }}
+        shell: bash
         run: |
-          TAG="${GITHUB_REF_NAME}"            # e.g. v26.07.70-win
-          VERSION="${TAG#v}"                  # e.g. 26.07.70-win
+          set -euo pipefail
+          # POST is atomic. Existing tags cause a 422 error rather than
+          # silently overwriting an earlier release or moving its source.
+          gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
+            --field ref="refs/tags/$TAG" \
+            --field sha="$GITHUB_SHA"
+
+      - name: Reject publishing over an existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release_meta.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release $TAG already exists; refusing to overwrite its assets." >&2
+            exit 1
+          fi
+
+      - name: Compose release notes
+        env:
+          VERSION: ${{ steps.release_meta.outputs.version }}
+        shell: bash
+        run: |
           cat > release-notes.md <<EOF
           KPat for Windows ${VERSION}: free, open-source solitaire from the KDE community, packaged as an unsigned Windows installer.
 
@@ -796,13 +912,22 @@ jobs:
 
           Windows SmartScreen will warn that the publisher is unknown. This is expected for unsigned community installers. Click **More info**, then **Run anyway**. The [README](https://github.com/panibor/kpat#about-the-smartscreen-warning) explains how to verify the build with \`gh attestation verify\`.
 
-          Built from unmodified upstream KPat with two small \`Q_OS_WIN\`-only source patches. Full modification notice attached as \`NOTICE.windows\`. License: GPL-2.0-or-later. Not endorsed by KDE.
+          Built from upstream KPat with two small \`Q_OS_WIN\`-only source patches. Full modification notice attached as \`NOTICE.windows\`. License: GPL-2.0-or-later. Not endorsed by KDE.
           EOF
 
-      - name: Publish draft release
-        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
-        with:
-          files: dist/*
-          body_path: release-notes.md
-          draft: true
-          fail_on_unmatched_files: true
+      - name: Publish GitHub Release with Windows binaries
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release_meta.outputs.tag }}
+          VERSION: ${{ steps.release_meta.outputs.version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # gh uploads all four files before publishing the release.
+          # --verify-tag prevents an accidental tag on a different SHA.
+          gh release create "$TAG" dist/* \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --title "KPat for Windows $VERSION" \
+            --notes-file release-notes.md \
+            --latest
